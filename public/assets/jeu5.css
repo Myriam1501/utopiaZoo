@@ -1,0 +1,20 @@
+#result{
+    display: block;
+}
+
+#entry{
+    display: block;
+}
+
+#letter{
+    display: none;
+
+}
+
+#verif{
+    display: none;
+}
+
+#retry{
+    display: none;
+}
