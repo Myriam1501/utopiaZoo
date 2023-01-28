@@ -20,6 +20,7 @@
 }
 
 #penduimg{
+
     display: none;
 }
 
@@ -38,6 +39,7 @@
 #game{
     background-color: pink;
     align-content: center;
+    align-items: center;
     margin-bottom: 100px;
     margin-left: 100px;
     margin-right: 100px;

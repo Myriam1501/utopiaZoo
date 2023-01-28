@@ -3,7 +3,6 @@ function Valid(){
     let mer=document.getElementById("result").textContent;
     let rep=document.getElementById("rep");
     let str=new String();
-    alert(mer.length);
     let word=new String(mer);
     for (let pas = 0; pas < mer.length; pas++) {
         str=str+"_ ";
