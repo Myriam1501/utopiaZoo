@@ -1,16 +1,21 @@
 
 function Valid(){
-    let mer=document.getElementById("result").value;
+    let mer=document.getElementById("result").textContent;
     let rep=document.getElementById("rep");
     let str=new String();
+    alert(mer.length);
+    let word=new String(mer);
     for (let pas = 0; pas < mer.length; pas++) {
         str=str+"_ ";
     }
     rep.textContent=str;
-    document.getElementById("result").style.display = "none";
     document.getElementById("entry").style.display = "none";
     document.getElementById("letter").style.display = "block";
     document.getElementById("verif").style.display = "block";
+    document.getElementById("penduimg").style.display = "block";
+    document.getElementById("lettreErr").style.display = "block";
+    document.getElementById("count").style.display = "block";
+    document.getElementById("rep").style.display = "block";
 }
 
 
@@ -22,7 +27,7 @@ function Corec() {
     let words = larep.textContent.split(' ');
     if(leter.value.length==1){
         let posi=0;
-        posi=mer.value.indexOf(leter.value,posi);
+        posi=mer.textContent.indexOf(leter.value,posi);
         if(posi==-1){
             erreur(leter.value);
         }
@@ -30,7 +35,7 @@ function Corec() {
             do{
                 words[posi]=leter.value;
                 posi=posi+1;
-                posi=mer.value.indexOf(leter.value,posi);
+                posi=mer.textContent.indexOf(leter.value,posi);
             }while(posi!=-1);
         }
         larep.textContent=words.join(' ');
