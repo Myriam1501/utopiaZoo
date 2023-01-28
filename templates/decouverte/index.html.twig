@@ -1,187 +1,18 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Le zoo & les animaux {% endblock %}
+{% block title %}
+    Le zoo & les animaux
+{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/decouverte.css') }}">
+{% endblock %}
 
 {% block body %}
-    <style>
-        .example-wrapper {
-            position: relative;
-            padding: 0;
-            width: 200px;
-            display: block;
-            cursor: pointer;
-            overflow: hidden;
-            border-radius: 10%;
-        }
-        .contenu {
-            opacity: 0;
-            font-size: 30px;
-            position: absolute;
-            top: 0;
-            left: 0;
-            color: #4C3017;
-            font-family: "Georgia", Times, serif;
-            background-color: rgba(200, 200, 200, 0.5);
-            width: 200px;
-            height: 270px;
-            -webkit-transition: all 400ms ease-out;
-            -moz-transition: all 400ms ease-out;
-            -o-transition: all 400ms ease-out;
-            -ms-transition: all 400ms ease-out;
-            transition: all 400ms ease-out;
-            text-align: center;
-        }
-        .example-wrapper .contenu:hover {
-            opacity: 1;
-        }
-        .example-wrapper .contenu .texte {
-            height: 0;
-            opacity: 1;
-            transition-delay: 0s;
-            transition-duration: 0.4s;
-        }
-        .example-wrapper .contenu:hover .texte {
-            opacity: 1;
-            transform: translateY(120px);
-            -webkit-transform: translateY(120px);
-        }
-        img {
-            height: 270px;
-            width: 200px;
-            border-radius: 10%;
-        }
-        .example-wrapper:hover {
-            transform: scale(1.1);
-            background-position: -10px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.5), 0 3px 6px rgba(0,0,0,0.10);
-        }
-        .contenu:hover {
-            transform: scale(1.1);
-            background-position: -10px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.5), 0 3px 6px rgba(0,0,0,0.10);
-        }
-        table {
-            border-spacing : 20px 20px;
-        }
 
-        .overlay {
-            position: fixed;
-            left: 0px;
-            top:0px;
-            width: 100%;
-            height: 100%;
-            z-index:1;
-            display:none;
-        }
-        .popup{
-            margin: 10% auto;
-            width : 70%;
-            padding: 1em;
-            border-radius: 5px;
-            display: flex;
-        }
-        .btnClose {
-            padding: 5px 8px;
-            background-color: whitesmoke;
-            cursor: pointer;
-            margin-bottom: 10px;
-            color: #4C3017;
-            font-family: Georgia, serif;
-            box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
-            font-size: 14px;
-            border-radius: 100%;
-            font-weight: 200;
-            border: none;
-            float: right;
-        }
-        .btnClose:hover{
-            background-color: #694322;
-            color: whitesmoke;
-            font-weight: bold;
-        }
-
-        .overlay .popup .contenant .img img{
-            width: 162px;
-            height: 350px;
-            border-radius: 10px;
-        }
-
-        .overlay .popup .contenant .img2 img{
-            width: 162px;
-            height: 324px;
-            border-radius: 10px;
-        }
-
-        .overlay .popup .contenant .img3 img{
-            width: 162px;
-            height: 342px;
-            border-radius: 10px;
-        }
-
-        .overlay .popup .contenant .img4 img{
-            width: 162px;
-            height: 270px;
-            border-radius: 10px;
-        }
-
-        .overlay .popup .contenant .img5 img{
-            width: 162px;
-            height: 310px;
-            border-radius: 10px;
-        }
-
-        .overlay .popup .contenant {
-            width: 20%;
-            height: 400px;
-            color: #4C3017;
-            font-family: Georgia, serif;
-            background-attachment: fixed;
-            padding: 25px;
-            background-color: #F1E4D9;
-            border-bottom-left-radius: 10px;
-            border-top-left-radius: 10px;
-            box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        .overlay .popup .contenant2 {
-            width: 100%;
-            height: 400px;
-            color: whitesmoke;
-            font-family: Georgia, serif;
-            background-attachment: fixed;
-            padding: 25px;
-            background-color: #947963;
-            border-bottom-right-radius: 10px;
-            border-top-right-radius: 10px;
-            box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        #btnPopup{
-            padding: 7px 49px;
-            background-color: whitesmoke;
-            cursor: pointer;
-            margin-bottom: 10px;
-            color: #4C3017;
-            font-family: Georgia, serif;
-            box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
-            font-size: 14px;
-            border-radius: 3px;
-            font-weight: 200;
-            border: none;
-        }
-        #btnPopup:hover {
-            background-color: #694322;
-            color: whitesmoke;
-        }
-
-    </style>
-
-
-
-
-    <table align="center">
-        <tr>
-            <th>
+    <br>
+    <br>
+    <div class="content1">
                 <div class="example-wrapper">
                     <div class="lion">
                         <img id="lion" src="https://i.pinimg.com/564x/6e/50/fb/6e50fb01ac451c32de7551455cc58f32.jpg">
@@ -190,8 +21,6 @@
                         </div>
                     </div>
                 </div>
-            </th>
-            <th>
                 <div class="example-wrapper">
                     <div class="zebre">
                         <img id="zebre" src="https://i.pinimg.com/564x/0b/31/bc/0b31bc19ea552024c06bb7e27e46d478.jpg">
@@ -200,8 +29,6 @@
                         </div>
                     </div>
                 </div>
-            </th>
-            <th>
                 <div class="example-wrapper">
                     <div class="singe">
                         <img id="singe" src="https://i.pinimg.com/564x/6d/80/28/6d80287d94942fd458ade5e51870e1b8.jpg">
@@ -210,8 +37,6 @@
                         </div>
                     </div>
                 </div>
-            </th>
-            <th>
                 <div class="example-wrapper">
                     <div class="elephant">
                         <img id="elephant" src="https://i.pinimg.com/564x/42/13/9b/42139b11a7089b0476045716bef702aa.jpg">
@@ -220,8 +45,6 @@
                         </div>
                     </div>
                 </div>
-            </th>
-            <th>
                 <div class="example-wrapper">
                     <div class="girafe">
                         <img id="girafe" src="https://i.pinimg.com/564x/f3/f6/ff/f3f6ff1e16d4b0038209cf65bcc085ad.jpg">
@@ -230,30 +53,25 @@
                         </div>
                     </div>
                 </div>
-            </th>
-        </tr>
-        <tr>
-            <th>
+    </div>
+    <br>
+    <div class="content2">
                 <div class="example-wrapper">
                     <div class="manchot">
                         <img id="manchot" src="https://i.pinimg.com/564x/65/92/ca/6592cac473642f8df3c8e366008ed2c0.jpg">
                         <div class="contenu">
-                            <div class="texte">Le manchot du cap</div>
+                            <div class="texte">Le manchot<br>du cap</div>
                         </div>
                     </div>
                 </div>
-            </th>
-            <th>
                 <div class="example-wrapper">
                     <div class="panda">
                         <img id="panda" src="https://i.pinimg.com/564x/96/55/8f/96558f7781eeec61517d5116e72aea67.jpg">
                         <div class="contenu">
-                            <div class="texte">Le panda roux</div>
+                            <div class="texte">Le panda<br>roux</div>
                         </div>
                     </div>
                 </div>
-            </th>
-            <th>
                 <div class="example-wrapper">
                     <div class="loutre">
                         <img id="loutre" src="https://i.pinimg.com/564x/56/30/36/56303614c8919b79a1d2cb1cb1a4b031.jpg">
@@ -262,8 +80,6 @@
                         </div>
                     </div>
                 </div>
-            </th>
-            <th>
                 <div class="example-wrapper">
                     <div class="maki">
                         <img id="maki" src="https://i.pinimg.com/564x/c7/f0/0b/c7f00b7d9ec2f2eed693b214dfb0aa97.jpg">
@@ -272,8 +88,6 @@
                         </div>
                     </div>
                 </div>
-            </th>
-            <th>
                 <div class="example-wrapper">
                     <div class="renne">
                         <img id="renne" src="https://i.pinimg.com/564x/ed/4d/ad/ed4dad989b0da0ea8984127e2a075b8b.jpg">
@@ -282,9 +96,7 @@
                         </div>
                     </div>
                 </div>
-            </th>
-        </tr>
-    </table>
+    </div>
 
     <!-- $$$$$$$$$$$$$$$$$$$.    PARTIE POPUP      $$$$$$$$$$$$$$$$$$$$ -->
     <!-- ----------------0---------------------- -->
@@ -294,7 +106,7 @@
             <div class="contenant">
                 <div class="img"><img src="https://i.pinimg.com/564x/65/6e/11/656e11c1db1f9017eefea8af13df5b5b.jpg"></div>
                 <div><h2>
-                        <button id="btnPopup" class="btnPopup">Cliquez ici</button>
+                        <button id="btnPopup" class="btnPopup" onclick="openImg('https://www.sound-fishing.net/download.php?id=117')">Cliquez ici</button>
                     </h2>
                 </div>
             </div>
@@ -305,14 +117,14 @@
                     <span><b>Classe:</b> Mammifère</span>
                     <hr>
                     <I><p>DESCRIPTION</p></I>
-                    <p>Le lion est un membre de l’ordre des Carnivores et de la famille des Félidés. Ses plus proches cousins sont le tigre, la panthère ou le jaguar. Après le tigre, c’est le plus grand félin au monde. Deux sous-espèces sont actuellement reconnues : le lion d’Asie (Panthera leo persica), très menacé, et le lion d’Afrique (Panthera leo leo).</p>
+                    <p>Le lion est un membre de la famille des Félidés. Ses plus proches cousins sont le tigre, la panthère ou le jaguar. Après le tigre, c’est le plus grand félin au monde. Deux sous-espèces sont actuellement reconnues : le lion d’Asie, très menacé, et le lion d’Afrique.</p>
                     <ul>
                         <li><I>Longueur du corps:</I> 2,4 à 3,3 m.</li>
                         <li><I>Poids:</I> 125 à 270 kg en moyenne.</li>
                         <li><I>Taille:</I> 1,5 à 1,9 m de long pour les femelles / jusqu'à 2,5 m pour les mâles</li>
                         <li><I>Longévité:</I> 12 à 16 ans.</li>
                         <li><I>Nourriture:</I> Carnivore.</li>
-                        <li><I>Milieu:</I> Plaines, savanes, fourrés et semi-déserts possédant des zones ombragées.</li>
+                        <li><I>Milieu:</I> Plaines, savanes, fourrés et semi-déserts.</li>
                     </ul>
                 </div>
             </div>
@@ -324,7 +136,7 @@
             <div class="contenant">
                 <div class="img2"><img src="https://i.pinimg.com/564x/cf/75/53/cf755322f9ed936cb1e5e4d6af33afea.jpg"></div>
                 <div><h2>
-                        <button id="btnPopup" class="btnPopup">Cliquez ici</button>
+                        <button id="btnPopup" class="btnPopup" onclick="openImg('https://universal-soundbank.com/sounds/4003.mp3')">Cliquez ici</button>
                     </h2>
                 </div>
             </div>
@@ -335,7 +147,7 @@
                     <span><b>Classe:</b> Mammifère</span>
                     <hr>
                     <I><p>DESCRIPTION</p></I>
-                    <p>Le zèbre fait partie de la famille des Equidés, qui possèdent un doigt unique doté d’un sabot à chaque patte. Au sein de cette famille il côtoie le cheval et l’âne domestiques, le cheval de Przewalski, l’âne sauvage d’Afrique, l’hémione... Si l’on ne considère que les caractéristiques morphologiques, 6 sous-espèces de zèbre des plaines sont dénombrées. La sous-espèce présentée à UtopiaZoo est le zèbre de Chapman.</p>
+                    <p>Le zèbre fait partie de la famille des Equidés, qui possèdent un doigt unique doté d’un sabot à chaque patte. Au sein de cette famille, il côtoie le cheval. La sous-espèce présentée à UtopiaZoo est le zèbre de Chapman.</p>
                     <ul>
                         <li><I>Longueur du corps:</I> 217 à 246 cm.</li>
                         <li><I>Poids:</I> 175 à 250 kg en moyenne pour les femelles/ 220 à 375 kg en moyenne pour les mâles</li>
@@ -355,7 +167,7 @@
             <div class="contenant">
                 <div class="img3"><img src="https://i.pinimg.com/564x/5c/f9/9e/5cf99e2f915aa76afeb827a4d3793ee1.jpg"></div>
                 <div><h2>
-                        <button id="btnPopup" class="btnPopup">Cliquez ici</button>
+                        <button id="btnPopup" class="btnPopup" onclick="openImg('https://universal-soundbank.com/sounds/1296.mp3')">Cliquez ici</button>
                     </h2>
                 </div>
             </div>
@@ -385,7 +197,7 @@
             <div class="contenant">
                 <div class="img3"><img src="https://i.pinimg.com/564x/7a/71/ee/7a71ee084aacbf61bd5e23336481f93f.jpg"></div>
                 <div><h2>
-                        <button id="btnPopup" class="btnPopup">Cliquez ici</button>
+                        <button id="btnPopup" class="btnPopup" onclick="openImg('https://universal-soundbank.com/sounds/79.mp3')">Cliquez ici</button>
                     </h2>
                 </div>
             </div>
@@ -444,7 +256,7 @@
             <div class="contenant">
                 <div class="img2"><img src="https://i.pinimg.com/564x/b2/76/57/b27657593286511dd4e60f7e3ed3caec.jpg"></div>
                 <div><h2>
-                        <button id="btnPopup" class="btnPopup">Cliquez ici</button>
+                        <button id="btnPopup" class="btnPopup" onclick="openImg('https://universal-soundbank.com/sounds/1563.mp3')">Cliquez ici</button>
                     </h2>
                 </div>
             </div>
@@ -474,7 +286,7 @@
             <div class="contenant">
                 <div class="img4"><img src="https://i.pinimg.com/564x/45/76/80/4576808b201be3d49459ef870bc253a8.jpg"></div>
                 <div><h2>
-                        <button id="btnPopup" class="btnPopup">Cliquez ici</button>
+                        <button id="btnPopup" class="btnPopup" onclick="openImg('https://www.dinosoria.com/sons/cri_male.mp3')">Cliquez ici</button>
                     </h2>
                 </div>
             </div>
@@ -504,7 +316,7 @@
             <div class="contenant">
                 <div class="img4"><img src="https://i.pinimg.com/564x/59/0d/9b/590d9b272ee9c8621761899489df5a0d.jpg"></div>
                 <div><h2>
-                        <button id="btnPopup" class="btnPopup">Cliquez ici</button>
+                        <button id="btnPopup" class="btnPopup" onclick="openImg('https://universal-soundbank.com/sounds/1684.mp3')">Cliquez ici</button>
                     </h2>
                 </div>
             </div>
@@ -534,7 +346,7 @@
             <div class="contenant">
                 <div class="img4"><img src="https://i.pinimg.com/564x/41/c2/28/41c22817542b4137532ff14e5ae735c2.jpg"></div>
                 <div><h2>
-                        <button id="btnPopup" class="btnPopup">Cliquez ici</button>
+                        <button id="btnPopup" class="btnPopup" onclick="openImg('https://www.dinosoria.com/sons/animaux/0049.mp3')">Cliquez ici</button>
                     </h2>
                 </div>
             </div>
@@ -564,7 +376,7 @@
             <div class="contenant">
                 <div class="img5"><img src="https://i.pinimg.com/564x/5c/95/1c/5c951c50a1b69b171ec43b7a34a80cc5.jpg"></div>
                 <div><h2>
-                        <button id="btnPopup" class="btnPopup">Cliquez ici</button>
+                        <button id="btnPopup" class="btnPopup" onclick="openImg('https://www.dinosoria.com/sons/0247.mp3')">Cliquez ici</button>
                     </h2>
                 </div>
             </div>
@@ -588,141 +400,156 @@
         </div>
     </div>
 
-
-
-
+    <br>
+    <br>
+    <br>
 
     <script>
-        var btnPopup = document.querySelector('div.example-wrapper div.lion');
-        var overlay = document.getElementById('overlay');
-        btnPopup.addEventListener('click',openMoadl);
-        btnClose.addEventListener('click',closePopup);
 
-        function openMoadl() {
-            overlay.style.display='block';
+    var btnPopup = document.querySelector('div.example-wrapper div.lion');
+    var overlay = document.getElementById('overlay');
+    btnPopup.addEventListener('click',openMoadl);
+    btnClose.addEventListener('click',closePopup);
+
+    function openMoadl() {
+    overlay.style.display='block';
+    }
+
+    function closePopup(){
+    overlay.style.display='none';
+    }
+
+    var btnPopup2 = document.querySelector('div.example-wrapper div.zebre');
+    var overlay2 = document.getElementById('overlay2');
+    btnPopup2.addEventListener('click',openMoadl2);
+    btnClose2.addEventListener('click',closePopup2);
+
+    function openMoadl2() {
+    overlay2.style.display='block';
+    }
+
+    function closePopup2(){
+    overlay2.style.display='none';
+    }
+
+
+    var btnPopup3 = document.querySelector('div.example-wrapper div.singe');
+    var overlay3 = document.getElementById('overlay3');
+    btnPopup3.addEventListener('click',openMoadl3);
+    btnClose3.addEventListener('click',closePopup3);
+
+    function openMoadl3() {
+    overlay3.style.display='block';
+    }
+
+    function closePopup3(){
+    overlay3.style.display='none';
+    }
+
+    var btnPopup4 = document.querySelector('div.example-wrapper div.elephant');
+    var overlay4 = document.getElementById('overlay4');
+    btnPopup4.addEventListener('click',openMoadl4);
+    btnClose4.addEventListener('click',closePopup4);
+
+    function openMoadl4() {
+    overlay4.style.display='block';
+    }
+
+    function closePopup4(){
+    overlay4.style.display='none';
+    }
+
+    var btnPopup5 = document.querySelector('div.example-wrapper div.girafe');
+    var overlay5 = document.getElementById('overlay5');
+    btnPopup5.addEventListener('click',openMoadl5);
+    btnClose5.addEventListener('click',closePopup5);
+
+    function openMoadl5() {
+    overlay5.style.display='block';
+    }
+
+    function closePopup5(){
+    overlay5.style.display='none';
+    }
+
+    var btnPopup6 = document.querySelector('div.example-wrapper div.manchot');
+    var overlay6 = document.getElementById('overlay6');
+    btnPopup6.addEventListener('click',openMoadl6);
+    btnClose6.addEventListener('click',closePopup6);
+
+    function openMoadl6() {
+    overlay6.style.display='block';
+    }
+
+    function closePopup6(){
+    overlay6.style.display='none';
+    }
+
+    var btnPopup7 = document.querySelector('div.example-wrapper div.panda');
+    var overlay7 = document.getElementById('overlay7');
+    btnPopup7.addEventListener('click',openMoadl7);
+    btnClose7.addEventListener('click',closePopup7);
+
+    function openMoadl7() {
+    overlay7.style.display='block';
+    }
+
+    function closePopup7(){
+    overlay7.style.display='none';
+    }
+
+    var btnPopup8 = document.querySelector('div.example-wrapper div.loutre');
+    var overlay8 = document.getElementById('overlay8');
+    btnPopup8.addEventListener('click',openMoadl8);
+    btnClose8.addEventListener('click',closePopup8);
+
+    function openMoadl8() {
+    overlay8.style.display='block';
+    }
+
+    function closePopup8(){
+    overlay8.style.display='none';
+    }
+
+    var btnPopup9 = document.querySelector('div.example-wrapper div.maki');
+    var overlay9 = document.getElementById('overlay9');
+    btnPopup9.addEventListener('click',openMoadl9);
+    btnClose9.addEventListener('click',closePopup9);
+
+    function openMoadl9() {
+    overlay9.style.display='block';
+    }
+
+    function closePopup9(){
+    overlay9.style.display='none';
+    }
+
+    var btnPopup10 = document.querySelector('div.example-wrapper div.renne');
+    var overlay10 = document.getElementById('overlay10');
+    btnPopup10.addEventListener('click',openMoadl10);
+    btnClose10.addEventListener('click',closePopup10);
+
+    function openMoadl10() {
+    overlay10.style.display='block';
+    }
+
+    function closePopup10(){
+    overlay10.style.display='none';
+    }
+
+    function openImg(lien){
+        var myAudio=document.createElement("audio");
+        myAudio.src=lien;
+        if (myAudio.paused) {
+
+            myAudio.play();
+
+        } else {
+            myAudio.pause();
+
         }
 
-        function closePopup(){
-            overlay.style.display='none';
-        }
-
-        var btnPopup2 = document.querySelector('div.example-wrapper div.zebre');
-        var overlay2 = document.getElementById('overlay2');
-        btnPopup2.addEventListener('click',openMoadl2);
-        btnClose2.addEventListener('click',closePopup2);
-
-        function openMoadl2() {
-            overlay2.style.display='block';
-        }
-
-        function closePopup2(){
-            overlay2.style.display='none';
-        }
-
-
-        var btnPopup3 = document.querySelector('div.example-wrapper div.singe');
-        var overlay3 = document.getElementById('overlay3');
-        btnPopup3.addEventListener('click',openMoadl3);
-        btnClose3.addEventListener('click',closePopup3);
-
-        function openMoadl3() {
-            overlay3.style.display='block';
-        }
-
-        function closePopup3(){
-            overlay3.style.display='none';
-        }
-
-        var btnPopup4 = document.querySelector('div.example-wrapper div.elephant');
-        var overlay4 = document.getElementById('overlay4');
-        btnPopup4.addEventListener('click',openMoadl4);
-        btnClose4.addEventListener('click',closePopup4);
-
-        function openMoadl4() {
-            overlay4.style.display='block';
-        }
-
-        function closePopup4(){
-            overlay4.style.display='none';
-        }
-
-        var btnPopup5 = document.querySelector('div.example-wrapper div.girafe');
-        var overlay5 = document.getElementById('overlay5');
-        btnPopup5.addEventListener('click',openMoadl5);
-        btnClose5.addEventListener('click',closePopup5);
-
-        function openMoadl5() {
-            overlay5.style.display='block';
-        }
-
-        function closePopup5(){
-            overlay5.style.display='none';
-        }
-
-        var btnPopup6 = document.querySelector('div.example-wrapper div.manchot');
-        var overlay6 = document.getElementById('overlay6');
-        btnPopup6.addEventListener('click',openMoadl6);
-        btnClose6.addEventListener('click',closePopup6);
-
-        function openMoadl6() {
-            overlay6.style.display='block';
-        }
-
-        function closePopup6(){
-            overlay6.style.display='none';
-        }
-
-        var btnPopup7 = document.querySelector('div.example-wrapper div.panda');
-        var overlay7 = document.getElementById('overlay7');
-        btnPopup7.addEventListener('click',openMoadl7);
-        btnClose7.addEventListener('click',closePopup7);
-
-        function openMoadl7() {
-            overlay7.style.display='block';
-        }
-
-        function closePopup7(){
-            overlay7.style.display='none';
-        }
-
-        var btnPopup8 = document.querySelector('div.example-wrapper div.loutre');
-        var overlay8 = document.getElementById('overlay8');
-        btnPopup8.addEventListener('click',openMoadl8);
-        btnClose8.addEventListener('click',closePopup8);
-
-        function openMoadl8() {
-            overlay8.style.display='block';
-        }
-
-        function closePopup8(){
-            overlay8.style.display='none';
-        }
-
-        var btnPopup9 = document.querySelector('div.example-wrapper div.maki');
-        var overlay9 = document.getElementById('overlay9');
-        btnPopup9.addEventListener('click',openMoadl9);
-        btnClose9.addEventListener('click',closePopup9);
-
-        function openMoadl9() {
-            overlay9.style.display='block';
-        }
-
-        function closePopup9(){
-            overlay9.style.display='none';
-        }
-
-        var btnPopup10 = document.querySelector('div.example-wrapper div.renne');
-        var overlay10 = document.getElementById('overlay10');
-        btnPopup10.addEventListener('click',openMoadl10);
-        btnClose10.addEventListener('click',closePopup10);
-
-        function openMoadl10() {
-            overlay10.style.display='block';
-        }
-
-        function closePopup10(){
-            overlay10.style.display='none';
-        }
+    }
 
     </script>
 
