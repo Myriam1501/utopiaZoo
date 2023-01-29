@@ -1,23 +1,23 @@
 function flip(image){
     let im=document.getElementById(image);
     if(image==="img7" || image==="img15"){
-        $(im).attr('src',"http://brouillon.local/taquin/img9.jpg");
+        $(im).attr('src',"http://utopiazoo.local/taquin/img9.jpg");
     }else if(image==="img1" || image==="img18"){
-        $(im).attr('src',"http://brouillon.local/taquin/img1.jpg");
+        $(im).attr('src',"http://utopiazoo.local/taquin/img1.jpg");
     }else if(image==="img2" || image==="img17"){
-        $(im).attr('src',"http://brouillon.local/taquin/img2.jpg");
+        $(im).attr('src',"http://utopiazoo.local/taquin/img2.jpg");
     }else if(image==="img3" || image==="img16"){
-        $(im).attr('src',"http://brouillon.local/taquin/img3.jpg");
+        $(im).attr('src',"http://utopiazoo.local/taquin/img3.jpg");
     }else if(image==="img4" || image==="img12"){
-        $(im).attr('src',"http://brouillon.local/taquin/img4.jpg");
+        $(im).attr('src',"http://utopiazoo.local/taquin/img4.jpg");
     }else if(image==="img5" || image==="img11"){
-        $(im).attr('src',"http://brouillon.local/taquin/img5.jpg");
+        $(im).attr('src',"http://utopiazoo.local/taquin/img5.jpg");
     }else if(image==="img6" || image==="img10"){
-        $(im).attr('src',"http://brouillon.local/taquin/img6.jpg");
+        $(im).attr('src',"http://utopiazoo.local/taquin/img6.jpg");
     }else if(image==="img8" || image==="img14"){
-        $(im).attr('src',"http://brouillon.local/taquin/img7.jpg");
+        $(im).attr('src',"http://utopiazoo.local/taquin/img7.jpg");
     }else if(image==="img9" || image==="img13"){
-        $(im).attr('src',"http://brouillon.local/taquin/img8.jpg");
+        $(im).attr('src',"http://utopiazoo.local/taquin/img8.jpg");
     }
     let know=document.getElementById("cnt");
     know.textContent=parseInt(know.textContent)+1+"";
@@ -48,12 +48,12 @@ function isSameCards(image){
                 if(p1.getAttribute('src')===p2.getAttribute('src')){
                     let val=document.getElementById("nbrPaire");
                     val.textContent=parseInt(val.textContent)+1+"";
-                    $(p1).attr('src',"http://brouillon.local/taquin/IMG_2525.jpg");
-                    $(p2).attr('src',"http://brouillon.local/taquin/IMG_2525.jpg");
+                    $(p1).attr('src',"http://utopiazoo.local/taquin/IMG_2525.jpg");
+                    $(p2).attr('src',"http://utopiazoo.local/taquin/IMG_2525.jpg");
                     arret="true";
                     if(val.textContent==="9"){
                         document.body.style.backgroundColor="green";
-                        let ding = new Audio('http://brouillon.local/taquin/win.mp3');
+                        let ding = new Audio('http://utopiazoo.local/taquin/win.mp3');
                         ding.play();
                     }
                     break;
@@ -81,9 +81,9 @@ function returnCards(image){
             let id="img"+count;
             if(id!==image){
                 let p1=document.getElementById(id);
-                if(p1.getAttribute('src')!=="http://brouillon.local/taquin/cardBack.jpg"){
-                    if(p1.getAttribute('src')!=="http://brouillon.local/taquin/IMG_2525.jpg"){
-                        $(p1).attr('src',"http://brouillon.local/taquin/cardBack.jpg");
+                if(p1.getAttribute('src')!=="http://utopiazoo.local/taquin/cardBack.jpg"){
+                    if(p1.getAttribute('src')!=="http://utopiazoo.local/taquin/IMG_2525.jpg"){
+                        $(p1).attr('src',"http://utopiazoo.local/taquin/cardBack.jpg");
                     }
                 }
 

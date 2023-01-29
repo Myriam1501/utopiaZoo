@@ -44,7 +44,6 @@ function verif(){
     let img7=document.getElementById("img7").getAttribute('src');
     let img8=document.getElementById("img8").getAttribute('src');
     let img9=document.getElementById("img9").getAttribute('src');
-    alert(img1);
     if(img1==="http://utopiazoo.local/taquin/img1.jpg"){
         if(img2==="http://utopiazoo.local/taquin/img9.jpg"){
             if(img3==="http://utopiazoo.local/taquin/img2.jpg"){
