@@ -1,10 +1,9 @@
 {% extends 'base.html.twig' %}
+
 {% block title %}Hello HomepageController!{% endblock %}
 
 {% block body %}
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/homepage-style.css') }}">
-
-    {% include 'fragments/header.html.twig' %}
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width-device-width, intiale-scale=1.0">
@@ -47,7 +46,6 @@
 
         </script>
     </head>
-    <body>
     <section class="menu_section">
         <h1 class ="sous_titre">Qui sommes-nous ?</h1>
         <p class="text_menu">Ouvert depuis 2022, le restaurant est situé dans le 15<sup>ème</sup> arrondissement de Paris. Sa décoration d'intérieur classe et épurée, inspirée des restaurants typiques asiatiques, vous fera voyager en plein coeur de l'Asie. Le souhait de Jiniss est de maintenir une excitation constante et une effervescence permanente au sein de son restaurant. Des artistes, liés à des domaines variés comme la cuisine, la mode et le design seront régulièrement invités. Ainsi, vous pourrez assister à des événements organisés sur le thème des sens tout en profitant d'un restaurant pas comme les autres sur Paris.</p>
@@ -147,6 +145,4 @@
 
     </div>-->
 
-
-    {% include 'fragments/footer.html.twig' %}
 {% endblock %}
