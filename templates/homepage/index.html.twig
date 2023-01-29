@@ -2,26 +2,151 @@
 {% block title %}Hello HomepageController!{% endblock %}
 
 {% block body %}
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/homepage-style.css') }}">
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-        }
-        .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-        .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-    </style>
     {% include 'fragments/header.html.twig' %}
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width-device-width, intiale-scale=1.0">
+        <meta charset="utf-8"/>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script type="text/javascript" >
+            const threshold = .1
+            const options = {
+                root: null,
+                rootMargin: '0px',
+                threshold
+            }
+
+            const handleIntersect = function (entries, observer) {
+                entries.forEach(function (entry) {
+                    if (entry.intersectionRatio > threshold){
+                        entry.target.classList.remove('appear')
+                        observer.unobserve(entry.target)
+                    }
+                })
+            }
+
+            document.documentElement.classList.add('appear-loaded')
+            window.addEventListener("DOMContentLoaded", function () {
+                const observer = new IntersectionObserver(handleIntersect, options)
+                const targets = document.querySelectorAll('.appear')
+                targets.forEach(function (target) {
+                    observer.observe(target)
+                })
+            })
+
+            var counter=1;
+            setInterval(function(){
+                document.getElementById('radio'+ counter).checked=true;
+                counter++;
+                if(counter>4){
+                    counter=1;
+                }
+            },5000);
+
+        </script>
+    </head>
+    <body>
+    <section class="menu_section">
+        <h1 class ="sous_titre">Qui sommes-nous ?</h1>
+        <p class="text_menu">Ouvert depuis 2022, le restaurant est situé dans le 15<sup>ème</sup> arrondissement de Paris. Sa décoration d'intérieur classe et épurée, inspirée des restaurants typiques asiatiques, vous fera voyager en plein coeur de l'Asie. Le souhait de Jiniss est de maintenir une excitation constante et une effervescence permanente au sein de son restaurant. Des artistes, liés à des domaines variés comme la cuisine, la mode et le design seront régulièrement invités. Ainsi, vous pourrez assister à des événements organisés sur le thème des sens tout en profitant d'un restaurant pas comme les autres sur Paris.</p>
+        <!--</section>-->
+
+        <div class="sous_titre">
+            Au programme
+        </div>
+        <div class="wrap">
+
+            <div class="tile">
+                <a href="animal.php" class="lien">
+                    <img src='https://zupimages.net/up/21/49/u5nx.jpg'/>
+                    <div class="text">
+                        <h1> PROTEGER LA VIE SAUVAGE</h1>
+                        <h2 class="animate-text"> </h2>
+                        <p class="animate-text">---- Savoir Plus</p>
+
+                    </div>
+                </a>
+            </div>
+            <div class="tile">
+                <a href="especes.php" class="lien">
+                    <img src='https://zupimages.net/up/21/47/e11k.jpg'/>
+                    <div class="text">
+                        <h1>VIE DU ZOO  </h1>
+                        <h2 class="animate-text"></h2>
+                        <p class="animate-text"> ---- Savoir Plus</p>
+
+                    </div>
+                </a>
+            </div>
+
+            <div class="tile">
+                <a href="espace.php" class="lien">
+                    <img src='https://zupimages.net/up/21/49/riu6.jpg'/>
+                    <div class="text">
+                        <h1> DECOUVERT</h1>
+                        <h2 class="animate-text"> </h2>
+                        <p class="animate-text">---- Savoir Plus</p>
+
+                    </div>
+                </a>
+            </div>
+
+        </div>
+
+        <!--<section class="menu_section">-->
+        <p class="text_menu">Nous avons apporté une attention particulière à l'aménagement d'intérieur que nous avons remis récemment au goût du jour tout en gardant des éléments traditionnel. L’ambiance y est douce comme un parfum d’Asie, avec sa déco de fleurs fraîches, ses boiseries et ses tableaux figurant d’élégantes musiciennes thaïlandaises. Restaurant capable d'acceuillir 45 places assises en intérieur et 10 places assises en terrasse. Profitez d'un peu air frais en venant dégustant l'un des nombreux plats figurant sur notre carte. Réservation possible, en remplissant <a href="formulaire.html">le formulaire</a>.</p>
+        <video loop="infini" autoplay="autoplay" muted><source src="{{ asset('assets/videopub.mp4') }}" type="video/mp4" alt="video_plat"/></video>
+        <p class="text_menu">Nous avons apporté une attention particulière à l'aménagement d'intérieur que nous avons remis récemment au goût du jour tout en gardant des éléments traditionnel. L’ambiance y est douce comme un parfum d’Asie, avec sa déco de fleurs fraîches, ses boiseries et ses tableaux figurant d’élégantes musiciennes thaïlandaises. Restaurant capable d'acceuillir 45 places assises en intérieur et 10 places assises en terrasse. Profitez d'un peu air frais en venant dégustant l'un des nombreux plats figurant sur notre carte. Réservation possible, en remplissant <a href="formulaire.html">le formulaire</a>.</p>
+
+        <a href="menu.html" class="btn-menu">Réservation dès maintenant</a>
+        <div class="slider">
+            <div class="slides">
+                <input type="radio" name="radio-btn" id="radio1">
+                <input type="radio" name="radio-btn" id="radio2">
+                <input type="radio" name="radio-btn" id="radio3">
+                <input type="radio" name="radio-btn" id="radio4">
+
+                <div class="slide first">
+                    <img src="https://www.zoo-la-fleche.com/fileadmin/_processed_/e/6/csm_Zoo_de_la_Fle__che_2021_-_cre__dit__stevefanouillet__58__b94f928790.jpg" alt="slid1">
+                </div>
+                <div class="slide">
+                    <img src="https://www.sarthetourisme.com/wp-content/uploads/fly-images/15856/©-Maxime-Guillon-Sarthe-Tourisme-_-335-1920x1080-c.jpg" alt="slid2">
+                </div>
+                <div class="slide">
+                    <img src="https://www.programme-tv.net/imgre/fit/~2~program~a128177c22b3c74d7.jpg/630x355/quality/80/les-animaux-stars-des-zoos.jpg" alt="slid3">
+                </div>
+                <div class="slide">
+                    <img src="https://static.actu.fr/uploads/2019/12/credit-photo-vcorvasier-naissance-hippo-zoo-de-la-fleche-0718-copie-960x640.jpg" alt="slid4">
+                </div>
+
+                <div class="navigation-auto">
+                    <div class="auto-btn1"></div>
+                    <div class="auto-btn2"></div>
+                    <div class="auto-btn3"></div>
+                    <div class="auto-btn4"></div>
+                </div>
+            </div>
+
+            <div class="navigation-manual">
+                <label for="radio1" class="manual-btn"></label>
+                <label for="radio2" class="manual-btn"></label>
+                <label for="radio3" class="manual-btn"></label>
+                <label for="radio4" class="manual-btn"></label>
+            </div>
+        </div>
+    </section>
+    </div>
+    <!--
     <div class="example-wrapper">
 
         <h1>Hello {{ controller_name }}! ✅</h1>
 
         This friendly message is coming from:
 
-        <ul>
-            <li>Your controller at <code><a href="{{ '/Applications/MAMP/htdocs/snoaddict-symfony/src/Controller/HomepageController.php'|file_link(0) }}">src/Controller/HomepageController.php</a></code></li>
-            <li>Your template at <code><a href="{{ '/Applications/MAMP/htdocs/snoaddict-symfony/templates/homepage/index.html.twig'|file_link(0) }}">templates/homepage/index.html.twig</a></code></li>
-        </ul>
-    </div>
+    </div>-->
+
+
     {% include 'fragments/footer.html.twig' %}
 {% endblock %}
