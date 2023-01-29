@@ -1,5 +1,6 @@
 function flip(image){
     let im=document.getElementById(image);
+    if(im.getAttribute('src')!=="http://utopiazoo.local/taquin/IMG_2525.jpg"){
     if(image==="img7" || image==="img15"){
         $(im).attr('src',"http://utopiazoo.local/taquin/img9.jpg");
     }else if(image==="img1" || image==="img18"){
@@ -19,13 +20,14 @@ function flip(image){
     }else if(image==="img9" || image==="img13"){
         $(im).attr('src',"http://utopiazoo.local/taquin/img8.jpg");
     }
-    let know=document.getElementById("cnt");
-    know.textContent=parseInt(know.textContent)+1+"";
-    if(know.textContent==="2"){
-        isSameCards(image);
-    }else if(know.textContent==="3"){
-        know.textContent=1+"";
-        returnCards(image);
+        let know=document.getElementById("cnt");
+        know.textContent=parseInt(know.textContent)+1+"";
+        if(know.textContent==="2"){
+            isSameCards(image);
+        }else if(know.textContent==="3"){
+            know.textContent=1+"";
+            returnCards(image);
+        }
     }
 }
 

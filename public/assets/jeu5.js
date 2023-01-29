@@ -87,10 +87,15 @@ function erreur(err){
         source='IMG/pendu_10.JPG';
         let ding=new Audio("https://mp3gaga.com/wp-content/uploads/2021/04/Mariam-makebas-the-lion-sleeps-tonight.mp3");
         ding.play();
+        document.getElementById("penduimg").style.animationName="clignoter";
+        document.body.style.animationName="clignoter";
         document.body.style.backgroundColor="red";
         document.getElementById("letter").style.display = "none";
         document.getElementById("verif").style.display = "none";
         document.getElementById("retry").style.display = "block";
+        let displayResult=document.getElementById("result");
+        displayResult.textContent="La réponse étais :"+displayResult.textContent;
+        document.getElementById("result").style.display="block";
     }
     $("#penduimg").attr('src', source);
 }
