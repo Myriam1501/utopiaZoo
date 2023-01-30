@@ -16,7 +16,8 @@ function moves(img){
                 let newImg="img"+count;
                 let ne=document.getElementById(newImg);
                 let action="moves('"+newImg+"')";
-                $(ne).attr('src', image.src);
+                let val=image.getAttribute('src');
+                $(ne).attr('src', image.getAttribute('src'));
                 $(ne).attr('onclick', action);
                 $(image).attr('src',"");
                 $(image).attr('onclick',"");
@@ -44,16 +45,16 @@ function verif(){
     let img7=document.getElementById("img7").getAttribute('src');
     let img8=document.getElementById("img8").getAttribute('src');
     let img9=document.getElementById("img9").getAttribute('src');
-    if(img1==="http://utopiazoo.local/taquin/img1.jpg"){
-        if(img2==="http://utopiazoo.local/taquin/img9.jpg"){
-            if(img3==="http://utopiazoo.local/taquin/img2.jpg"){
-                if(img4==="http://utopiazoo.local/taquin/img3.jpg"){
-                    if(img5==="http://utopiazoo.local/taquin/img4.jpg"){
-                        if(img6==="http://utopiazoo.local/taquin/img5.jpg"){
-                            if(img7==="http://utopiazoo.local/taquin/img6.jpg"){
-                                if(img8==="http://utopiazoo.local/taquin/img7.jpg"){
+    if(img1==="/taquin/img1.jpg"){
+        if(img2==="/taquin/img9.jpg"){
+            if(img3==="/taquin/img2.jpg"){
+                if(img4==="/taquin/img3.jpg"){
+                    if(img5==="/taquin/img4.jpg"){
+                        if(img6==="/taquin/img5.jpg"){
+                            if(img7==="/taquin/img6.jpg"){
+                                if(img8==="/taquin/img7.jpg"){
                                     if(img9===""){
-                                        $("#img9").attr('src',"http://utopiazoo.local/taquin/img8.jpg");
+                                        $("#img9").attr('src',"/taquin/img8.jpg");
                                         document.body.style.backgroundColor="green";
                                         let ding = new Audio('https://universal-soundbank.com/sounds/9669.mp3');
                                         ding.play();

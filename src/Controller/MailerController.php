@@ -1,12 +1,14 @@
 <?php
-
+// src/Controller/MailerController.php
 namespace App\Controller;
+
+
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Email;
+use Symfony\Component\Routing\Annotation\Route;
 
 class MailerController extends AbstractController
 {
@@ -14,8 +16,8 @@ class MailerController extends AbstractController
     public function sendEmail(MailerInterface $mailer): Response
     {
         $email = (new Email())
-            ->from('hello@example.com')
-            ->to('you@example.com')
+            ->from('meryamghulam@gmail.com')
+            ->to('meryamghulam@gmail.com')
             //->cc('cc@example.com')
             //->bcc('bcc@example.com')
             //->replyTo('fabien@example.com')
@@ -28,6 +30,6 @@ class MailerController extends AbstractController
 
         // ...
 
-        return $this->render('mailer/index.html.twig');
+        return $this->render('/mailer/index.html.twig');
     }
 }
