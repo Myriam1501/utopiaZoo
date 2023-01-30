@@ -25,18 +25,12 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">                                            </a>
-                </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="{{path('app_homepage')}}" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Au Programme
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Protéger la vie sauvage</a></li>
+                        <li><a class="dropdown-item" href="{{path('app_homepage')}}">Protéger la vie sauvage</a></li>
                         <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item" href="#">Vie du Zoo</a></li>
                     </ul>
@@ -56,7 +50,7 @@
                 </li>
 
             </ul>
-            <form class="d-flex" role="search">
+            <form class="d-flex" >
                 <button class="btn btn-outline-success" type="submit">Connexion</button>
             </form>
         </div>
