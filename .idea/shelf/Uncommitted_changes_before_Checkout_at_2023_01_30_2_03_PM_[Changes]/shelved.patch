@@ -1,0 +1,37 @@
+Index: .gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>\n###> symfony/framework-bundle ###\n/.env.local\n/.env.local.php\n/.env.*.local\n/config/secrets/prod/prod.decrypt.private.php\n/public/bundles/\n/var/\n/vendor/\n###< symfony/framework-bundle ###\n\n###> phpunit/phpunit ###\n/phpunit.xml\n.phpunit.result.cache\n###< phpunit/phpunit ###\n\n###> symfony/phpunit-bridge ###\n.phpunit.result.cache\n/phpunit.xml\n###< symfony/phpunit-bridge ###\n.idea/
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.gitignore b/.gitignore
+--- a/.gitignore	(revision 13d2544f318e66e8eae6252d8a707ca766d9de0b)
++++ b/.gitignore	(date 1675083727804)
+@@ -8,7 +8,6 @@
+ /var/
+ /vendor/
+ ###< symfony/framework-bundle ###
+-
+ ###> phpunit/phpunit ###
+ /phpunit.xml
+ .phpunit.result.cache
+Index: templates/fragments/header.html.twig
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>\n    <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css\" rel=\"stylesheet\" integrity=\"sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD\" crossorigin=\"anonymous\">\n    <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js\" integrity=\"sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN\" crossorigin=\"anonymous\"></script>\n\n\n    <style>\n        .container-fluid  {\n            height: 40px;\n            margin-left: 20px;\n        }\n        .logo{\n            border-radius: 100%;\n            width: 90px;\n            height: 90px;\n        }\n    </style>\n\n<nav class=\"navbar navbar-expand-lg \" style=\"background-color: #d0dcb0; padding-bottom: 50px\">\n    <div class=\"container-fluid\" style=\"padding-top: 40px\">\n        <a  href=\"{{path('app_homepage')}}\">\n        <img class=\"logo\" src=\"{{asset('assets/logo.jpg')}}\">\n        </a>\n        <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\n            <ul class=\"navbar-nav me-auto mb-2 mb-lg-0\">\n                <li class=\"nav-item dropdown\">\n                    <a class=\"nav-link dropdown-toggle\" role=\"button\" data-bs-toggle=\"dropdown\" aria-expanded=\"false\">\n                        Au Programme\n                    </a>\n                    <ul class=\"dropdown-menu\">\n                        <li><a class=\"dropdown-item\" href=\"{{path('app_homepage')}}\">Accueil</a></li>\n                        <li><hr class=\"dropdown-divider\"></li>\n                        <li><a class=\"dropdown-item\" href=\"{{path('app_protect_wildlife')}}\">Protéger la vie sauvage</a></li>\n                    </ul>\n                </li>\n                <li class=\"nav-item dropdown\">\n                    <a class=\"nav-link dropdown-toggle\" href=\"#\" role=\"button\" data-bs-toggle=\"dropdown\" aria-expanded=\"false\">\n                        Le Zoo et Les Animaux\n                    </a>\n                    <ul class=\"dropdown-menu\">\n                        <li><a class=\"dropdown-item\" href=\"#\">Découvert</a></li>\n                        <li><hr class=\"dropdown-divider\"></li>\n                        <li><a class=\"dropdown-item\" href=\"#\">Quiz</a></li>\n                    </ul>\n                </li>\n                <li class=\"nav-item\">\n                    <a class=\"nav-link active\" aria-current=\"page\" href=\"#\">Réservation</a>\n                </li>\n\n            </ul>\n            <form class=\"d-flex\" >\n                <a class=\"btn btn-outline-success\"  href=\"{{path('app_connexion')}}\">Connexion</a>\n            </form>\n        </div>\n    </div>\n</nav>\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/templates/fragments/header.html.twig b/templates/fragments/header.html.twig
+--- a/templates/fragments/header.html.twig	(revision 13d2544f318e66e8eae6252d8a707ca766d9de0b)
++++ b/templates/fragments/header.html.twig	(date 1675083775991)
+@@ -39,7 +39,7 @@
+                     <ul class="dropdown-menu">
+                         <li><a class="dropdown-item" href="#">Découvert</a></li>
+                         <li><hr class="dropdown-divider"></li>
+-                        <li><a class="dropdown-item" href="#">Quiz</a></li>
++                        <li><a class="dropdown-item" href="#">Espace Jeux</a></li>
+                     </ul>
+                 </li>
+                 <li class="nav-item">
