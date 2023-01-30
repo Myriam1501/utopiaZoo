@@ -9,6 +9,7 @@ use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: AccountRepository::class)]
+#[ORM\HasLifecycleCallbacks()]
 class Account
 {
     #[ORM\Id]
@@ -32,8 +33,8 @@ class Account
     #[ORM\Column(length: 255)]
     private ?string $Email_Login = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
-    private ?\DateTimeInterface $Date_Inscription = null;
+    #[ORM\Column(nullable: false)]
+    private ?\DateTimeImmutable $Date_Inscription = null;
 
     #[ORM\OneToMany(mappedBy: 'account', targetEntity: Reservation::class)]
     private Collection $reservations;
@@ -115,17 +116,22 @@ class Account
         return $this;
     }
 
-    public function getDateInscription(): ?\DateTimeInterface
+    public function getDateInscription(): ?\DateTimeImmutable
     {
         return $this->Date_Inscription;
     }
 
-    public function setDateInscription(\DateTimeInterface $Date_Inscription): self
+    public function setDateInscription(\DateTimeImmutable $Date_Inscription): self
     {
         $this->Date_Inscription = $Date_Inscription;
 
         return $this;
     }
+    #[ORM\PrePersist]
+    public function setDate_Inscription():void{
+        $this->Date_Inscription =new \DateTimeImmutable();
+    }
+
 
     /**
      * @return Collection<int, Reservation>
@@ -156,4 +162,5 @@ class Account
 
         return $this;
     }
+
 }

@@ -15,7 +15,7 @@
     .inscri{
         width: 450px;
         position: absolute;
-        top: 55%;
+        top: 70%;
         left: 50%;
         transform: translate(-50%,-50%);
         color: white;
@@ -32,7 +32,7 @@
     .txt{
         width: 100%;
         overflow: hidden;
-        font-size: 1.2rem;
+        font-size: 1rem;
         padding: 0rem 0;
         margin: 0.5rem 0;
         border-bottom: 1px solid white;
@@ -66,42 +66,43 @@
         color: white;
     }
 </style>
+    {% include 'fragments/header.html.twig' %}
 
 <form id="myForm" action="" method="post">
+    {{ form_start(form) }}
     <div class="inscri">
-        <h4> Inscrivez vous pour savoir plus d'information sur l'environnement </h4>
+        <h4> Inscrivez vous pour savoir plus d'information sur notre Zoo </h4>
         <hr>
         <i class="fas fa-mail-bulk"></i>
-        <label for="mail">E-mail : </label>
         <div class="txt">
             <span id="vmail"></span>
-            <input type="text"  placeholder="Adresse mail " name="email" id="mail">
-
+            {{ form_row(form.Email_Login) }}
         </div>
+
         <i class="fas fa-user"></i>
-        <label for="lenom"> Nom  : </label>
         <div class="txt">
             <span id="vnom"></span>
-            <input type="text" placeholder="Nom" name="nom" id="lenom" autocomplete="off" required>
+            {{ form_row(form.name) }}
         </div>
+
         <i class="fas fa-user"></i>
-        <label for="leprénom"> Prénom : </label>
         <div class="txt">
             <span id="vprénom"></span>
-            <input type="text"  placeholder="Prénom" name="prenom"id="leprénom" autocomplete="off" required>
+            {{ form_row(form.first_name) }}
         </div>
+
         <i class="fas fa-unlock-alt"></i>
-        <label for="password"> Mot de passe (Min 8 chiffres, ex: Aa1234567) : </label>
         <div class="txt">
             <span id="vpassword"></span>
-            <input type="password" placeholder="Mot de passe" name="MP" id="password" autocomplete="off" required>
+            {{ form_row(form.Passeword) }}
         </div>
+
         <i class="fas fa-unlock-alt"></i>
-        <label for="confpassword"> Confirmation de mot de passe : </label>
         <div class="txt">
-            <span id="vconfpassword"></span>
-            <input type="password" placeholder="Mot de passe" name="cMP" id="confpassword" autocomplete="off" required>
+            <span id="vadresse"></span>
+            {{ form_row(form.Address) }}
         </div>
+
         <button type="submit" class="Submit"> Inscrivez-vous </button></td>
 
         <p align="center"> En vous inscrivant, vous acceptez nos Conditions générales.
@@ -112,6 +113,7 @@
         <hr>
         <p align="center"> <a href="" class="con"> Vous avez un compte ? </a> <a href="" class="con"> Connectez-vous </a> </p>
     </div>
+    {{ form_end(form) }}
 </form>
     <script src="https://kit.fontawesome.com/3ea0bb51d0.js"></script>
 {% endblock %}
