@@ -5,17 +5,14 @@
 {% block body %}
 <style>
     body{
-        margin:0;
-        padding:0;
-        font-family: "Hoefler Text";
+
         background: url("https://zupimages.net/up/22/17/waol.jpg") no-repeat center center;
-        height: 100vh;
         background-size: cover;
     }
     .login-box{
         width: 450px;
         position: relative;
-        top: 300px;
+        top: 292px;
         left: 50%;
         transform: translate(-50%,-50%);
         color: white;
@@ -86,9 +83,8 @@
                     <button type="submit" class="submit-box"> Entrer </button></td>
             </tr>
         </table>
-        <p align="center"><a href="" class="connex"> Vous avez déjà de compte ? Connectez-Vous ! </a></p>
-        <p align="center"><a href="" class="connex"> Vous n'avez pas de compte ? </a></p>
-        <p align="center"> <a href="" class="connex"> Inscrivez-vous ! </a> </p>
+        <p align="center"><a href="{{path('app_connexion')}}" class="connex"> Vous avez déjà de compte ? Connectez-Vous ! </a></p>
+        <p align="center"><a href="{{path('app_inscription')}}" class="connex"> Vous n'avez pas de compte ?  Inscrivez-vous !</a></p>
 
     </div>
 </form>
