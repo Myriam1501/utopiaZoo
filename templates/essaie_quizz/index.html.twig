@@ -7,26 +7,22 @@
     <br>
     <div class="example-wrapper2">
         <div class="quizz">
-            <br><br>
-            <div id="contenu3" class="contenu3">
-                <h1 class="titre"> Quizz </h1>
-                <i><span class="texte"><span class="question"> 5 </span> questions pour tester ses connaissances !</span></i>
-                <br>
-                <br>
-                <div>
-                    <button id="btnDebut" onclick="commencer()" class="start"> Commencer </button>
-                </div>
+
+            <div class="count">
             </div>
 
-            <div id="questions" class="questions">
 
+            <div class="questions" id="question">
             </div>
 
-            <div id="resultat" class="resultat">
-                <h2 class=""> Résultat </h2>
-                <span class=""> Vous obtenez <span id="nbrCorrects"> ?? </span> sur <span class="nbrQuestion"> 5 </span> </span>
-            </div>
+        <div class="reponses">
 
+            <button class="reponse" onclick="" id="option1" >option1</button>
+            <button class="reponse" id="option2" >option2</button>
+            <button class="reponse" id="option3">option3</button>
+
+        </div>
+            <button class="next">Next</button>
         </div>
 
     </div>
@@ -35,7 +31,6 @@
 
         .example-wrapper2 {
             font-family: "Georgia", Times, serif;
-
             display: flex;
             flex-direction: row;
             flex-wrap: nowrap;
@@ -43,6 +38,7 @@
             align-items: flex-start;
             align-content: center;
         }
+
 
         .quizz {
             text-align: center;
@@ -53,6 +49,13 @@
             background-repeat: no-repeat;
             background-size: cover;
             box-shadow: 0 20px 20px rgba(0, 0, 0, 0.3);
+
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            justify-content: center;
+            align-content: center;
+            align-items: center;
         }
 
         .quizz:hover {
@@ -64,16 +67,37 @@
             transition: all 400ms ease-out;
         }
 
-        .titre {
-            font-size: 33px;
-            margin-top: 5%;
+
+        .questions{
+            padding: 7px 49px;
+            background-color: whitesmoke;
+            cursor: pointer;
+            margin-bottom: 10px;
+            color: #4C3017;
+            font-family: Georgia, serif;
+            box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
+            font-size: 14px;
+            border-radius: 3px;
+            font-weight: 200;
+            border: none;
+            width: 400px;
+
         }
 
-        .texte {
-            font-size: 20px;
+        .reponse{
+            padding: 7px 49px;
+            background-color: whitesmoke;
+            cursor: pointer;
+            margin-bottom: 10px;
+            color: #4C3017;
+            font-family: Georgia, serif;
+            box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
+            font-size: 14px;
+            border-radius: 3px;
+            font-weight: 200;
+            border: none;
         }
-
-        .start {
+        .next{
             padding: 7px 49px;
             background-color: whitesmoke;
             cursor: pointer;
@@ -87,18 +111,140 @@
             border: none;
         }
 
-        .start:hover {
-            background-color: #694322;
-            color: whitesmoke;
-        }
-
-        .questions {
-            display: none;
-        }
-
-
-
     </style>
+
+<script>
+
+    const Questions = [{
+        id: 0,
+        quest: "Premiere question",
+        resp: [{ text: "Reponse 1", isCorrect: false },
+            { text: "Reponse 2", isCorrect: false },
+            { text: "Reponse 3", isCorrect: true }
+        ]
+
+    },
+        {
+            id: 1,
+            quest: "Deuxieme question",
+            resp: [{ text: "Reponse 1", isCorrect: false},
+                { text: "Reponse 2", isCorrect: true },
+                { text: "Reponse 3", isCorrect: false }
+            ]
+
+        },
+        {
+            id: 2,
+            quest: "Troisieme question",
+            resp: [{ text: "Reponse 1", isCorrect: false },
+                { text: "Reponse 2", isCorrect: false },
+                { text: "Reponse 3", isCorrect: true }
+            ]
+
+        },
+        {
+            id: 3,
+            quest: "Quatrieme question",
+            resp: [{ text: "Reponse 1", isCorrect: false },
+                { text: "Reponse 2", isCorrect: false },
+                { text: "Reponse 3", isCorrect: true }
+            ]
+
+        },
+        {
+            id: 4,
+            quest: "Cinquieme question",
+            resp: [{ text: "Reponse 1", isCorrect: false },
+                { text: "Reponse 2", isCorrect: false },
+                { text: "Reponse 3", isCorrect: true }
+            ]
+
+        },
+        {
+            id: 5,
+            quest: "",
+            resp: [ {text: "", isCorrect: false },
+            { text: "", isCorrect: false },
+            { text: "", isCorrect: true }]
+            }
+    ]
+
+    var start = true;
+
+    var score = 0;
+
+    var resultat = document.getElementsByClassName("count");
+
+    const next = document.getElementsByClassName("next")[0];
+
+    function quiz(id) {
+
+        resultat[0].innerText = "";
+
+        const question = document.getElementById("question");
+
+        question.innerText = Questions[id].quest;
+
+        const option1 = document.getElementById('option1');
+        const option2 = document.getElementById('option2');
+        const option3 = document.getElementById('option3');
+
+        option1.innerText = Questions[id].resp[0].text;
+        option1.value = Questions[id].resp[0].isCorrect;
+
+        option2.innerText = Questions[id].resp[1].text;
+        option2.value = Questions[id].resp[1].isCorrect;
+
+        option3.innerText = Questions[id].resp[2].text;
+        option3.value = Questions[id].resp[2].isCorrect;
+
+        var saisis = "";
+
+        option1.addEventListener("click", () => {
+            option1.style.backgroundColor = "pink";
+            saisis = option1.value;
+        })
+
+        option2.addEventListener("click", () => {
+            option2.style.backgroundColor = "pink";
+            saisis = option2.value;
+        })
+
+        option3.addEventListener("click", () => {
+            option3.style.backgroundColor = "pink";
+            saisis = option3.value;
+        })
+
+        const evaluate = document.getElementsByClassName("next");
+
+        evaluate[0].addEventListener("click", () => {
+            if (saisis == "true") {
+                score++;
+            }
+        })
+    }
+
+    if (start) {
+        quiz("0");
+    }
+
+    var id = 0;
+
+    next.addEventListener("click", () => {
+
+        start = false;
+
+        if (id < 5) {
+            id++;
+            console.log(id);
+            quiz(id);
+        }
+        if(id == 5) {
+            resultat[0].innerHTML = "Votre score est de: " + score.toString();
+        }
+    })
+
+</script>
 
     <br>
     <br>
