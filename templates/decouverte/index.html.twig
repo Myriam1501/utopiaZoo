@@ -10,6 +10,86 @@
 
 {% block body %}
 
+    <br><br>
+    <div class="titre">
+        <div class="titre3">
+        <div class="sousTitre">DECOUVERTE</div>
+            <div class="sousTitre">
+                <span>DES ANIMAUX DU ZOO</span>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .titre {
+            text-align:center;
+            background:linear-gradient(141deg, #EFE5DB 25%, #EBE4DC 40%, #E4EFDB 55%);
+            color:white;
+            font-family:'Roboto';
+            font-weight:550;
+            padding-top:30px;
+            height:100px;
+            overflow:hidden;
+            -webkit-backface-visibility: hidden;
+            -webkit-transform: translate3d(0,0,0);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.5), 0 3px 6px rgba(0,0,0,0.10);
+            width: 1200px;
+            margin-left: 20px;
+            margin-right: 20px;
+            border-radius: 10px;
+        }
+        .titre2 {
+            font-size:30px;
+        }
+        .titre3 {
+            font-size:31px;
+        }
+
+        .sousTitre {
+            display:inline-block;
+            overflow:hidden;
+            white-space:nowrap;
+        }
+
+        .sousTitre:first-of-type {
+            animation: showup 7s infinite;
+        }
+
+        .sousTitre:last-of-type {
+            width:0px;
+            animation: reveal 7s infinite;
+        }
+
+        .sousTitre:last-of-type span {
+            margin-left:-355px;
+            animation: slidein 7s infinite;
+        }
+
+        @keyframes showup {
+            0% {opacity:0;}
+            20% {opacity:1;}
+            80% {opacity:1;}
+            100% {opacity:0;}
+        }
+
+        @keyframes slidein {
+            0% { margin-left:-800px; }
+            20% { margin-left:-800px; }
+            35% { margin-left:0px; }
+            100% { margin-left:0px; }
+        }
+
+        @keyframes reveal {
+            0% {opacity:0;width:0px;}
+            20% {opacity:1;width:0px;}
+            30% {width:355px;}
+            80% {opacity:1;}
+            100% {opacity:0;width:355px;}
+        }
+
+    </style>
+
+
     <br>
     <br>
     <div class="content1">
@@ -141,6 +221,15 @@
         </div>
     </div>
 <br><br>
+
+    <div class="titre">
+        <div class="titre2">
+        <div class="sousTitre">DECOUVERTE</div>
+        <div class="sousTitre">
+            <span>DES ENDROITS DU ZOO</span>
+        </div>
+        </div>
+    </div>
 
 
 
