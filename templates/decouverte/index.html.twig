@@ -10,7 +10,7 @@
 
 {% block body %}
 
-    <br><br>
+    <br><br><br>
     <div class="titre">
         <div class="titre3">
         <div class="sousTitre">DECOUVERTE</div>
@@ -20,82 +20,12 @@
         </div>
     </div>
 
-    <style>
-        .titre {
-            text-align:center;
-            background:linear-gradient(141deg, #EFE5DB 25%, #EBE4DC 40%, #E4EFDB 55%);
-            color:white;
-            font-family:'Roboto';
-            font-weight:550;
-            padding-top:30px;
-            height:100px;
-            overflow:hidden;
-            -webkit-backface-visibility: hidden;
-            -webkit-transform: translate3d(0,0,0);
-            box-shadow: 0 1px 3px rgba(0,0,0,0.5), 0 3px 6px rgba(0,0,0,0.10);
-            width: 1200px;
-            margin-left: 20px;
-            margin-right: 20px;
-            border-radius: 10px;
-        }
-        .titre2 {
-            font-size:30px;
-        }
-        .titre3 {
-            font-size:31px;
-        }
-
-        .sousTitre {
-            display:inline-block;
-            overflow:hidden;
-            white-space:nowrap;
-        }
-
-        .sousTitre:first-of-type {
-            animation: showup 7s infinite;
-        }
-
-        .sousTitre:last-of-type {
-            width:0px;
-            animation: reveal 7s infinite;
-        }
-
-        .sousTitre:last-of-type span {
-            margin-left:-355px;
-            animation: slidein 7s infinite;
-        }
-
-        @keyframes showup {
-            0% {opacity:0;}
-            20% {opacity:1;}
-            80% {opacity:1;}
-            100% {opacity:0;}
-        }
-
-        @keyframes slidein {
-            0% { margin-left:-800px; }
-            20% { margin-left:-800px; }
-            35% { margin-left:0px; }
-            100% { margin-left:0px; }
-        }
-
-        @keyframes reveal {
-            0% {opacity:0;width:0px;}
-            20% {opacity:1;width:0px;}
-            30% {width:355px;}
-            80% {opacity:1;}
-            100% {opacity:0;width:355px;}
-        }
-
-    </style>
-
-
     <br>
-    <br>
+    <br><br>
     <div class="content1">
                 <div class="example-wrapper">
                     <div class="lion">
-                        <img id="lion" src="https://i.pinimg.com/564x/6e/50/fb/6e50fb01ac451c32de7551455cc58f32.jpg">
+                        <img id="lion" class="img" src="https://i.pinimg.com/564x/6e/50/fb/6e50fb01ac451c32de7551455cc58f32.jpg">
                         <div class="contenu">
                             <div class="texte">Le lion</div>
                         </div>
@@ -103,7 +33,7 @@
                 </div>
                 <div class="example-wrapper">
                     <div class="zebre">
-                        <img id="zebre" src="https://i.pinimg.com/564x/0b/31/bc/0b31bc19ea552024c06bb7e27e46d478.jpg">
+                        <img id="zebre" class="img" src="https://i.pinimg.com/564x/0b/31/bc/0b31bc19ea552024c06bb7e27e46d478.jpg">
                         <div class="contenu">
                             <div class="texte">Le zèbre</div>
                         </div>
@@ -111,7 +41,7 @@
                 </div>
                 <div class="example-wrapper">
                     <div class="singe">
-                        <img id="singe" src="https://i.pinimg.com/564x/6d/80/28/6d80287d94942fd458ade5e51870e1b8.jpg">
+                        <img id="singe" class="img" src="https://i.pinimg.com/564x/6d/80/28/6d80287d94942fd458ade5e51870e1b8.jpg">
                         <div class="contenu">
                             <div class="texte">Le singe</div>
                         </div>
@@ -119,7 +49,7 @@
                 </div>
                 <div class="example-wrapper">
                     <div class="elephant">
-                        <img id="elephant" src="https://i.pinimg.com/564x/42/13/9b/42139b11a7089b0476045716bef702aa.jpg">
+                        <img id="elephant" class="img" src="https://i.pinimg.com/564x/42/13/9b/42139b11a7089b0476045716bef702aa.jpg">
                         <div class="contenu">
                             <div class="texte">L'éléphant</div>
                         </div>
@@ -127,7 +57,7 @@
                 </div>
                 <div class="example-wrapper">
                     <div class="girafe">
-                        <img id="girafe" src="https://i.pinimg.com/564x/f3/f6/ff/f3f6ff1e16d4b0038209cf65bcc085ad.jpg">
+                        <img id="girafe" class="img" src="https://i.pinimg.com/564x/f3/f6/ff/f3f6ff1e16d4b0038209cf65bcc085ad.jpg">
                         <div class="contenu">
                             <div class="texte">La girafe</div>
                         </div>
@@ -138,7 +68,7 @@
     <div class="content2">
                 <div class="example-wrapper">
                     <div class="manchot">
-                        <img id="manchot" src="https://i.pinimg.com/564x/65/92/ca/6592cac473642f8df3c8e366008ed2c0.jpg">
+                        <img id="manchot" class="img" src="https://i.pinimg.com/564x/65/92/ca/6592cac473642f8df3c8e366008ed2c0.jpg">
                         <div class="contenu">
                             <div class="texte">Le manchot<br>du cap</div>
                         </div>
@@ -146,7 +76,7 @@
                 </div>
                 <div class="example-wrapper">
                     <div class="panda">
-                        <img id="panda" src="https://i.pinimg.com/564x/96/55/8f/96558f7781eeec61517d5116e72aea67.jpg">
+                        <img id="panda" class="img" src="https://i.pinimg.com/564x/96/55/8f/96558f7781eeec61517d5116e72aea67.jpg">
                         <div class="contenu">
                             <div class="texte">Le panda<br>roux</div>
                         </div>
@@ -154,7 +84,7 @@
                 </div>
                 <div class="example-wrapper">
                     <div class="loutre">
-                        <img id="loutre" src="https://i.pinimg.com/564x/56/30/36/56303614c8919b79a1d2cb1cb1a4b031.jpg">
+                        <img id="loutre" class="img" src="https://i.pinimg.com/564x/56/30/36/56303614c8919b79a1d2cb1cb1a4b031.jpg">
                         <div class="contenu">
                             <div class="texte">La loutre</div>
                         </div>
@@ -162,7 +92,7 @@
                 </div>
                 <div class="example-wrapper">
                     <div class="maki">
-                        <img id="maki" src="https://i.pinimg.com/564x/c7/f0/0b/c7f00b7d9ec2f2eed693b214dfb0aa97.jpg">
+                        <img id="maki" class="img" src="https://i.pinimg.com/564x/c7/f0/0b/c7f00b7d9ec2f2eed693b214dfb0aa97.jpg">
                         <div class="contenu">
                             <div class="texte">La maki catta</div>
                         </div>
@@ -170,7 +100,7 @@
                 </div>
                 <div class="example-wrapper">
                     <div class="renne">
-                        <img id="renne" src="https://i.pinimg.com/564x/ed/4d/ad/ed4dad989b0da0ea8984127e2a075b8b.jpg">
+                        <img id="renne" class="img" src="https://i.pinimg.com/564x/ed/4d/ad/ed4dad989b0da0ea8984127e2a075b8b.jpg">
                         <div class="contenu">
                             <div class="texte">Le renne</div>
                         </div>
@@ -181,7 +111,7 @@
     <div class="content1">
         <div class="example-wrapper">
             <div class="chien">
-                <img id="chien" src="https://i.pinimg.com/564x/db/47/a8/db47a83e0ea8df3cc2dd5d4214e5226e.jpg">
+                <img id="chien" class="img" src="https://i.pinimg.com/564x/db/47/a8/db47a83e0ea8df3cc2dd5d4214e5226e.jpg">
                 <div class="contenu">
                     <div class="texte">Le chien des buissons</div>
                 </div>
@@ -189,7 +119,7 @@
         </div>
         <div class="example-wrapper">
             <div class="autruche">
-                <img id="autruche" src="https://i.pinimg.com/564x/4b/a6/d9/4ba6d9bba4a56828ed0f27478988d524.jpg">
+                <img id="autruche" class="img" src="https://i.pinimg.com/564x/4b/a6/d9/4ba6d9bba4a56828ed0f27478988d524.jpg">
                 <div class="contenu">
                     <div class="texte">L'autruche</div>
                 </div>
@@ -197,7 +127,7 @@
         </div>
         <div class="example-wrapper">
             <div class="paresseux">
-                <img id="paresseux" src="https://i.pinimg.com/564x/5c/cb/10/5ccb10b2290a44cab61dce48da229985.jpg">
+                <img id="paresseux" class="img" src="https://i.pinimg.com/564x/5c/cb/10/5ccb10b2290a44cab61dce48da229985.jpg">
                 <div class="contenu">
                     <div class="texte">Le paresseux</div>
                 </div>
@@ -205,7 +135,7 @@
         </div>
         <div class="example-wrapper">
             <div class="anaconda">
-                <img id="anaconda" src="https://i.pinimg.com/564x/8e/08/a2/8e08a28fce08040c8c7064d3282bd92e.jpg">
+                <img id="anaconda" class="img" src="https://i.pinimg.com/564x/9b/1d/bd/9b1dbd60ee840b87e69b905dbf115381.jpg">
                 <div class="contenu">
                     <div class="texte">L'anaconda</div>
                 </div>
@@ -213,14 +143,14 @@
         </div>
         <div class="example-wrapper">
             <div class="rhinoceros">
-                <img id="rhinoceros" src="https://i.pinimg.com/564x/ff/25/18/ff25180113fab871ba10dbc11d424528.jpg">
+                <img id="rhinoceros" class="img" src="https://i.pinimg.com/564x/ff/25/18/ff25180113fab871ba10dbc11d424528.jpg">
                 <div class="contenu">
                     <div class="texte">Le rhinocéros</div>
                 </div>
             </div>
         </div>
     </div>
-<br><br>
+<br><br><br>
 
     <div class="titre">
         <div class="titre2">
@@ -230,7 +160,9 @@
         </div>
         </div>
     </div>
+    <br><br><br>
 
+    <img id="endroit1" class="endroit1" src="https://i.pinimg.com/564x/73/f2/d9/73f2d9a06ce1d7fb18a80e9b1cc52a54.jpg">
 
 
     <!-- $$$$$$$$$$$$$$$$$$$.    PARTIE POPUP      $$$$$$$$$$$$$$$$$$$$ -->
@@ -239,7 +171,7 @@
     <div id="overlay" class="overlay">
         <div id="popup" class="popup">
             <div class="contenant">
-                <div class="img"><img src="https://i.pinimg.com/564x/65/6e/11/656e11c1db1f9017eefea8af13df5b5b.jpg"></div>
+                <div class="img1"><img src="https://i.pinimg.com/564x/65/6e/11/656e11c1db1f9017eefea8af13df5b5b.jpg"></div>
                 <div><h2>
                         <button id="btnPopup" class="btnPopup" onclick="openImg('https://www.sound-fishing.net/download.php?id=117')">Cliquez ici</button>
                     </h2>
@@ -567,7 +499,7 @@
     <div id="overlay12" class="overlay">
         <div id="popup" class="popup">
             <div class="contenant">
-                <div class="img"><img src="https://i.pinimg.com/564x/27/79/0e/27790eabfbc8741f939af03626d6c937.jpg"></div>
+                <div class="img1"><img src="https://i.pinimg.com/564x/27/79/0e/27790eabfbc8741f939af03626d6c937.jpg"></div>
                 <div><h2>
                         <button id="btnPopup" class="btnPopup" onclick="openImg('https://www.dinosoria.com/sons/animaux/0049.mp3')">Cliquez ici</button>
                     </h2>
@@ -596,7 +528,7 @@
     <div id="overlay13" class="overlay">
         <div id="popup" class="popup">
             <div class="contenant">
-                <div class="img"><img src="https://i.pinimg.com/564x/1e/39/56/1e39561bda181e4a378659cb0e07d67c.jpg"></div>
+                <div class="img1"><img src="https://i.pinimg.com/564x/1e/39/56/1e39561bda181e4a378659cb0e07d67c.jpg"></div>
                 <div><h2>
                         <button id="btnPopup" class="btnPopup" onclick="openImg('https://www.dinosoria.com/sons/animaux/0049.mp3')">Cliquez ici</button>
                     </h2>
