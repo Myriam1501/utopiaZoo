@@ -1,16 +1,17 @@
 <?php
 
 namespace App\Form;
-
-use App\Entity\Account;
+use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\Length;
+use Symfony\Component\Validator\Constraints\NotBlank;
 
-class InscriptionType extends AbstractType
+class UserType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
@@ -27,18 +28,26 @@ class InscriptionType extends AbstractType
                 'attr' => ['autocomplete' => false, 'placeholder' => 'Prenom'],
 
             ])
-            ->add('Address', TextType::class,[
+            ->add('address', TextType::class,[
                 'label'=> 'Adresse :',
                 'required' => false,
                 'attr' => ['placeholder' => 'Adresse'],
 
             ])
-            ->add('Passeword', PasswordType::class, [
-                'label'=> ' Mot de passe (Min 8 chiffres, ex: Aa1234567) : ',
+            ->add('passeword', PasswordType::class, [
+                'label'=> ' Mot de passe : ',
+                'mapped'=>false,
                 'required' => true,
-                'attr' => ['autocomplete' => false, 'placeholder' => 'Passeword']
+                'attr' => ['autocomplete' => 'new-password','placeholder' => 'mot de passe'],
+                'constraints' => [
+                    new NotBlank(['message'=>'Please enter your password']),
+                    new Length(['min'=>8,
+                    'minMessage'=> 'votre password doit avoir 8 caractères min',
+                    'max'=>20,
+                    ])
+                ]
             ])
-            ->add('Email_Login', EmailType::class, [
+            ->add('email', EmailType::class, [
                 'label'=> 'E-mail :',
                 'required' => true,
                 'attr' => ['placeholder' => 'Email'],
@@ -50,7 +59,7 @@ class InscriptionType extends AbstractType
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => Account::class,
+            'data_class' => User::class,
         ]);
     }
 }

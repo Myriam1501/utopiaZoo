@@ -33,7 +33,7 @@ class Reservation
 
     #[ORM\ManyToOne(inversedBy: 'reservations')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?Account $account = null;
+    private ?User $user = null;
 
     #[ORM\OneToMany(mappedBy: 'reservation', targetEntity: Ticket::class)]
     private Collection $tickets;
@@ -112,14 +112,14 @@ class Reservation
         return $this;
     }
 
-    public function getAccount(): ?Account
+    public function getUser(): ?User
     {
-        return $this->account;
+        return $this->user;
     }
 
-    public function setAccount(?Account $account): self
+    public function setUser(?User $user): self
     {
-        $this->account = $account;
+        $this->user = $user;
 
         return $this;
     }

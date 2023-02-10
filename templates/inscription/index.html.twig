@@ -74,33 +74,38 @@
         <h4> Inscrivez vous pour savoir plus d'information sur notre Zoo </h4>
         <hr>
         <i class="fas fa-mail-bulk"></i>
+        {{ form_label(form.email) }}
         <div class="txt">
             <span id="vmail"></span>
-            {{ form_row(form.Email_Login) }}
+            {{ form_widget(form.email) }}
         </div>
 
         <i class="fas fa-user"></i>
+        {{ form_label(form.name) }}
         <div class="txt">
             <span id="vnom"></span>
-            {{ form_row(form.name) }}
+            {{ form_widget(form.name) }}
         </div>
 
         <i class="fas fa-user"></i>
+        {{ form_label(form.first_name) }}
         <div class="txt">
             <span id="vprénom"></span>
-            {{ form_row(form.first_name) }}
+            {{ form_widget(form.first_name) }}
         </div>
 
         <i class="fas fa-unlock-alt"></i>
+        {{ form_label(form.passeword) }}
         <div class="txt">
             <span id="vpassword"></span>
-            {{ form_row(form.Passeword) }}
+            {{ form_widget(form.passeword) }}
         </div>
 
         <i class="fas fa-unlock-alt"></i>
+        {{ form_label(form.address) }}
         <div class="txt">
             <span id="vadresse"></span>
-            {{ form_row(form.Address) }}
+            {{ form_widget(form.address) }}
         </div>
 
         <button type="submit" class="Submit"> Inscrivez-vous </button></td>

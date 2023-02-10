@@ -2,14 +2,15 @@
 
 namespace App\Controller;
 
-use App\Entity\Account;
-use App\Form\InscriptionType;
+use App\Entity\User;
+use App\Form\UserType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\String\Slugger\SluggerInterface;
+
 
 class InscriptionController extends AbstractController
 {
@@ -17,15 +18,28 @@ class InscriptionController extends AbstractController
         public EntityManagerInterface $entityManager,
     ){}
     #[Route('/inscription', name: 'app_inscription')]
-    public function index(Request $request): Response
+    public function index(Request $request, UserPasswordHasherInterface $passwordHasher): Response
     {
-        $account = new Account();
-        $form = $this->createForm(InscriptionType::class, $account);
+        $user = new User();
+        $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
+
         if ($form->isSubmitted() && $form->isValid()){
-            $this->entityManager->persist($account);
-            $this->entityManager->flush();
-        }
+
+
+                $this->entityManager->persist($user);
+                $this->entityManager->flush();
+
+                $this ->addFlash(
+                    'Success',
+                    'les informations de votre compte ont bien été enregistré !'
+                );
+            }
+        $this->addFlash(
+            'error',
+            'Ce login existe déjà ! '
+        );
+
         return $this->render('inscription/index.html.twig', [
             'form' => $form->createView(),
         ]);
