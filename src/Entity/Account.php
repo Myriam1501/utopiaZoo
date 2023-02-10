@@ -42,18 +42,12 @@ class Account
     public function __construct()
     {
         $this->reservations = new ArrayCollection();
+        $this->createdAt = new \DateTimeImmutable();
     }
 
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function setId(int $Id): self
-    {
-        $this->Id = $Id;
-
-        return $this;
     }
 
     public function getName(): ?string
@@ -121,16 +115,6 @@ class Account
         return $this->Date_Inscription;
     }
 
-    public function setDateInscription(\DateTimeImmutable $Date_Inscription): self
-    {
-        $this->Date_Inscription = $Date_Inscription;
-
-        return $this;
-    }
-    #[ORM\PrePersist]
-    public function setDate_Inscription():void{
-        $this->Date_Inscription =new \DateTimeImmutable();
-    }
 
 
     /**
