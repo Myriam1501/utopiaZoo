@@ -16,7 +16,7 @@ class Jeu6Controller extends AbstractController
     {
 
         $nbr=rand(1,25);
-        $val=$animaleGameRepository->find(1);
+        $val=$animaleGameRepository->find(3);
         return $this->render('jeu6/index.html.twig', [
             'controller_name' => 'Jeu6Controller',
             'animalImg' => $val,

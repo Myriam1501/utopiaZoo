@@ -36,25 +36,29 @@ function moves(img){
 }
 
 function verif(){
-    let img1=document.getElementById("img1").getAttribute('src');
-    let img2=document.getElementById("img2").getAttribute('src');
-    let img3=document.getElementById("img3").getAttribute('src');
-    let img4=document.getElementById("img4").getAttribute('src');
-    let img5=document.getElementById("img5").getAttribute('src');
-    let img6=document.getElementById("img6").getAttribute('src');
-    let img7=document.getElementById("img7").getAttribute('src');
-    let img8=document.getElementById("img8").getAttribute('src');
-    let img9=document.getElementById("img9").getAttribute('src');
-    if(img1==="/taquin/img1.jpg"){
-        if(img2==="/taquin/img9.jpg"){
-            if(img3==="/taquin/img2.jpg"){
-                if(img4==="/taquin/img3.jpg"){
-                    if(img5==="/taquin/img4.jpg"){
-                        if(img6==="/taquin/img5.jpg"){
-                            if(img7==="/taquin/img6.jpg"){
-                                if(img8==="/taquin/img7.jpg"){
+    let img=document.getElementById("img1").getAttribute('src');
+    let position=img.indexOf('.');
+    let img1=img.substring(position-1,position);
+    let img2=document.getElementById("img2").getAttribute('src').substring(position-1,position);
+    let img3=document.getElementById("img3").getAttribute('src').substring(position-1,position);
+    let img4=document.getElementById("img4").getAttribute('src').substring(position-1,position);
+    let img5=document.getElementById("img5").getAttribute('src').substring(position-1,position);
+    let img6=document.getElementById("img6").getAttribute('src').substring(position-1,position);
+    let img7=document.getElementById("img7").getAttribute('src').substring(position-1,position);
+    let img8=document.getElementById("img8").getAttribute('src').substring(position-1,position);
+    let img9=document.getElementById("img9").getAttribute('src').substring(position-1,position);
+    if(img1==="1"){
+        if(img2==="9"){
+            if(img3==="2"){
+                if(img4==="3"){
+                    if(img5==="4"){
+                        if(img6==="5"){
+                            if(img7==="6"){
+                                if(img8==="7"){
                                     if(img9===""){
-                                        $("#img9").attr('src',"/taquin/img8.jpg");
+                                        img=img.substring(0,position-1)+'8.jpg';
+                                        alert(img);
+                                        $("#img9").attr('src',img);
                                         document.body.style.backgroundColor="green";
                                         let ding = new Audio('https://universal-soundbank.com/sounds/9669.mp3');
                                         ding.play();
