@@ -11,6 +11,14 @@
 {% block body %}
 
     <br><br><br>
+    <h1 align="center">LE ZOO & LES ANIMAUX</h1>
+    <h5 align="center">DECOUVERTE</h5>
+    <hr><br>
+    <p> <i>
+        Venez découvrir notre incroyable collection d'animaux venus des quatre coins du monde. Notre équipe de soigneurs et d'experts animaliers se consacre chaque jour à offrir le meilleur environnement à nos pensionnaires, tout en sensibilisant les visiteurs à la protection de la nature.
+        Que vous soyez un passionné d'animaux ou que vous cherchiez simplement une sortie en famille, notre zoo est l'endroit idéal pour passer une journée inoubliable. Venez explorer notre univers fascinant et partez à la rencontre de nos amis les bêtes !
+        </i></p>
+    <br><br><br>
     <div class="titre">
         <div class="titre3">
         <div class="sousTitre">DECOUVERTE</div>
@@ -162,8 +170,346 @@
     </div>
     <br><br><br>
 
-    <img id="endroit1" class="endroit1" src="https://i.pinimg.com/564x/73/f2/d9/73f2d9a06ce1d7fb18a80e9b1cc52a54.jpg">
+    <div class="plan">
+        <div class="logo" onclick="fonctionLogo()">
+            <span class="imagelogo" id="imageLogo"><img src="https://i.pinimg.com/564x/f9/64/13/f96413b792aaaef366cdd4a9f345084c.jpg"></span>
+            <div class="logo1">
+                <img src="https://svgsilh.com/svg_v2/2257776.svg">
+            </div>
+        </div>
+        <div class="logo" onclick="fonctionLogo2()">
+            <span class="imagelogo2" id="imageLogo2"><img src="https://i.pinimg.com/564x/86/55/e5/8655e5347664749553ff3a48d38d3822.jpg"></span>
+            <div class="logo2">
+                <img src="https://svgsilh.com/svg/48373.svg">
+            </div>
+        </div>
+        <div class="logo" onclick="fonctionLogo3()">
+            <span class="imagelogo3" id="imageLogo3"><img src="https://i.pinimg.com/564x/87/92/ff/8792ffa946fe265495b31ea700fa6909.jpg"></span>
+            <div class="logo3">
+                <img src="https://svgsilh.com/svg/2028283.svg">
+            </div>
+        </div>
+        <div class="logo" onclick="fonctionLogo4()">
+            <span class="imagelogo4" id="imageLogo4"><img src="https://i.pinimg.com/564x/fe/c8/67/fec867225360ce88f0f01df87bb7664e.jpg"></span>
+            <div class="logo4">
+                <img src="https://svgsilh.com/svg/297872.svg">
+            </div>
+        </div>
+        <div class="logo" onclick="fonctionLogo5()">
+            <span class="imagelogo5" id="imageLogo5"><img src="https://i.pinimg.com/564x/bb/32/47/bb32477eb7bb5f5b3c89f4619424438a.jpg"></span>
+            <div class="logo5">
+                <img src="https://svgsilh.com/svg/1010275.svg">
+            </div>
+        </div>
+        <div class="logo" onclick="fonctionLogo6()">
+            <span class="imagelogo6" id="imageLogo6"><img src="https://i.pinimg.com/564x/0c/a3/ca/0ca3ca72558a2c20bb22cb5555bb2ced.jpg"></span>
+            <div class="logo6">
+                <img src="https://svgsilh.com/svg/2691407.svg">
+            </div>
+        </div>
+    </div>
 
+    <style>
+        .plan {
+            background-image: url("https://www.parczoologiquedeparis.fr/sites/parczoologiquedeparis/files/styles/1020x800/public/thumbnails/image/fond-carte-parc-zoologique_0.png?itok=S3Y8Ghoi");
+            width: 1020px;
+            height: 800px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            cursor: pointer;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        .logo1 img{
+            height: 80px;
+            width:59px;
+            margin-left: 450px;
+            margin-top: 350px;
+        }
+
+        .logo2 img {
+            height: 60px;
+            width: 69px;
+            margin-left: 780px;
+            margin-top: 350px;
+        }
+
+        .logo3 img {
+            height: 60px;
+            width: 69px;
+            margin-left: 580px;
+            margin-top: 330px;
+        }
+
+        .logo4 img {
+            height: 60px;
+            width: 69px;
+            margin-left: 250px;
+            margin-top: 140px;
+        }
+
+        .logo5 img {
+            height: 60px;
+            width: 69px;
+            margin-left: 680px;
+            margin-top: 0px;
+        }
+
+        .logo6 img {
+            height: 80px;
+            width: 76px;
+            margin-left: 390px;
+            margin-top: 160px;
+        }
+
+        .logo .imagelogo {
+            visibility: hidden;
+            background-color: black;
+            text-align: center;
+            border-radius: 200px;
+            padding: 8px 0;
+            position: absolute;
+            margin-left: 410px;
+            margin-top: 220px;
+
+            width: 118px;
+            height: 120px;
+        }
+
+        .logo .imagelogo2 {
+            visibility: hidden;
+            background-color: black;
+            text-align: center;
+            border-radius: 200px;
+            padding: 8px 0;
+            position: absolute;
+            margin-left: 780px;
+            margin-top: 210px;
+
+            width: 118px;
+            height: 120px;
+        }
+
+        .logo .imagelogo3 {
+            visibility: hidden;
+            background-color: black;
+            text-align: center;
+            border-radius: 200px;
+            padding: 8px 0;
+            position: absolute;
+            margin-left: 540px;
+            margin-top: 200px;
+
+            width: 118px;
+            height: 120px;
+        }
+
+        .logo .imagelogo4 {
+            visibility: hidden;
+            background-color: black;
+            text-align: center;
+            border-radius: 200px;
+            padding: 8px 0;
+            position: absolute;
+            margin-left: 240px;
+            margin-top: 0px;
+
+            width: 118px;
+            height: 120px;
+        }
+
+        .logo .imagelogo5 {
+            visibility: hidden;
+            background-color: black;
+            text-align: center;
+            border-radius: 200px;
+            padding: 8px 0;
+            position: absolute;
+            margin-left: 550px;
+            margin-top: 0px;
+
+            width: 118px;
+            height: 120px;
+        }
+
+        .logo .imagelogo6 {
+            visibility: hidden;
+            background-color: black;
+            text-align: center;
+            border-radius: 200px;
+            padding: 8px 0;
+            position: absolute;
+            margin-left: 380px;
+            margin-top: 20px;
+
+            width: 118px;
+            height: 120px;
+        }
+
+        .logo .imagelogo img {
+            border-radius: 200px;
+
+            width:104px;
+            height:106px;
+        }
+
+        .logo .imagelogo2 img {
+            border-radius: 200px;
+
+            width:104px;
+            height:106px;
+        }
+
+        .logo .imagelogo3 img {
+            border-radius: 200px;
+
+            width:104px;
+            height:106px;
+        }
+
+        .logo .imagelogo4 img {
+            border-radius: 200px;
+
+            width:104px;
+            height:106px;
+        }
+
+        .logo .imagelogo5 img {
+            border-radius: 200px;
+
+            width:104px;
+            height:106px;
+        }
+
+        .logo .imagelogo6 img {
+            border-radius: 200px;
+
+            width:104px;
+            height:106px;
+        }
+
+        .logo .imagelogo::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: black transparent transparent transparent;
+        }
+
+        .logo .imagelogo2::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: black transparent transparent transparent;
+        }
+
+        .logo .imagelogo3::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: black transparent transparent transparent;
+        }
+
+        .logo .imagelogo4::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: black transparent transparent transparent;
+        }
+
+        .logo .imagelogo5::after {
+            content: "";
+            position: absolute;
+            left: 100%;
+            top: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: black transparent transparent transparent;
+        }
+
+        .logo .imagelogo6::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: black transparent transparent transparent;
+        }
+
+        .logo .show {
+            visibility: visible;
+            -webkit-animation: fadeIn 1s;
+            animation: fadeIn 1s;
+        }
+
+        @-webkit-keyframes fadeIn {
+            from {opacity: 0;}
+            to {opacity: 1;}
+        }
+
+        @keyframes fadeIn {
+            from {opacity: 0;}
+            to {opacity:1 ;}
+        }
+
+        .logo1 img:hover {
+            transform: scale(1.1);
+            background-position: -10px;
+        }
+
+        .logo2 img:hover {
+            transform: scale(1.1);
+            background-position: -10px;
+        }
+
+        .logo3 img:hover {
+            transform: scale(1.1);
+            background-position: -10px;
+        }
+
+        .logo4 img:hover {
+            transform: scale(1.1);
+            background-position: -10px;
+        }
+
+        .logo5 img:hover {
+            transform: scale(1.1);
+            background-position: -10px;
+        }
+
+        .logo6 img:hover {
+            transform: scale(1.1);
+            background-position: -10px;
+        }
+
+        p {
+            margin-right: 40px;
+            margin-left: 40px;
+        }
+    </style>
 
     <!-- $$$$$$$$$$$$$$$$$$$.    PARTIE POPUP      $$$$$$$$$$$$$$$$$$$$ -->
     <!-- ----------------0---------------------- -->
@@ -826,6 +1172,36 @@
 
         }
 
+    }
+
+    function fonctionLogo() {
+        var popup = document.getElementById("imageLogo");
+        popup.classList.toggle("show");
+    }
+
+    function fonctionLogo2() {
+        var popup = document.getElementById("imageLogo2");
+        popup.classList.toggle("show");
+    }
+
+    function fonctionLogo3() {
+        var popup = document.getElementById("imageLogo3");
+        popup.classList.toggle("show");
+    }
+
+    function fonctionLogo4() {
+        var popup = document.getElementById("imageLogo4");
+        popup.classList.toggle("show");
+    }
+
+    function fonctionLogo5() {
+        var popup = document.getElementById("imageLogo5");
+        popup.classList.toggle("show");
+    }
+
+    function fonctionLogo6() {
+        var popup = document.getElementById("imageLogo6");
+        popup.classList.toggle("show");
     }
     </script>
 

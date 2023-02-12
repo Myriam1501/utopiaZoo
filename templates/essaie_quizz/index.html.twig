@@ -246,6 +246,101 @@
 
 </script>
 
+
+
+
+
+
+
+<style>
+.logo {
+position: relative;
+display: inline-block;
+cursor: pointer;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+}
+
+.logo .imagelogo {
+visibility: hidden;
+background-color: whitesmoke;
+text-align: center;
+border-radius: 200px;
+padding: 8px 0;
+position: absolute;
+z-index: 1;
+bottom: 125%;
+left: 50%;
+margin-left: 50px;
+    margin-top: 100px;
+
+    width: 92px;
+    height: 120px;
+}
+
+.logo .imagelogo img {
+    border-radius: 200px;
+
+    width:79px;
+    height:103px;
+}
+
+.logo .imagelogo::after {
+content: "";
+position: absolute;
+top: 100%;
+left: 50%;
+margin-left: -5px;
+border-width: 5px;
+border-style: solid;
+border-color: whitesmoke transparent transparent transparent;
+}
+
+.logo .show {
+visibility: visible;
+-webkit-animation: fadeIn 1s;
+animation: fadeIn 1s;
+}
+
+@-webkit-keyframes fadeIn {
+from {opacity: 0;}
+to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+from {opacity: 0;}
+to {opacity:1 ;}
+}
+
+.logo1 img{
+    height: 80px;
+    width:59px;
+    margin-left: 100px;
+}
+
+.logo1 img:hover {
+    transform: scale(1.1);
+    background-position: -10px;
+}
+
+</style>
+
+<div class="logo" onclick="fonctionLogo()">
+    <div class="logo1">
+    <img src="https://svgsilh.com/svg_v2/2257776.svg">
+    </div>
+    <span class="imagelogo" id="imageLogo"><img src="https://i.pinimg.com/564x/a5/11/40/a5114042b2dac59294bf15b06317b57d.jpg"></span>
+</div>
+
+<script>
+    function fonctionLogo() {
+        var popup = document.getElementById("imageLogo");
+        popup.classList.toggle("show");
+    }
+</script>
+
     <br>
     <br>
 {% endblock %}
