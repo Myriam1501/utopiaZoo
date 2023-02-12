@@ -95,3 +95,7 @@ function returnCards(image){
 
     }
 }
+
+function retry(){
+    location.reload();
+}
