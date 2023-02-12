@@ -73,3 +73,7 @@ function verif(){
     }
 
 }
+
+function retry(){
+    location.reload();
+}

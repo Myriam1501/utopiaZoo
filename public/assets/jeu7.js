@@ -2,23 +2,23 @@ function flip(image){
     let im=document.getElementById(image);
     if(im.getAttribute('src')!=="http://utopiazoo.local/taquin/IMG_2525.jpg"){
     if(image==="img7" || image==="img15"){
-        $(im).attr('src',"http://utopiazoo.local/taquin/img9.jpg");
+        $(im).attr('src',"http://utopiazoo.local/IMG/m9.jpg");
     }else if(image==="img1" || image==="img18"){
-        $(im).attr('src',"http://utopiazoo.local/taquin/img1.jpg");
+        $(im).attr('src',"http://utopiazoo.local/IMG/m1.jpg");
     }else if(image==="img2" || image==="img17"){
-        $(im).attr('src',"http://utopiazoo.local/taquin/img2.jpg");
+        $(im).attr('src',"http://utopiazoo.local/IMG/m2.jpg");
     }else if(image==="img3" || image==="img16"){
-        $(im).attr('src',"http://utopiazoo.local/taquin/img3.jpg");
+        $(im).attr('src',"http://utopiazoo.local/IMG/m3.jpg");
     }else if(image==="img4" || image==="img12"){
-        $(im).attr('src',"http://utopiazoo.local/taquin/img4.jpg");
+        $(im).attr('src',"http://utopiazoo.local/IMG/m4.jpg");
     }else if(image==="img5" || image==="img11"){
-        $(im).attr('src',"http://utopiazoo.local/taquin/img5.jpg");
+        $(im).attr('src',"http://utopiazoo.local/IMG/m5.jpg");
     }else if(image==="img6" || image==="img10"){
-        $(im).attr('src',"http://utopiazoo.local/taquin/img6.jpg");
+        $(im).attr('src',"http://utopiazoo.local/IMG/m6.jpg");
     }else if(image==="img8" || image==="img14"){
-        $(im).attr('src',"http://utopiazoo.local/taquin/img7.jpg");
+        $(im).attr('src',"http://utopiazoo.local/IMG/m7.jpg");
     }else if(image==="img9" || image==="img13"){
-        $(im).attr('src',"http://utopiazoo.local/taquin/img8.jpg");
+        $(im).attr('src',"http://utopiazoo.local/IMG/m8.jpg");
     }
         let know=document.getElementById("cnt");
         know.textContent=parseInt(know.textContent)+1+"";
