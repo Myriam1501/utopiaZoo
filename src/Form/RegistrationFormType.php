@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Form;
+
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
@@ -11,16 +12,15 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
-class UserType extends AbstractType
+class RegistrationFormType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('name', TextType::class,[
-                'label' => 'Nom  : ',
+            ->add('email', EmailType::class, [
+                'label'=> 'E-mail :',
                 'required' => true,
-                'attr' => ['autocomplete' => false, 'placeholder' => 'Nom'],
-
+                'attr' => ['placeholder' => 'Email'],
             ])
             ->add('first_name', TextType::class, [
                 'label'=> 'Prénom : ',
@@ -28,13 +28,20 @@ class UserType extends AbstractType
                 'attr' => ['autocomplete' => false, 'placeholder' => 'Prenom'],
 
             ])
+            ->add('name', TextType::class,[
+                'label' => 'Nom  : ',
+                'required' => true,
+                'attr' => ['autocomplete' => false, 'placeholder' => 'Nom'],
+
+            ])
             ->add('address', TextType::class,[
                 'label'=> 'Adresse :',
                 'required' => false,
-                'attr' => ['placeholder' => 'Adresse'],
+                'attr' => ['placeholder' => 'Address'],
 
             ])
-            ->add('passeword', PasswordType::class, [
+
+            ->add('passWord', PasswordType::class, [
                 'label'=> ' Mot de passe : ',
                 'mapped'=>false,
                 'required' => true,
@@ -42,16 +49,12 @@ class UserType extends AbstractType
                 'constraints' => [
                     new NotBlank(['message'=>'Please enter your password']),
                     new Length(['min'=>8,
-                    'minMessage'=> 'votre password doit avoir 8 caractères min',
-                    'max'=>20,
+                        'minMessage'=> 'votre password doit avoir 8 caractères min',
+                        'max'=>20,
                     ])
                 ]
             ])
-            ->add('email', EmailType::class, [
-                'label'=> 'E-mail :',
-                'required' => true,
-                'attr' => ['placeholder' => 'Email'],
-            ])
+
 
         ;
     }
