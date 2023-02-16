@@ -12,12 +12,16 @@ use Symfony\Component\Routing\Annotation\Route;
 class PreparerVisiteController extends AbstractController
 {
     #[Route('/preparerVisite', name: 'app_preparerVisite')]
-    public function index(): Response
+    public function index(ProgrammeRepository $repository): Response
     {
+        $programmes=$repository->findAll();
+
         return $this->render('preparerVisite/index.html.twig', [
-            'controller_name' => 'PreparerVisiteController',
+            'programmes' => $programmes,
         ]);
     }
+
+
     #[Route('/preparerVisite/create', name: 'app_preparerVisite_create', methods: ['GET', 'POST'])]
     public function create(Request $request, ProgrammeFormHandler $programmeFormHandler): Response
     {
@@ -53,6 +57,10 @@ class PreparerVisiteController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
+
+
+
+
     #[Route('/preparerVisite/delete', name: 'app_preparerVisite_delete', methods: ['GET', 'POST'])]
     public function delete(Request $request, Programme $programme, ProgrammeFormHandler $programmeFormHandler): Response
     {

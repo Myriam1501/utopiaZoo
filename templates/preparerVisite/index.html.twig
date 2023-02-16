@@ -25,7 +25,6 @@
 
   <body class="bg-light">
 
-
   <div class="row">
     <div class="col-md-4 order-md-2 mb-4">
       <h4 class="d-flex justify-content-between align-items-center mb-3">
@@ -67,6 +66,8 @@
         </li>
       </ul>
 
+
+
       <form class="card p-2">
         <div class="input-group">
           <input type="text" class="form-control" placeholder="Promo code">
@@ -75,51 +76,26 @@
           </div>
         </div>
       </form>
+
     </div>
+
+    {% for program in programmes %}
+
+    {% endfor %}
 
     <div class="col-md-8 order-md-1">
       <link rel="stylesheet" type="text/css" href="{{ asset('assets/homepage-style.css') }}">
+      {% for programme in programmes %}
       <div class="text_menu">
         <div class="row">
-          <div class="col-sm-8">col-sm-8</div>
+          <div class="col-sm-8">{{ programme.id }}</div>
           <div class="col-sm-4">col-sm-4</div>
         </div>
         <div class="row">
           <div class="col">col-sm-8</div>
         </div>
       </div>
-      <div class="text_menu">
-        <div class="row">
-          <div class="col-sm-8">col-sm-8</div>
-          <div class="col-sm-4">col-sm-4</div>
-        </div>
-        <div class="row">
-          <div class="col">col-sm-8</div>
-        </div>
-
-      </div>
-      <div class="text_menu">
-        <div class="row">
-          <div class="col-sm-8">col-sm-8</div>
-          <div class="col-sm-4">col-sm-4</div>
-        </div>
-        <div class="row">
-          <div class="col">col-sm-8</div>
-        </div>
-
-      </div>
-      <div class="text_menu">
-        <div class="row">
-          <div class="col-sm-8">col-sm-8</div>
-          <div class="col-sm-4">col-sm-4</div>
-        </div>
-        <div class="row">
-          <div class="col">col-sm-8</div>
-        </div>
-
-      </div>
-
-
+      {% endfor %}
 
 
 
