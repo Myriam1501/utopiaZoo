@@ -1,0 +1,124 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block body %}
+<style>
+    body{
+        margin:0;
+        padding:0;
+        font-family: "Times New Roman";
+        background: url("https://zupimages.net/up/22/17/hi86.jpg") no-repeat center center;
+        height: 100vh;
+        background-size: cover;
+    }
+    .inscri{
+        width: 450px;
+        position: absolute;
+        top: 70%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        color: white;
+        background-color: rgba(0,0,0,0.5);
+        padding: 0rem 2rem 3rem;
+    }
+    .inscri h1{
+        float: left;
+        font-size: 2.7rem;
+        border-bottom: 4px solid white;
+        margin-bottom: 2rem;
+        padding: 0.3rem 0;
+    }
+    .txt{
+        width: 100%;
+        overflow: hidden;
+        font-size: 1rem;
+        padding: 0rem 0;
+        margin: 0.5rem 0;
+        border-bottom: 1px solid white;
+    }
+    .txt i{
+        width: 1.6rem;
+        float: left;
+        text-align: center;
+    }
+    .txt input{
+        border: none;
+        outline: none;
+        background: none;
+        color: white;
+        font-size: 1.1rem;
+        width: 80%;
+        float: left;
+        margin: 0 10px;
+    }
+    .Submit{
+        width: 100%;
+        background: none;
+        border: 1px solid white;
+        color: white;
+        padding: 5px;
+        font-size: 1rem;
+        margin: 24px 0 12px;
+        cursor: pointer;
+    }
+    .con{
+        color: white;
+    }
+</style>
+{% include 'fragments/header.html.twig' %}
+    <form id="myForm" action="" method="post">
+        {{ form_start(registrationForm)}}
+        <div class="inscri">
+            <h4> Inscrivez vous pour savoir plus d'information sur notre Zoo </h4>
+            <hr>
+            <i class="fas fa-mail-bulk"></i>
+            {{ form_label(registrationForm.email) }}
+            <div class="txt">
+                <span id="vmail"></span>
+                {{ form_widget(registrationForm.email) }}
+            </div>
+
+            <i class="fas fa-user"></i>
+            {{ form_label(registrationForm.name) }}
+            <div class="txt">
+                <span id="vnom"></span>
+                {{ form_widget(registrationForm.name) }}
+            </div>
+
+            <i class="fas fa-user"></i>
+            {{ form_label(registrationForm.first_name) }}
+            <div class="txt">
+                <span id="vprénom"></span>
+                {{ form_widget(registrationForm.first_name) }}
+            </div>
+
+            <i class="fas fa-unlock-alt"></i>
+            {{ form_label(registrationForm.passWord) }}
+            <div class="txt">
+                <span id="vpassword"></span>
+                {{ form_widget(registrationForm.passWord) }}
+            </div>
+
+            <i class="fas fa-unlock-alt"></i>
+            {{ form_label(registrationForm.address) }}
+            <div class="txt">
+                <span id="vadresse"></span>
+                {{ form_widget(registrationForm.address) }}
+            </div>
+
+            <button type="submit" class="Submit"> Inscrivez-vous </button></td>
+
+            <p align="center"> En vous inscrivant, vous acceptez nos Conditions générales.
+                Découvrez comment nous recueillons, utilisons et partageons
+                vos données en lisant notre Politique d’utilisation des données
+                et comment nous utilisons les cookies et autres technologies
+                similaires en consultant notre Politique d’utilisation des cookies.</p>
+            <hr>
+            <p align="center"> <a href="" class="con"> Vous avez un compte ? </a> <a href="" class="con"> Connectez-vous </a> </p>
+        </div>
+        {{ form_end(registrationForm) }}
+    </form>
+    <script src="https://kit.fontawesome.com/3ea0bb51d0.js"></script>
+
+{% endblock %}

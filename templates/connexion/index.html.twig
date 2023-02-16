@@ -77,6 +77,15 @@
 
 </style>
     <form id="connexionForm" action="" method="post">
+        {% if error %}
+            <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+        {% endif %}
+        {{ if app.user }}
+            <div class="mb-3">
+                Vous êtes connecté(e) comme {{ app.user.name }}, <a href="{{ path ('app_logout') }}">Me Déconnecter</a>
+            </div>
+        {% endif %}
+
         <div class="login-box">
             <h1> Login </h1>
             <div class="txt-box">
@@ -91,8 +100,8 @@
             </div>
             <table>
                 <tr>
-                    <td> <input type="reset" class="submit-box" value="Effacer" name="effacer">
-                        <button type="submit" class="submit-box"> Entrer </button></td>
+                    <td> <input type="reset" class="submit-box" value="{{ Effacer }}" name="effacer">
+                        <button type="submit" class="submit-box"> Connecter </button></td>
                 </tr>
             </table>
             <div class="txt-box">
