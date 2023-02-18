@@ -27,17 +27,17 @@ class PaymentController extends AbstractController
         ]);
     }
 
-    #[Route('/payment/pdf/{amount}', name: 'app_payment_pdf', methods: ['GET', 'POST'])]
-    public function generatePdf(string $amount,PdfService $pdf): Response
+    #[Route('/payment/pdf/pdf', name: 'app_payment_pdf')]
+    public function generatePdf(PdfService $pdf): Response
     {
 
-        $html = $this->render('jeu7/index.html.twig', [
-            'controller_name' => 'Jeu7Controller',
+        $html = $this->render('reservation_pdf/index.html.twig', [
+            'controller_name' => 'ReservationPDFController',
         ]);
         $pdf->showPdfFile($html);
 
-        return $this->render('jeu7/index.html.twig', [
-            'controller_name' => 'Jeu7Controller',
+        return $this->render('reservation_pdf/index.html.twig', [
+            'controller_name' => 'ReservationPDFController',
         ]);
     }
 }

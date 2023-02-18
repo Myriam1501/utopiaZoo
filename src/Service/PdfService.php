@@ -4,20 +4,15 @@
 namespace App\Service;
 
 use Dompdf\Dompdf;
+use \App\Service\Options;
 
-class PdfService
+class PdfService extends Dompdf
 {
     private $domPdf;
 
-    public function _construct() {
+    public function __construct($config = array()) {
+        parent::__construct($config);
         $this->domPdf =new DomPdf();
-
-        $pdfOptions = new Options();
-
-        $pdfOptions->set('defaultFont', 'Garamond');
-
-        $this->domPdf->setOptions($pdfOptions);
-
     }
 
     public function showPdfFile($html) {
