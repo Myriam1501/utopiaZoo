@@ -38,9 +38,9 @@
             position: relative;
 
             background:
-                    linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
+                    linear-gradient(217deg, rgba(190,225,87,.8), rgba(255,0,0,0) 70.71%),
                     linear-gradient(127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
-                    linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
+                    linear-gradient(336deg, rgba(213,245,206,.8), rgba(0,0,255,0) 70.71%);
 
 
         }
@@ -50,8 +50,8 @@
             position: absolute;
             left: -2px;
             top: -2px;
-            background: linear-gradient(45deg, #fb0094, #0000ff, #00ff00,#ffff00, #ff0000, #fb0094,
-            #0000ff, #00ff00,#ffff00, #ff0000);
+            background: linear-gradient(45deg, #BEDEA4, #CCE3B9, #62AB6B,#64AAAD, #ff0000, #fb0094,
+            #CEF5E4, #EFE5DB,#EBE4DC, #E4EFDB);
             background-size: 400%;
             width: calc(100% + 4px);
             height: calc(100% + 4px);
@@ -84,7 +84,7 @@
         .button {
             padding: 15px 100px;
             margin: 10px 4px;
-            color: #eee;
+            color: #000000;
             font-family: sans-serif;
             text-transform: uppercase;
             text-align: center;
@@ -206,6 +206,7 @@
                         let p1=document.getElementById(id);
                         if(p1.getAttribute('src')!=="http://utopiazoo.local/taquin/cardBack.jpg"){
                             if(p1.getAttribute('src')!=="http://utopiazoo.local/taquin/IMG_2525.jpg"){
+
                                 $(p1).attr('src',"http://utopiazoo.local/taquin/cardBack.jpg");
                             }
                         }
