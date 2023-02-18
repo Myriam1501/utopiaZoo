@@ -42,7 +42,7 @@
                     if(result.errors){
                         document.getElementById("errors").innerText=result.error.message
                     }else{
-                        alert("paiement réussi");
+                        document.location.href="{{ path('app_payment_pdf', {amount: '30', name: 'GHULAM', prenom: 'Meryam', date:'23-02-2023'}) }}";
                     }
                 })
             })
