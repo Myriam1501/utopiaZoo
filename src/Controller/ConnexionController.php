@@ -11,6 +11,12 @@ class ConnexionController extends AbstractController
     #[Route('/connexion', name: 'app_connexion')]
     public function index(): Response
     {
+        $email = null;
+        if (!empty($_POST['Email'])) {
+            setcookie('email', $_POST['Email']);
+            $email = $_POST['email'];
+        }
+
         return $this->render('connexion/index.html.twig', [
             'controller_name' => 'ConnexionController',
         ]);
