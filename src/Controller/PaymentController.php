@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Service\PdfService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -23,6 +24,20 @@ class PaymentController extends AbstractController
             'controller_name' => 'PaymentController',
             'amount' => $amount,
             'intent' => $intent
+        ]);
+    }
+
+    #[Route('/payment/pdf/{amount}', name: 'app_payment_pdf', methods: ['GET', 'POST'])]
+    public function generatePdf(string $amount,PdfService $pdf): Response
+    {
+
+        $html = $this->render('jeu7/index.html.twig', [
+            'controller_name' => 'Jeu7Controller',
+        ]);
+        $pdf->showPdfFile($html);
+
+        return $this->render('jeu7/index.html.twig', [
+            'controller_name' => 'Jeu7Controller',
         ]);
     }
 }
