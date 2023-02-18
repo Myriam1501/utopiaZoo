@@ -8,13 +8,13 @@ function Valid(){
         str=str+"_ ";
     }
     rep.textContent=str;
-    document.getElementById("entry").style.display = "none";
-    document.getElementById("letter").style.display = "block";
-    document.getElementById("verif").style.display = "block";
-    document.getElementById("penduimg").style.display = "block";
-    document.getElementById("lettreErr").style.display = "block";
-    document.getElementById("count").style.display = "block";
-    document.getElementById("rep").style.display = "block";
+    document.getElementById("entry").style.opacity = "0";
+    document.getElementById("letter").style.opacity = "1";
+    document.getElementById("verif").style.opacity = "1";
+    document.getElementById("penduimg").style.opacity = "1";
+    document.getElementById("lettreErr").style.opacity = "1";
+    document.getElementById("count").style.opacity = "1";
+    document.getElementById("rep").style.opacity = "1";
 }
 
 
@@ -42,9 +42,9 @@ function Corec() {
         if(larep.textContent.indexOf('_')==-1){
             let ding = new Audio('https://universal-soundbank.com/sounds/3672.mp3');
             ding.play();
-            document.getElementById("letter").style.display = "none";
-            document.getElementById("verif").style.display = "none";
-            document.getElementById("retry").style.display = "block";
+            document.getElementById("letter").style.opacity = "0";
+            document.getElementById("verif").style.opacity = "0";
+            document.getElementById("retry").style.opacity = "1";
             document.body.style.backgroundColor="green";
         }
     }else{
@@ -90,12 +90,12 @@ function erreur(err){
         document.getElementById("penduimg").style.animationName="clignoter";
         document.body.style.animationName="clignoter";
         document.body.style.backgroundColor="red";
-        document.getElementById("letter").style.display = "none";
-        document.getElementById("verif").style.display = "none";
-        document.getElementById("retry").style.display = "block";
+        document.getElementById("letter").style.opacity = "0";
+        document.getElementById("verif").style.opacity = "0";
+        document.getElementById("retry").style.opacity = "1";
         let displayResult=document.getElementById("result");
         displayResult.textContent="La réponse étais :"+displayResult.textContent;
-        document.getElementById("result").style.display="block";
+        document.getElementById("result").style.opacity="1";
     }
     $("#penduimg").attr('src', source);
 }
