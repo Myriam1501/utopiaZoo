@@ -1,7 +1,32 @@
 {% block body %}
-<h1>Reservation réussi</h1>
- <H2> {{ nom }}</H2>
-<h2>{{ prenom }}</h2>
-  <h2>{{ date }}</h2>
-  <h2>{{ amount }}</h2>
+    <style>
+
+        #conteneur{
+            align-items: center;
+            margin-left: 250px;
+            margin-bottom: 100px;
+            margin-right: 250px;
+            margin-top: 100px;
+            text-align: center;
+            border-radius: 50px;
+            box-shadow: 0 20px 20px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(217deg, rgba(190, 225, 87, .8), rgba(255, 0, 0, 0) 70.71%),
+            linear-gradient(127deg, rgba(0, 255, 0, .8), rgba(0, 255, 0, 0) 70.71%),
+            linear-gradient(336deg, rgba(213, 245, 206, .8), rgba(0, 0, 255, 0) 70.71%);
+        }
+        h2{
+          color: #62AB6B;
+        }
+    </style>
+
+    <div id="conteneur">
+        <h1>Reservation pour le {{ date }}</h1>
+        <H2>Concernant : {{ nom }} {{ prenom }}</H2>
+        <h2>Prix de la réservation : {{ amount }} €</h2>
+        <h2>ID réservation : 1234567890</h2>
+        <h3>Utopiazoo vous souhaite la bienvenue au paradis des amoureux de la nature et des animaux, où vous pourrez découvrir une incroyable variété d'espèces exotiques dans un environnement unique et fascinant.</h3>
+    </div>
+
+
+
 {% endblock %}
