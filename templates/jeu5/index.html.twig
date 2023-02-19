@@ -203,6 +203,12 @@
                     document.getElementById("letter").style.opacity = "0";
                     document.getElementById("verif").style.opacity = "0";
                     document.getElementById("retry").style.opacity = "1";
+                    document.getElementById("count").style.display="none";
+                    document.getElementById("lettreErr").style.display="none";
+                    document.getElementById("penduimg").style.display="none";
+                    document.getElementById("verif").style.display="none";
+                    document.getElementById("letter").style.display="none";
+                    document.getElementById("entry").style.display="none";
                     document.body.style.backgroundColor="green";
                 }
             }else{
@@ -257,6 +263,10 @@
                 document.getElementById("rep").style.display="none";
                 document.getElementById("count").style.display="none";
                 document.getElementById("lettreErr").style.display="none";
+                document.getElementById("penduimg").style.display="none";
+                document.getElementById("verif").style.display="none";
+                document.getElementById("letter").style.display="none";
+                document.getElementById("entry").style.display="none";
             }
             $("#penduimg").attr('src', source);
         }
@@ -266,16 +276,17 @@
         }
     </script>
     <div class="game">
+        <br>
         <h1 id="result">{{ animalName }}</h1>
         <input id="entry" class="button" onclick="Valid()" value="Commencer la partie"><br>
         <input type="text" class="button" id="letter" value="" placeholder="saisir une lettre">
-        <input type="button" class="button" id="verif" onclick="Corec()" value="Verifie rep"><br>
+        <input type="button" class="button" id="verif" onclick="Corec()" value="Vérifier la lettre"><br>
         <input type="button" class="button" id="retry" onclick="playAgain()" value="recommencer">
         <h1 id="rep">futur rep</h1>
         <h1 id="count">0</h1>
         <p id="lettreErr">mot : </p>
         <img id="penduimg" src="{{asset('IMG/pendu_0.jpg')}}">
-
+<br>
 
     </div>
 {% endblock %}

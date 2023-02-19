@@ -28,7 +28,7 @@ class PaymentController extends AbstractController
     public function generatePdf(string $amount,string $name,string $prenom,string $date,PdfService $pdf): Response
     {
 
-        $html = $this->render('reservation_pdf/index.html.twig', [
+        $html = $this->render('fragments/reservation.html.twig', [
             'controller_name' => 'ReservationPDFController',
             'nom' => $name,
             'prenom' => $prenom,

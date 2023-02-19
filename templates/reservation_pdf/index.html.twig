@@ -1,32 +1,91 @@
+{% extends 'base.html.twig' %}
 {% block body %}
     <style>
-
-        #conteneur{
-            align-items: center;
-            margin-left: 250px;
-            margin-bottom: 100px;
-            margin-right: 250px;
-            margin-top: 100px;
+        .wrapper {
+            margin: 10px auto;
             text-align: center;
-            border-radius: 50px;
-            box-shadow: 0 20px 20px rgba(0, 0, 0, 0.3);
-            background: linear-gradient(217deg, rgba(190, 225, 87, .8), rgba(255, 0, 0, 0) 70.71%),
-            linear-gradient(127deg, rgba(0, 255, 0, .8), rgba(0, 255, 0, 0) 70.71%),
-            linear-gradient(336deg, rgba(213, 245, 206, .8), rgba(0, 0, 255, 0) 70.71%);
+            width: 100%;
+            position: relative;
         }
-        h2{
-          color: #62AB6B;
+        .button {
+            padding: 15px 50px;
+            margin: 10px 4px;
+            font-family: sans-serif;
+            text-transform: uppercase;
+            text-align: center;
+            position: relative;
+            text-decoration: none;
+            display: inline-block;
+            border: 1px solid;
+            background-color: #94b398;
         }
+        .button::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: block;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            -webkit-transform: scaleY(0.1);
+            transform: scaleY(0.1);
+            transition: all 0.4s;
+        }
+        .button:hover {
+            color: seagreen;
+        }
+        .button:hover::before {
+            opacity: 1;
+            background-color: #15251A;
+            -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+            transition: -webkit-transform 0.6s cubic-bezier(0.08, 0.35, 0.13, 1.02), opacity 0.4s;
+            transition: transform 0.6s cubic-bezier(0.08, 0.35, 0.13, 1.02), opacity;
+        }
+
+        .button:before, .button:after {
+            content: '';
+            position: absolute;
+            left: -2px;
+            top: -2px;
+            background: linear-gradient(45deg, #fb0094, #0000ff, #00ff00,#ffff00, #ff0000, #fb0094,
+            #0000ff, #00ff00,#ffff00, #ff0000);
+            background-size: 400%;
+            width: calc(100% + 4px);
+            height: calc(100% + 4px);
+            z-index: -1;
+            animation: steam 20s linear infinite;
+        }
+
+        @keyframes steam {
+            0% {
+                background-position: 0 0;
+            }
+            50% {
+                background-position: 400% 0;
+            }
+            100% {
+                background-position: 0 0;
+            }
+        }
+
+        .button:after {
+            filter: blur(50px);
+        }
+
     </style>
+    <script>
 
-    <div id="conteneur">
-        <h1>Reservation pour le {{ date }}</h1>
-        <H2>Concernant : {{ nom }} {{ prenom }}</H2>
-        <h2>Prix de la réservation : {{ amount }} €</h2>
-        <h2>ID réservation : 1234567890</h2>
-        <h3>Utopiazoo vous souhaite la bienvenue au paradis des amoureux de la nature et des animaux, où vous pourrez découvrir une incroyable variété d'espèces exotiques dans un environnement unique et fascinant.</h3>
+        function upload() {
+            document.location.href="{{ path('app_payment_pdf', {amount: '30', name: 'GHULAM', prenom: 'Meryam', date:'23-02-2023'}) }}";
+        }
+    </script>
+
+    {% include 'fragments/reservation.html.twig' %}
+    <div class="wrapper">
+        <span class="button" onclick="upload()">Télécharger le billet</span>
     </div>
-
-
+    <br><br><br>
 
 {% endblock %}
