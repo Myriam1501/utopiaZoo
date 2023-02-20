@@ -2,24 +2,26 @@
 
 namespace App\Form;
 
-use App\Entity\Programme;
+use App\Entity\Program;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class ProgrammeType extends AbstractType
+class ProgramType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('titre_programme')
+            ->add('title')
             ->add('date_deb')
             ->add('date_fin')
-            ->add('description_programme')
-            ->add('age_minim_prog')
+            ->add('description_program')
+            ->add('age_min')
             ->add('pictureDecoPath')
-            ->add('timer_programmer')
+            ->add('timer_program')
+            ->add('price')
+            ->add('price_reduce')
             ->add('submit', SubmitType::class)
         ;
     }
@@ -27,7 +29,7 @@ class ProgrammeType extends AbstractType
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => Programme::class,
+            'data_class' => Program::class,
         ]);
     }
 }

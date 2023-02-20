@@ -147,4 +147,11 @@ class Account
         return $this;
     }
 
+    public function setDateInscription(\DateTimeImmutable $Date_Inscription): self
+    {
+        $this->Date_Inscription = $Date_Inscription;
+
+        return $this;
+    }
+
 }

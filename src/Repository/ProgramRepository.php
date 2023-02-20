@@ -2,26 +2,26 @@
 
 namespace App\Repository;
 
-use App\Entity\Programme;
+use App\Entity\Program;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<Programme>
+ * @extends ServiceEntityRepository<Program>
  *
- * @method Programme|null find($id, $lockMode = null, $lockVersion = null)
- * @method Programme|null findOneBy(array $criteria, array $orderBy = null)
- * @method Programme[]    findAll()
- * @method Programme[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Program|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Program|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Program[]    findAll()
+ * @method Program[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class ProgrammeRepository extends ServiceEntityRepository
+class ProgramRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Programme::class);
+        parent::__construct($registry, Program::class);
     }
 
-    public function save(Programme $entity, bool $flush = false): void
+    public function save(Program $entity, bool $flush = false): void
     {
         $this->getEntityManager()->persist($entity);
 
@@ -30,7 +30,7 @@ class ProgrammeRepository extends ServiceEntityRepository
         }
     }
 
-    public function remove(Programme $entity, bool $flush = false): void
+    public function remove(Program $entity, bool $flush = false): void
     {
         $this->getEntityManager()->remove($entity);
 
@@ -40,7 +40,7 @@ class ProgrammeRepository extends ServiceEntityRepository
     }
 
 //    /**
-//     * @return Programme[] Returns an array of Programme objects
+//     * @return Program[] Returns an array of Program objects
 //     */
 //    public function findByExampleField($value): array
 //    {
@@ -54,7 +54,7 @@ class ProgrammeRepository extends ServiceEntityRepository
 //        ;
 //    }
 
-//    public function findOneBySomeField($value): ?Programme
+//    public function findOneBySomeField($value): ?Program
 //    {
 //        return $this->createQueryBuilder('p')
 //            ->andWhere('p.exampleField = :val')

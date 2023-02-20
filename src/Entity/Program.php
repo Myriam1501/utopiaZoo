@@ -2,14 +2,12 @@
 
 namespace App\Entity;
 
-use App\Repository\ProgrammeRepository;
+use App\Repository\ProgramRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
-#[ORM\Entity(repositoryClass: ProgrammeRepository::class)]
-#[UniqueEntity('titre_programme')]
-class Programme
+#[ORM\Entity(repositoryClass: ProgramRepository::class)]
+class Program
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -17,25 +15,25 @@ class Programme
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $titre_programme = null;
+    private ?string $title = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $date_deb = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $date_fin = null;
 
     #[ORM\Column(length: 255, nullable: true)]
-    private ?string $description_programme = null;
+    private ?string $description_program = null;
 
     #[ORM\Column(nullable: true)]
-    private ?int $age_minim_prog = null;
+    private ?int $age_min = null;
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $pictureDecoPath = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
-    private ?string $timer_programmer = null;
+    #[ORM\Column(type: Types::TIME_MUTABLE, nullable: true)]
+    private ?\DateTimeInterface $timer_program = null;
 
     #[ORM\Column]
     private ?\DateTimeImmutable $createdAt = null;
@@ -45,6 +43,13 @@ class Programme
 
     #[ORM\Column(nullable: true)]
     private ?\DateTimeImmutable $deletedAt = null;
+
+    #[ORM\Column]
+    private ?int $price = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?int $price_reduce = null;
+
 
     public function __construct()
     {
@@ -57,14 +62,14 @@ class Programme
         return $this->id;
     }
 
-    public function getTitreProgramme(): ?string
+    public function getTitle(): ?string
     {
-        return $this->titre_programme;
+        return $this->title;
     }
 
-    public function setTitreProgramme(string $titre_programme): self
+    public function setTitle(string $title): self
     {
-        $this->titre_programme = $titre_programme;
+        $this->title = $title;
 
         return $this;
     }
@@ -93,26 +98,26 @@ class Programme
         return $this;
     }
 
-    public function getDescriptionProgramme(): ?string
+    public function getDescriptionProgram(): ?string
     {
-        return $this->description_programme;
+        return $this->description_program;
     }
 
-    public function setDescriptionProgramme(?string $description_programme): self
+    public function setDescriptionProgram(?string $description_program): self
     {
-        $this->description_programme = $description_programme;
+        $this->description_program = $description_program;
 
         return $this;
     }
 
-    public function getAgeMinimProg(): ?int
+    public function getAgeMin(): ?int
     {
-        return $this->age_minim_prog;
+        return $this->age_min;
     }
 
-    public function setAgeMinimProg(?int $age_minim_prog): self
+    public function setAgeMin(?int $age_min): self
     {
-        $this->age_minim_prog = $age_minim_prog;
+        $this->age_min = $age_min;
 
         return $this;
     }
@@ -129,14 +134,14 @@ class Programme
         return $this;
     }
 
-    public function getTimerProgrammer(): ?string
+    public function getTimerProgram(): ?\DateTimeInterface
     {
-        return $this->timer_programmer;
+        return $this->timer_program;
     }
 
-    public function setTimerProgrammer(string $timer_programmer): self
+    public function setTimerProgram(?\DateTimeInterface $timer_program): self
     {
-        $this->timer_programmer = $timer_programmer;
+        $this->timer_program = $timer_program;
 
         return $this;
     }
@@ -173,6 +178,30 @@ class Programme
     public function setDeletedAt(?\DateTimeImmutable $deletedAt): self
     {
         $this->deletedAt = $deletedAt;
+
+        return $this;
+    }
+
+    public function getPrice(): ?int
+    {
+        return $this->price;
+    }
+
+    public function setPrice(int $price): self
+    {
+        $this->price = $price;
+
+        return $this;
+    }
+
+    public function getPriceReduce(): ?int
+    {
+        return $this->price_reduce;
+    }
+
+    public function setPriceReduce(?int $price_reduce): self
+    {
+        $this->price_reduce = $price_reduce;
 
         return $this;
     }
