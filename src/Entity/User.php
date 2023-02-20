@@ -33,8 +33,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $name = null;
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $address = null;
+
     #[ORM\Column(type: 'string', length: 100, nullable: true)]
-    private $resetToken;
+    private ?string $resetToken;
 
     #[ORM\Column(nullable: false)]
     private ?\DateTimeImmutable $date_inscription = null;
@@ -49,6 +50,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $password = null;
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: Reservation::class)]
     private Collection $reservations;
+
+    #[ORM\Column]
+    private ?bool $Check_email = false;
 
     public function __construct()
     {
@@ -117,13 +121,16 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
-    public function  getResetTaken(): ?string{
+
+    public function getResetTaken(): ?string{
         return  $this->resetToken;
     }
-    public function setResetTaken(?string $resettaken): self{
+    public function setResetToken(?string $resettaken): self{
         $this->resetToken = $resettaken;
         return $this;
     }
+
+
 
     /**
      * A visual identifier that represents this user.
@@ -180,6 +187,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\PrePersist]
     public function setDate_Inscription():void{
         $this->date_inscription =new \DateTimeImmutable();
+    }
+
+    public function isCheckEmail(): ?bool
+    {
+        return $this->Check_email;
+    }
+
+    public function setCheckEmail(bool $Check_email): self
+    {
+        $this->Check_email = $Check_email;
+
+        return $this;
     }
 }
 

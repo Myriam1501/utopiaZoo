@@ -17,8 +17,17 @@
     </head>
     <body>
     {% include 'fragments/header.html.twig' %}
-        {% block body %}
-        {% endblock %}
+    {% if app.user and app.user.isCheckEmail == false %}
+    <div class="alert alert-warning alert-dismissible" role="alert">
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        <div class="alert-message">
+            <strong>Votre compte n'est pas activé </strong>, renvoyer le lien d'activation.
+        </div>
+    </div>
+    {% endif %}
+    {% block body %}
+
+    {% endblock %}
     {% include 'fragments/footer.html.twig' %}
 
     </body>

@@ -2,12 +2,15 @@
 
 namespace App\Controller;
 
+use App\Form\ResetPasswordForm;
 use App\Form\ResetPasswordRequestFormType;
 use App\Repository\UserRepository;
+use App\Service\SendMailService;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Security\Csrf\TokenGenerator\TokenGeneratorInterface;
@@ -46,7 +49,8 @@ class SecurityController extends AbstractController
         Request $request,
         UserRepository $repository,
         TokenGeneratorInterface $tokenGenerator,
-        EntityManagerInterface $entityManager
+        EntityManagerInterface $entityManager,
+        SendMailService $mailService
     ): Response
     {
         $form = $this->createForm(ResetPasswordRequestFormType::class);
@@ -62,7 +66,19 @@ class SecurityController extends AbstractController
 
                 $url = $this->generateUrl('reset_pass', ['token'=>$token],
                     UrlGeneratorInterface::ABSOLUTE_URL);
-                dd($url);
+                $context = compact('url', 'user');
+
+                // Envoyer un mail
+                $mailService->send(
+                    'no-reply-check-mail@utopiazoo.fr',
+                    $user->getEmail(),
+                    'Réinitialisation votre mot de passe de votre compte sur le site UtopiaZoo',
+                    'password_reset',
+                    $context
+                );
+                $this->addFlash('success', 'Email envoyé avec succès');
+
+                return $this->redirectToRoute('app_login');
 
             }
             $this->addFlash('danger', 'Un problème est survenu !  ');
@@ -74,8 +90,39 @@ class SecurityController extends AbstractController
     }
 
     #[Route(path: '/oublipass/{token}', name: 'reset_pass')]
-    public function reset():Response
+    public function reset(
+        string $token,
+        Request $request,
+        UserRepository $userRepository,
+        EntityManagerInterface $entityManager,
+        UserPasswordHasherInterface $userPasswordHasher
+    ):Response
     {
+        $user = $userRepository->findOneByResetToken($token);
+        if ($user){
+            $form = $this->createForm(ResetPasswordForm::class);
 
+            $form ->handleRequest($request);
+            if($form->isSubmitted() && $form ->isValid()){
+                $user->setResetToken('');
+                $user->setPassword(
+                    $userPasswordHasher->hashPassword(
+                    $user,
+                    $form->get('passWord')->getData()
+                    )
+                );
+                $entityManager->persist($user);
+                $entityManager->flush();
+                $this->addFlash('success', 'Password changé avec succès');
+                return $this->redirectToRoute('app_login');
+            }
+
+            return $this->render('passeword_forget/reset_pass.html.twig',[
+                'Passform' => $form->createView()
+            ]);
+
+        }
+        $this->addFlash('danger', 'Un problème est survenu ! ');
+        return $this->redirectToRoute('app_login');
     }
 }
