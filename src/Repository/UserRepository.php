@@ -52,8 +52,8 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
         }
 
         $user->setPassword($newHashedPassword);
-
-        $this->save($user, true);
+        $this->_em->persist($user);
+        $this->_em->flush();
     }
 
 //    /**
@@ -80,4 +80,5 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
 //            ->getOneOrNullResult()
 //        ;
 //    }
+
 }
