@@ -1,149 +1,151 @@
 {% extends 'base.html.twig' %}
-
 {% block title %}Hello HomepageController!{% endblock %}
 
 {% block body %}
-<style>
-    body{
-        background-color:#eee
-    }
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/homepage-style.css') }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width-device-width, intiale-scale=1.0">
+        <meta charset="utf-8"/>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script type="text/javascript" >
+            const threshold = .1
+            const options = {
+                root: null,
+                rootMargin: '0px',
+                threshold
+            }
 
-    .wrap
-    {
-        margin:50px auto 0 auto;
-        width:100%;
-        display:flex;
-        align-items:space-around;
-        max-width:1200px;
-    }
-    .tile
-    {
-        width:410px;
-        height:380px;
-        margin:10px;
-        background-color: black;
-        display:inline-block;
-        background-size:cover;
-        position:relative;
-        cursor:pointer;
-        transition: all 0.5s ease-out;
-        box-shadow: 20px 60px 77px -17px rgba(0,0,0,0.44);
-        overflow:hidden;
-        color:white;
-        font-family:'Hoefler Text';
+            const handleIntersect = function (entries, observer) {
+                entries.forEach(function (entry) {
+                    if (entry.intersectionRatio > threshold){
+                        entry.target.classList.remove('appear')
+                        observer.unobserve(entry.target)
+                    }
+                })
+            }
 
-    }
-    .tile img
-    {
-        height:100%;
-        width:100%;
-        position:absolute;
-        top:0;
-        left:0;
-        z-index:0;
-        transition: all 0.4s ease-out;
-    }
-    .tile .text
-    {
-        position:absolute;
-        padding:50px;
-        height:calc(100% - 60px);
-    }
-    .lien{
-        color: white;
-    }
-    .tile h1
-    {
+            document.documentElement.classList.add('appear-loaded')
+            window.addEventListener("DOMContentLoaded", function () {
+                const observer = new IntersectionObserver(handleIntersect, options)
+                const targets = document.querySelectorAll('.appear')
+                targets.forEach(function (target) {
+                    observer.observe(target)
+                })
+            })
 
-        font-weight:300;
-        margin:0;
-        text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
-    }
-    .tile h2
-    {
-        font-weight:100;
-        margin:20px 0 0 0;
-        font-style:italic;
-        transform: translateX(200px);
-    }
-    .tile p
-    {
-        position: absolute;
-        top: 90%;
-        left: 60%;
-        font-weight:300;
-        margin:20px 0 0 0;
-        line-height: 25px;
-        transform: translateX(-200px);
-        transition-delay: 0.2s;
-    }
-    .animate-text
-    {
-        opacity:0;
-        transition: all 0.6s ease-in-out;
-        color: white;
-    }
-    .tile:hover
-    {
-        box-shadow: 0px 35px 77px -17px rgba(0,0,0,0.64);
-        transform:scale(1.05);
-    }
-    .tile:hover img
-    {
-        opacity: 0.4;
-        cursor:pointer;
+            var counter=1;
+            setInterval(function(){
+                document.getElementById('radio'+ counter).checked=true;
+                counter++;
+                if(counter>4){
+                    counter=1;
+                }
+            },5000);
 
-    }
-    .tile:hover .animate-text
-    {
-        transform:translateX(0);
-        opacity:1;
-    }
+        </script>
+    </head>
+    <body>
+    <section class="menu_section">
+        <h1 class ="sous_titre">Qui sommes-nous ?</h1>
+        <p class="text_menu">Fondé en 1946, Utopiazoo fut le premier zoo privé à voir le jour en France. Près d’un siècle plus tard, il se distingue toujours et fait partie des 5 premiers parcs zoologiques français en nombre de visiteurs. Au travers de la qualité de ses installations et le travail de ses équipes, le parc porte toute son attention et ses efforts au développement du bien-être des animaux et à l’accueil des visiteurs.
+            <br><br><br>Chaque jour, ses équipes mettent tout en œuvre pour faire du Zoo un espace de convivialité en perpétuelle évolution, dans le respect de ses pensionnaires. Cet engagement se caractérise notamment au travers de quatre missions clés : l’éducation du public, sa distraction grâce à des animations novatrices et porteuses de sens pour les animaux, mais également la conservation des espèces, et la recherche in situ et ex situ. Ces deux derniers points s’avèrent fondamentaux lorsque l’on connaît les nombreuses menaces qui pèsent aujourd’hui sur le vivant : dégradation du milieu naturel, déforestation, pollution, compétition pour l’espace vital et les ressources alimentaires, chasse, braconnage et trafic.</p>
+        <!--</section>-->
 
-    .sous_titre{
-        margin:50px auto 0 auto;
-        max-width:1200px;
-        font-family: "Hoefler Text";
-        font-size: 40px;
-        color: black;
-    }
-</style>
+        <div class="sous_titre">
+            Au programme
+        </div>
+        <div class="wrap">
 
-<div class="sous_titre">
-    Au programme
-</div>
-<div class="wrap">
-    <div class="tile">
-        <img src='https://zupimages.net/up/21/49/u5nx.jpg'/>
-        <div class="text">
-            <h1><a href="animal.php" class="lien"> PROTEGER LA VIE SAUVAGE</a></h1>
-            <h2 class="animate-text"> </h2>
-            <p class="animate-text">---- Savoir Plus</p>
+            <div class="tile">
+                <a href="{{path('app_protect_wildlife')}}" class="lien">
+                    <img src='https://zupimages.net/up/21/49/u5nx.jpg'/>
+                    <div class="text">
+                        <h1> PROTEGER LA VIE SAUVAGE</h1>
+                        <h2 class="animate-text"> </h2>
+                        <p class="animate-text">---- Savoir Plus</p>
+
+                    </div>
+                </a>
+            </div>
+
+            <div class="tile">
+                <a href="espace.php" class="lien">
+                    <img src='https://zupimages.net/up/21/49/riu6.jpg'/>
+                    <div class="text">
+                        <h1> DECOUVERT</h1>
+                        <h2 class="animate-text"> </h2>
+                        <p class="animate-text">---- Savoir Plus</p>
+
+                    </div>
+                </a>
+            </div>
+
+            <div class="tile">
+                <a href="especes.php" class="lien">
+                    <img src='https://zupimages.net/up/21/47/e11k.jpg'/>
+                    <div class="text">
+                        <h1> ESPACE JEUX </h1>
+                        <h2 class="animate-text"></h2>
+                        <p class="animate-text"> ---- Savoir Plus</p>
+
+                    </div>
+                </a>
+            </div>
 
         </div>
-    </div>
-    <div class="tile">
-        <img src='https://zupimages.net/up/21/47/e11k.jpg'/>
-        <div class="text">
-            <h1><a href="especes.php" class="lien">VIE DU ZOO  </a></h1>
-            <h2 class="animate-text"></h2>
-            <p class="animate-text"> ---- Savoir Plus</p>
 
-        </div>
-    </div>
-</div>
-    <div class="sous_titre">
-        Le Zoo et Les Animaux
-    </div>
-    <div class="wrap">
-    <div class="tile">
-        <img src='https://zupimages.net/up/21/49/riu6.jpg'/>
-        <div class="text">
-            <h1><a href="espace.php" class="lien"> DECOUVERT</a></h1>
-            <h2 class="animate-text"> </h2>
-            <p class="animate-text">---- Savoir Plus</p>
+        <!--<section class="menu_section">-->
+        <p class="text_menu">Achat de billets, accèder à l'espace jeux et découvrir nos animaux... Retrouvez sur ce site toutes les informations utiles pour votre prochaine visite au Utopiazoo.</p>
+        <video loop="infini" autoplay="autoplay" muted><source src="{{ asset('assets/videopub.mp4') }}" type="video/mp4" alt="video_plat"/></video>
+        <p class="text_menu">
+            La particularité d'utopiazoo c'est la diversité des espèces végétales qu’il abrite. Le décor végétal contribue naturellement au bien-être des animaux et indirectement à celui des visiteurs. Conscient des enjeux que représente la flore pour ses pensionnaires, le Zoo met l’accent sur sa préservation et compte parmi ses décors, plus de 800 espèces végétales, toutes soigneusement positionnées en fonction des ambiances recréées pour les animaux.</a>.</p>
 
+        <a href="menu.html" class="btn-menu">Réservation dès maintenant</a>
+        <div class="slider">
+            <div class="slides">
+                <input type="radio" name="radio-btn" id="radio1">
+                <input type="radio" name="radio-btn" id="radio2">
+                <input type="radio" name="radio-btn" id="radio3">
+                <input type="radio" name="radio-btn" id="radio4">
+
+                <div class="slide first">
+                    <img src="https://www.zoo-la-fleche.com/fileadmin/_processed_/e/6/csm_Zoo_de_la_Fle__che_2021_-_cre__dit__stevefanouillet__58__b94f928790.jpg" alt="slid1">
+                </div>
+                <div class="slide">
+                    <img src="https://www.sarthetourisme.com/wp-content/uploads/fly-images/15856/©-Maxime-Guillon-Sarthe-Tourisme-_-335-1920x1080-c.jpg" alt="slid2">
+                </div>
+                <div class="slide">
+                    <img src="https://www.programme-tv.net/imgre/fit/~2~program~a128177c22b3c74d7.jpg/630x355/quality/80/les-animaux-stars-des-zoos.jpg" alt="slid3">
+                </div>
+                <div class="slide">
+                    <img src="https://static.actu.fr/uploads/2019/12/credit-photo-vcorvasier-naissance-hippo-zoo-de-la-fleche-0718-copie-960x640.jpg" alt="slid4">
+                </div>
+
+                <div class="navigation-auto">
+                    <div class="auto-btn1"></div>
+                    <div class="auto-btn2"></div>
+                    <div class="auto-btn3"></div>
+                    <div class="auto-btn4"></div>
+                </div>
+            </div>
+
+            <div class="navigation-manual">
+                <label for="radio1" class="manual-btn"></label>
+                <label for="radio2" class="manual-btn"></label>
+                <label for="radio3" class="manual-btn"></label>
+                <label for="radio4" class="manual-btn"></label>
+            </div>
         </div>
+    </section>
     </div>
-</div>
+    <!--
+    <div class="example-wrapper">
+
+        <h1>Hello {{ controller_name }}! ✅</h1>
+
+        This friendly message is coming from:
+
+    </div>-->
+
 {% endblock %}
