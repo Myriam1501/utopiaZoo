@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello GameController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 7em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif ; text-align: center; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+    <div class="example-wrapper">
+        <ul><a href="{{ path('app_jeu7') }}"><img src="{{ asset('pendu.png') }}"></img>Memory</a></ul>
+        <ul><a href="{{ path('app_jeu5') }}">Pendu</a></ul>
+        <ul><a href="{{ path('app_jeu6') }}">Taquin</a></ul>
+    </div>
+{% endblock %}
