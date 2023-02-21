@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ProgramRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -50,11 +52,15 @@ class Program
     #[ORM\Column(nullable: true)]
     private ?int $price_reduce = null;
 
+    #[ORM\ManyToMany(targetEntity: Reservation::class, mappedBy: 'programs')]
+    private Collection $reservations;
+
 
     public function __construct()
     {
 
         $this->createdAt= new \DateTimeImmutable();
+        $this->reservations = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -202,6 +208,33 @@ class Program
     public function setPriceReduce(?int $price_reduce): self
     {
         $this->price_reduce = $price_reduce;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Reservation>
+     */
+    public function getReservations(): Collection
+    {
+        return $this->reservations;
+    }
+
+    public function addReservation(Reservation $reservation): self
+    {
+        if (!$this->reservations->contains($reservation)) {
+            $this->reservations->add($reservation);
+            $reservation->addProgram($this);
+        }
+
+        return $this;
+    }
+
+    public function removeReservation(Reservation $reservation): self
+    {
+        if ($this->reservations->removeElement($reservation)) {
+            $reservation->removeProgram($this);
+        }
 
         return $this;
     }

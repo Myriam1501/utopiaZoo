@@ -26,13 +26,13 @@ class PrepareVisitController extends AbstractController
     }
 
     #[Route('/prepareVisit/add/{id}', name: 'app_cartAdd')]
-    public function addToCart($id): Response{
+    public function addToCart($id, CartServices $cartServices): Response{
         //$cartServices->deleteCart();
-        $this->cartServices->addToCart($id);
+        $cartServices->addToCart($id);
         //dd($cartServices->getFullCart());//test ok pour l'ajout
-        return $this->redirectToRoute("panier");
+        return $this->redirectToRoute('app_prepareVisit');
         //return $this->render('cart/index.html.twig', [
-        // 'controller_name' => 'CartController',]);
+        // 'controller_name' => 'CartController.php',]);
     }
 
     #[Route('/prepareVisit/delete/{id}', name: 'app_cartDelete')]
@@ -40,9 +40,9 @@ class PrepareVisitController extends AbstractController
 
         $this->cartServices->deleteFromCart($id);
         //dd($cartServices->getFullCart());//test ok pour le delete
-        return $this->redirectToRoute("panier");
+        return $this->redirectToRoute('app_prepareVisit');
         //return $this->render('cart/index.html.twig', [
-        //    'controller_name' => 'CartController',]);
+        //    'controller_name' => 'CartController.php',]);
     }
 
     #[Route('/prepareVisit/deleteAll/{id}', name: 'app_cartDeleteAll')]
@@ -50,9 +50,9 @@ class PrepareVisitController extends AbstractController
 
         $this->cartServices->deleteAllToCart($id);
         //dd($cartServices->getFullCart());//test ok pour le delete
-        return $this->redirectToRoute("panier");
+        return $this->redirectToRoute('app_prepareVisit');
         //return $this->render('cart/index.html.twig', [
-        //    'controller_name' => 'CartController',]);
+        //    'controller_name' => 'CartController.php',]);
     }
 
 }

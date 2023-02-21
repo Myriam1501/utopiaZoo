@@ -22,7 +22,11 @@ class ProgramManagementController extends AbstractController
             'programmes' => $programmes,
         ]);
     }
-
+/*$programmes = $paginator->paginate(
+            $repository->findAll() ,
+            $request->query->getInt('page', 1),
+10
+);*/
 
     #[Route('/programManagement/create', name: 'app_programManagement_create', methods: ['GET', 'POST'])]
     public function create(Request $request, EntityManagerInterface $manager): Response
