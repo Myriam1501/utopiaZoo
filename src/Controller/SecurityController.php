@@ -60,7 +60,7 @@ class SecurityController extends AbstractController
             $user = $repository->findOneByEmail($form->get('email')->getData());
             if ($user){
                 $token = $tokenGenerator -> generateToken();
-                $user->setResetTaken($token);
+                $user->setResetToken($token);
                 $entityManager->persist($user);
                 $entityManager->flush();
 
