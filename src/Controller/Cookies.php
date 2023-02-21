@@ -6,14 +6,14 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class DecouverteController extends AbstractController
+class Cookies extends AbstractController
 {
+    #[Route('Location:./', name: 'app_decouverte')]
+    public function cookies() {
 
-    #[Route('/decouverte', name: 'app_decouverte')]
-    public function index(): Response
-    {
-        return $this->render('decouverte/index.html.twig', [
+        return $this->render('Location:./', [
             'controller_name' => 'DecouverteController',
         ]);
     }
+
 }
