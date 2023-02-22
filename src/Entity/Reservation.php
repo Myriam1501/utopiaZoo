@@ -19,19 +19,16 @@ class Reservation
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?\DateTimeInterface $Date = null;
 
-    #[ORM\Column]
-    private ?int $qte_reduce = null;
-
-    #[ORM\Column]
-    private ?int $qte_normal = null;
-
-    #[ORM\ManyToMany(targetEntity: Program::class, inversedBy: 'reservations')]
-    private Collection $programs;
+    #[ORM\OneToMany(mappedBy: 'reservation', targetEntity: Ticket::class)]
+    private Collection $tickets;
 
     public function __construct()
     {
-        $this->programs = new ArrayCollection();
+        $this->tickets = new ArrayCollection();
     }
+
+
+
 
 
 
@@ -52,53 +49,36 @@ class Reservation
         return $this;
     }
 
-    public function getQteReduce(): ?int
-    {
-        return $this->qte_reduce;
-    }
-
-    public function setQteReduce(int $qte_reduce): self
-    {
-        $this->qte_reduce = $qte_reduce;
-
-        return $this;
-    }
-
-    public function getQteNormal(): ?int
-    {
-        return $this->qte_normal;
-    }
-
-    public function setQteNormal(int $qte_normal): self
-    {
-        $this->qte_normal = $qte_normal;
-
-        return $this;
-    }
-
     /**
-     * @return Collection<int, Program>
+     * @return Collection<int, Ticket>
      */
-    public function getPrograms(): Collection
+    public function getTickets(): Collection
     {
-        return $this->programs;
+        return $this->tickets;
     }
 
-    public function addProgram(Program $program): self
+    public function addTicket(Ticket $ticket): self
     {
-        if (!$this->programs->contains($program)) {
-            $this->programs->add($program);
+        if (!$this->tickets->contains($ticket)) {
+            $this->tickets->add($ticket);
+            $ticket->setReservation($this);
         }
 
         return $this;
     }
 
-    public function removeProgram(Program $program): self
+    public function removeTicket(Ticket $ticket): self
     {
-        $this->programs->removeElement($program);
+        if ($this->tickets->removeElement($ticket)) {
+            // set the owning side to null (unless already changed)
+            if ($ticket->getReservation() === $this) {
+                $ticket->setReservation(null);
+            }
+        }
 
         return $this;
     }
+
 
 
 }

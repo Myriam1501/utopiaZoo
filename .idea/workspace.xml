@@ -5,21 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="98bb4536-0f38-4c91-803d-74ec4aedc638" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023_01_30_2_03_PM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023_01_30_2_03_PM__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Jeu1Controller.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Jeu2Controller.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Jeu3Controller.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Jeu4Controller.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/AccountRepository.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/CartServices.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/CartServices.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/jeu1/index.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/jeu2/index.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/jeu3/index.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/jeu4/index.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/programManagement/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/programManagement/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/homepage/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/homepage/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/programManagement/create.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/programManagement/create.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -188,6 +176,7 @@
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -209,11 +198,22 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1677060947977</updated>
-      <workItem from="1677060950276" duration="1284000" />
+      <workItem from="1677060950276" duration="3513000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

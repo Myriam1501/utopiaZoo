@@ -55,12 +55,16 @@ class Program
     #[ORM\ManyToMany(targetEntity: Reservation::class, mappedBy: 'programs')]
     private Collection $reservations;
 
+    #[ORM\OneToMany(mappedBy: 'program', targetEntity: Ticket::class)]
+    private Collection $tickets;
+
 
     public function __construct()
     {
 
         $this->createdAt= new \DateTimeImmutable();
         $this->reservations = new ArrayCollection();
+        $this->tickets = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -234,6 +238,36 @@ class Program
     {
         if ($this->reservations->removeElement($reservation)) {
             $reservation->removeProgram($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Ticket>
+     */
+    public function getTickets(): Collection
+    {
+        return $this->tickets;
+    }
+
+    public function addTicket(Ticket $ticket): self
+    {
+        if (!$this->tickets->contains($ticket)) {
+            $this->tickets->add($ticket);
+            $ticket->setProgram($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTicket(Ticket $ticket): self
+    {
+        if ($this->tickets->removeElement($ticket)) {
+            // set the owning side to null (unless already changed)
+            if ($ticket->getProgram() === $this) {
+                $ticket->setProgram(null);
+            }
         }
 
         return $this;
