@@ -3,7 +3,8 @@
 {% block title %}Gérer le Programme{% endblock %}
 
 {% block body %}
-    <div>
+    <br><br><br>
+    <div class="container text-center">
     <table class="table">
         <thead>
         <tr>
@@ -13,6 +14,7 @@
             <th scope="col">Prix reduit</th>
             <th scope="col">edit</th>
             <th scope="col">delete</th>
+            <th scope="col" colspan="2"><a href="{{path('app_programManagement_create')}}"><button type="button"  class="btn btn-success">Nouveau</button></a></th>
         </tr>
         </thead>
         <tbody>

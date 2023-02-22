@@ -17,7 +17,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class CartServices
 {
-
+/*
     private Reservation $reservation;
 
     private $tva = 0.2;
@@ -26,7 +26,7 @@ class CartServices
     {
         $this->reservation = $reservation;
     }
-
+*/
     public function incrementeReservation() : self
     {
         $newQtn=$this->reservation->getQteNormal();
