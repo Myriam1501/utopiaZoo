@@ -28,7 +28,7 @@ class CartServices
     private Ticket $ticket;
 
     private $tva = 0.2;
-    public function __construct(TicketRepository $ticket,EntityManagerInterface $manager,Integer $id)
+    public function __construct(TicketRepository $ticket,EntityManagerInterface $manager,$id)
     {
         $this->manager=$manager;
         $this->ticketRepo = $ticket;
