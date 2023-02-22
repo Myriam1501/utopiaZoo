@@ -6,6 +6,7 @@ use App\Entity\Reservation;
 use App\Repository\ProgramRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use phpDocumentor\Reflection\Types\Integer;
+use phpDocumentor\Reflection\Types\Void_;
 use Symfony\Component\HttpFoundation\Request;
 use  Symfony\Component\HttpFoundation\Session\SessionInterface;
 use App\Entity\Program;
@@ -26,15 +27,16 @@ class CartServices
         $this->reservation = $reservation;
     }
 
-    public function incrementeReservation()
+    public function incrementeReservation() : self
     {
         $newQtn=$this->reservation->getQteNormal();
         $newQtn++;
         $this->reservation->setQteNormal($newQtn);
+        return $this;
 
     }
 
-    public function supprimeReserva()
+    public function supprimeReserva() : self
     {
         $newQtn=$this->reservation->getQteNormal();
         if ($newQtn>0){
@@ -42,15 +44,16 @@ class CartServices
             $this->reservation->setQteNormal($newQtn);
         }
 
+        return $this;
         //recuperer donnée avec id et decrementer par rapport au nbrTodelte
 
     }
 
-    public function supprimeToutReserva()
+    public function supprimeToutReserva() : self
     {
         $this->reservation->setQteNormal(0);
         //qtn=0
-
+        return $this;
     }
 
     public function getTotalPriceByProgram() : Integer
@@ -75,20 +78,5 @@ class CartServices
         return $calculAvecTva;
     }
 
-
-
-
-    public function addAccount($idaccount)
-    {
-
-        //insertion de donnée avec account id=idaccount ET QTN=1
-
-    }
-
-    public function validerReservation()
-    {
-        //generer id pour le payment et passer au paiement
-        //CREE OBJET PAIMENT
-    }
 }
 ?>
