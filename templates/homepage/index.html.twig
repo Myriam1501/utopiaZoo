@@ -44,8 +44,79 @@
             },5000);
 
         </script>
+        <style>
+            .partie1{
+                background-attachment: fixed;
+                width: 100%;
+                height: 800px;
+                background-image: url("https://zupimages.net/up/23/08/19sm.jpeg");
+                background-repeat: no-repeat;
+                border-top: 5px solid #94b398;
+                background-size:cover;
+            }
+            .text-P1{
+                font-family: 'Helvetica',sans-serif;
+                color: white;
+                font-size: 100px;
+                position: absolute;
+                top: 30%;
+                left: 30%;
+                animation-duration: 4s;
+                animation-name: Slidein;
+
+            }
+            @keyframes Slidein {
+                from {
+                    margin-left: 100%;
+                    width: 400%;
+                }
+
+                to {
+                    margin-left: 0%;
+                    width: 20%;
+                }
+            }
+
+            @keyframes slidein {
+                from {
+                    margin-left: 100%;
+                    width: 400%;
+                }
+
+                to {
+                    margin-left: 0%;
+                    width: 50%;
+                }
+            }
+            .text1-P1{
+                font-family: 'Hoefler Text',sans-serif;
+                color: white;
+                font-size: 30px;
+                position: absolute;
+                top: 55%;
+                left: 27%;
+                animation-duration: 4s;
+                animation-name: slidein;
+            }
+            .text1-P2{
+                font-family: 'Hoefler Text',sans-serif;
+                color: white;
+                font-size: 30px;
+                position: absolute;
+                top: 60%;
+                left: 47%;
+                animation-duration: 4s;
+                animation-name: slidein;
+            }
+
+        </style>
     </head>
-    <body>
+    <div class="partie1">
+        <br>
+        <h1 class="text-P1"> BIENVENUE </h1><br>
+        <h4 class="text1-P1">sur le site du Parc UtopiaZoo de Paris, lieu de conservation de</h4>
+        <h4 class="text1-P2"> la biodiversité </h4>
+    </div>
     <section class="menu_section">
         <h1 class ="sous_titre">Qui sommes-nous ?</h1>
         <p class="text_menu">Fondé en 1946, Utopiazoo fut le premier zoo privé à voir le jour en France. Près d’un siècle plus tard, il se distingue toujours et fait partie des 5 premiers parcs zoologiques français en nombre de visiteurs. Au travers de la qualité de ses installations et le travail de ses équipes, le parc porte toute son attention et ses efforts au développement du bien-être des animaux et à l’accueil des visiteurs.

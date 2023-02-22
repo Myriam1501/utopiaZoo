@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello PaymentController!{% endblock %}
+
+{% block body %}
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    <script src="https://js.stripe.com/v3/"></script>
+    <script>
+        window.onload = () => {
+            let stripe= Stripe('pk_test_51Mco2mCmQpXm4b5YOxwLUTyQfxPAUAHrjQ4CJtZTQ9lokpukRvnYYjTMUG2yrQiLDkJ5MRaYBMapFclOZh4eY4oQ00bPnYP4YJ');
+            let elements=stripe.elements();
+            let cardHolderName = document.getElementById("cardholder-name");
+            let cardButton=document.getElementById("card-button");
+            let clientSecret=cardButton.dataset.secret;
+
+            let card=elements.create("card");
+            card.mount("#card-elements");
+
+            card.addEventListener("change", (event) => {
+                let displayError = document.getElementById("card-errors");
+                if(event.error){
+                    displayError.textContent = event.error.message;
+                }else{
+                    displayError.textContent = "";
+                }
+            })
+
+            cardButton.addEventListener("click", () => {
+                stripe.handleCardPayment(
+                    clientSecret,card, {
+                        payment_method_data: {
+                            billing_details: {name: cardHolderName.value}
+                        }
+                    }
+                ).then(result => {
+                    if(result.errors){
+                        document.getElementById("errors").innerText=result.error.message
+                    }else{
+                        document.location.href="{{ path('app_payment_pdf', {amount: '30', name: 'GHULAM', prenom: 'Meryam', date:'23-02-2023'}) }}";
+                    }
+                })
+            })
+        }
+    </script>
+    <form method="post">
+        <div id="errors"></div><BR>
+        <input type="text" id="cardholder-name" placeholder="Titulaire de la carte"><BR>
+        <div id="card-elements"></div><BR>
+        <div id="card-errors" role="alert"></div><BR>
+        <button id="card-button" type="button" data-secret={{ intent.client_secret }}>Procéder au paiement</button>
+    </form>
+
+</div>
+{% endblock %}

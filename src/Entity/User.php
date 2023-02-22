@@ -54,6 +54,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private ?bool $Check_email = false;
 
+    #[ORM\OneToOne(mappedBy: 'user', cascade: ['persist', 'remove'])]
+    private ?Reservation $reservation = null;
+
     public function __construct()
     {
         $this->reservations = new ArrayCollection();
@@ -122,7 +125,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getResetTaken(): ?string{
+    public function getResetToken(): ?string{
         return  $this->resetToken;
     }
     public function setResetToken(?string $resettaken): self{
@@ -197,6 +200,28 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setCheckEmail(bool $Check_email): self
     {
         $this->Check_email = $Check_email;
+
+        return $this;
+    }
+
+    public function getReservation(): ?Reservation
+    {
+        return $this->reservation;
+    }
+
+    public function setReservation(?Reservation $reservation): self
+    {
+        // unset the owning side of the relation if necessary
+        if ($reservation === null && $this->reservation !== null) {
+            $this->reservation->setUser(null);
+        }
+
+        // set the owning side of the relation if necessary
+        if ($reservation !== null && $reservation->getUser() !== $this) {
+            $reservation->setUser($this);
+        }
+
+        $this->reservation = $reservation;
 
         return $this;
     }

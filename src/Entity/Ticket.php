@@ -13,14 +13,16 @@ class Ticket
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $Type = null;
-
     #[ORM\Column]
-    private ?float $Price = null;
+    private ?int $qte_normal = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?int $qte_reduce = null;
 
     #[ORM\ManyToOne(inversedBy: 'tickets')]
-    #[ORM\JoinColumn(nullable: false)]
+    private ?Program $program = null;
+
+    #[ORM\ManyToOne(inversedBy: 'tickets')]
     private ?Reservation $reservation = null;
 
     public function getId(): ?int
@@ -28,26 +30,38 @@ class Ticket
         return $this->id;
     }
 
-    public function getType(): ?string
+    public function getQteNormal(): ?int
     {
-        return $this->Type;
+        return $this->qte_normal;
     }
 
-    public function setType(string $Type): self
+    public function setQteNormal(int $qte_normal): self
     {
-        $this->Type = $Type;
+        $this->qte_normal = $qte_normal;
 
         return $this;
     }
 
-    public function getPrice(): ?float
+    public function getQteReduce(): ?int
     {
-        return $this->Price;
+        return $this->qte_reduce;
     }
 
-    public function setPrice(float $Price): self
+    public function setQteReduce(?int $qte_reduce): self
     {
-        $this->Price = $Price;
+        $this->qte_reduce = $qte_reduce;
+
+        return $this;
+    }
+
+    public function getProgram(): ?Program
+    {
+        return $this->program;
+    }
+
+    public function setProgram(?Program $program): self
+    {
+        $this->program = $program;
 
         return $this;
     }
