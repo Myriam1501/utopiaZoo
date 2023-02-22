@@ -7,49 +7,20 @@
 
 		<!-- STYLE CSS -->
 		<style>
-            @font-face {
-                font-family: "Muli-Regular";
-                src: url("../fonts/muli/Muli-Regular.ttf"); }
-            @font-face {
-                font-family: "Muli-SemiBold";
-                src: url("../fonts/muli/Muli-SemiBold.ttf"); }
-            * {
-                -webkit-box-sizing: border-box;
-                -moz-box-sizing: border-box;
-                box-sizing: border-box; }
 
-            body {
+
+
+            .wrapper {
                 font-family: "Muli-Regular";
                 font-size: 15px;
                 color: #999;
-                margin: 0; }
-
-            :focus {
-                outline: none; }
-
-            textarea {
-                resize: none; }
-
-            input, textarea, select, button {
-                font-family: "Muli-Regular";
-                font-size: 15px; }
-
-            p, h1, h2, h3, h4, h5, h6, ul {
-                margin: 0; }
-
-            ul {
-                padding: 0;
                 margin: 0;
-                list-style: none; }
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				box-sizing: border-box; }
 
-            a {
-                text-decoration: none; }
 
-            textarea {
-                resize: none; }
 
-            img {
-                max-width: 100%; }
 
             .wrapper {
                 height: 100vh;
@@ -116,24 +87,28 @@
 
 
             .form-content {
-                width: 60%;
-                padding-top: 65px;
+
+                padding-top: 60px;
                 padding-left: 51px;
-                padding-right: 51px; }
+                padding-right: 51px;
+				padding-bottom: 50px;}
 
             .form-header {
                 text-align: center; }
 
-            h3 {
+            .wrapper h3 {
+
                 font-family: "Muli-SemiBold";
                 font-size: 22px;
                 color: #453e79;
                 text-transform: uppercase;
                 letter-spacing: 7px;
-                padding: 5px 15px;
                 display: inline-block;
                 border: 1px solid #dad8e4;
-                margin-bottom: 75px; }
+                margin-bottom: 35px;
+				text-align: center;
+
+			}
 
             p {
                 font-family: "Muli-SemiBold";
@@ -209,63 +184,69 @@
 
 
         </style>
-	<body>
+
 		<div class="wrapper">
             <form action="" id="wizard">
-        		<!-- SECTION 1 -->
+				{{ form_start(form)}}
                 <h2></h2>
                 <section>
                     <div class="inner">
 
 						<div class="form-content" >
 							<div class="form-header">
-								<h3>Registration</h3>
+								<h3>Crée un programme</h3>
 							</div>
 							<p>Please fill with your details</p>
 							<div class="form-row">
+
+								<div class="form-holder w-100">
+										<input type="text" placeholder="Titre *" class="form-control">
+								</div>
+
 								<div class="form-holder">
-									<input type="text" placeholder="First Name" class="form-control">
+									<input type="text" placeholder="date début" class="form-control">
 								</div>
 								<div class="form-holder">
-									<input type="text" placeholder="Last Name" class="form-control">
-								</div>
-							</div>
-							<div class="form-row">
-								<div class="form-holder">
-									<input type="text" placeholder="Your Email" class="form-control">
-								</div>
-								<div class="form-holder">
-									<input type="text" placeholder="Phone Number" class="form-control">
+									<input type="text" placeholder="date de fin" class="form-control">
 								</div>
 							</div>
 							<div class="form-row">
 								<div class="form-holder">
-									<input type="text" placeholder="Age" class="form-control">
+									<input type="text" placeholder="Prix *" class="form-control">
 								</div>
-								<div class="form-holder" style="align-self: flex-end; transform: translateY(4px);">
-									<div class="checkbox-tick">
-										<label class="male">
-											<input type="radio" name="gender" value="male" checked> Male<br>
-											<span class="checkmark"></span>
-										</label>
-										<label class="female">
-											<input type="radio" name="gender" value="female"> Female<br>
-											<span class="checkmark"></span>
-										</label>
-									</div>
+								<div class="form-holder">
+									<input type="text" placeholder="Prix reduit *" class="form-control">
+								</div>
+							</div>
+							<div class="form-row">
+								<div class="form-holder">
+									<input type="text" placeholder="Age minimal" class="form-control">
+								</div>
+								<div class="form-holder">
+									<input type="text" placeholder="Durée du Programme" class="form-control">
+								</div>
+							</div>
+
+							<div class="form-holder w-100">
+									<input type="text" placeholder="URL Photo présentation" class="form-control">
+							</div>
+							<br>
+							<p>Descrption</p>
+							<div class="form-row">
+								<div class="form-holder w-100">
+									<textarea name="" id="" placeholder="Your messagere here!" class="form-control" style="height: 99px;"></textarea>
 								</div>
 							</div>
 						</div>
 					</div>
                 </section>
+				{{ form_end(form) }}
             </form>
 		</div>
 
-
-</body>
-</html>
+<!--
     <div>
         {{ form(form) }}
     </div>
-
+-->
 {% endblock %}
