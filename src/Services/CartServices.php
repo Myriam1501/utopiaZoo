@@ -73,7 +73,7 @@ class CartServices
     public function recupTotalApresTVA() : Integer
     {
         //appel montant totzl et *appliquer tva
-        $calculPourcent=$this->recupererTotalMontant()*(20/100);
+        $calculPourcent=$this->recupererTotalMontant()*$this->tva;
         $calculAvecTva=$this->recupererTotalMontant()+$calculPourcent;
         return $calculAvecTva;
     }
