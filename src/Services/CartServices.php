@@ -1,99 +1,82 @@
 <?php
 namespace App\Services;
 
+use App\Entity\Account;
+use App\Entity\Reservation;
 use App\Repository\ProgramRepository;
+use Doctrine\ORM\EntityManagerInterface;
+use phpDocumentor\Reflection\Types\Integer;
+use phpDocumentor\Reflection\Types\Void_;
+use Symfony\Component\HttpFoundation\Request;
 use  Symfony\Component\HttpFoundation\Session\SessionInterface;
+use App\Entity\Program;
+use App\Form\ProgramType;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
 
-class CartServices{
+class CartServices
+{
 
-    private $repoProduct;
+    private Reservation $reservation;
+
     private $tva = 0.2;
 
-    public function __construct(ProgramRepository $repoProduct){
-        $this->repoProduct = $repoProduct;
+    public function __construct(Reservation $reservation)
+    {
+        $this->reservation = $reservation;
     }
 
-    public function addToCart($id){
-        //mettre dans la reservation l'atttribut
-        $cart = $this->getCart();
-        if(isset($cart[$id])){
-            //si il existe qte ++
-            //$cart[$id]++;
-        }else{
-            // le produit n'est pas il va l'ajouter
-            //$cart[$id] = 1;
+    public function incrementeReservation() : self
+    {
+        $newQtn=$this->reservation->getQteNormal();
+        $newQtn++;
+        $this->reservation->setQteNormal($newQtn);
+        return $this;
+
+    }
+
+    public function supprimeReserva() : self
+    {
+        $newQtn=$this->reservation->getQteNormal();
+        if ($newQtn>0){
+            $newQtn--;
+            $this->reservation->setQteNormal($newQtn);
         }
-        $this->updateCart($cart);
+
+        return $this;
+        //recuperer donnée avec id et decrementer par rapport au nbrTodelte
+
     }
 
-    public function deleteFromCart($id){
-        $cart = $this->getCart();
-        //produit est dans le panier
-        if(isset($cart[$id])){
-            //quantity de produit supérieur à 1
-            if($cart[$id] > 1){
-                $cart[$id]--;
-            }else{
-                unset($cart[$id]);
-            }
-            $this->updateCart($cart);
-        }
+    public function supprimeToutReserva() : self
+    {
+        $this->reservation->setQteNormal(0);
+        //qtn=0
+        return $this;
     }
 
-    public function deleteAllToCart($id){
-        $cart = $this->getCart();
-        //produit est dans le panier
-        if(isset($cart[$id])){
-            //tous supprimer
-            unset($cart[$id]);
-            $this->updateCart($cart);
-        }
-    }
-    public function deleteCart(){
-        $this->updateCart([]);
+    public function getTotalPriceByProgram() : Integer
+    {
+        $prixProgram=$this->reservation->getPrograms()->first()->getPrice();
+        $qtn=$this->reservation->getQteNormal();
+        $coutTotal=$qtn*$prixProgram;
+        return $coutTotal;
     }
 
-    public function updateCart($cart){
-        $this->session->set('cart', $cart);
-        $this->session->set('cartData', $this->getFullCart());
+    public function recupererTotalMontant() : Integer
+    {
+        return $this->getTotalPriceByProgram();
+        //recup qtn et prix et calcul
     }
 
-    public function getCart(){
-        //recuperer un attribut dans la reservation
-        return $this->session->get('cart',[]);
-    }
-
-    public function getFullCart(){
-        $cart = $this->getCart();
-        $fullCart = [];
-        $quantity_cart = 0;
-        $subTotal = 0;
-
-        foreach ($cart as $id => $quantity) {
-            $product = $this->repoProduct->find($id);
-            if($product){
-                //produit récupéré avec succès
-                $fullCart['products'][] = [
-                    "quantity" => $quantity,
-                    "product" => $product
-                ];
-                $quantity_cart += $quantity;
-                $subTotal += $quantity * $product->getPrice();
-            }else{
-                //identifiant incorrect
-                $this->deleteFromCart($id);
-            }
-        }
-        $fullCart['data'] = [
-            "quantity_cart" => $quantity_cart,
-            "subTotalHT" => $subTotal,
-            "Taxe" => round($subTotal*$this->tva,2),
-            "subTotalTTC" => round(($subTotal + ($subTotal*$this->tva)),2)
-        ];
-        return $fullCart;
+    public function recupTotalApresTVA() : Integer
+    {
+        //appel montant totzl et *appliquer tva
+        $calculPourcent=$this->recupererTotalMontant()*$this->tva;
+        $calculAvecTva=$this->recupererTotalMontant()+$calculPourcent;
+        return $calculAvecTva;
     }
 
 }
-
-
 ?>
