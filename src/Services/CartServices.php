@@ -3,10 +3,15 @@ namespace App\Services;
 
 use App\Entity\Account;
 use App\Entity\Reservation;
+use App\Entity\Ticket;
 use App\Repository\ProgramRepository;
+use App\Repository\TicketRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\Persistence\ObjectManager;
 use phpDocumentor\Reflection\Types\Integer;
+use phpDocumentor\Reflection\Types\Self_;
 use phpDocumentor\Reflection\Types\Void_;
+use PhpParser\Node\Expr\Cast\Double;
 use Symfony\Component\HttpFoundation\Request;
 use  Symfony\Component\HttpFoundation\Session\SessionInterface;
 use App\Entity\Program;
@@ -17,66 +22,56 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class CartServices
 {
-/*
-    private Reservation $reservation;
+
+    private TicketRepository $ticketRepo;
+    private ObjectManager $manager;
+    private Ticket $ticket;
 
     private $tva = 0.2;
-
-    public function __construct(Reservation $reservation)
+    public function __construct(TicketRepository $ticket,EntityManagerInterface $manager,Integer $id)
     {
-        $this->reservation = $reservation;
+        $this->manager=$manager;
+        $this->ticketRepo = $ticket;
+        $this->ticket=$this->ticketRepo->find($id);
     }
-*/
-    public function incrementeReservation() : self
+
+    public function addTicket() : self
     {
-        $newQtn=$this->reservation->getQteNormal();
-        $newQtn++;
-        $this->reservation->setQteNormal($newQtn);
+        $qtn=$this->ticket->getQteNormal();
+        $qtn=$qtn+1;
+        $this->ticket->setQteNormal($qtn);
+        $this->manager->persist($this->ticket);
+
+        $this->manager->flush();
         return $this;
-
     }
 
-    public function supprimeReserva() : self
+    public function dellTicket() : self
     {
-        $newQtn=$this->reservation->getQteNormal();
-        if ($newQtn>0){
-            $newQtn--;
-            $this->reservation->setQteNormal($newQtn);
+        $qtn=$this->ticket->getQteNormal();
+        if($qtn>=0 ){
+            $qtn=$qtn-1;
+            $this->ticket->setQteNormal($qtn);
+            $this->manager->persist($this->ticket);
+
+            $this->manager->flush();
         }
 
-        return $this;
-        //recuperer donnée avec id et decrementer par rapport au nbrTodelte
 
-    }
-
-    public function supprimeToutReserva() : self
-    {
-        $this->reservation->setQteNormal(0);
-        //qtn=0
         return $this;
     }
 
-    public function getTotalPriceByProgram() : Integer
+    public function getTotalPrice() : float
     {
-        $prixProgram=$this->reservation->getPrograms()->first()->getPrice();
-        $qtn=$this->reservation->getQteNormal();
-        $coutTotal=$qtn*$prixProgram;
-        return $coutTotal;
+        $qtn=$this->ticket->getQteNormal();
+        $prix=$this->ticket->getProgram();
+        $total=$prix*$qtn;
+        return $total;
     }
 
-    public function recupererTotalMontant() : Integer
-    {
-        return $this->getTotalPriceByProgram();
-        //recup qtn et prix et calcul
-    }
 
-    public function recupTotalApresTVA() : Integer
-    {
-        //appel montant totzl et *appliquer tva
-        $calculPourcent=$this->recupererTotalMontant()*$this->tva;
-        $calculAvecTva=$this->recupererTotalMontant()+$calculPourcent;
-        return $calculAvecTva;
-    }
+
+
 
 }
 ?>

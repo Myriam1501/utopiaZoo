@@ -25,6 +25,9 @@ class Reservation
     #[ORM\OneToOne(inversedBy: 'reservation', cascade: ['persist', 'remove'])]
     private ?User $user = null;
 
+    #[ORM\ManyToOne]
+    private ?Ticket $tickets_id = null;
+
     public function __construct()
     {
         $this->tickets = new ArrayCollection();
@@ -90,6 +93,18 @@ class Reservation
     public function setUser(?User $user): self
     {
         $this->user = $user;
+
+        return $this;
+    }
+
+    public function getTicketsId(): ?Ticket
+    {
+        return $this->tickets_id;
+    }
+
+    public function setTicketsId(?Ticket $tickets_id): self
+    {
+        $this->tickets_id = $tickets_id;
 
         return $this;
     }

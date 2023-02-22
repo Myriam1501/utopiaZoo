@@ -4,7 +4,12 @@ namespace App\Controller;
 
 use App\Entity\Program;
 use App\Entity\Reservation;
+use App\Entity\Ticket;
+use App\Repository\ProgramRepository;
+use App\Repository\TicketRepository;
 use App\Services\CartServices;
+use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\BrowserKit\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -13,48 +18,77 @@ use Symfony\Component\Routing\Annotation\Route;
 class ReservationController extends AbstractController
 {
     #[Route('/reservation', name: 'app_reservation', methods: ['GET'])]
-    public function index(Request $request,ManagerRegistry $doctrine): Response
+    public function index(EntityManagerInterface $entityManager): Response
     {
-        $entityManager = $doctrine->getManager();
-        $reserv = new Reservation();
-        $reserv->setQteNormal(0);
-        $reserv->setQteReduce(0);
-        $program = new Program();
-        $program->setDescriptionProgram("brrgsrbb dfbd");
-        $program->setPrice(1234);
-        $program->setAgeMin(2);
-        $program->setTitle('utopia-fantastic');
-        $reserv->addProgram($program);
-        $entityManager->persist($reserv);
-        $entityManager->flush();
-        return $this->render('reservation/index.html.twig', [
-            'controller_name' => 'ReservationController',
-            'reservation' => $reserv,
-        ]);
-    }
-
-    #[Route('/reservation/add/{ reservation }', name: 'app_reservation', methods: ['GET'])]
-    public function add(Reservation $reservation,ManagerRegistry $doctrine): Response
-    {
-        $entityManager = $doctrine->getManager();
-        $cart = new CartServices($reservation);
-        $cart->incrementeReservation();
+        $reservation = new Reservation();
         $entityManager->persist($reservation);
         $entityManager->flush();
+
         return $this->render('reservation/index.html.twig', [
             'controller_name' => 'ReservationController',
             'reservation' => $reservation,
         ]);
     }
 
-    #[Route('/reservation/del/{ reservation }', name: 'app_reservation', methods: ['GET'])]
-    public function delete(Reservation $reservation,ManagerRegistry $doctrine): Response
+    #[Route('/reservation/add/{ reservation }/{ program }', name: 'app_reservation', methods: ['GET'])]
+    public function add(TicketRepository $ticketRepository, $reservation,Program $program,EntityManagerInterface $entityManager): Response
     {
-        $entityManager = $doctrine->getManager();
-        $cart = new CartServices($reservation);
-        $cart->supprimeReserva();
-        $entityManager->persist($reservation);
-        $entityManager->flush();
+        $true=0;
+        $allTicket=$reservation->getTickets();
+        foreach ($allTicket as $t){
+            if($t->getProgram==$program->getId()){
+                $cart = new CartServices($ticketRepository,$entityManager,$t->getId());
+                $cart->addTicket();
+                $true=1;
+            }
+        }
+
+        if($true!=1){
+            $ticket=new Ticket();
+            $ticket->setProgram($program->getId());
+            $ticket->setQteNormal(0);
+
+            $reservation->setTicketsId($ticket->getId());
+
+            $entityManager->persist($ticket);
+            $entityManager->flush();
+
+            $entityManager->persist($reservation);
+            $entityManager->flush();
+        }
+
+        return $this->render('reservation/index.html.twig', [
+            'controller_name' => 'ReservationController',
+            'reservation' => $reservation,
+        ]);
+    }
+
+    #[Route('/reservation/del/{ reservation }/{ program }', name: 'app_reservation', methods: ['GET'])]
+    public function delete(TicketRepository $ticketRepository, $reservation,Program $program,EntityManagerInterface $entityManager): Response
+    {
+        $true=0;
+        $allTicket=$reservation->getTickets();
+        foreach ($allTicket as $t){
+            if($t->getProgram==$program->getId()){
+                $cart = new CartServices($ticketRepository,$entityManager,$t->getId());
+                $cart->dellTicket();
+                $true=1;
+            }
+        }
+
+        if($true!=1){
+            $ticket=new Ticket();
+            $ticket->setProgram($program->getId());
+            $ticket->setQteNormal(0);
+
+            $reservation->setTicketsId($ticket->getId());
+
+            $entityManager->persist($ticket);
+            $entityManager->flush();
+
+            $entityManager->persist($reservation);
+            $entityManager->flush();
+        }
         return $this->render('reservation/index.html.twig', [
             'controller_name' => 'ReservationController',
             'reservation' => $reservation,
@@ -76,16 +110,21 @@ class ReservationController extends AbstractController
     }
 
     #[Route('/reservation/price/{ reservation }', name: 'app_reservation', methods: ['GET'])]
-    public function price(Reservation $reservation,ManagerRegistry $doctrine): Response
+    public function price(TicketRepository $ticketRepository, $reservation,Program $program,EntityManagerInterface $entityManager): Response
     {
-        $entityManager = $doctrine->getManager();
-        $cart = new CartServices($reservation);
-        $cart->recupTotalApresTVA();
-        $entityManager->persist($reservation);
-        $entityManager->flush();
+        $priceTotal=0;
+        $allTicket=$reservation->getTickets();
+        foreach ($allTicket as $t){
+            if($t->getProgram==$program->getId()){
+                $cart = new CartServices($ticketRepository,$entityManager,$t->getId());
+                $priceTotal=$cart->getTotalPrice();
+            }
+        }
+
         return $this->render('reservation/index.html.twig', [
             'controller_name' => 'ReservationController',
             'reservation' => $reservation,
+            'price' => $priceTotal,
         ]);
     }
 }
