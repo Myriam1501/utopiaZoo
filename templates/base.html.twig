@@ -13,6 +13,15 @@
 
         {% endblock %}
     </head>
+<!--
+    <div class="alert alert-warning alert-dismissible" role="alert" id="essaie">
+        <button type="button" data-bs-dismiss="alert" aria-label="Close" href="?accepte-cookie">J'accepte</button>
+        <div class="alert-message">
+            <strong>Accepter les cookies </strong>pour une meilleure expérience.
+        </div>
+    </div>
+    -->
+
     <body>
     {% include 'fragments/header.html.twig' %}
     {% if app.user and app.user.isCheckEmail == false %}
@@ -31,33 +40,6 @@
     </body>
 
 </html>
-
-<style>
-    .banniereCookie {
-        text-align:center;
-        background:linear-gradient(141deg, #EFE5DB 25%, #EBE4DC 40%, #E4EFDB 55%);
-        color:white;
-        font-family:'Roboto';
-        font-weight:550;
-        padding-top:30px;
-        height:100px;
-        overflow:hidden;
-        -webkit-backface-visibility: hidden;
-        -webkit-transform: translate3d(0,0,0);
-        box-shadow: 0 1px 3px rgba(0,0,0,0.5), 0 3px 6px rgba(0,0,0,0.10);
-        width: 1200px;
-        margin-left: 20px;
-        margin-right: 20px;
-        border-radius: 10px;
-    }
-</style>
-
-<div class="alert alert-warning alert-dismissible" role="alert">
-    <button type="button" data-bs-dismiss="alert" aria-label="Close" href="?accepte-cookie">J'accepte</button>
-    <div class="alert-message">
-        <strong>Accepter les cookies </strong>pour une meilleure expérience.
-    </div>
-</div>
 
 
 
