@@ -65,7 +65,7 @@ class ProfilController extends AbstractController
                 return $this->redirectToRoute('app_profil');
             }
             else{
-                $this->addFlash('error', 'Les deux Password ne sont pas identiques ! ');
+                $this->addFlash('danger', 'Les deux Password ne sont pas identiques ! ');
             }
         }
         return $this->render('profil/editPassword.html.twig', [
