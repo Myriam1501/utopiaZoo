@@ -6,14 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="98bb4536-0f38-4c91-803d-74ec4aedc638" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20230127202308.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20230128102035.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20230129194029.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20230220094954.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20230220111237.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20230220130442.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Reservation.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Reservation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -204,7 +197,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1677060947977</updated>
-      <workItem from="1677060950276" duration="4990000" />
+      <workItem from="1677060950276" duration="5911000" />
     </task>
     <servers />
   </component>
