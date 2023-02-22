@@ -26,7 +26,7 @@ class PrepareVisitController extends AbstractController
     }
 
     #[Route('/prepareVisit/add/{id}', name: 'app_cartAdd')]
-    public function addToCart($id, CartServices $cartServices): Response{
+    public function addToCart(Program $id, CartServices $cartServices): Response{
         //$cartServices->deleteCart();
         $cartServices->addToCart($id);
         //dd($cartServices->getFullCart());//test ok pour l'ajout

@@ -28,11 +28,11 @@ class CartServices
     private Ticket $ticket;
 
     private $tva = 0.2;
-    public function __construct(TicketRepository $ticket,EntityManagerInterface $manager,$id)
+    public function __construct(TicketRepository $ticket,EntityManagerInterface $manager)
     {
         $this->manager=$manager;
         $this->ticketRepo = $ticket;
-        $this->ticket=$this->ticketRepo->find($id);
+
     }
 
     public function addTicket() : self
