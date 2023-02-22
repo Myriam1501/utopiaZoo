@@ -18,7 +18,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class PrepareVisitController extends AbstractController
 {
 
-    #[Route('/prepareVisit/reservation', name: 'app_preparevisit_index')]
+    #[Route('/prepareVisit/reservation', name: 'app_prepareVisit_reservation')]
     public function index(ProgramRepository $repository,EntityManagerInterface $entityManager): Response
     {
         $programmes=$repository->findAll();

@@ -70,7 +70,7 @@
                     {{ programme.getDescriptionProgram() }}
                 </i></p>
             <div class="cart_btn">
-                <a href="{{path('app_cartAdd',{ id : programme.id})}}" class="btn btn-fill-out btn-addtocart" type="button"><i class="icon-basket-loaded"></i> Ajouter au panier</a>
+                <a href="{{path('app_cartAdd',{reservation : reservation}, { program : programme.id})}}" class="btn btn-fill-out btn-addtocart" type="button"><i class="icon-basket-loaded"></i> Ajouter au panier</a>
             </div>
         </div>
         <div class="activitee5">
