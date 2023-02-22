@@ -22,6 +22,9 @@ class Reservation
     #[ORM\OneToMany(mappedBy: 'reservation', targetEntity: Ticket::class)]
     private Collection $tickets;
 
+    #[ORM\OneToOne(inversedBy: 'reservation', cascade: ['persist', 'remove'])]
+    private ?User $user = null;
+
     public function __construct()
     {
         $this->tickets = new ArrayCollection();
@@ -75,6 +78,18 @@ class Reservation
                 $ticket->setReservation(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }
