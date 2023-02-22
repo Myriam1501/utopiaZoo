@@ -38,8 +38,21 @@ class UserFixture extends Fixture
         );
         $admin1->setRoles(['ROLE_ADMIN']);
 
+        $user1 = new User();
+        $user1 ->setEmail('user1@utopiazoo.fr');
+        $user1->setfirstname('test');
+        $user1->setname('test');
+        $user1->setdddress('Tolbiac 75013 paris');
+        $user1->setPassword(
+            $this->userPasswordHasher->hashPassword($admin, 'user')
+        );
+        $user1->setRoles(['ROLE_USER']);
+
         $manager->persist($admin);
         $manager->persist($admin1);
+        $manager->persist($user1);
         $manager->flush();
+
+
     }
 }

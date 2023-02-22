@@ -31,12 +31,10 @@ class Payment
     #[ORM\OneToOne(mappedBy: 'payements', cascade: ['persist', 'remove'])]
     private ?Reservation $reservation = null;
 
-    #[ORM\OneToMany(mappedBy: 'payment', targetEntity: Bill::class)]
-    private Collection $bills;
 
     public function __construct()
     {
-        $this->bills = new ArrayCollection();
+
     }
 
     public function getId(): ?int
@@ -109,33 +107,4 @@ class Payment
         return $this;
     }
 
-    /**
-     * @return Collection<int, Bill>
-     */
-    public function getBills(): Collection
-    {
-        return $this->bills;
-    }
-
-    public function addBill(Bill $bill): self
-    {
-        if (!$this->bills->contains($bill)) {
-            $this->bills->add($bill);
-            $bill->setPayment($this);
-        }
-
-        return $this;
-    }
-
-    public function removeBill(Bill $bill): self
-    {
-        if ($this->bills->removeElement($bill)) {
-            // set the owning side to null (unless already changed)
-            if ($bill->getPayment() === $this) {
-                $bill->setPayment(null);
-            }
-        }
-
-        return $this;
-    }
 }
