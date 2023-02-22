@@ -15,10 +15,11 @@ final class UserFormHandler
 
     public function handleForm(Programme $programme): void
     {
-        $user = new User();
-        $user->setFirstName('Yassin');
 
-        $this->entityManager->persist($user);
+        $programme = new Programme();
+        $programme->setTitreProgramme('Yassin');
+
+        $this->entityManager->persist($programme);
 
         $programme->setUser($user);
 
