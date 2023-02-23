@@ -2,12 +2,12 @@
 /****************section principale*/
 
 /************présentation***********/
-
+/*test*/
 .menu_section{
     justify-content:center;
     align-items:center;
     text-align: center;
-    margin:160px 85px;
+    margin: 77px 85px;
 }
 
 .menu_section img{

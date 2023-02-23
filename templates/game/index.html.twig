@@ -1,0 +1,150 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello GameController!{% endblock %}
+
+{% block body %}
+<style>
+
+
+    .page-section{
+        padding-top: 100px;
+        padding-left: 20%;
+    }
+    .timeline {
+        position: relative;
+        padding: 0;
+        list-style: none;
+    }
+    .timeline:before {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 40px;
+        width: 2px;
+        margin-left: -1.5px;
+        content: "";
+        background-color: #e9ecef;
+    }
+
+    .timeline > li .timeline-image {
+        position: absolute;
+        z-index: 100;
+        left: 0;
+        width: 80px;
+        height: 80px;
+        margin-left: 0;
+        text-align: center;
+        color: white;
+        border: 7px solid #e9ecef;
+        border-radius: 100%;
+        background-color: #ffc800;
+    }
+
+    @media (min-width: 768px) {
+        .timeline:before {
+            left: 50%;
+        }
+        .timeline > li {
+            min-height: 100px;
+            margin-bottom: 100px;
+        }
+        .timeline > li .timeline-panel {
+            float: left;
+            width: 41%;
+            padding: 0 20px 20px 30px;
+            text-align: right;
+        }
+        .timeline > li .timeline-image {
+            left: 50%;
+            width: 100px;
+            height: 100px;
+            margin-left: -50px;
+        }
+        .timeline > li .timeline-image h4, .timeline > li .timeline-image .h4 {
+            font-size: 13px;
+            line-height: 18px;
+            margin-top: 16px;
+        }
+        .timeline > li.timeline-inverted > .timeline-panel {
+            float: right;
+            padding: 0 30px 20px 20px;
+            text-align: left;
+        }
+    }
+    @media (min-width: 992px) {
+        .timeline > li {
+            min-height: 150px;
+        }
+        .timeline > li .timeline-panel {
+            padding: 0 20px 20px;
+        }
+        .timeline > li .timeline-image {
+            width: 150px;
+            height: 150px;
+            margin-left: -75px;
+        }
+        .timeline > li .timeline-image h4, .timeline > li .timeline-image .h4 {
+            font-size: 18px;
+            line-height: 26px;
+            margin-top: 30px;
+        }
+        .timeline > li.timeline-inverted > .timeline-panel {
+            padding: 0 20px 20px;
+        }
+    }
+    .click-game:hover{
+        color: #ffc800;
+        weight: 8000%;
+    }
+
+
+
+
+</style>
+    {% include 'game/header-game.html.twig' %}
+    <!--Contenu-->
+    <!-- About-->
+    <section class="page-section" id="about">
+        <div >
+            <div class="text-center">
+                <h2 class="section-heading text-uppercase">Règles des Jeux</h2>
+                <br><br><br><br>
+            </div>
+            <ul class="timeline">
+
+                <li>
+                    <div class="timeline-image"><img class="rounded-circle img-fluid" src="{{ asset('pendu.png') }}" alt="..." /></div>
+                    <div class="timeline-panel">
+                        <div class="timeline-heading">
+                            <br>
+                            <h4 class="subheading">Pendu</h4>
+                        </div>
+                        <div class="timeline-body"><p class="text-muted">Trouver le mot cacher avant que le roi meurt :'( </p></div>
+                    </div>
+                </li>
+
+                <li class="timeline-inverted">
+                    <div class="timeline-image"><img class="rounded-circle img-fluid" src="https://zupimages.net/up/23/08/h6h6.png" alt="..." /></div>
+                    <div class="timeline-panel">
+                        <div class="timeline-heading">
+                            <br>
+                            <h4 class="subheading">Memory</h4>
+                        </div>
+                        <div class="timeline-body"><p class="text-muted">Retourner des cartes avec des images cachées pour trouver des paires identiques. </p></div>
+                    </div>
+                </li>
+                <li>
+                    <div class="timeline-image"><img class="rounded-circle img-fluid" src="https://zupimages.net/up/23/08/tcro.png" alt="..." /></div>
+                    <div class="timeline-panel">
+                        <div class="timeline-heading">
+                            <br>
+                            <h4 class="subheading">Taquin</h4>
+                        </div>
+                        <div class="timeline-body"><p class="text-muted">Un jeu de puzzle qui consiste à déplacer des tuiles d'images sur un plateau afin de les remettre dans l'ordre correct.</p></div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+{% endblock %}
