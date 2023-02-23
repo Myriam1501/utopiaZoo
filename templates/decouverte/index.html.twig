@@ -1,0 +1,1850 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Le zoo & les animaux
+{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/decouverte.css') }}">
+{% endblock %}
+
+{% block body %}
+
+    <br><br><br>
+    <h1 align="center">LE ZOO & LES ANIMAUX</h1>
+    <h5 align="center">DECOUVERTE</h5>
+    <hr><br>
+    <p> <i>
+        Venez découvrir notre incroyable collection d'animaux venus des quatre coins du monde. Notre équipe de soigneurs et d'experts animaliers se consacre chaque jour à offrir le meilleur environnement à nos pensionnaires, tout en sensibilisant les visiteurs à la protection de la nature.
+        Que vous soyez un passionné d'animaux ou que vous cherchiez simplement une sortie en famille, UtopiaZoo est l'endroit idéal pour passer une journée inoubliable. Venez explorer notre univers fascinant et partez à la rencontre de nos amis les bêtes !
+        </i></p>
+    <br><br><br>
+    <div class="titre">
+        <div class="titre3">
+        <div class="sousTitre">DECOUVERTE</div>
+            <div class="sousTitre">
+                <span>DES ANIMAUX DU ZOO</span>
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <br><br>
+    <p>
+        <i>
+            Le zoo abrite une grande variété d'animaux fascinants, allant des félins majestueux comme les lions, les tigres et les léopards, aux primates intelligents comme les singes et les chimpanzés, en passant par les éléphants imposants, les girafes élancées et les reptiles étonnants comme les crocodiles et les serpents. Chacun de ces animaux a ses propres caractéristiques uniques et ses propres comportements fascinants à observer. Venez découvrir ces merveilles de la nature dans leur environnement naturel reconstitué au sein de UtopiaZoo.
+            <br><br>
+            Vous pouvez cliquer sur chaque animal pour découvrir des informations intéressantes et utiles sur leur habitat naturel, leur comportement, leur régime alimentaire et bien plus encore. Nous avons rassemblé pour vous une variété de faits et de détails sur chaque animal pour vous aider à mieux comprendre leur monde fascinant.
+        </i>
+    </p>
+    <br><br><br>
+    <div class="content1">
+                <div class="example-wrapper">
+                    <div class="lion">
+                        <img id="lion" class="img" src="https://i.pinimg.com/564x/6e/50/fb/6e50fb01ac451c32de7551455cc58f32.jpg">
+                        <div class="contenu">
+                            <div class="texte">Le lion</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="example-wrapper">
+                    <div class="zebre">
+                        <img id="zebre" class="img" src="https://i.pinimg.com/564x/0b/31/bc/0b31bc19ea552024c06bb7e27e46d478.jpg">
+                        <div class="contenu">
+                            <div class="texte">Le zèbre</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="example-wrapper">
+                    <div class="singe">
+                        <img id="singe" class="img" src="https://i.pinimg.com/564x/6d/80/28/6d80287d94942fd458ade5e51870e1b8.jpg">
+                        <div class="contenu">
+                            <div class="texte">Le singe</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="example-wrapper">
+                    <div class="elephant">
+                        <img id="elephant" class="img" src="https://i.pinimg.com/564x/42/13/9b/42139b11a7089b0476045716bef702aa.jpg">
+                        <div class="contenu">
+                            <div class="texte">L'éléphant</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="example-wrapper">
+                    <div class="girafe">
+                        <img id="girafe" class="img" src="https://i.pinimg.com/564x/f3/f6/ff/f3f6ff1e16d4b0038209cf65bcc085ad.jpg">
+                        <div class="contenu">
+                            <div class="texte">La girafe</div>
+                        </div>
+                    </div>
+                </div>
+    </div>
+    <br>
+    <div class="content2">
+                <div class="example-wrapper">
+                    <div class="manchot">
+                        <img id="manchot" class="img" src="https://i.pinimg.com/564x/65/92/ca/6592cac473642f8df3c8e366008ed2c0.jpg">
+                        <div class="contenu">
+                            <div class="texte">Le manchot<br>du cap</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="example-wrapper">
+                    <div class="panda">
+                        <img id="panda" class="img" src="https://i.pinimg.com/564x/96/55/8f/96558f7781eeec61517d5116e72aea67.jpg">
+                        <div class="contenu">
+                            <div class="texte">Le panda<br>roux</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="example-wrapper">
+                    <div class="loutre">
+                        <img id="loutre" class="img" src="https://i.pinimg.com/564x/56/30/36/56303614c8919b79a1d2cb1cb1a4b031.jpg">
+                        <div class="contenu">
+                            <div class="texte">La loutre</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="example-wrapper">
+                    <div class="maki">
+                        <img id="maki" class="img" src="https://i.pinimg.com/564x/c7/f0/0b/c7f00b7d9ec2f2eed693b214dfb0aa97.jpg">
+                        <div class="contenu">
+                            <div class="texte">La maki catta</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="example-wrapper">
+                    <div class="renne">
+                        <img id="renne" class="img" src="https://i.pinimg.com/564x/ed/4d/ad/ed4dad989b0da0ea8984127e2a075b8b.jpg">
+                        <div class="contenu">
+                            <div class="texte">Le renne</div>
+                        </div>
+                    </div>
+                </div>
+    </div>
+    <br>
+    <div class="content1">
+        <div class="example-wrapper">
+            <div class="chien">
+                <img id="chien" class="img" src="https://i.pinimg.com/564x/db/47/a8/db47a83e0ea8df3cc2dd5d4214e5226e.jpg">
+                <div class="contenu">
+                    <div class="texte">Le chien des buissons</div>
+                </div>
+            </div>
+        </div>
+        <div class="example-wrapper">
+            <div class="autruche">
+                <img id="autruche" class="img" src="https://i.pinimg.com/564x/4b/a6/d9/4ba6d9bba4a56828ed0f27478988d524.jpg">
+                <div class="contenu">
+                    <div class="texte">L'autruche</div>
+                </div>
+            </div>
+        </div>
+        <div class="example-wrapper">
+            <div class="paresseux">
+                <img id="paresseux" class="img" src="https://i.pinimg.com/564x/5c/cb/10/5ccb10b2290a44cab61dce48da229985.jpg">
+                <div class="contenu">
+                    <div class="texte">Le paresseux</div>
+                </div>
+            </div>
+        </div>
+        <div class="example-wrapper">
+            <div class="anaconda">
+                <img id="anaconda" class="img" src="https://i.pinimg.com/564x/9b/1d/bd/9b1dbd60ee840b87e69b905dbf115381.jpg">
+                <div class="contenu">
+                    <div class="texte">L'anaconda</div>
+                </div>
+            </div>
+        </div>
+        <div class="example-wrapper">
+            <div class="rhinoceros">
+                <img id="rhinoceros" class="img" src="https://i.pinimg.com/564x/ff/25/18/ff25180113fab871ba10dbc11d424528.jpg">
+                <div class="contenu">
+                    <div class="texte">Le rhinocéros</div>
+                </div>
+            </div>
+        </div>
+    </div>
+<br><br><br>
+
+    <div class="titre">
+        <div class="titre4">
+        <div class="sousTitre">DECOUVERTE</div>
+        <div class="sousTitre">
+            <span>DU PLAN DU ZOO</span>
+        </div>
+        </div>
+    </div>
+    <br><br><br>
+
+    <p>
+        <i>
+            UtopiaZoo est un lieu passionnant où vous pouvez explorer la faune du monde entier. Il est organisé en différents espaces pour vous permettre de découvrir différents habitats et écosystèmes.
+            Vous pouvez commencer votre visite par la section des animaux de la savane, où vous pourrez admirer les girafes, les éléphants et les rhinocéros. Ensuite, vous pourriez vous diriger vers la zone de la jungle pour observer les singes et les tigres ainsi que les reptiles dans la section dédiée. Il y a tant de choses à voir et à apprendre au zoo, alors venez vous immerger dans la diversité de la vie animale et découvrir le monde fascinant des créatures qui peuplent notre planète.
+            <br> <br>
+            Que vous soyez passionné par les grands félins, les primates, les oiseaux ou les reptiles, notre plan interactif est un excellent moyen de découvrir le monde fascinant des animaux du zoo. Alors, cliquez sur vos animaux préférés et laissez-vous emporter par leur beauté et leur diversité !
+        </i>
+    </p>
+
+    <br><br><br>
+
+    <div class="plan">
+        <div class="logo" onclick="fonctionLogo()">
+            <span class="imagelogo" id="imageLogo"><img src="https://i.pinimg.com/564x/f9/64/13/f96413b792aaaef366cdd4a9f345084c.jpg"></span>
+            <div class="logo1">
+                <img src="https://svgsilh.com/svg_v2/2257776.svg">
+            </div>
+        </div>
+        <div class="logo" onclick="fonctionLogo2()">
+            <span class="imagelogo2" id="imageLogo2"><img src="https://i.pinimg.com/564x/86/55/e5/8655e5347664749553ff3a48d38d3822.jpg"></span>
+            <div class="logo2">
+                <img src="https://svgsilh.com/svg/48373.svg">
+            </div>
+        </div>
+        <div class="logo" onclick="fonctionLogo3()">
+            <span class="imagelogo3" id="imageLogo3"><img src="https://i.pinimg.com/564x/87/92/ff/8792ffa946fe265495b31ea700fa6909.jpg"></span>
+            <div class="logo3">
+                <img src="https://svgsilh.com/svg/2028283.svg">
+            </div>
+        </div>
+        <div class="logo" onclick="fonctionLogo4()">
+            <span class="imagelogo4" id="imageLogo4"><img src="https://i.pinimg.com/564x/fe/c8/67/fec867225360ce88f0f01df87bb7664e.jpg"></span>
+            <div class="logo4">
+                <img src="https://svgsilh.com/svg/297872.svg">
+            </div>
+        </div>
+        <div class="logo" onclick="fonctionLogo5()">
+            <span class="imagelogo5" id="imageLogo5"><img src="https://i.pinimg.com/564x/bb/32/47/bb32477eb7bb5f5b3c89f4619424438a.jpg"></span>
+            <div class="logo5">
+                <img src="https://svgsilh.com/svg/1010275.svg">
+            </div>
+        </div>
+        <div class="logo" onclick="fonctionLogo6()">
+            <span class="imagelogo6" id="imageLogo6"><img src="https://i.pinimg.com/564x/0c/a3/ca/0ca3ca72558a2c20bb22cb5555bb2ced.jpg"></span>
+            <div class="logo6">
+                <img src="https://svgsilh.com/svg/2691407.svg">
+            </div>
+        </div>
+        <div class="logo" onclick="fonctionLogo7()">
+            <span class="imagelogo7" id="imageLogo7"><img src="https://i.pinimg.com/564x/3c/8b/43/3c8b43d79384a197acf7c6a2f582be8f.jpg"></span>
+            <div class="logo7">
+                <img src="https://svgsilh.com/svg/1454345.svg">
+            </div>
+        </div>
+        <div class="logo" onclick="fonctionLogo8()">
+            <span class="imagelogo8" id="imageLogo8"><img src="https://i.pinimg.com/564x/4a/51/bb/4a51bb39306077c5d2bbcb1ec962fcd6.jpg"></span>
+            <div class="logo8">
+                <img src="https://svgsilh.com/svg/1247882.svg">
+            </div>
+        </div>
+        <div class="logo" onclick="fonctionLogo9()">
+            <span class="imagelogo9" id="imageLogo9"><img src="https://i.pinimg.com/564x/2d/cb/0f/2dcb0ff00956953ef4be007f8a8069e2.jpg"></span>
+            <div class="logo9">
+                <img src="https://svgsilh.com/svg/2789553.svg">
+            </div>
+        </div>
+        <div class="logo" onclick="fonctionLogo10()">
+            <span class="imagelogo10" id="imageLogo10"><img src="https://i.pinimg.com/564x/ec/20/de/ec20de2bba0ad7fddf08662ca6234011.jpg"></span>
+            <div class="logo10">
+                <img src="https://svgsilh.com/svg/1300284.svg">
+            </div>
+        </div>
+        <div class="logo" onclick="fonctionLogo11()">
+            <span class="imagelogo11" id="imageLogo11"><img src="https://i.pinimg.com/564x/6a/f5/9e/6af59e6cda18b37fab6a080f592fdc1e.jpg"></span>
+            <div class="logo11">
+                <img src="https://svgsilh.com/svg/2022384.svg">
+            </div>
+        </div>
+        <div class="logo" onclick="fonctionLogo12()">
+            <span class="imagelogo12" id="imageLogo12"><img src="https://i.pinimg.com/564x/a3/87/15/a38715d3abe7223fab4f7655139eb6f1.jpg"></span>
+            <div class="logo12">
+                <img src="https://svgsilh.com/svg/48381.svg">
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .plan {
+            background-image: url("https://www.parczoologiquedeparis.fr/sites/parczoologiquedeparis/files/styles/1020x800/public/thumbnails/image/fond-carte-parc-zoologique_0.png?itok=S3Y8Ghoi");
+            width: 1020px;
+            height: 800px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            cursor: pointer;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        .logo1 img{
+            height: 80px;
+            width:59px;
+            margin-left: 450px;
+            margin-top: 350px;
+        }
+
+        .logo2 img {
+            height: 60px;
+            width: 69px;
+            margin-left: 780px;
+            margin-top: 350px;
+        }
+
+        .logo3 img {
+            height: 60px;
+            width: 69px;
+            margin-left: 580px;
+            margin-top: 330px;
+        }
+
+        .logo4 img {
+            height: 60px;
+            width: 69px;
+            margin-left: 250px;
+            margin-top: 140px;
+        }
+
+        .logo5 img {
+            height: 60px;
+            width: 69px;
+            margin-left: 680px;
+            margin-top: 0px;
+        }
+
+        .logo6 img {
+            height: 80px;
+            width: 76px;
+            margin-left: 390px;
+            margin-top: 160px;
+        }
+
+        .logo7 img {
+            height: 55px;
+            width: 63px;
+            margin-left: 190px;
+            margin-top: -410px;
+        }
+
+        .logo8 img {
+            height: 55px;
+            width: 63px;
+            margin-left: 220px;
+            margin-top: -800px;
+        }
+
+        .logo9 img {
+            height: 80px;
+            width: 76px;
+            margin-left: 440px;
+            margin-top: -360px;
+        }
+
+        .logo10 img {
+            height: 80px;
+            width: 76px;
+            margin-left: 750px;
+            margin-top: -360px;
+        }
+
+        .logo11 img {
+            height: 55px;
+            width: 63px;
+            margin-left: 550px;
+            margin-top: -1200px;
+        }
+
+        .logo12 img {
+            height: 60px;
+            width: 68px;
+            margin-left: 250px;
+            margin-top: -1750px;
+        }
+
+        .logo .imagelogo {
+            visibility: hidden;
+            background-color: black;
+            text-align: center;
+            border-radius: 200px;
+            padding: 8px 0;
+            position: absolute;
+            margin-left: 410px;
+            margin-top: 220px;
+
+            width: 118px;
+            height: 120px;
+        }
+
+        .logo .imagelogo2 {
+            visibility: hidden;
+            background-color: black;
+            text-align: center;
+            border-radius: 200px;
+            padding: 8px 0;
+            position: absolute;
+            margin-left: 780px;
+            margin-top: 210px;
+
+            width: 118px;
+            height: 120px;
+        }
+
+        .logo .imagelogo3 {
+            visibility: hidden;
+            background-color: black;
+            text-align: center;
+            border-radius: 200px;
+            padding: 8px 0;
+            position: absolute;
+            margin-left: 540px;
+            margin-top: 200px;
+
+            width: 118px;
+            height: 120px;
+        }
+
+        .logo .imagelogo4 {
+            visibility: hidden;
+            background-color: black;
+            text-align: center;
+            border-radius: 200px;
+            padding: 8px 0;
+            position: absolute;
+            margin-left: 240px;
+            margin-top: 0px;
+
+            width: 118px;
+            height: 120px;
+        }
+
+        .logo .imagelogo5 {
+            visibility: hidden;
+            background-color: black;
+            text-align: center;
+            border-radius: 200px;
+            padding: 8px 0;
+            position: absolute;
+            margin-left: 550px;
+            margin-top: 0px;
+
+            width: 118px;
+            height: 120px;
+        }
+
+        .logo .imagelogo6 {
+            visibility: hidden;
+            background-color: black;
+            text-align: center;
+            border-radius: 200px;
+            padding: 8px 0;
+            position: absolute;
+            margin-left: 380px;
+            margin-top: 20px;
+
+            width: 118px;
+            height: 120px;
+        }
+
+        .logo .imagelogo7 {
+            visibility: hidden;
+            background-color: black;
+            text-align: center;
+            border-radius: 200px;
+            padding: 8px 0;
+            position: absolute;
+            margin-left: 170px;
+            margin-top: -350px;
+
+            width: 118px;
+            height: 120px;
+        }
+
+        .logo .imagelogo8 {
+            visibility: hidden;
+            background-color: black;
+            text-align: center;
+            border-radius: 200px;
+            padding: 8px 0;
+            position: absolute;
+            margin-left: 195px;
+            margin-top: -545px;
+
+            width: 118px;
+            height: 120px;
+        }
+
+        .logo .imagelogo9 {
+            visibility: hidden;
+            background-color: black;
+            text-align: center;
+            border-radius: 200px;
+            padding: 8px 0;
+            position: absolute;
+            margin-left: 400px;
+            margin-top: -330px;
+
+            width: 118px;
+            height: 120px;
+        }
+
+        .logo .imagelogo10 {
+            visibility: hidden;
+            background-color: black;
+            text-align: center;
+            border-radius: 200px;
+            padding: 8px 0;
+            position: absolute;
+            margin-left: 750px;
+            margin-top: -330px;
+
+            width: 118px;
+            height: 120px;
+        }
+
+        .logo .imagelogo11 {
+            visibility: hidden;
+            background-color: black;
+            text-align: center;
+            border-radius: 200px;
+            padding: 8px 0;
+            position: absolute;
+            margin-left: 520px;
+            margin-top: -760px;
+
+            width: 118px;
+            height: 120px;
+        }
+
+        .logo .imagelogo12 {
+            visibility: hidden;
+            background-color: black;
+            text-align: center;
+            border-radius: 200px;
+            padding: 8px 0;
+            position: absolute;
+            margin-left: 240px;
+            margin-top: -1045px;
+
+            width: 118px;
+            height: 120px;
+        }
+
+        .logo .imagelogo img {
+            border-radius: 200px;
+
+            width:104px;
+            height:106px;
+        }
+
+        .logo .imagelogo2 img {
+            border-radius: 200px;
+
+            width:104px;
+            height:106px;
+        }
+
+        .logo .imagelogo3 img {
+            border-radius: 200px;
+
+            width:104px;
+            height:106px;
+        }
+
+        .logo .imagelogo4 img {
+            border-radius: 200px;
+
+            width:104px;
+            height:106px;
+        }
+
+        .logo .imagelogo5 img {
+            border-radius: 200px;
+
+            width:104px;
+            height:106px;
+        }
+
+        .logo .imagelogo6 img {
+            border-radius: 200px;
+
+            width:104px;
+            height:106px;
+        }
+
+        .logo .imagelogo7 img {
+            border-radius: 200px;
+
+            width:104px;
+            height:106px;
+        }
+
+        .logo .imagelogo8 img {
+            border-radius: 200px;
+
+            width:104px;
+            height:106px;
+        }
+
+        .logo .imagelogo9 img {
+            border-radius: 200px;
+
+            width:104px;
+            height:106px;
+        }
+
+        .logo .imagelogo10 img {
+            border-radius: 200px;
+
+            width:104px;
+            height:106px;
+        }
+
+        .logo .imagelogo11 img {
+            border-radius: 200px;
+
+            width:104px;
+            height:106px;
+        }
+
+        .logo .imagelogo12 img {
+            border-radius: 200px;
+
+            width:104px;
+            height:106px;
+        }
+
+        .logo .imagelogo::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: black transparent transparent transparent;
+        }
+
+        .logo .imagelogo2::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: black transparent transparent transparent;
+        }
+
+        .logo .imagelogo3::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: black transparent transparent transparent;
+        }
+
+        .logo .imagelogo4::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: black transparent transparent transparent;
+        }
+
+        .logo .imagelogo5::after {
+            content: "";
+            position: absolute;
+            left: 100%;
+            top: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: black transparent transparent transparent;
+        }
+
+        .logo .imagelogo6::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: black transparent transparent transparent;
+        }
+
+        .logo .imagelogo7::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: black transparent transparent transparent;
+        }
+
+        .logo .imagelogo8::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: black transparent transparent transparent;
+        }
+
+        .logo .imagelogo9::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: black transparent transparent transparent;
+        }
+
+        .logo .imagelogo10::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: black transparent transparent transparent;
+        }
+
+        .logo .imagelogo11::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: black transparent transparent transparent;
+        }
+
+        .logo .imagelogo12::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: black transparent transparent transparent;
+        }
+
+        .logo .show {
+            visibility: visible;
+            -webkit-animation: fadeIn 1s;
+            animation: fadeIn 1s;
+        }
+
+        @-webkit-keyframes fadeIn {
+            from {opacity: 0;}
+            to {opacity: 1;}
+        }
+
+        @keyframes fadeIn {
+            from {opacity: 0;}
+            to {opacity:1 ;}
+        }
+
+        .logo1 img:hover {
+            transform: scale(1.1);
+            background-position: -10px;
+        }
+
+        .logo2 img:hover {
+            transform: scale(1.1);
+            background-position: -10px;
+        }
+
+        .logo3 img:hover {
+            transform: scale(1.1);
+            background-position: -10px;
+        }
+
+        .logo4 img:hover {
+            transform: scale(1.1);
+            background-position: -10px;
+        }
+
+        .logo5 img:hover {
+            transform: scale(1.1);
+            background-position: -10px;
+        }
+
+        .logo6 img:hover {
+            transform: scale(1.1);
+            background-position: -10px;
+        }
+
+        .logo7 img:hover {
+            transform: scale(1.1);
+            background-position: -10px;
+        }
+
+        .logo8 img:hover {
+            transform: scale(1.1);
+            background-position: -10px;
+        }
+
+        .logo9 img:hover {
+            transform: scale(1.1);
+            background-position: -10px;
+        }
+
+        .logo10 img:hover {
+            transform: scale(1.1);
+            background-position: -10px;
+        }
+
+        .logo11 img:hover {
+            transform: scale(1.1);
+            background-position: -10px;
+        }
+
+        .logo12 img:hover {
+            transform: scale(1.1);
+            background-position: -10px;
+        }
+
+        p {
+            margin-right: 40px;
+            margin-left: 40px;
+        }
+
+        .titre4 {
+            font-size: 39px;
+        }
+
+        .overlay .popup .contenant .img1 img{
+            width: 162px;
+            height: 350px;
+            border-radius: 10px;
+        }
+
+        .activitee {
+            text-align: center;
+            width: 336px;
+            height: 830px;
+            border-radius: 50px;
+            box-shadow: 0 20px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .activitee2 {
+            text-align: center;
+            width: 750px;
+            height: 830px;
+            border-radius: 50px;
+            box-shadow: 0 20px 20px rgba(0, 0, 0, 0.3);
+            margin-left: 50px;
+        }
+
+        .activitee3 {
+            text-align: center;
+            width: 400px;
+            height: 785px;
+            border-radius: 50px;
+            box-shadow: 0 20px 20px rgba(0, 0, 0, 0.3);
+            margin-left: 18px;
+        }
+
+        .activitee4 {
+            text-align: center;
+            width: 700px;
+            height: 785px;
+            border-radius: 50px;
+            box-shadow: 0 20px 20px rgba(0, 0, 0, 0.3);
+            margin-right: 18px;
+        }
+
+        .activitee6 {
+            margin-left: 30px;
+            margin-right: 30px;
+        }
+
+        .ok {
+            width:266px;
+            height:400px;
+            border-radius: 5%;
+            box-shadow: 0 20px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .ok2 {
+            width:300px;
+            height:225px;
+            border-radius: 5%;
+            box-shadow: 0 20px 20px rgba(0, 0, 0, 0.3);
+            margin-right: 15px;
+        }
+
+        .ok3 {
+            width:338px;
+            height:225px;
+            border-radius: 5%;
+            box-shadow: 0 20px 20px rgba(0, 0, 0, 0.3);
+            margin-left: 15px;
+            margin-right: 3px;
+        }
+
+        .ok4 {
+            width:150px;
+            height:210px;
+            border-radius: 5%;
+            box-shadow: 0 20px 20px rgba(0, 0, 0, 0.3);
+            margin-left: 15px;
+            margin-right: 3px;
+        }
+        .ok5 {
+            width:140px;
+            height:210px;
+            border-radius: 5%;
+            box-shadow: 0 20px 20px rgba(0, 0, 0, 0.3);
+            margin-left: 15px;
+            margin-right: 3px;
+        }
+
+        .ok6 {
+            width:141px;
+            height:185px;
+            border-radius: 5%;
+            box-shadow: 0 20px 20px rgba(0, 0, 0, 0.3);
+            margin-left: 15px;
+            margin-right: 3px;
+        }
+
+        .ok7 {
+            width:282px;
+            height:185px;
+            border-radius: 5%;
+            box-shadow: 0 20px 20px rgba(0, 0, 0, 0.3);
+            margin-left: 15px;
+            margin-right: 3px;
+        }
+
+        .ok8 {
+            width:115px;
+            height:185px;
+            border-radius: 5%;
+            box-shadow: 0 20px 20px rgba(0, 0, 0, 0.3);
+            margin-left: 15px;
+            margin-right: 3px;
+        }
+
+        .ok9 {
+            width: 177px;
+            height: 250px;
+            border-radius: 5%;
+            box-shadow: 0 20px 20px rgba(0, 0, 0, 0.3);
+            margin-left: 25px;
+        }
+
+        .ok10 {
+            width: 166px;
+            height: 250px;
+            border-radius: 5%;
+            box-shadow: 0 20px 20px rgba(0, 0, 0, 0.3);
+            margin-right: 25px;
+        }
+
+        .presentation {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+
+        .contenantpresentation {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+
+        .presentation2 {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+
+            text-align: center;
+            width: 1137px;
+            height: 300px;
+            border-radius: 50px;
+            box-shadow: 0 20px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        p {
+            text-align: center;
+        }
+
+    </style>
+
+    <br><br><br>
+    <div class="titre">
+        <div class="titre2">
+            <div class="sousTitre">DECOUVERTE</div>
+            <div class="sousTitre">
+                <span>DES ENDROITS DU ZOO</span>
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <br><br>
+    <p><i>
+    UtopiaZoo, un parc zoologique unique en son genre offrant une expérience exceptionnelle de découverte de la faune. UtopiaZoo est un lieu magique où les visiteurs peuvent découvrir des espèces animales fascinantes dans des habitats reconstitués, à travers un environnement naturel et en constante évolution.
+    <br><br>
+    Le parc est conçu pour offrir une immersion totale dans la vie des animaux, avec des enclos spacieux et des environnements naturels, où les animaux peuvent se déplacer librement et mener une vie saine et heureuse. UtopiaZoo s'engage également à la conservation des espèces menacées, en travaillant en étroite collaboration avec des organisations de conservation et en soutenant des programmes de protection des espèces dans le monde entier.
+        </i></p>
+        <br><br><br>
+
+    <div class="presentation">
+    <div class="activitee">
+        <br>
+        <img class="ok" src="https://i.pinimg.com/564x/a5/1c/67/a51c6733d5cf27dba9e62ae8c9a0c009.jpg">
+        <br><br>
+        <h3>WILD FOREST</h3>
+        <hr>
+        <p><i>
+            Ce parc animalier vous propose une expérience immersive dans un environnement naturel pour observer une variété d'animaux sauvages tels que des singes ou des oiseaux exotiques.
+            Les visiteurs peuvent se promener dans des sentiers forestiers, espace idéal pour une journée en famille ou pour toute personne désirant découvrir et apprendre sur les animaux sauvages et leur habitat naturel.
+            </i></p>
+    </div>
+    <div class="activitee2">
+        <br>
+        <img class="ok2" src="https://i.pinimg.com/564x/73/f2/d9/73f2d9a06ce1d7fb18a80e9b1cc52a54.jpg">
+        <img class="ok3" src="https://i.pinimg.com/564x/51/3d/35/513d351f08b05379d3a41cf5a0942167.jpg">
+        <br><br>
+        <h3>TUNNEL DE VERRE</h3>
+        <hr>
+        <p><i>
+                Les lions sont des créatures majestueuses et impressionnantes, et le tunnel de verre de l'UtopiaZoo offre un aperçu unique de leur monde. Vous pourrez les observer dans leur habitat naturel et les voir interagir entre eux, chasser, manger et jouer.
+                <br><br>
+                C'est une expérience inoubliable pour les adultes et les enfants, qui permet d'en apprendre davantage sur ces animaux fascinants et de se connecter avec la nature d'une manière nouvelle.
+                <br><br>
+                Le tunnel de verre est un passage à travers l'enclos des lions, construit avec des murs et un toit en verre résistant pour une expérience immersive en toute sécurité. Vous pourrez marcher tranquillement à travers le tunnel et voir les lions se déplacer autour de vous, sans barreaux ou cages qui vous séparent. La proximité avec les animaux permet une observation de leur comportement naturel.
+                <br><br>
+                UtopiaZoo est fier de fournir des habitats spacieux et respectueux pour ses animaux, tout en offrant des expériences éducatives et amusantes pour les visiteurs. Le tunnel de verre des lions est une des attractions les plus populaires d'UtopiaZoo et est un véritable spectacle pour les yeux.
+                <br><br>
+                UtopiaZoo vous offre une expérience unique qui vous permettra de voir les lions d'une manière que vous n'avez jamais vue auparavant !
+            </i></p>
+    </div>
+    </div>
+    <br><br>
+    <div class="contenantpresentation">
+    <div class="presentation2">
+        <div class="activitee5">
+            <br>
+            <img class="ok9" src="https://i.pinimg.com/564x/65/08/70/6508703c2db79d6624a9f87db4129ec9.jpg">
+        </div>
+        <div class="activitee6">
+            <br>
+            <h3>ARCHE DES PETITES BETE</h3>
+            <hr>
+            <p><i>
+                    L'Arche des Petites Bêtes est une attraction unique du zoo UtopiaZoo, offrant aux visiteurs une expérience immersive dans le monde des insectes et des petits animaux.
+                    <br><br>
+                    Située dans une serre tropicale, l'Arche des Petites Bêtes est une exposition interactive présentant une grande variété d'espèces d'insectes, d'arachnides et de petits animaux. Les visiteurs peuvent observer de près les animaux dans leur habitat naturel, apprendre sur leur biologie et leur comportement, et interagir avec eux grâce à des activités éducatives.
+                </i></p>
+        </div>
+    </div>
+    </div>
+
+    <br><br>
+    <div class="presentation">
+        <div class="activitee4">
+            <br>
+            <img class="ok6" src="https://i.pinimg.com/564x/59/1c/ff/591cffead915c7e5437055a292d40ee1.jpg">
+            <img class="ok7" src="https://i.pinimg.com/564x/44/39/a8/4439a84ef48252c1476f93ca5a943d95.jpg">
+            <img class="ok8" src="https://i.pinimg.com/564x/d4/55/35/d45535d4c5d45299e6ba760b70e6f4fe.jpg">
+            <br><br>
+            <h3>VOLIERE AUSTRALIENNE</h3>
+            <hr>
+            <p><i>
+                    La volière australienne d'UtopiaZoo, un endroit magnifique où vous pourrez admirer des oiseaux exotiques d'Australie.
+                <br><br>
+                    La volière australienne est un habitat spacieux et diversifié où les oiseaux australiens vivent en toute sécurité. L'habitat est conçu pour ressembler à un environnement naturel, avec des arbres, des plantes et des cascades, créant un environnement confortable et stimulant pour les oiseaux.
+                    <br><br>
+                    Lorsque vous visiterez la volière australienne, vous pourrez admirer de nombreux oiseaux indigènes australiens, tels que les cacatoès, les perruches, les kookaburras et les loriquets. Vous pourrez les observer voler, jouer et interagir entre eux, créant un spectacle fascinant et coloré.
+                <br><br>
+                    Nous fournissons un environnement respectueux pour les oiseaux australiens de l'UtopiaZoo, tout en permettant aux visiteurs d'en apprendre davantage sur ces espèces magnifiques. En visitant la volière australienne, vous pourrez en savoir plus sur leur habitat naturel, leur comportement, leur alimentation et leur mode de vie, tout en profitant d'une expérience visuelle et auditive inoubliable.
+                </i></p>
+        </div>
+        <div class="activitee3">
+            <br>
+            <img class="ok4" src="https://i.pinimg.com/564x/08/c8/e9/08c8e98ef97d516c044da8a2d1a9e653.jpg">
+            <img class="ok5" src="https://i.pinimg.com/564x/c7/69/ba/c769ba434dd29cbca8b1ce57bfa1c42f.jpg">
+            <br><br>
+            <h3>LEMURTREK</h3>
+            <hr>
+            <p><i>
+                    L'espace des lémuriens, une des attractions les plus populaires de UtopiaZoo, vous permettra d'admirer ces animaux en toute sécurité tout en ayant une interaction unique avec eux. Les lémuriens sont curieux et très sociables, et ils sont souvent très intéressés par les visiteurs. Vous pourrez les observer en train de sauter d'arbre en arbre, de jouer entre eux, de se toiletter, de se nourrir et de dormir.
+                <br><br>
+                    Nous sommes fiers de fournir un environnement respectueux pour les lémuriens de l'UtopiaZoo et de contribuer à leur préservation. En effet, ces animaux sont en danger dans leur milieu naturel, en raison de la déforestation et de la chasse. Notre mission est donc de sensibiliser le public à leur situation et de promouvoir leur protection.
+                </i></p>
+        </div>
+    </div>
+
+    <br><br>
+
+    <div class="contenantpresentation">
+        <div class="presentation2">
+            <div class="activitee6">
+                <br>
+                <h3>LA SERRE DES GORILLES</h3>
+                <hr>
+                <p><i>
+                        La serre des gorilles d'UtopiaZoo est un lieu fascinant où les visiteurs peuvent observer de près l'un des plus grands et des plus impressionnants primates du monde.
+                        <br><br>
+                        La serre offre un environnement idéal pour les gorilles, avec des espaces intérieurs et extérieurs spacieux et enrichis, où les gorilles peuvent se déplacer librement, grimper, jouer et se reposer. Les visiteurs peuvent observer ces animaux impressionnants dans leur habitat naturel, et en apprendre davantage sur leur comportement, leur alimentation et leur mode de vie.
+                    </i></p>
+            </div>
+            <div class="activitee5">
+                <br>
+                <img class="ok10" src="https://i.pinimg.com/564x/7c/85/0e/7c850ea9a3b0be4c37acd3bb5a232e08.jpg">
+            </div>
+        </div>
+    </div>
+
+    <br><br><br>
+
+    <!-- $$$$$$$$$$$$$$$$$$$.    PARTIE POPUP      $$$$$$$$$$$$$$$$$$$$ -->
+    <!-- ----------------0---------------------- -->
+
+    <div id="overlay" class="overlay">
+        <div id="popup" class="popup">
+            <div class="contenant">
+                <div class="img1"><img src="https://i.pinimg.com/564x/65/6e/11/656e11c1db1f9017eefea8af13df5b5b.jpg"></div>
+                <div><h2>
+                        <button id="btnPopup" class="btnPopup" onclick="openImg('https://www.sound-fishing.net/download.php?id=117')">Cliquez ici</button>
+                    </h2>
+                </div>
+            </div>
+            <div class="contenant2">
+                <button id="btnClose" class="btnClose">&times;</button>
+                <div>
+                    <h2><I>Le lion</I></h2>
+                    <span><b>Classe:</b> Mammifère</span>
+                    <hr>
+                    <I><p>DESCRIPTION</p></I>
+                    <p>Le lion est un membre de la famille des Félidés. Ses plus proches cousins sont le tigre, la panthère ou le jaguar. Après le tigre, c’est le plus grand félin au monde. Deux sous-espèces sont actuellement reconnues : le lion d’Asie, très menacé, et le lion d’Afrique.</p>
+                    <ul>
+                        <li><I>Longueur du corps:</I> 2,4 à 3,3 m.</li>
+                        <li><I>Poids:</I> 125 à 270 kg en moyenne.</li>
+                        <li><I>Taille:</I> 1,5 à 1,9 m de long pour les femelles / jusqu'à 2,5 m pour les mâles</li>
+                        <li><I>Longévité:</I> 12 à 16 ans.</li>
+                        <li><I>Nourriture:</I> Carnivore.</li>
+                        <li><I>Milieu:</I> Plaines, savanes, fourrés et semi-déserts.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="overlay2" class="overlay">
+        <div id="popup" class="popup">
+            <div class="contenant"><br>
+                <div class="img2"><img src="https://i.pinimg.com/564x/cf/75/53/cf755322f9ed936cb1e5e4d6af33afea.jpg"></div>
+                <div><h2>
+                        <button id="btnPopup" class="btnPopup" onclick="openImg('https://universal-soundbank.com/sounds/4003.mp3')">Cliquez ici</button>
+                    </h2>
+                </div>
+            </div>
+            <div class="contenant2">
+                <button id="btnClose2" class="btnClose">&times;</button>
+                <div>
+                    <h2><I>Le zèbre</I></h2>
+                    <span><b>Classe:</b> Mammifère</span>
+                    <hr>
+                    <I><p>DESCRIPTION</p></I>
+                    <p>Le zèbre fait partie de la famille des Equidés, qui possèdent un doigt unique doté d’un sabot à chaque patte. Au sein de cette famille, il côtoie le cheval. La sous-espèce présentée à UtopiaZoo est le zèbre de Chapman.</p>
+                    <ul>
+                        <li><I>Longueur du corps:</I> 217 à 246 cm.</li>
+                        <li><I>Poids:</I> 175 à 250 kg en moyenne pour les femelles/ 220 à 375 kg en moyenne pour les mâles</li>
+                        <li><I>Taille:</I> 110 à 145 cm.</li>
+                        <li><I>Longévité:</I> 25 à 30 ans.</li>
+                        <li><I>Nourriture:</I> Herbes hautes. </li>
+                        <li><I>Milieu:</I> Les savanes d’Éthiopie, de Somalie et du Nord du Kenya.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="overlay3" class="overlay">
+        <div id="popup" class="popup">
+            <div class="contenant">
+                <div class="img3"><img src="https://i.pinimg.com/564x/5c/f9/9e/5cf99e2f915aa76afeb827a4d3793ee1.jpg"></div>
+                <div><h2>
+                        <button id="btnPopup" class="btnPopup" onclick="openImg('https://universal-soundbank.com/sounds/1296.mp3')">Cliquez ici</button>
+                    </h2>
+                </div>
+            </div>
+            <div class="contenant2">
+                <button id="btnClose3" class="btnClose">&times;</button>
+                <div>
+                    <h2><I>Le singe</I></h2>
+                    <span><b>Classe:</b> Mammifère</span>
+                    <hr>
+                    <I><p>DESCRIPTION</p></I>
+                    <p>Le singe fait parti d'un groupe de mammifères appartenant à l'ordre des primates. Il possède une main avec un pouce opposable aux autres doigts, ce qui lui permet d'attraper des objets ou de saisir les branches pour grimper dans les arbres. Il existe 285 espèces de singes vivant dans le monde.</p>
+                    <ul>
+                        <li><I>Taille:</I> 12cm à 180 cm.</li>
+                        <li><I>Poids:</I> 120 g pour le plus petit singe / Jusqu'à 180kg pour le plus grand.</li>
+                        <li><I>Longévité:</I> 12 à 45 ans.</li>
+                        <li><I>Nourriture:</I> Omnivores </li>
+                        <li><I>Milieu:</I> Les forêts pluvieuses des pays du sud et la savane boisée d'Afrique.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="overlay4" class="overlay">
+        <div id="popup" class="popup">
+            <div class="contenant">
+                <div class="img3"><img src="https://i.pinimg.com/564x/7a/71/ee/7a71ee084aacbf61bd5e23336481f93f.jpg"></div>
+                <div><h2>
+                        <button id="btnPopup" class="btnPopup" onclick="openImg('https://universal-soundbank.com/sounds/79.mp3')">Cliquez ici</button>
+                    </h2>
+                </div>
+            </div>
+            <div class="contenant2">
+                <button id="btnClose4" class="btnClose">&times;</button>
+                <div>
+                    <h2><I>L'éléphant</I></h2>
+                    <span><b>Classe:</b> Mammifère</span>
+                    <hr>
+                    <I><p>DESCRIPTION</p></I>
+                    <p>L’éléphant est un membre de l’ordre des Proboscidiens et de la famille des Eléphantidés. Il existerait au moins deux espèces distinctes d’éléphant d’Afrique : l’éléphant de savane et l’éléphant de forêt. Des différences morphologiques (les éléphants de forêt sont plus petits) et comportementales séparent ces deux espèces.</p>
+                    <ul>
+                        <li><I>Taille:</I> 3,5 à 4 m pour le mâle et 2,5 à 3 m pour la femelle.</li>
+                        <li><I>Poids:</I> 3 à 6 tonnes.</li>
+                        <li><I>Longévité:</I> 60 à 70 ans.</li>
+                        <li><I>Nourriture:</I> Végétarien. </li>
+                        <li><I>Milieu:</I> Habitats variés : forêts, savanes, zones marécageuses.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="overlay5" class="overlay">
+        <div id="popup" class="popup">
+            <div class="contenant"><br>
+                <div class="img2"><img src="https://i.pinimg.com/564x/1e/43/f6/1e43f6108328442405733a9ef6cb4641.jpg"></div>
+                <div><h2>
+                        <button id="btnPopup" class="btnPopup">Cliquez ici</button>
+                    </h2>
+                </div>
+            </div>
+            <div class="contenant2">
+                <button id="btnClose5" class="btnClose">&times;</button>
+                <div>
+                    <h2><I>La girafe</I></h2>
+                    <span><b>Classe:</b> Mammifère</span>
+                    <hr>
+                    <I><p>DESCRIPTION</p></I>
+                    <p> La girafe appartient à l’ordre des Artiodactyles. Le premier doigt est toujours absent. Le deuxième et quelquefois le cinquième doigt peuvent être réduits ou absents. Ces animaux prennent appui sur le sol par leurs 3e et 4e doigts.</p>
+                    <ul>
+                        <li><I>Taille:</I> 4,7 à 5,7 m.</li>
+                        <li><I>Poids:</I> 600 à 1200 kg pour la femelle     / 800 à 1940 kg pour le mâle.</li>
+                        <li><I>Longévité:</I> 30 à 35 ans.</li>
+                        <li><I>Longueur du cou:</I> 2,4 m en moyenne.</li>
+                        <li><I>Longueur de la queue:</I> 80 à 100 cm.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="overlay6" class="overlay">
+        <div id="popup" class="popup">
+            <div class="contenant"><br>
+                <div class="img2"><img src="https://i.pinimg.com/564x/b2/76/57/b27657593286511dd4e60f7e3ed3caec.jpg"></div>
+                <div><h2>
+                        <button id="btnPopup" class="btnPopup" onclick="openImg('https://universal-soundbank.com/sounds/1563.mp3')">Cliquez ici</button>
+                    </h2>
+                </div>
+            </div>
+            <div class="contenant2">
+                <button id="btnClose6" class="btnClose">&times;</button>
+                <div>
+                    <h2><I>Le manchot du cap</I></h2>
+                    <span><b>Classe:</b> Aves</span>
+                    <hr>
+                    <I><p>DESCRIPTION</p></I>
+                    <p> Le Manchot du Cap est une espèce de manchot sud-africain. Cet oiseau d’Afrique du Sud est sociable, grégaire et loyal. Il sait également donner de la voix, surtout la nuit. Le manchot du Cap vit en colonie.</p>
+                    <ul>
+                        <li><I>Taille:</I> 45 cm.</li>
+                        <li><I>Poids:</I> 3,1 kg.</li>
+                        <li><I>Longévité:</I> 25 à 28 ans.</li>
+                        <li><I>Nourriture:</I> Poisson principalement.</li>
+                        <li><I>Milieu:</I> Principalement sur les côtes d'Afrique du Sud et en Namibie.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="overlay7" class="overlay">
+        <div id="popup" class="popup">
+            <div class="contenant"><br>
+                <div class="img4"><img src="https://i.pinimg.com/564x/45/76/80/4576808b201be3d49459ef870bc253a8.jpg"></div>
+                <div><h2>
+                        <button id="btnPopup" class="btnPopup" onclick="openImg('https://www.dinosoria.com/sons/cri_male.mp3')">Cliquez ici</button>
+                    </h2>
+                </div>
+            </div>
+            <div class="contenant2">
+                <button id="btnClose7" class="btnClose">&times;</button>
+                <div>
+                    <h2><I>Le panda roux </I></h2>
+                    <span><b>Classe:</b> Mammifères</span>
+                    <hr>
+                    <I><p>DESCRIPTION</p></I>
+                    <p>Le panda roux est un membre de l’ordre des Carnivores. Actuellement, deux sous-espèces sont reconnues : le panda roux de l’ouest et le panda roux de Styan, qui serait plus grand et sombre que le premier et présent uniquement en Chine et au nord de la Birmanie.</p>
+                    <ul>
+                        <li><I>Taille:</I> 50-64 cm de long + 30-50 cm pour la queue.</li>
+                        <li><I>Poids:</I> 3 à 6 kg.</li>
+                        <li><I>Longévité:</I> 8 à 10 ans en milieu naturel / 15-18 ans en captivité.</li>
+                        <li><I>Nourriture:</I> Omnivore.</li>
+                        <li><I>Milieu:</I> Forêts de feuillus et de conifères avec la présence d'un sous-étage dense de bambou.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="overlay8" class="overlay">
+        <div id="popup" class="popup">
+            <div class="contenant"><br>
+                <div class="img4"><img src="https://i.pinimg.com/564x/59/0d/9b/590d9b272ee9c8621761899489df5a0d.jpg"></div>
+                <div><h2>
+                        <button id="btnPopup" class="btnPopup" onclick="openImg('https://universal-soundbank.com/sounds/1684.mp3')">Cliquez ici</button>
+                    </h2>
+                </div>
+            </div>
+            <div class="contenant2">
+                <button id="btnClose8" class="btnClose">&times;</button>
+                <div>
+                    <h2><I>La loutre</I></h2>
+                    <span><b>Classe:</b> Mammifères</span>
+                    <hr>
+                    <I><p>DESCRIPTION</p></I>
+                    <p>La loutre d’Asie est un mammifère parfaitement adapté à la vie aquatique. La durée moyenne d’une plongée est de 30 secondes, mais elles peuvent durer jusqu’à 8 minutes. Son pelage est adapté pour résister aux basses températures des cours d’eau. Cette épaisse fourrure est imperméable.</p>
+                    <ul>
+                        <li><I>Taille:</I> 80 cm de long.</li>
+                        <li><I>Poids:</I> 4 à 5 kg.</li>
+                        <li><I>Longévité:</I> Jusqu'à 15 ans.</li>
+                        <li><I>Nourriture:</I> Carnivore.</li>
+                        <li><I>Milieu:</I> Eaux peu profondes des ruisseaux et des rivières d’eau douce.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="overlay9" class="overlay">
+        <div id="popup" class="popup">
+            <div class="contenant"><br>
+                <div class="img4"><img src="https://i.pinimg.com/564x/41/c2/28/41c22817542b4137532ff14e5ae735c2.jpg"></div>
+                <div><h2>
+                        <button id="btnPopup" class="btnPopup" onclick="openImg('https://www.dinosoria.com/sons/animaux/0049.mp3')">Cliquez ici</button>
+                    </h2>
+                </div>
+            </div>
+            <div class="contenant2">
+                <button id="btnClose9" class="btnClose">&times;</button>
+                <div>
+                    <h2><I>Le maki catta</I></h2>
+                    <span><b>Classe:</b> Mammifères</span>
+                    <hr>
+                    <I><p>DESCRIPTION</p></I>
+                    <p>Le maki catta ou lémur catta est un membre de l’ordre des Primates. A ce titre, il possède des yeux dirigés vers l’avant et permettant une vision binoculaire, des membres à 5 doigts terminés généralement par un ongle plat ainsi que des mains préhensiles avec les pouces opposables. Il possède un odorat très puissant grâce à son museau allongé.</p>
+                    <ul>
+                        <li><I>Taille:</I> Environ 40 cm de long.</li>
+                        <li><I>Poids:</I> 2,3 à 3,5 kg en moyenne.</li>
+                        <li><I>Longévité:</I> 20 à 25 ans.</li>
+                        <li><I>Nourriture:</I> Omnivore à tendance frugivore.</li>
+                        <li><I>Milieu:</I> Forêt et savane arbustive.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="overlay10" class="overlay">
+        <div id="popup" class="popup">
+            <div class="contenant"><br>
+                <div class="img5"><img src="https://i.pinimg.com/564x/5c/95/1c/5c951c50a1b69b171ec43b7a34a80cc5.jpg"></div>
+                <div><h2>
+                        <button id="btnPopup" class="btnPopup" onclick="openImg('https://www.dinosoria.com/sons/0247.mp3')">Cliquez ici</button>
+                    </h2>
+                </div>
+            </div>
+            <div class="contenant2">
+                <button id="btnClose10" class="btnClose">&times;</button>
+                <div>
+                    <h2><I>Le renne</I></h2>
+                    <span><b>Classe:</b> Mammalia</span>
+                    <hr>
+                    <I><p>DESCRIPTION</p></I>
+                    <p>Le renne, pouvant avoir un pelage brun ou gris, est un animal robuste. Les rennes en bonne santé sont bien plus rapides à la course que la plupart de leurs prédateurs tels que les loups par exemple. En effet, le renne peut facilement courir à près de 70 km/h en cas de danger.</p>
+                    <ul>
+                        <li><I>Taille:</I> 85 à 150 cm.</li>
+                        <li><I>Poids:</I> 160 à 180 kg pour un mâle / 80 à 120 kg pour une femelle.</li>
+                        <li><I>Longévité:</I> 15 ans dans la nature / 20 ans en captivité.</li>
+                        <li><I>Nourriture:</I> Alimentation variée mais essentiellement des lichens (association mousse-champignons).</li>
+                        <li><I>Milieu:</I> Régions de hautes latitudes, où il fait froid.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="overlay11" class="overlay">
+        <div id="popup" class="popup">
+            <div class="contenant"><br>
+                <div class="img4"><img src="https://i.pinimg.com/564x/8c/d7/03/8cd703fba84a0eb7cfbae872756fee45.jpg"></div>
+                <div><h2>
+                        <button id="btnPopup" class="btnPopup" onclick="openImg('https://www.dinosoria.com/sons/animaux/0049.mp3')">Cliquez ici</button>
+                    </h2>
+                </div>
+            </div>
+            <div class="contenant2">
+                <button id="btnClose11" class="btnClose">&times;</button>
+                <div>
+                    <h2><I>Le chien des buissons</I></h2>
+                    <span><b>Classe:</b> Mammifères</span>
+                    <hr>
+                    <I><p>DESCRIPTION</p></I>
+                    <p>Le chien des buissons est une espèce semi-aquatique. Ses doigts sont reliés par une membrane qui lui permet d’être un excellent nageur. Il est capable de plonger, nager sous l’eau ou encore poursuivre une proie à la nage.</p>
+                    <ul>
+                        <li><I>Taille:</I> 30cm au garrot.</li>
+                        <li><I>Poids:</I> 5 à 8kg en moyenne.</li>
+                        <li><I>Longévité:</I> 10 ans (jusqu'à 13 ans en captivité).</li>
+                        <li><I>Nourriture:</I> Carnivore.</li>
+                        <li><I>Milieu:</I> Forêt humide, savane.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="overlay12" class="overlay">
+        <div id="popup" class="popup">
+            <div class="contenant">
+                <div class="img1"><img src="https://i.pinimg.com/564x/27/79/0e/27790eabfbc8741f939af03626d6c937.jpg"></div>
+                <div><h2>
+                        <button id="btnPopup" class="btnPopup" onclick="openImg('https://www.dinosoria.com/sons/animaux/0049.mp3')">Cliquez ici</button>
+                    </h2>
+                </div>
+            </div>
+            <div class="contenant2">
+                <button id="btnClose12" class="btnClose">&times;</button>
+                <div>
+                    <h2><I>L'autruche</I></h2>
+                    <span><b>Classe:</b> Diapsides</span>
+                    <hr>
+                    <I><p>DESCRIPTION</p></I>
+                    <p>L’autruche bat de nombreux records dans le monde animal : c’est le plus grand oiseau vivant, avec ses deux mètres de haut et son poids qui dépasse les cent kilos. Son œuf est le plus gros de tous les œufs : il peut peser plus de 1,5 kg. L’autruche est aussi le plus rapide des oiseaux terrestres.</p>
+                    <ul>
+                        <li><I>Taille:</I> 1m75 à 1m90 pour une femelle, 2m10 à 2m75 pour un mâle.</li>
+                        <li><I>Poids:</I> 90 à 110kg pour une femelle, 100 à 150kg pour un mâle.</li>
+                        <li><I>Longévité:</I> 40 ans (50 ans en captivité).</li>
+                        <li><I>Nourriture:</I> Omnivore.</li>
+                        <li><I>Milieu:</I> Savane.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="overlay13" class="overlay">
+        <div id="popup" class="popup">
+            <div class="contenant">
+                <div class="img1"><img src="https://i.pinimg.com/564x/1e/39/56/1e39561bda181e4a378659cb0e07d67c.jpg"></div>
+                <div><h2>
+                        <button id="btnPopup" class="btnPopup" onclick="openImg('https://www.dinosoria.com/sons/animaux/0049.mp3')">Cliquez ici</button>
+                    </h2>
+                </div>
+            </div>
+            <div class="contenant2">
+                <button id="btnClose13" class="btnClose">&times;</button>
+                <div>
+                    <h2><I>Le paresseux</I></h2>
+                    <span><b>Classe:</b> Mammifères</span>
+                    <hr>
+                    <I><p>DESCRIPTION</p></I>
+                    <p>Le paresseux a la réputation d’être l'un des animaux les plus lents du monde. Il est particulièrement vulnérable à terre et peut mettre une heure pour faire quelques mètres en rampant. En revanche, il est capable d’escalader un arbre en quelques minutes pour échapper à un prédateur, et est un excellent nageur.</p>
+                    <ul>
+                        <li><I>Taille:</I> De 50 à 85cm.</li>
+                        <li><I>Poids:</I> De 4 à 8kg.</li>
+                        <li><I>Longévité:</I> Jusqu'à 30 ans en captivité.</li>
+                        <li><I>Nourriture:</I> Végétarien.</li>
+                        <li><I>Milieu:</I> Canopée.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="overlay14" class="overlay">
+        <div id="popup" class="popup">
+            <div class="contenant"><br>
+                <div class="img4"><img src="https://i.pinimg.com/564x/fd/56/01/fd560197e74b0fdcc4d70fc96318e6e9.jpg"></div>
+                <div><h2>
+                        <button id="btnPopup" class="btnPopup" onclick="openImg('https://www.dinosoria.com/sons/animaux/0049.mp3')">Cliquez ici</button>
+                    </h2>
+                </div>
+            </div>
+            <div class="contenant2">
+                <button id="btnClose14" class="btnClose">&times;</button>
+                <div>
+                    <h2><I>L'anaconda</I></h2>
+                    <span><b>Classe:</b> Sauropsides</span>
+                    <hr>
+                    <I><p>DESCRIPTION</p></I>
+                    <p>Le jeune anaconda chasse depuis les arbres. Adulte, c’est dans l’eau qu’il se met à l’affût, laissant émerger yeux et narines. Il noie sa proie en plus de l’étouffer. Il s'agit du plus lourd serpent du monde, même s'il n'est pas pour autant le plus long.</p>
+                    <ul>
+                        <li><I>Taille:</I> De 6 à 8m pour une femelle, de 3 à 5m pour un mâle.</li>
+                        <li><I>Poids:</I> 70 à 100kg.</li>
+                        <li><I>Longévité:</I> Jusqu'à 25 ans.</li>
+                        <li><I>Nourriture:</I> Carnivore (rongeurs et oiseaux généralement).</li>
+                        <li><I>Milieu:</I> Marais, étangs et cours d'eau lents.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="overlay15" class="overlay">
+        <div id="popup" class="popup">
+            <div class="contenant"><br>
+                <div class="img4"><img src="https://i.pinimg.com/564x/ef/32/26/ef322608f41130fd8dc1bdddde40e903.jpg"></div>
+                <div><h2>
+                        <button id="btnPopup" class="btnPopup" onclick="openImg('https://www.dinosoria.com/sons/animaux/0049.mp3')">Cliquez ici</button>
+                    </h2>
+                </div>
+            </div>
+            <div class="contenant2">
+                <button id="btnClose15" class="btnClose">&times;</button>
+                <div>
+                    <h2><I>Le rhinocéros</I></h2>
+                    <span><b>Classe:</b> Mammifères</span>
+                    <hr>
+                    <I><p>DESCRIPTION</p></I>
+                    <p>Les rhinocéros d’Afrique possèdent deux cornes contrairement à certains de leurs cousins d’Asie. Le rhinocéros blanc se distingue du rhinocéros noir par sa lèvre carrée et large. Les mâles mâtures sont plutôt solitaires, tandis que les femelles et les jeunes vivent en hardes de plusieurs dizaines d’individus.</p>
+                    <ul>
+                        <li><I>Taille:</I> 1m50 à 1m80 au garrot.</li>
+                        <li><I>Poids:</I> De 2 à 3,5 tonnes.</li>
+                        <li><I>Longévité:</I> Jusqu'à 40 ans (50 ans en captivité).</li>
+                        <li><I>Nourriture:</I> Herbivore.</li>
+                        <li><I>Milieu:</I> Forêt et savane arborée.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <br>
+    <br>
+
+    <script>
+
+    var btnPopup = document.querySelector('div.example-wrapper div.lion');
+    var overlay = document.getElementById('overlay');
+    btnPopup.addEventListener('click',openMoadl);
+    btnClose.addEventListener('click',closePopup);
+
+    function openMoadl() {
+    overlay.style.display='block';
+    }
+
+    function closePopup(){
+    overlay.style.display='none';
+    }
+
+    var btnPopup2 = document.querySelector('div.example-wrapper div.zebre');
+    var overlay2 = document.getElementById('overlay2');
+    btnPopup2.addEventListener('click',openMoadl2);
+    btnClose2.addEventListener('click',closePopup2);
+
+    function openMoadl2() {
+    overlay2.style.display='block';
+    }
+
+    function closePopup2(){
+    overlay2.style.display='none';
+    }
+
+
+    var btnPopup3 = document.querySelector('div.example-wrapper div.singe');
+    var overlay3 = document.getElementById('overlay3');
+    btnPopup3.addEventListener('click',openMoadl3);
+    btnClose3.addEventListener('click',closePopup3);
+
+    function openMoadl3() {
+    overlay3.style.display='block';
+    }
+
+    function closePopup3(){
+    overlay3.style.display='none';
+    }
+
+    var btnPopup4 = document.querySelector('div.example-wrapper div.elephant');
+    var overlay4 = document.getElementById('overlay4');
+    btnPopup4.addEventListener('click',openMoadl4);
+    btnClose4.addEventListener('click',closePopup4);
+
+    function openMoadl4() {
+    overlay4.style.display='block';
+    }
+
+    function closePopup4(){
+    overlay4.style.display='none';
+    }
+
+    var btnPopup5 = document.querySelector('div.example-wrapper div.girafe');
+    var overlay5 = document.getElementById('overlay5');
+    btnPopup5.addEventListener('click',openMoadl5);
+    btnClose5.addEventListener('click',closePopup5);
+
+    function openMoadl5() {
+    overlay5.style.display='block';
+    }
+
+    function closePopup5(){
+    overlay5.style.display='none';
+    }
+
+    var btnPopup6 = document.querySelector('div.example-wrapper div.manchot');
+    var overlay6 = document.getElementById('overlay6');
+    btnPopup6.addEventListener('click',openMoadl6);
+    btnClose6.addEventListener('click',closePopup6);
+
+    function openMoadl6() {
+    overlay6.style.display='block';
+    }
+
+    function closePopup6(){
+    overlay6.style.display='none';
+    }
+
+    var btnPopup7 = document.querySelector('div.example-wrapper div.panda');
+    var overlay7 = document.getElementById('overlay7');
+    btnPopup7.addEventListener('click',openMoadl7);
+    btnClose7.addEventListener('click',closePopup7);
+
+    function openMoadl7() {
+    overlay7.style.display='block';
+    }
+
+    function closePopup7(){
+    overlay7.style.display='none';
+    }
+
+    var btnPopup8 = document.querySelector('div.example-wrapper div.loutre');
+    var overlay8 = document.getElementById('overlay8');
+    btnPopup8.addEventListener('click',openMoadl8);
+    btnClose8.addEventListener('click',closePopup8);
+
+    function openMoadl8() {
+    overlay8.style.display='block';
+    }
+
+    function closePopup8(){
+    overlay8.style.display='none';
+    }
+
+    var btnPopup9 = document.querySelector('div.example-wrapper div.maki');
+    var overlay9 = document.getElementById('overlay9');
+    btnPopup9.addEventListener('click',openMoadl9);
+    btnClose9.addEventListener('click',closePopup9);
+
+    function openMoadl9() {
+    overlay9.style.display='block';
+    }
+
+    function closePopup9(){
+    overlay9.style.display='none';
+    }
+
+    var btnPopup10 = document.querySelector('div.example-wrapper div.renne');
+    var overlay10 = document.getElementById('overlay10');
+    btnPopup10.addEventListener('click',openMoadl10);
+    btnClose10.addEventListener('click',closePopup10);
+
+    function openMoadl10() {
+    overlay10.style.display='block';
+    }
+
+    function closePopup10(){
+    overlay10.style.display='none';
+    }
+
+    var btnPopup11 = document.querySelector('div.example-wrapper div.chien');
+    var overlay11 = document.getElementById('overlay11');
+    btnPopup11.addEventListener('click',openMoadl11);
+    btnClose11.addEventListener('click',closePopup11);
+
+    function openMoadl11() {
+        overlay11.style.display='block';
+    }
+
+    function closePopup11(){
+        overlay11.style.display='none';
+    }
+
+    var btnPopup12 = document.querySelector('div.example-wrapper div.autruche');
+    var overlay12 = document.getElementById('overlay12');
+    btnPopup12.addEventListener('click',openMoadl12);
+    btnClose12.addEventListener('click',closePopup12);
+
+    function openMoadl12() {
+        overlay12.style.display='block';
+    }
+
+    function closePopup12(){
+        overlay12.style.display='none';
+    }
+
+    var btnPopup13 = document.querySelector('div.example-wrapper div.paresseux');
+    var overlay13 = document.getElementById('overlay13');
+    btnPopup13.addEventListener('click',openMoadl13);
+    btnClose13.addEventListener('click',closePopup13);
+
+    function openMoadl13() {
+        overlay13.style.display='block';
+    }
+
+    function closePopup13(){
+        overlay13.style.display='none';
+    }
+
+    var btnPopup14 = document.querySelector('div.example-wrapper div.anaconda');
+    var overlay14 = document.getElementById('overlay14');
+    btnPopup14.addEventListener('click',openMoadl14);
+    btnClose14.addEventListener('click',closePopup14);
+
+    function openMoadl14() {
+        overlay14.style.display='block';
+    }
+
+    function closePopup14(){
+        overlay14.style.display='none';
+    }
+
+    var btnPopup15 = document.querySelector('div.example-wrapper div.rhinoceros');
+    var overlay15 = document.getElementById('overlay15');
+    btnPopup15.addEventListener('click',openMoadl15);
+    btnClose15.addEventListener('click',closePopup15);
+
+    function openMoadl15() {
+        overlay15.style.display='block';
+    }
+
+    function closePopup15(){
+        overlay15.style.display='none';
+    }
+
+    function openImg(lien){
+        var myAudio=document.createElement("audio");
+        myAudio.src=lien;
+        if (myAudio.paused) {
+
+            myAudio.play();
+
+        } else {
+            myAudio.pause();
+
+        }
+
+    }
+
+    function fonctionLogo() {
+        var popup = document.getElementById("imageLogo");
+        popup.classList.toggle("show");
+    }
+
+    function fonctionLogo2() {
+        var popup = document.getElementById("imageLogo2");
+        popup.classList.toggle("show");
+    }
+
+    function fonctionLogo3() {
+        var popup = document.getElementById("imageLogo3");
+        popup.classList.toggle("show");
+    }
+
+    function fonctionLogo4() {
+        var popup = document.getElementById("imageLogo4");
+        popup.classList.toggle("show");
+    }
+
+    function fonctionLogo5() {
+        var popup = document.getElementById("imageLogo5");
+        popup.classList.toggle("show");
+    }
+
+    function fonctionLogo6() {
+        var popup = document.getElementById("imageLogo6");
+        popup.classList.toggle("show");
+    }
+
+    function fonctionLogo7() {
+        var popup = document.getElementById("imageLogo7");
+        popup.classList.toggle("show");
+    }
+
+    function fonctionLogo8() {
+        var popup = document.getElementById("imageLogo8");
+        popup.classList.toggle("show");
+    }
+
+    function fonctionLogo9() {
+        var popup = document.getElementById("imageLogo9");
+        popup.classList.toggle("show");
+    }
+
+    function fonctionLogo10() {
+        var popup = document.getElementById("imageLogo10");
+        popup.classList.toggle("show");
+    }
+
+    function fonctionLogo11() {
+        var popup = document.getElementById("imageLogo11");
+        popup.classList.toggle("show");
+    }
+
+    function fonctionLogo12() {
+        var popup = document.getElementById("imageLogo12");
+        popup.classList.toggle("show");
+    }
+
+    </script>
+
+{% endblock %}

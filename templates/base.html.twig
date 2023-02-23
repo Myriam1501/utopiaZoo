@@ -3,18 +3,25 @@
     <head>
         <meta charset="UTF-8">
 
-
         <title>{% block title %}Welcome!{% endblock %}</title>
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
         {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
         {% block stylesheets %}
-
         {% endblock %}
 
         {% block javascripts %}
 
         {% endblock %}
     </head>
+<!--
+    <div class="alert alert-warning alert-dismissible" role="alert" id="essaie">
+        <button type="button" data-bs-dismiss="alert" aria-label="Close" href="?accepte-cookie">J'accepte</button>
+        <div class="alert-message">
+            <strong>Accepter les cookies </strong>pour une meilleure expérience.
+        </div>
+    </div>
+    -->
+
     <body>
     {% include 'fragments/header.html.twig' %}
     {% if app.user and app.user.isCheckEmail == false %}
@@ -32,4 +39,12 @@
     {% include 'fragments/footer.html.twig' %}
 
     </body>
+
 </html>
+
+
+
+
+
+
+
