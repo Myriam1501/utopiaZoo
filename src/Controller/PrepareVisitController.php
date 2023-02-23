@@ -28,10 +28,9 @@ class PrepareVisitController extends AbstractController
 
         return $this->render('prepareVisit/index.html.twig', [
             'programmes' => $programmes,
-            'reservation' => $reservation,
+            'reservation' => $reservation
         ]);
     }
-
     #[Route('/prepareVisit', name: 'app_prepareVisit')]
     public function index2(ProgramRepository $repository,Reservation $reservation,EntityManagerInterface $entityManager): Response
     {
@@ -69,7 +68,11 @@ class PrepareVisitController extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('app_prepareVisit');
+        return $this->render('prepareVisit/index.html.twig', [
+            'programmes' => $program,
+            'reservation' => $reservation,
+        ]);
+        //return $this->redirectToRoute('app_prepareVisit');
         //return $this->render('cart/index.html.twig', [
         // 'controller_name' => 'CartController.php',]);
     }
@@ -120,9 +123,8 @@ class PrepareVisitController extends AbstractController
 
         $this->cartServices->deleteAllToCart($id);
         //dd($cartServices->getFullCart());//test ok pour le delete
-        return $this->redirectToRoute('app_prepareVisit');
-        //return $this->render('cart/index.html.twig', [
-        //    'controller_name' => 'CartController.php',]);
+        //return $this->redirectToRoute('app_prepareVisit');
+        return $this->render('prepareVisit/index.html.twig');
     }
 
     #[Route('/prepareVisit/price/{ reservation }', name: 'app_reservation', methods: ['GET'])]
@@ -143,5 +145,7 @@ class PrepareVisitController extends AbstractController
             'price' => $priceTotal,
         ]);
     }
+
+
 
 }
