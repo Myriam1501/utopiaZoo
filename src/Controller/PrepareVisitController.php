@@ -21,48 +21,72 @@ class PrepareVisitController extends AbstractController
 {
 
     #[Route('/prepareVisit/reservation', name: 'app_prepareVisit_reservation')]
-    public function index(ProgramRepository $repository,EntityManagerInterface $entityManager): Response
+    public function index(ProgramRepository $repository): Response
     {
-        $programmes=$repository->findAll();
 
+        $programmes=$repository->findAll();
         return $this->render('prepareVisit/index.html.twig', [
             'programmes' => $programmes,
         ]);
     }
     #[Route('/prepareVisit', name: 'app_prepareVisit')]
-    public function index2(ProgramRepository $repository,Reservation $reservation,EntityManagerInterface $entityManager): Response
+    public function index2(ProgramRepository $repository,EntityManagerInterface $entityManager): Response
     {
         $programmes=$repository->findAll();
 
         return $this->render('prepareVisit/index.html.twig', [
             'programmes' => $programmes,
-            'reservation' => $reservation,
         ]);
     }
 
     #[Route('/prepareVisit/add/', name: 'app_cartAdd')]
-    public function add(EntityManagerInterface $entityManager,ProgramRepository $programRepository): Response{
+    public function add(Request $request,TicketRepository $tr,EntityManagerInterface $entityManager,ProgramRepository $programRepository): Response{
+
+
+        if ($request->isMethod('POST')){
+
+            dd($request->request->get('quantite'));
+        }
+
+
+
         $programmes=$programRepository->findAll();
-
-        $reservation = new Reservation();
+       $reserva=new Reservation();
         $THEP=$programRepository->find(3);
+
+
             $ticket=new Ticket();
-
             $ticket->setProgram($THEP);
-            $ticket->setQteNormal(0);
-            $reservation->setTicketsId($ticket->getId());
-
+            $ticket->setQteNormal(1);
             $entityManager->persist($ticket);
             $entityManager->flush();
 
-            $entityManager->persist($reservation);
+        $ticket1=new Ticket();
+        $ticket1->setProgram($THEP);
+        $ticket1->setQteNormal(1);
+        $entityManager->persist($ticket1);
+        $entityManager->flush();
+
+        $ticket2=new Ticket();
+        $ticket2->setProgram($THEP);
+        $ticket2->setQteNormal(1);
+        $entityManager->persist($ticket2);
+        $entityManager->flush();
+
+        $insertTicket=$tr->find($ticket->getId());
+        $reserva->setTicketsId($insertTicket);
+        $insertTicket1=$tr->find($ticket1->getId());
+        $reserva->setTicketsId($insertTicket1);
+        $insertTicket2=$tr->find($ticket2->getId());
+        $reserva->setTicketsId($insertTicket2);
+
+
+            $entityManager->persist($reserva);
             $entityManager->flush();
 
 
-        $entityManager->persist($reservation);
-        $entityManager->flush();
-        return $this->render('reservation/index.html.twig', [
-
+        return $this->render('prepareVisit/index.html.twig', [
+            'programmes' => $programmes,
         ]);
         //return $this->redirectToRoute('app_prepareVisit');
         //return $this->render('cart/index.html.twig', [

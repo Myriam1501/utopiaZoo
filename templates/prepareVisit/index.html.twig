@@ -43,6 +43,7 @@
 
 
     </style>
+    <form method="post">
     {% for programmes in programmes %}
 <div class="contenantpresentation">
     <div class="presentation2">
@@ -55,23 +56,27 @@
 
                     <div class="col">
                        age min : {{ programmes.getAgeMin() }}
-                        <br>
 
                     </div>
                     <div class="col">
                         prix : {{ programmes.getPrice() }}
-                        <br>
-                        prix réduit (-12ans) : {{ programmes.getPriceReduce() }}
+
+                    </div>
+                    <div class="col">
+                    prix réduit (-12ans) {{ programmes.getPriceReduce() }}
+                    </div>
+                    <div class="col">
+                    <label for="cc-expiration">Quantité : </label>
+                    <input type="text" name="quantite" id="inputquantite" class="form-control" autocomplete="Quantité de Ticket" required>
                     </div>
                 </div>
             </div>
             <hr>
             <p><i>
                     {{ programmes.getDescriptionProgram() }}
-                    {{ programmes.id }}
                 </i></p>
             <div class="cart_btn">
-                <a href="{{path('app_cartAdd')}}" class="btn btn-fill-out btn-addtocart" type="button"><i class="icon-basket-loaded"></i> Ajouter au panier</a>
+                <a href="{{ path('app_cartAdd') }}"><button type="button" class="btn btn-outline-success">Passer au paiement</button></a>
             </div>
         </div>
         <div class="activitee5">
@@ -81,6 +86,7 @@
     </div>
 
 </div>
-    {%endfor%}
 
+    {%endfor%}
+    </form>
 {% endblock %}
