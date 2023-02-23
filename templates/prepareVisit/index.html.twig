@@ -43,39 +43,40 @@
 
 
     </style>
-    {% for programme in programmes %}
+    {% for programmes in programmes %}
 <div class="contenantpresentation">
     <div class="presentation2">
         <div class="activitee6">
             <br>
-            <h3>{{ programme.getTitle() }}</h3>
+            <h3>{{ programmes.getTitle() }}</h3>
             <hr>
             <div class="container text-center">
                 <div class="row">
 
                     <div class="col">
-                       age min : {{ programme.getAgeMin() }}
+                       age min : {{ programmes.getAgeMin() }}
                         <br>
 
                     </div>
                     <div class="col">
-                        prix : {{ programme.getPrice() }}
+                        prix : {{ programmes.getPrice() }}
                         <br>
-                        prix réduit (-12ans) : {{ programme.getPriceReduce() }}
+                        prix réduit (-12ans) : {{ programmes.getPriceReduce() }}
                     </div>
                 </div>
             </div>
             <hr>
             <p><i>
-                    {{ programme.getDescriptionProgram() }}
+                    {{ programmes.getDescriptionProgram() }}
+                    {{ programmes.id }}
                 </i></p>
             <div class="cart_btn">
-                <a href="{{path('app_cartAdd',{reservation : reservation}, { program : programme.id})}}" class="btn btn-fill-out btn-addtocart" type="button"><i class="icon-basket-loaded"></i> Ajouter au panier</a>
+                <a href="{{path('app_cartAdd')}}" class="btn btn-fill-out btn-addtocart" type="button"><i class="icon-basket-loaded"></i> Ajouter au panier</a>
             </div>
         </div>
         <div class="activitee5">
             <br>
-            <img class="ok10" src="{{ programme.getPictureDecoPath() }}">
+            <img class="ok10" src="{{ programmes.getPictureDecoPath() }}">
         </div>
     </div>
 

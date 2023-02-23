@@ -7,9 +7,11 @@ use App\Entity\Reservation;
 use App\Entity\Ticket;
 use App\Form\ProgramType;
 use App\Repository\ProgramRepository;
+use App\Repository\ReservationRepository;
 use App\Repository\TicketRepository;
 use App\Services\CartServices;
 use Doctrine\ORM\EntityManagerInterface;
+use phpDocumentor\Reflection\Types\Integer;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -22,13 +24,9 @@ class PrepareVisitController extends AbstractController
     public function index(ProgramRepository $repository,EntityManagerInterface $entityManager): Response
     {
         $programmes=$repository->findAll();
-        $reservation = new Reservation();
-        $entityManager->persist($reservation);
-        $entityManager->flush();
 
         return $this->render('prepareVisit/index.html.twig', [
             'programmes' => $programmes,
-            'reservation' => $reservation
         ]);
     }
     #[Route('/prepareVisit', name: 'app_prepareVisit')]
@@ -42,23 +40,16 @@ class PrepareVisitController extends AbstractController
         ]);
     }
 
-    #[Route('/prepareVisit/add/{ reservation }/{ program }', name: 'app_cartAdd')]
-    public function addToCart(TicketRepository $ticketRepository, $reservation,Program $program,EntityManagerInterface $entityManager): Response{
-        $true=0;
-        $allTicket=$reservation->getTickets();
-        foreach ($allTicket as $t){
-            if($t->getProgram==$program->getId()){
-                $cart = new CartServices($ticketRepository,$entityManager,$t->getId());
-                $cart->addTicket();
-                $true=1;
-            }
-        }
+    #[Route('/prepareVisit/add/', name: 'app_cartAdd')]
+    public function add(EntityManagerInterface $entityManager,ProgramRepository $programRepository): Response{
+        $programmes=$programRepository->findAll();
 
-        if($true!=1){
+        $reservation = new Reservation();
+        $THEP=$programRepository->find(3);
             $ticket=new Ticket();
-            $ticket->setProgram($program->getId());
-            $ticket->setQteNormal(0);
 
+            $ticket->setProgram($THEP);
+            $ticket->setQteNormal(0);
             $reservation->setTicketsId($ticket->getId());
 
             $entityManager->persist($ticket);
@@ -66,18 +57,19 @@ class PrepareVisitController extends AbstractController
 
             $entityManager->persist($reservation);
             $entityManager->flush();
-        }
 
-        return $this->render('prepareVisit/index.html.twig', [
-            'programmes' => $program,
-            'reservation' => $reservation,
+
+        $entityManager->persist($reservation);
+        $entityManager->flush();
+        return $this->render('reservation/index.html.twig', [
+
         ]);
         //return $this->redirectToRoute('app_prepareVisit');
         //return $this->render('cart/index.html.twig', [
         // 'controller_name' => 'CartController.php',]);
     }
 
-    #[Route('/prepareVisit/delete/{ reservation }/{ program }', name: 'app_cartAdd')]
+    #[Route('/prepareVisit/delete/{ reservation }/{ program }', name: 'app_cartDell')]
     public function delete(TicketRepository $ticketRepository, $reservation,Program $program,EntityManagerInterface $entityManager): Response{
         $true=0;
         $allTicket=$reservation->getTickets();
