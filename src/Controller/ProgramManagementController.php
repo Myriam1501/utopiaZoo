@@ -6,6 +6,7 @@ use App\Entity\Program;
 use App\Form\ProgramType;
 use App\Repository\ProgramRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\ORM\Tools\Pagination\Paginator;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -14,9 +15,17 @@ use Symfony\Component\Routing\Annotation\Route;
 class ProgramManagementController extends AbstractController
 {
     #[Route('/programManagement', name: 'app_programManagement')]
-    public function index(ProgramRepository $repository): Response
+    public function index(ProgramRepository $repository, Paginator $paginator
+    , Request $request): Response
     {
-        $programmes=$repository->findAll();
+
+        $programmes = $paginator->paginate(
+            $repository->findAll(),
+            $request->query->getInt('page', 1),
+            10
+        );
+
+        /*$programmes=$repository->findAll();*/
 
         return $this->render('programManagement/index.html.twig', [
             'programmes' => $programmes,

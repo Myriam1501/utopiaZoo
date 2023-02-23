@@ -31,6 +31,7 @@ class Reservation
     public function __construct()
     {
         $this->tickets = new ArrayCollection();
+        $this->Date= new \DateTimeImmutable();
     }
 
 

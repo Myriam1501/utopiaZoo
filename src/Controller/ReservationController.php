@@ -30,7 +30,7 @@ class ReservationController extends AbstractController
         ]);
     }
 
-    #[Route('/reservation/add/{ reservation }/{ program }', name: 'app_reservation', methods: ['GET'])]
+    #[Route('/reservation/add/{ reservation }/{ program }', name: 'app_reservation_add', methods: ['GET'])]
     public function add(TicketRepository $ticketRepository, $reservation,Program $program,EntityManagerInterface $entityManager): Response
     {
         $true=0;
@@ -63,7 +63,7 @@ class ReservationController extends AbstractController
         ]);
     }
 
-    #[Route('/reservation/del/{ reservation }/{ program }', name: 'app_reservation', methods: ['GET'])]
+    #[Route('/reservation/del/{ reservation }/{ program }', name: 'app_reservation_dell', methods: ['GET'])]
     public function delete(TicketRepository $ticketRepository, $reservation,Program $program,EntityManagerInterface $entityManager): Response
     {
         $true=0;
@@ -95,7 +95,7 @@ class ReservationController extends AbstractController
         ]);
     }
 
-    #[Route('/reservation/deleteAll/{ reservation }', name: 'app_reservation', methods: ['GET'])]
+    #[Route('/reservation/deleteAll/{ reservation }', name: 'app_reservation-dellALl', methods: ['GET'])]
     public function deleteAll(Reservation $reservation,ManagerRegistry $doctrine): Response
     {
         $entityManager = $doctrine->getManager();
@@ -109,7 +109,7 @@ class ReservationController extends AbstractController
         ]);
     }
 
-    #[Route('/reservation/price/{ reservation }', name: 'app_reservation', methods: ['GET'])]
+    #[Route('/reservation/price/{ reservation }', name: 'app_reservation-p', methods: ['GET'])]
     public function price(TicketRepository $ticketRepository, $reservation,Program $program,EntityManagerInterface $entityManager): Response
     {
         $priceTotal=0;

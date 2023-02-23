@@ -43,43 +43,50 @@
 
 
     </style>
-    {% for programme in programmes %}
+    <form method="post">
+    {% for programmes in programmes %}
 <div class="contenantpresentation">
     <div class="presentation2">
         <div class="activitee6">
             <br>
-            <h3>{{ programme.getTitle() }}</h3>
+            <h3>{{ programmes.getTitle() }}</h3>
             <hr>
             <div class="container text-center">
                 <div class="row">
 
                     <div class="col">
-                       age min : {{ programme.getAgeMin() }}
-                        <br>
+                       age min : {{ programmes.getAgeMin() }}
 
                     </div>
                     <div class="col">
-                        prix : {{ programme.getPrice() }}
-                        <br>
-                        prix réduit (-12ans) : {{ programme.getPriceReduce() }}
+                        prix : {{ programmes.getPrice() }}
+
+                    </div>
+                    <div class="col">
+                    prix réduit (-12ans) {{ programmes.getPriceReduce() }}
+                    </div>
+                    <div class="col">
+                    <label for="cc-expiration">Quantité : </label>
+                    <input type="text" name="quantite" id="inputquantite" class="form-control" autocomplete="Quantité de Ticket" required>
                     </div>
                 </div>
             </div>
             <hr>
             <p><i>
-                    {{ programme.getDescriptionProgram() }}
+                    {{ programmes.getDescriptionProgram() }}
                 </i></p>
             <div class="cart_btn">
-                <a href="{{path('app_cartAdd',{ id : programme.id})}}" class="btn btn-fill-out btn-addtocart" type="button"><i class="icon-basket-loaded"></i> Ajouter au panier</a>
+                <a href="{{ path('app_cartAdd') }}"><button type="button" class="btn btn-outline-success">Passer au paiement</button></a>
             </div>
         </div>
         <div class="activitee5">
             <br>
-            <img class="ok10" src="{{ programme.getPictureDecoPath() }}">
+            <img class="ok10" src="{{ programmes.getPictureDecoPath() }}">
         </div>
     </div>
 
 </div>
-    {%endfor%}
 
+    {%endfor%}
+    </form>
 {% endblock %}
