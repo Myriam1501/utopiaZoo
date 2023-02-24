@@ -52,7 +52,7 @@ class Program
     #[ORM\Column(nullable: true)]
     private ?int $price_reduce = null;
 
-    #[ORM\ManyToMany(targetEntity: Reservation::class, mappedBy: 'programs')]
+    #[ORM\ManyToMany(targetEntity: Reservation::class, mappedBy: 'reservations')]
     private Collection $reservations;
 
     #[ORM\OneToMany(mappedBy: 'program', targetEntity: Ticket::class)]
