@@ -19,7 +19,7 @@ class Animal
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $sound = null;
 
-    #[ORM\Column(length: 2000)]
+    #[ORM\Column(length: 2000, nullable: true)]
     private ?string $picture = null;
 
     public function getId(): ?int
