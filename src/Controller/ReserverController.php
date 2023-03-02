@@ -65,4 +65,21 @@ class ReserverController extends AbstractController
         ]);
     }
 
+    #[Route('/reserver/save', name: 'app_reserver_save')]
+    public function save(Request $request,ProgramRepository $programRepository,EntityManagerInterface $entityManager): Response
+    {
+        $programmes=$programRepository->findAll();
+        $session = $request->getSession();
+        dd($session);
+        return $this->render('facture/index.html.twig', [
+            'controller_name' => 'ReserverController',
+            'programmes' => $programmes,
+            'session' => $session,
+            'quantity' => $qtn,
+            'price' => $prix,
+            'priceWithoutQuantity' => $prixUnitaire,
+        ]);
+    }
+
+
 }
