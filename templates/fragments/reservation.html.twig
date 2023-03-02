@@ -23,7 +23,20 @@
     <h1>Reservation effectuer le {{ date }}</h1>
     <H2>Concernant : {{ nom }} {{ prenom }}</H2>
     <h2>Prix de la réservation : {{ amount }} €</h2>
-    <h2>ID réservation : 1234567890</h2>
+    <h2>ID réservation : {{ session.get('reservation') }}</h2>
+    <table cellpadding="15" align="center" border="1">
+        <tr><td>Nom program</td><td>Quantité commander</td><td>Prix unitaire</td><td>Prix total</td></tr>
+        {% for programmes in programmes %}
+            <tr>
+                {% if session.get(programmes.getTitle())!=null %}
+                    <td>{{ programmes.getTitle() }}</td><td> {{ session.get(programmes.getTitle()) }} </td>
+                    <td>{{ programmes.price }}</td><td>{{ programmes.price*session.get(programmes.getTitle()) }}
+                </td>
+                {% endif %}
+            </tr>
+        {% endfor %}
+    </table>
+    <br>
     <h3>Utopiazoo vous souhaite la bienvenue <br>au paradis des amoureux de la nature et des animaux, <br>où vous pourrez découvrir une incroyable variété d'espèces exotiques <br> dans un environnement unique et fascinant.</h3>
     <br>
 </div>

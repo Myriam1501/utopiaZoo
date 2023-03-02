@@ -48,14 +48,17 @@ class PaymentController extends AbstractController
                 $entityManager->flush();
             }
         }
-
+        $session->set('reservation',$reser->getId());
+        $session->set('user',$reser->getUser());
 
         $html = $this->render('fragments/reservation.html.twig', [
             'controller_name' => 'ReservationPDFController',
             'nom' => $name,
             'prenom' => $prenom,
             'date' => $stringDate,
-            'amount' => $amount
+            'amount' => $amount,
+            'session' => $session,
+            'programmes' => $programmes,
         ]);
         $pdf->showPdfFile($html);
 
