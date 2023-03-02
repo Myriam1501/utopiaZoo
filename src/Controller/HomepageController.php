@@ -8,15 +8,17 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class HomepageController extends AbstractController
 {
-    #[Route('/homepage/{name}', name: 'app_homepage', methods: ['GET'])]
-    public function index(string $name): Response
+    #[Route('/', name: 'app_homepage', methods: ['GET'])]
+    public function index(): Response
     {
-        /*
-        return new Response('<html><body> Hello world !</body></html>');
-        */
-        return $this->render('homepage/index.html.twig', [
-            'controller_name' => $name,
-        ]);
+        /*if (isset($_GET['accepte-cookie'])) {
+            setcookie('essaieqautree', 'true', time() + 365 * 24 * 3600);
+            return $this->redirectToRoute('app_homepage');
+        }*/
 
+        return $this->render('homepage/index.html.twig', [
+            'controller_name' => 'HomepageController',
+        ]);
     }
+
 }

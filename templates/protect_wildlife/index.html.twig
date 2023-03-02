@@ -1,0 +1,555 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Protect La Vie Sauvage{% endblock %}
+
+{% block body %}
+
+    <style>
+
+    .partie1{
+        background-attachment: fixed;
+        width: 100%;
+        height: 600px;
+        background-image: url("https://zupimages.net/up/21/49/adyk.jpg");
+        background-repeat: no-repeat;
+        border-top: 5px solid #94b398;
+    }
+    .text-P1{
+        font-family: 'Helvetica',sans-serif;
+        color: white;
+        font-size: 100px;
+        position: absolute;
+        top: 30%;
+        left: 28%;
+        animation-duration: 4s;
+        animation-name: Slidein;
+
+    }
+    @keyframes Slidein {
+        from {
+            margin-left: 100%;
+            width: 400%;
+        }
+
+        to {
+            margin-left: 0%;
+            width: 48%;
+        }
+    }
+
+    @keyframes slidein {
+        from {
+            margin-left: 100%;
+            width: 400%;
+        }
+
+        to {
+            margin-left: 0%;
+            width: 100%;
+        }
+    }
+    .text1-P1{
+        font-family: 'Hoefler Text',sans-serif;
+        color: white;
+        font-size: 40px;
+        position: absolute;
+        top: 55%;
+        left: 15%;
+        animation-duration: 4s;
+        animation-name: slidein;
+    }
+    .main{
+        padding-block: 6em;
+    }
+    .partie2{
+        inline-size: 90%;
+        margin-inline: auto;
+        max-inline-size: 48em;
+        line-height: 1.75;
+    }
+    .text1-P2{
+        font-family: "Helvetica", sans-serif;
+        font-size: 35px;
+        animation-duration: 4s;
+        animation-name: slidein;
+    }
+
+    .text-P2{
+        font-family: "Hoefler Text", sans-serif;
+        font-size: 20px;
+    }
+    .image {
+        display: block;
+        width: 1450px;
+        height: 800px;
+    }
+    .container1 {
+        position: relative;
+        width: 65%;
+    }
+
+
+    .overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: rgba(0,0,0,0.5);
+        overflow: hidden;
+        width: 0;
+        height: 100%;
+        transition: .5s ease;
+    }
+
+    .container1:hover .overlay {
+        width: 100%;
+    }
+
+    .text-P3 {
+        font-family: "Hoefler Text";
+        white-space: pre;
+        color: white;
+        font-size: 20px;
+        line-height: 1.5;
+        position: absolute;
+        overflow: hidden;
+        top: 40%;
+        left: 70%;
+        transform: translate(-75%, -50%);
+        -ms-transform: translate(-50%, -50%);
+    }
+    .text-P4{
+        font-family: "Hoefler Text";
+        white-space: pre;
+        color: white;
+        font-size: 25px;
+        line-height: 1.75;
+        position: absolute;
+        overflow: hidden;
+        top: 40%;
+        left: 70%;
+        transform: translate(-75%, -50%);
+        -ms-transform: translate(-50%, -50%);
+    }
+
+    h1 {
+        margin-block: 0 0.5em;
+    }
+
+
+
+
+
+    h1{
+        font-size: 2.5rem;
+        font-family: 'Montserrat';
+        font-weight: normal;
+        color: #444;
+        text-align: center;
+        margin: 2rem 0;
+    }
+
+    .wrapper{
+        width: 90%;
+        margin: 0 auto;
+        max-width: 80rem;
+    }
+
+    .cols{
+        display: -webkit-box;
+        flex-wrap: wrap;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        display: flex;
+
+    }
+
+    .col{
+        width: calc(25% - 2rem);
+        margin: 1rem;
+        cursor: pointer;
+    }
+
+    .container{
+        -webkit-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+        -webkit-perspective: 1000px;
+        perspective: 1000px;
+    }
+
+    .front, .back{
+        background-size: cover;
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.25);
+        border-radius: 10px;
+        background-position: center;
+        -webkit-transition: -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+        transition: -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+        -o-transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+        transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+        transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1), -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        text-align: center;
+        min-height: 280px;
+        height: auto;
+        border-radius: 10px;
+        color: white;
+        font-family: "Hoefler Text";
+        font-size: 1.2rem;
+    }
+
+    .back{
+        background-image: url("https://zupimages.net/up/21/49/lzu7.jpg");
+        background-repeat: no-repeat;
+
+    }
+
+    .front:after{
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+        content: '';
+        display: block;
+        opacity: .6;
+        background-color: #000;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        border-radius: 10px;
+    }
+    .container:hover .front,
+    .container:hover .back{
+        -webkit-transition: -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+        transition: -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+        -o-transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+        transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+        transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1), -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+    }
+
+    .back{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+    }
+
+    .inner{
+        -webkit-transform: translateY(-50%) translateZ(60px) scale(0.94);
+        transform: translateY(-50%) translateZ(60px) scale(0.94);
+        top: 50%;
+        position: absolute;
+        left: 0;
+        width: 100%;
+        padding: 2rem;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        outline: 1px solid transparent;
+        -webkit-perspective: inherit;
+        perspective: inherit;
+        z-index: 2;
+    }
+
+    .container .back{
+        -webkit-transform: rotateY(180deg);
+        transform: rotateY(180deg);
+        -webkit-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+    }
+
+    .container .front{
+        -webkit-transform: rotateY(0deg);
+        transform: rotateY(0deg);
+        -webkit-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+    }
+
+    .container:hover .back{
+        -webkit-transform: rotateY(0deg);
+        transform: rotateY(0deg);
+        -webkit-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+    }
+
+    .container:hover .front{
+        -webkit-transform: rotateY(-180deg);
+        transform: rotateY(-180deg);
+        -webkit-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+    }
+
+    .front .inner p{
+        font-size: 2rem;
+        margin-bottom: 2rem;
+        position: relative;
+    }
+
+    .front .inner p:after{
+        content: '';
+        width: 4rem;
+        height: 2px;
+        position: absolute;
+        background: #C6D4DF;
+        display: block;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        bottom: -.75rem;
+    }
+
+    .front .inner span{
+        color: rgba(255,255,255,0.7);
+        font-family: 'Montserrat';
+        font-weight: 300;
+    }
+
+    @media screen and (max-width: 64rem){
+        .col{
+            width: calc(33.333333% - 2rem);
+        }
+    }
+
+    @media screen and (max-width: 48rem){
+        .col{
+            width: calc(50% - 2rem);
+        }
+    }
+
+    @media screen and (max-width: 32rem) {
+        .col {
+            width: 100%;
+            margin: 0 0 2rem 0;
+        }
+    }
+</style>
+    <div class="partie1">
+        <br>
+        <h1 class="text-P1"> VIE SAUVAGE </h1><br>
+        <h3 class="text1-P1"> Pour une coexistence harmonieuse avec la vie sauvage </h3>
+    </div>
+    <div class="wrapper">
+        <h1 class="text1-P2">Liste de 8 animaux en voie de disparition</h1>
+        <div class="cols">
+            <div class="col" ontouchstart="this.classList.toggle('hover');">
+                <div class="container">
+                    <div class="front" style="background-image: url(https://zupimages.net/up/21/47/e11k.jpg)">
+                        <div class="inner">
+                            <p>Le panda roux</p>
+                        </div>
+                    </div>
+                    <div class="back">
+                        <div class="inner">
+                            <p> <font color="black"> <b> Doté d’une fourrure épaisse lui permettant de résister
+                                        au froid, le panda roux se retrouve en haute altitude entre la Chine, l’Inde et le Népal. </b></font> </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col" ontouchstart="this.classList.toggle('hover');">
+                <div class="container">
+                    <div class="front" style="background-image:url(https://zupimages.net/up/21/47/u89w.jpg)">
+                        <div class="inner">
+                            <p>L'ours polaire</p>
+                        </div>
+                    </div>
+                    <div class="back">
+                        <div class="inner">
+                            <p><font color="black"> <b> Le plus grand carnivore terrestre est pourtant devenu l’un des symboles du
+                                        réchauffement climatique tandis que son territoire, la banquise, ne cesse de disparaître
+                                        année après année.</b></font></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col" ontouchstart="this.classList.toggle('hover');">
+                <div class="container">
+                    <div class="front" style="background-image: url(https://zupimages.net/up/21/47/7snc.jpg)">
+                        <div class="inner">
+                            <p>Le tigre</p>
+                        </div>
+                    </div>
+                    <div class="back">
+                        <div class="inner">
+                            <p><font color="black"> <b>Sauvé de justesse de l’extinction il y a quelques années, à l’époque où la chasse aux
+                                        trophées était à la mode, le tigre est un super-prédateur connu pour être le plus grand
+                                        félin sauvage.</b></font></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col" ontouchstart="this.classList.toggle('hover');">
+                <div class="container">
+                    <div class="front" style="background-image: url(https://zupimages.net/up/21/47/64kl.jpg)">
+                        <div class="inner">
+                            <p>L'Orang-Outan</p>
+                        </div>
+                    </div>
+                    <div class="back">
+                        <div class="inner">
+                            <p><font color="black"> <b>Menacés par la disparition de leur habitat au profit de la culture
+                                        de palmiers à huile, ce sont environ 25 orang-outans qui disparaissent chaque jour.</b></font></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cols">
+            <div class="col" ontouchstart="this.classList.toggle('hover');">
+                <div class="container">
+                    <div class="front" style="background-image: url(https://zupimages.net/up/21/47/5ze6.jpg)">
+                        <div class="inner">
+                            <p>Le requin baleine</p>
+                        </div>
+                    </div>
+                    <div class="back">
+                        <div class="inner">
+                            <p><font color="black"> <b>L’Homme, à travers la pêche ciblée ou involontaire, représente
+                                        aujourd’hui sa principale menace. Selon les régions du globe, ses populations ont déjà chuté
+                                        de 63% en l’espace de quelques décennies.</b></font></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col" ontouchstart="this.classList.toggle('hover');">
+                <div class="container">
+                    <div class="front" style="background-image: url(https://zupimages.net/up/21/47/wdz1.jpg)">
+                        <div class="inner">
+                            <p>Le harfang des neiges</p>
+                        </div>
+                    </div>
+                    <div class="back">
+                        <div class="inner">
+                            <p><font color="black"> <b>Avec le changement climatique et la modification des vallées glaciaires,
+                                        le lemming se fait cependant de plus en plus rare, compliquant les repas du hibou.</b></font></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col" ontouchstart="this.classList.toggle('hover');">
+                <div class="container">
+                    <div class="front" style="background-image: url(https://zupimages.net/up/21/47/ek4h.jpg)">
+                        <div class="inner">
+                            <p>Le macareux moine</p>
+                        </div>
+                    </div>
+                    <div class="back">
+                        <div class="inner">
+                            <p><font color="black"> <b>La pollution lumineuse et la prolifération de nouvelles espèces
+                                        prédatrices entraînent cependant le recul de ses populations.</b></font></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col" ontouchstart="this.classList.toggle('hover');">
+                <div class="container">
+                    <div class="front" style="background-image: url(https://zupimages.net/up/21/47/juq8.jpg)">
+                        <div class="inner">
+                            <p>Le gavial du Gange</p>
+                        </div>
+                    </div>
+                    <div class="back">
+                        <div class="inner">
+                            <p><font color="black"> <b>Reconnaissable à la forme particulière de sa mâchoire, le gavial du gange est
+                                        une espèce sacrée de crocodile, aujourd’hui décimée pour la qualité de sa peau.
+                                        </b></font></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main class="main">
+        <div class="partie2">
+            <h1 class="text1-P2"> POURQUOI  ON  PROTÉGER  LES  ANIMAUX ?</h1>
+            <p class="text-P2">La déforestation et la surexploitation des terres, l’utilisation non durable
+                des ressources naturelles, l’introduction d’espèces invasives, le braconnage et le commerce
+                illégal des espèces sauvages ainsi que les changements climatiques et la pollution exercent
+                une pression sans précédent sur la nature. Pour assurer un avenir sain et durable aux espèces
+                sauvages et à leurs habitats naturels ainsi qu’aux générations futures, le WWF se consacre
+                depuis plus de 50 ans à la lutte contre ces grandes menaces qui pèsent sur notre planète.</p>
+            <br>
+            <p class="text-P2"> La biodiversité mondiale décline à une vitesse fulgurante. Entre 1970 et 2016,
+                l'évolution de l'Indice Planète Vivante (IPV) qui mesure la biodiversité mondiale, montrait une
+                réduction de 68% de l'abondance des populations de vertébrés. </p>
+            <br>
+            <p class="text-P2">Le WWF se mobilise pour la vie sauvage en choisissant de protéger les espèces
+                les plus emblématiques et les plus vulnérables comme les loups, les lynx ou les tigres.
+                Nous nous concentrons sur celles qui jouent un rôle majeur au sein des écosystèmes naturels.
+                En les protégeant, nous sauvegardons aussi les espèces avec lesquelles elles cohabitent et
+                les paysages ou les milieux qui les accueillent.</p>
+            <br>
+            <p class="text-P2"> Nos actions pour la faune sauvage encouragent le développement durable des territoires et
+                la préservation de notre patrimoine naturel. Nous luttons, entre autres, contre le braconnage
+                et la destruction des habitats. Nous mettons en œuvre des solutions pour rendre possible la
+                coexistence avec les activités humaines.</p>
+        </div>
+    </main>
+
+    <br>
+    <div class="container1">
+        <img src="https://zupimages.net/up/21/49/2pjc.jpg" alt="font A2" class="image" width="1450" height="700">
+        <div class="overlay">
+            <div class="text-P3">
+                <p><font size="7">             Nous sauvons l'une des espèces</font>
+                    <font color="blue" size="7">           les plus grandes
+                        les plus menacées au monde</font>
+
+                    Problématique
+
+                    Il ne reste qu'environ 400 baleines franches de l'Atlantique Nord dans le
+                    monde. Leurs routes migratoires bordent la côté du nord du continent américain, qui est l'une
+                    des zones les plus industrialisées de nos océans. Le matériel de pêche et les innombrables
+                    navires commerciaux qui la fréquentent y représentent des menaces létales.
+                    Dans ces eaux, les cétacés sont exposés aux collisions avec les bateaux
+                    et aux pièges des filets. Les impacts avec les navires tuent généralement les baleines sur le coup.
+                    Les filets, quant à eux, leur causent de longues agonies qui peuvent durer des mois, voire plus.</p>
+            </div>
+        </div>
+    </div>
+    <main class="main">
+        <div class="partie2">
+            <h1 class="text1-P2"> CE QUE ON DOIT FAIRE !</h1>
+            <br>
+            <h2 class="text-P2">Encourager la coexistence entre l’Homme et l’animal : </h2>
+            <p class="text-P2"> Nous menons des actions et campagnes pour permettre une cohabitation apaisée
+                entre les grands animaux sauvages et les activités humaines, en particulier
+                l’agriculture. Les tensions causées par cette cohabitation sont aujourd’hui un
+                symptôme et un facteur de fragilité écologique et économique, tant dans les
+                montagnes françaises que dans les forêts et savanes tropicales.</p>
+            <br>
+            <img src="https://zupimages.net/up/21/49/j0sv.jpg" width="800" height="400">
+            <h2 class="text-P2"> Réduire la criminalité liée aux espèces sauvages : </h2>
+            <br>
+            <p> <ul style="list-style-type: disc" class="text-P2">
+                <li> Nous travaillons au renforcement des règles, des contrôles et de la
+                    conformité avec les lois pour lutter contre le commerce illégal.</li>
+                <li>Nous réalisons des suivis et recherches sur la criminalité liée aux espèces sauvages.</li>
+                <li> D’autre part, nous soutenons la mise en œuvre d’un cadre de lutte contre le braconnage
+                    dans des pays sources avec de nombreux acteurs de terrain, dont les populations locales.</li>
+            </ul></p>
+            <br>
+            <img src="https://zupimages.net/up/21/49/j6py.jpg" width="800" height="400">
+        </div>
+    </main>
+    <div class="container1">
+        <img src="https://zupimages.net/up/21/49/nw7n.jpg" alt="font A5" class="image" width="500" height="800">
+        <div class="overlay">
+            <div class="text-P4">
+                <p><font size="7" color="orange">
+                        LE TIGRE</font>
+
+                    Problématique:
+
+                    Animal fabuleux qui inspira terreur et respect des anciens, le tigre aurait
+                    disparu au cours du 20ème siècle si la communauté scientifique mondiale
+                    n’avait tiré la sonnette d’alarme. C’est en 1969 que le WWF signale les
+                    chiffres catastrophiques des effectifs de tigres, moins de 2 000 en Inde.
+                    Parmi les 7 sous-espèces qui vivaient en 1900, seulement 5 subsistent
+                    actuellement.</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}
