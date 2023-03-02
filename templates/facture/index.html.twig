@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello FactureController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    {% if session is defined %}
+        <h6>Le panier</h6>
+            <table cellpadding="15" align="center" border="1">
+                <tr><td>Nom program</td><td>Quantité commander</td><td>Prix unitaire</td><td>Prix total</td></tr>
+            {% for programmes in programmes %}
+                <tr>
+                {% if session.get(programmes.getTitle())!=null %}
+                    <td>{{ programmes.getTitle() }}</td><td> {{ session.get(programmes.getTitle()) }} </td>
+                    <td>{{ programmes.price }}</td><td>{{ programmes.price*session.get(programmes.getTitle()) }}
+                    </td>
+                {% endif %}
+                </tr>
+            {% endfor %}
+                <tr><td>TOTAL</td><td>{{ quantity }}</td><td>{{ priceWithoutQuantity }}</td><td>{{ price }}</td></tr>
+            </table>
+        <br>
+            <h5>Quantité totale = {{ quantity }}</h5>
+            <h5>TOTAL = {{ price }}</h5>
+
+        <a href="{{ path('app_payment', {'amount':price})}} }}">Acheter</a>
+    {% endif %}
+</div>
+{% endblock %}
