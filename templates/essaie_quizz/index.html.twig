@@ -1,0 +1,346 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello EssaieQuizzController!{% endblock %}
+
+{% block body %}
+    <br>
+    <br>
+    <div class="example-wrapper2">
+        <div class="quizz">
+
+            <div class="count">
+            </div>
+
+
+            <div class="questions" id="question">
+            </div>
+
+        <div class="reponses">
+
+            <button class="reponse" onclick="" id="option1" >option1</button>
+            <button class="reponse" id="option2" >option2</button>
+            <button class="reponse" id="option3">option3</button>
+
+        </div>
+            <button class="next">Next</button>
+        </div>
+
+    </div>
+
+    <style>
+
+        .example-wrapper2 {
+            font-family: "Georgia", Times, serif;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: space-around;
+            align-items: flex-start;
+            align-content: center;
+        }
+
+
+        .quizz {
+            text-align: center;
+            width: 550px;
+            height: 400px;
+            border-radius: 5%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            box-shadow: 0 20px 20px rgba(0, 0, 0, 0.3);
+
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            justify-content: center;
+            align-content: center;
+            align-items: center;
+        }
+
+        .quizz:hover {
+            transform: scale(1.1);
+            -webkit-transition: all 400ms ease-out;
+            -moz-transition: all 400ms ease-out;
+            -o-transition: all 400ms ease-out;
+            -ms-transition: all 400ms ease-out;
+            transition: all 400ms ease-out;
+        }
+
+
+        .questions{
+            padding: 7px 49px;
+            background-color: whitesmoke;
+            cursor: pointer;
+            margin-bottom: 10px;
+            color: #4C3017;
+            font-family: Georgia, serif;
+            box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
+            font-size: 14px;
+            border-radius: 3px;
+            font-weight: 200;
+            border: none;
+            width: 400px;
+
+        }
+
+        .reponse{
+            padding: 7px 49px;
+            background-color: whitesmoke;
+            cursor: pointer;
+            margin-bottom: 10px;
+            color: #4C3017;
+            font-family: Georgia, serif;
+            box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
+            font-size: 14px;
+            border-radius: 3px;
+            font-weight: 200;
+            border: none;
+        }
+        .next{
+            padding: 7px 49px;
+            background-color: whitesmoke;
+            cursor: pointer;
+            margin-bottom: 10px;
+            color: #4C3017;
+            font-family: Georgia, serif;
+            box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
+            font-size: 14px;
+            border-radius: 3px;
+            font-weight: 200;
+            border: none;
+        }
+
+    </style>
+
+<script>
+
+    const Questions = [{
+        id: 0,
+        quest: "Premiere question",
+        resp: [{ text: "Reponse 1", isCorrect: false },
+            { text: "Reponse 2", isCorrect: false },
+            { text: "Reponse 3", isCorrect: true }
+        ]
+
+    },
+        {
+            id: 1,
+            quest: "Deuxieme question",
+            resp: [{ text: "Reponse 1", isCorrect: false},
+                { text: "Reponse 2", isCorrect: true },
+                { text: "Reponse 3", isCorrect: false }
+            ]
+
+        },
+        {
+            id: 2,
+            quest: "Troisieme question",
+            resp: [{ text: "Reponse 1", isCorrect: false },
+                { text: "Reponse 2", isCorrect: false },
+                { text: "Reponse 3", isCorrect: true }
+            ]
+
+        },
+        {
+            id: 3,
+            quest: "Quatrieme question",
+            resp: [{ text: "Reponse 1", isCorrect: false },
+                { text: "Reponse 2", isCorrect: false },
+                { text: "Reponse 3", isCorrect: true }
+            ]
+
+        },
+        {
+            id: 4,
+            quest: "Cinquieme question",
+            resp: [{ text: "Reponse 1", isCorrect: false },
+                { text: "Reponse 2", isCorrect: false },
+                { text: "Reponse 3", isCorrect: true }
+            ]
+
+        },
+        {
+            id: 5,
+            quest: "",
+            resp: [ {text: "", isCorrect: false },
+            { text: "", isCorrect: false },
+            { text: "", isCorrect: true }]
+            }
+    ]
+
+    var start = true;
+
+    var score = 0;
+
+    var resultat = document.getElementsByClassName("count");
+
+    const next = document.getElementsByClassName("next")[0];
+
+    function quiz(id) {
+
+        resultat[0].innerText = "";
+
+        const question = document.getElementById("question");
+
+        question.innerText = Questions[id].quest;
+
+        const option1 = document.getElementById('option1');
+        const option2 = document.getElementById('option2');
+        const option3 = document.getElementById('option3');
+
+        option1.innerText = Questions[id].resp[0].text;
+        option1.value = Questions[id].resp[0].isCorrect;
+
+        option2.innerText = Questions[id].resp[1].text;
+        option2.value = Questions[id].resp[1].isCorrect;
+
+        option3.innerText = Questions[id].resp[2].text;
+        option3.value = Questions[id].resp[2].isCorrect;
+
+        var saisis = "";
+
+        option1.addEventListener("click", () => {
+            option1.style.backgroundColor = "pink";
+            saisis = option1.value;
+        })
+
+        option2.addEventListener("click", () => {
+            option2.style.backgroundColor = "pink";
+            saisis = option2.value;
+        })
+
+        option3.addEventListener("click", () => {
+            option3.style.backgroundColor = "pink";
+            saisis = option3.value;
+        })
+
+        const evaluate = document.getElementsByClassName("next");
+
+        evaluate[0].addEventListener("click", () => {
+            if (saisis == "true") {
+                score++;
+            }
+        })
+    }
+
+    if (start) {
+        quiz("0");
+    }
+
+    var id = 0;
+
+    next.addEventListener("click", () => {
+
+        start = false;
+
+        if (id < 5) {
+            id++;
+            console.log(id);
+            quiz(id);
+        }
+        if(id == 5) {
+            resultat[0].innerHTML = "Votre score est de: " + score.toString();
+        }
+    })
+
+</script>
+
+
+
+
+
+
+
+<style>
+.logo {
+position: relative;
+display: inline-block;
+cursor: pointer;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+}
+
+.logo .imagelogo {
+visibility: hidden;
+background-color: whitesmoke;
+text-align: center;
+border-radius: 200px;
+padding: 8px 0;
+position: absolute;
+z-index: 1;
+bottom: 125%;
+left: 50%;
+margin-left: 50px;
+    margin-top: 100px;
+
+    width: 92px;
+    height: 120px;
+}
+
+.logo .imagelogo img {
+    border-radius: 200px;
+
+    width:79px;
+    height:103px;
+}
+
+.logo .imagelogo::after {
+content: "";
+position: absolute;
+top: 100%;
+left: 50%;
+margin-left: -5px;
+border-width: 5px;
+border-style: solid;
+border-color: whitesmoke transparent transparent transparent;
+}
+
+.logo .show {
+visibility: visible;
+-webkit-animation: fadeIn 1s;
+animation: fadeIn 1s;
+}
+
+@-webkit-keyframes fadeIn {
+from {opacity: 0;}
+to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+from {opacity: 0;}
+to {opacity:1 ;}
+}
+
+.logo1 img{
+    height: 80px;
+    width:59px;
+    margin-left: 100px;
+}
+
+.logo1 img:hover {
+    transform: scale(1.1);
+    background-position: -10px;
+}
+
+</style>
+
+<div class="logo" onclick="fonctionLogo()">
+    <div class="logo1">
+    <img src="https://svgsilh.com/svg_v2/2257776.svg">
+    </div>
+    <span class="imagelogo" id="imageLogo"><img src="https://i.pinimg.com/564x/a5/11/40/a5114042b2dac59294bf15b06317b57d.jpg"></span>
+</div>
+
+<script>
+    function fonctionLogo() {
+        var popup = document.getElementById("imageLogo");
+        popup.classList.toggle("show");
+    }
+</script>
+
+    <br>
+    <br>
+{% endblock %}
