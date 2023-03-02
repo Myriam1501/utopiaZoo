@@ -24,13 +24,18 @@ class ReserverController extends AbstractController
         ]);
     }
 
-    #[Route('/reserver/add/{program}/{qtn} ', name: 'app_reserver_add')]
-    public function add($qtn,$program,Request $request,ProgramRepository $programRepository,EntityManagerInterface $entityManager): Response
+    #[Route('/reserver/add/{program} ', name: 'app_reserver_add')]
+    public function add($program,Request $request,ProgramRepository $programRepository,EntityManagerInterface $entityManager): Response
     {
         $pr=$programRepository->find($program);
         $rep=$pr->getTitle();
         $session = $request->getSession();
-        $session->set($rep,$qtn);
+        if($session->has($rep)){
+            $qtn=$session->get($rep);
+        }else{
+            $qtn=0;
+        }
+        $session->set($rep,$qtn+1);
         $programmes=$programRepository->findAll();
         return $this->render('reserver/index.html.twig', [
             'controller_name' => 'ReserverController',
@@ -65,21 +70,26 @@ class ReserverController extends AbstractController
         ]);
     }
 
-    #[Route('/reserver/save', name: 'app_reserver_save')]
-    public function save(Request $request,ProgramRepository $programRepository,EntityManagerInterface $entityManager): Response
+
+    #[Route('/reserver/dell/{program} ', name: 'app_reserver_dell')]
+    public function dell($program,Request $request,ProgramRepository $programRepository,EntityManagerInterface $entityManager): Response
     {
-        $programmes=$programRepository->findAll();
+        $pr=$programRepository->find($program);
+        $rep=$pr->getTitle();
         $session = $request->getSession();
-        dd($session);
-        return $this->render('facture/index.html.twig', [
+        if($session->has($rep)){
+            $qtn=$session->get($rep);
+            $session->set($rep,$qtn-1);
+        }
+        $programmes=$programRepository->findAll();
+        return $this->render('reserver/index.html.twig', [
             'controller_name' => 'ReserverController',
             'programmes' => $programmes,
             'session' => $session,
-            'quantity' => $qtn,
-            'price' => $prix,
-            'priceWithoutQuantity' => $prixUnitaire,
         ]);
     }
+
+
 
 
 }

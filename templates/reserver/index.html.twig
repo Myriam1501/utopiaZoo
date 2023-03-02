@@ -86,7 +86,10 @@
                                 {{ programmes.getDescriptionProgram() }}
                             </i></p>
                         <div class="cart_btn">
-                            <a href=""><button type="button" class="btn btn-outline-success">Ajouter au panier</button></a>
+                            <a href="{{ path('app_reserver_add', {'program':programmes.id}) }}"><button type="button" class="btn btn-outline-success">Ajouter au panier</button></a>
+                        </div>
+                        <div class="cart_btn">
+                            <a href="{{ path('app_reserver_dell', {'program':programmes.id}) }}"><button type="button" class="btn btn-outline-success">Supprimer du panier</button></a>
                         </div>
                     </div>
                     <div class="activitee5">
