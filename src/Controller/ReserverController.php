@@ -14,14 +14,22 @@ use Symfony\Component\Routing\Annotation\Route;
 class ReserverController extends AbstractController
 {
     #[Route('/reserver', name: 'app_reserver')]
-    public function index(ProgramRepository $programRepository,EntityManagerInterface $entityManager): Response
+    public function index(Request $request,ProgramRepository $programRepository,EntityManagerInterface $entityManager): Response
     {
         $programmes=$programRepository->findAll();
-
-        return $this->render('reserver/index.html.twig', [
-            'controller_name' => 'ReserverController',
-            'programmes' => $programmes,
-        ]);
+        $session = $request->getSession();
+        if(count($session->all())>0){
+            return $this->render('reserver/index.html.twig', [
+                'controller_name' => 'ReserverController',
+                'programmes' => $programmes,
+                'session' => $session,
+            ]);
+        } else{
+            return $this->render('reserver/index.html.twig', [
+                'controller_name' => 'ReserverController',
+                'programmes' => $programmes,
+            ]);
+        }
     }
 
     #[Route('/reserver/add/{program} ', name: 'app_reserver_add')]
@@ -70,6 +78,18 @@ class ReserverController extends AbstractController
         ]);
     }
 
+    #[Route('/reserver/vider', name: 'app_reserver_vider')]
+    public function vider(Request $request,ProgramRepository $programRepository,EntityManagerInterface $entityManager): Response
+    {
+        $programmes=$programRepository->findAll();
+        $session = $request->getSession();
+        $session->clear();
+        return $this->render('reserver/index.html.twig', [
+            'controller_name' => 'ReserverController',
+            'programmes' => $programmes,
+        ]);
+    }
+
 
     #[Route('/reserver/dell/{program} ', name: 'app_reserver_dell')]
     public function dell($program,Request $request,ProgramRepository $programRepository,EntityManagerInterface $entityManager): Response
@@ -78,8 +98,10 @@ class ReserverController extends AbstractController
         $rep=$pr->getTitle();
         $session = $request->getSession();
         if($session->has($rep)){
-            $qtn=$session->get($rep);
-            $session->set($rep,$qtn-1);
+            if($session->get($rep)!=0){
+                $qtn=$session->get($rep);
+                $session->set($rep,$qtn-1);
+            }
         }
         $programmes=$programRepository->findAll();
         return $this->render('reserver/index.html.twig', [

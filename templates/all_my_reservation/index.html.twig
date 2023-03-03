@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AllMyReservationController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    <table cellpadding="17">
+        <tr><td>ID</td><td>DATE</td><td>Télécharger</td></tr>
+        {% for reservation in reservation %}
+            <tr>
+                <td>{{ reservation.id }}</td>
+                <td>{{ reservation.date.format('Y-m-d') }}</td>
+                <td><a href="{{ path('app_reservation_pdf', {amount: '30', name: 'GHULAM', prenom: 'Meryam', date:reservation.date, id:reservation.id }) }}">Télécharger pdf</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}

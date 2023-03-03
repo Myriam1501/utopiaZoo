@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Reservation;
 use App\Entity\Ticket;
 use App\Repository\ProgramRepository;
+use App\Repository\TicketRepository;
 use App\Service\PaymentService;
 use App\Service\PdfService;
 use Doctrine\ORM\EntityManagerInterface;
@@ -28,7 +29,7 @@ class PaymentController extends AbstractController
     }
 
     #[Route('/payment/pdf/{amount}/{name}/{prenom}', name: 'app_payment_pdf')]
-    public function generatePdf(EntityManagerInterface $entityManager,ProgramRepository $programRepository,Request $request,string $amount,string $name,string $prenom,PdfService $pdf): Response
+    public function generatePdf(TicketRepository $ticketRepository,EntityManagerInterface $entityManager,ProgramRepository $programRepository,Request $request,string $amount,string $name,string $prenom,PdfService $pdf): Response
     {
         $date=new \DateTime('now');
         $stringDate=$date->format('Y-m-d H:i:s');
@@ -48,8 +49,8 @@ class PaymentController extends AbstractController
                 $entityManager->flush();
             }
         }
-        $session->set('reservation',$reser->getId());
-        $session->set('user',$reser->getUser());
+        $ticketsOfReservation=$ticketRepository->findBy(array('reservation'=>$reser));
+        $session->clear();
 
         $html = $this->render('fragments/reservation.html.twig', [
             'controller_name' => 'ReservationPDFController',
@@ -57,8 +58,9 @@ class PaymentController extends AbstractController
             'prenom' => $prenom,
             'date' => $stringDate,
             'amount' => $amount,
-            'session' => $session,
+            'tickets' => $ticketsOfReservation,
             'programmes' => $programmes,
+            'reservation' => $reser,
         ]);
         $pdf->showPdfFile($html);
 
