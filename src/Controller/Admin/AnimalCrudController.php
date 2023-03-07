@@ -19,8 +19,8 @@ class AnimalCrudController extends AbstractCrudController
     public function configureCrud(Crud $crud): Crud
     {
         return $crud
-            ->setEntityLabelInPlural('Animal')
-            ->setEntityLabelInSingular('Animaux')
+            ->setEntityLabelInPlural('Animaux')
+            ->setEntityLabelInSingular('Animal')
             ->setPageTitle("index","UtopiaZoo - Administration des animaux")
             ->setPaginatorPageSize(12);
     }

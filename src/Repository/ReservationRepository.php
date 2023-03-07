@@ -39,6 +39,13 @@ class ReservationRepository extends ServiceEntityRepository
         }
     }
 
+    public function countAllReservation() {
+        $queryBuilder = $this->createQueryBuilder('a');
+        $queryBuilder->select('COUNT(a.id) as value');
+
+        return $queryBuilder->getQuery()->getOneOrNullResult();
+    }
+
 //    /**
 //     * @return Reservation[] Returns an array of Reservation objects
 //     */

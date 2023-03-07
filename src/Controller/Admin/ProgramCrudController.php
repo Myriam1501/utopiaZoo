@@ -22,8 +22,8 @@ class ProgramCrudController extends AbstractCrudController
     public function configureCrud(Crud $crud): Crud
     {
         return $crud
-            ->setEntityLabelInPlural('Programme')
-            ->setEntityLabelInSingular('Programmes')
+            ->setEntityLabelInPlural('Programmes')
+            ->setEntityLabelInSingular('Programme')
             ->setPageTitle("index","UtopiaZoo - Administration des programmes")
             ->setPaginatorPageSize(12)
             ->addFormTheme('@FOSCKEditor/Form/ckeditor_widget.html.twig');
