@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Entity\Animal;
+
 use App\Repository\AnimalRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -13,7 +13,9 @@ class Jeu5Controller extends AbstractController
     #[Route('/jeu5', name: 'app_jeu5')]
     public function index(AnimalRepository $animalRepository): Response
     {
-        $nbr=rand(1,25);
+        $first=$animalRepository->findOneBy(array(),array('id' => 'DESC'));
+        $last=$animalRepository->findOneBy(array(),array('id' => 'ASC'));
+        $nbr=rand($first->getId(),$last->getId());
         $val=$animalRepository->find($nbr);
         $val=strtolower($val->getName());
         return $this->render('jeu5/index.html.twig', [

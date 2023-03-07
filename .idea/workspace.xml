@@ -6,18 +6,20 @@
   <component name="ChangeListManager">
     <list default="true" id="e6ed7fb7-d838-4e57-8df1-297e082cfd9b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/PaymentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PaymentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ReservationPDFController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ReservationPDFController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ReserverController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ReserverController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/fragments/reservation.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/fragments/reservation.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/reserver/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/reserver/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/AllMyReservationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AllMyReservationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Jeu5Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Jeu5Controller.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Jeu6Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Jeu6Controller.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataFixtures/AnimalGameFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/AnimalGameFixtures.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataFixtures/GameFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/GameFixtures.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/AnimalRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/AnimalRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/AnimaleGameRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/AnimaleGameRepository.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings">
+  <component name="ComposerSettings" doNotAsk="true">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
   </component>
@@ -178,17 +180,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="phpunit.xml.dist" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner scope="XML" />
@@ -203,7 +206,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1677836966102</updated>
-      <workItem from="1677836967147" duration="3553000" />
+      <workItem from="1677836967147" duration="3990000" />
+      <workItem from="1677861536258" duration="1222000" />
+      <workItem from="1678089699470" duration="301000" />
+      <workItem from="1678096670214" duration="1264000" />
+      <workItem from="1678122777700" duration="2122000" />
+      <workItem from="1678223200156" duration="6938000" />
     </task>
     <servers />
   </component>
