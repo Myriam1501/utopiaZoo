@@ -5,14 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e6ed7fb7-d838-4e57-8df1-297e082cfd9b" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/AllMyReservationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AllMyReservationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/GameController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/GameController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/Jeu5Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Jeu5Controller.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/Jeu6Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Jeu6Controller.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataFixtures/AnimalGameFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/AnimalGameFixtures.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataFixtures/GameFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/GameFixtures.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/AnimalRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/AnimalRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/AnimaleGameRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/AnimaleGameRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Jeu7Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Jeu7Controller.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ReserverController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ReserverController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/jeu5/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/jeu5/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/jeu6/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/jeu6/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/jeu7/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/jeu7/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/reserver/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/reserver/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +27,11 @@
     <execution />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="Myriam" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">

@@ -249,4 +249,7 @@
             <span class="button" onclick="retry()">Recommencer</span>
         </div>
     </div>
+    {% if session.get('gameReduction')==true %}
+        <p>REDUCE5PROMO</p>
+    {% endif %}
 {% endblock %}

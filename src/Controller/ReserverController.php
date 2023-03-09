@@ -33,17 +33,27 @@ class ReserverController extends AbstractController
     }
 
     #[Route('/reserver/add/{program} ', name: 'app_reserver_add')]
-    public function add($program,Request $request,ProgramRepository $programRepository,EntityManagerInterface $entityManager): Response
+    public function add($promo,$program,Request $request,ProgramRepository $programRepository,EntityManagerInterface $entityManager): Response
     {
+
         $pr=$programRepository->find($program);
         $rep=$pr->getTitle();
+
         $session = $request->getSession();
-        if($session->has($rep)){
-            $qtn=$session->get($rep);
-        }else{
-            $qtn=0;
+        if($promo=='codepromo'){
+            $qtn=-5;
+            $session->set($rep,$qtn);
         }
-        $session->set($rep,$qtn+1);
+        else{
+
+            if($session->has($rep)){
+                $qtn=$session->get($rep);
+            }else{
+                $qtn=0;
+            }
+            $session->set($rep,$qtn+1);
+        }
+
         $programmes=$programRepository->findAll();
         return $this->render('reserver/index.html.twig', [
             'controller_name' => 'ReserverController',
