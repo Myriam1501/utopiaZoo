@@ -7,7 +7,11 @@ use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use Vich\UploaderBundle\Form\Type\VichImageType;
+use Vich\UploaderBundle\VichUploaderBundle;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 class AnimalCrudController extends AbstractCrudController
 {
@@ -31,8 +35,9 @@ class AnimalCrudController extends AbstractCrudController
             IdField::new('id')
                 ->hideOnForm(),
             TextField::new('name'),
-            ImageField::new('picture')
-                ->hideOnForm(),
+            TextareaField::new('picturefile')
+            ->setFormType(VichImageType::class)
+            ->setLabel('picture')
         ];
     }
 }
