@@ -7,14 +7,14 @@ use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
-use Vich\UploaderBundle\Form\Type\VichImageType;
-use Vich\UploaderBundle\VichUploaderBundle;
-use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 class AnimalCrudController extends AbstractCrudController
 {
+    public const PRODUCTS_BASE_PATH = 'upload/images/animal';
+
+    public const PRODUCT_UPLOAD_DIR = 'public/upload/images/animal';
+
     public static function getEntityFqcn(): string
     {
         return Animal::class;
@@ -35,9 +35,9 @@ class AnimalCrudController extends AbstractCrudController
             IdField::new('id')
                 ->hideOnForm(),
             TextField::new('name'),
-            TextareaField::new('picturefile')
-            ->setFormType(VichImageType::class)
-            ->setLabel('picture')
+            ImageField::new('picture')
+                -> setBasePath(self::PRODUCTS_BASE_PATH)
+                -> setUploadDir(self::PRODUCT_UPLOAD_DIR)
         ];
     }
 }

@@ -4,17 +4,8 @@ namespace App\Entity;
 
 use App\Repository\AnimalRepository;
 use Doctrine\ORM\Mapping as ORM;
-use Vich\UploaderBundle\Mapping\Annotation as Vich;
-use Symfony\Component\HttpFoundation\File\File;
-use Vich\UploaderBundle\VichUploaderBundle;
-
-/**
- * @ORM\Entity(repositoryClass="App\Repository\AnimalRepository")
- */
-
 
 #[ORM\Entity(repositoryClass: AnimalRepository::class)]
-#[Vich\Uploadable]
 class Animal
 {
     #[ORM\Id]
@@ -30,12 +21,6 @@ class Animal
 
     #[ORM\Column(length: 2000, nullable: true)]
     private ?string $picture = null;
-
-    /**
-     * @var File
-     */
-    #[Vich\UploadableField(mapping: 'animal_image', fileNameProperty: 'picture')]
-    protected $picturefile;
 
     public function getId(): ?int
     {
@@ -76,25 +61,5 @@ class Animal
         $this->picture = $picture;
 
         return $this;
-    }
-
-    /**
-     * @return File|null
-     */
-    public function getPictureFile(): ?File
-    {
-        return $this->picturefile;
-    }
-
-    /**
-     * @param File|null $pictureFile
-     */
-    public function setPicturefile(?File $picturefile = null)
-    {
-        $this->picturefile = $picturefile;
-
-        /**if(null != $pictureFile) {
-            $this->updated = new \Datetime();
-        }**/
     }
 }
