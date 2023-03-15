@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello QuizzController!{% endblock %}
+{% block title %}Quizz{% endblock %}
 
 
 {% block body %}
@@ -288,6 +288,12 @@
 
         let question3 = new Question("Le plus grand félin au monde est...", ["Le chat", "Le tigre", "Le lion", "Le léopard"], 2);
         quiz.questionSuivante(question3);
+
+        let question4 = new Question("L'animal le plus rapide est...", ["Le tigre", "Le lièvre", "Le loup", "Le renne"], 4);
+        quiz.questionSuivante(question4);
+
+        let question5 = new Question("La longeur du cou de la girafe est en moyenne de...", ["1,2 mètres", "1,8 mètres", "2,4 mètres", "3 mètres"], 3);
+        quiz.questionSuivante(question5);
 
         let Nombre = document.querySelectorAll(".nombre");
 
