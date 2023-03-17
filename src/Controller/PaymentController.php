@@ -16,25 +16,28 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class PaymentController extends AbstractController
 {
-    #[Route('/payment/{amount}', name: 'app_payment', methods: ['GET', 'POST'])]
-    public function index($amount,PaymentService $pay): Response
+    #[Route('/payment', name: 'app_payment', methods: ['GET', 'POST'])]
+    public function index(Request $request,PaymentService $pay): Response
     {
-        $prix=(float)$amount;
+        $session = $request->getSession();
+
+        $prix=(float)$session->get("priceTotal");
         $intent=$pay->setAPI($prix);
         return $this->render('payment/index.html.twig', [
             'controller_name' => 'PaymentController',
-            'amount' => $amount,
+            'amount' => $prix,
             'intent' => $intent
         ]);
     }
 
-    #[Route('/payment/pdf/{amount}/{name}/{prenom}', name: 'app_payment_pdf')]
-    public function generatePdf(TicketRepository $ticketRepository,EntityManagerInterface $entityManager,ProgramRepository $programRepository,Request $request,string $amount,string $name,string $prenom,PdfService $pdf): Response
+    #[Route('/payment/pdf/{name}/{prenom}', name: 'app_payment_pdf')]
+    public function generatePdf(TicketRepository $ticketRepository,EntityManagerInterface $entityManager,ProgramRepository $programRepository,Request $request,string $name,string $prenom,PdfService $pdf): Response
     {
         $date=new \DateTime('now');
         $stringDate=$date->format('Y-m-d H:i:s');
         $reser=new Reservation();
         $reser->setDate($date);
+        $reser->setUser($this->getUser());
         $entityManager->persist($reser);
         $entityManager->flush();
         $programmes=$programRepository->findAll();
@@ -49,6 +52,8 @@ class PaymentController extends AbstractController
                 $entityManager->flush();
             }
         }
+        $amount=$session->get("priceTotal");
+
         $ticketsOfReservation=$ticketRepository->findBy(array('reservation'=>$reser));
         $session->clear();
 

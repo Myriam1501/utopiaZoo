@@ -42,7 +42,7 @@
                     if(result.errors){
                         document.getElementById("errors").innerText=result.error.message
                     }else{
-                        document.location.href="{{ path('app_payment_pdf', {amount: amount, name: 'GHULAM', prenom: 'Meryam'}) }}";
+                        document.location.href="{{ path('app_payment_pdf', {amount: amount, name: app.user.name , prenom: app.user.firstname}) }}";
                     }
                 })
             })

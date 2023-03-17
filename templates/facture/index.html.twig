@@ -27,8 +27,12 @@
         <br>
             <h5>Quantité totale = {{ quantity }}</h5>
             <h5>TOTAL = {{ price }}</h5>
-
-        <a href="{{ path('app_payment', {'amount':price}) }}">Acheter</a>
+        {% if app.user is not null %}
+        <a href="{{ path('app_payment') }}">Acheter</a>
+        {% endif %}
+        {% if app.user is null %}
+            <a href="{{ path('app_login') }}">Acheter</a>
+        {% endif %}
     {% endif %}
 </div>
 {% endblock %}
