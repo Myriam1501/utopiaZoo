@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Program;
 use App\Repository\ProgramRepository;
+use App\Repository\PromotionRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Mapping\Entity;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -59,6 +60,36 @@ class ReserverController extends AbstractController
             'controller_name' => 'ReserverController',
             'programmes' => $programmes,
             'session' => $session,
+        ]);
+    }
+
+    #[Route('/reserver/add ', name: 'app_reserver_add_promotion')]
+    public function addPromotion(Request $request,PromotionRepository $promotionRepository,ProgramRepository $programRepository): Response
+    {
+        $programmes=$programRepository->findAll();
+        $promotion = $request->get('promo');
+        $pr = $promotionRepository->findBy(['code_promo'=> $promotion]);
+
+        $promoBdd= $pr[0];
+        $rep=$promoBdd->getCodePromo();
+
+
+        if($rep!=null){
+            $session = $request->getSession();
+
+            if($session->has($rep)){
+                $qtn=$session->get($rep);
+            }else{
+                $qtn=$promoBdd->getReduction();
+            }
+            $session->set($rep,$qtn);
+        }
+
+        return $this->render('reserver/index.html.twig', [
+            'controller_name' => 'ReserverController',
+            'promotion'=>$promotion,
+            'session' => $session,
+            'programmes' => $programmes,
         ]);
     }
 

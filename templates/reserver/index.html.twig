@@ -60,13 +60,17 @@
                     {% endif %}
                 {% endfor %}
 
-            <li class="list-group-item d-flex justify-content-between bg-light">
-                <div class="text-success">
-                    <h6 class="my-0">Promo code</h6>
-                    <small>EXAMPLECODE</small>
-                </div>
-                <span class="text-success">-$5</span>
-            </li>
+            {% if promotion is defined %}
+                {% if session.get(promotion)!=null %}
+                    <li class="list-group-item d-flex justify-content-between bg-light">
+                        <div class="text-success">
+                            <h6 class="my-0">Promo code</h6>
+                            <small>EXAMPLECODE</small>
+                        </div>
+                        <span class="text-success">-$5</span>
+                    </li>
+                {% endif %}
+            {% endif %}
             <li class="list-group-item d-flex justify-content-between">
                 <button type="button" class="btn btn-secondary"><a href="{{ path('app_reserver_vider') }}" style="text-decoration: none; color: white">Vider</a></button>
                 <button type="button" class="btn btn-success"><a href="{{ path('app_reserver_acheter') }}" style="text-decoration: none; color: white">Acheter</a></button>
@@ -77,7 +81,7 @@
             <div class="input-group">
                 <input type="text" class="form-control" name='promo' id="promo"  placeholder="Promo code">
                 <div class="input-group-append">
-                    <a href="{{ path('app_reserver_add', {'program': 'codepromo'}) }}"><button type="submit" class="btn btn-secondary">ajouter</button></a>
+                    <button type="submit" class="btn btn-secondary"> <a href="{{ path('app_reserver_add_promotion') }}">ajouter</button></a>
                 </div>
             </div>
         </form>
