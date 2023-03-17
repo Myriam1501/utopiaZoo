@@ -13,7 +13,7 @@ class GameController extends AbstractController
 {
 
     #[Route('/game', name: 'app_game')]
-    public function index(Request $request,ProgramRepository $programRepository): Response
+    public function index(Request $request): Response
     {
         $session = $request->getSession();
         $rep= 'gameReduction';

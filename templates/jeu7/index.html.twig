@@ -10,6 +10,7 @@
 
 
 {% block body %}
+
     <style>#cnt{
             display: none;
         }
@@ -41,16 +42,17 @@
             background: linear-gradient(217deg, rgba(190, 225, 87, .8), rgba(255, 0, 0, 0) 70.71%),
             linear-gradient(127deg, rgba(0, 255, 0, .8), rgba(0, 255, 0, 0) 70.71%),
             linear-gradient(336deg, rgba(213, 245, 206, .8), rgba(0, 0, 255, 0) 70.71%);
-
-
+            margin-left: 22%;
         }
 
 
 
         #t1{
             margin-left: 110px;
-            margin-right: 250px;
-            margin-top: 10px;
+            margin-right: 110px;
+
+            align-items: stretch;
+
         }
 
         .game:before, .game:after {
@@ -94,8 +96,22 @@
             transform: scaleY(0.1);
             transition: all 0.4s;
         }
+        #success{
+            display: none;
+            text-align: center;
+            position: fixed;
+            left: 0px;
+            top:0px;
+            background-color: rgba(0,0 ,0 , 0.5);
+            width: 100%;
+            height: 100%;
+            z-index:1;
+
+        }
         .button:hover {
             color: seagreen;
+        }
+        .bi{
         }
         .button:hover::before {
             opacity: 1;
@@ -104,7 +120,13 @@
             transform: scaleY(1);
             transition: -webkit-transform 0.6s cubic-bezier(0.08, 0.35, 0.13, 1.02), opacity 0.4s;
             transition: transform 0.6s cubic-bezier(0.08, 0.35, 0.13, 1.02), opacity;
-        }</style>
+        }
+        .alert {
+            width: 50%;
+            top: 45%;
+            margin-left: 27%;
+        }
+    </style>
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script>function flip(image){
@@ -164,8 +186,13 @@
                             arret="true";
                             if(val.textContent==="9"){
                                 document.body.style.backgroundColor="green";
+                                document.getElementById('success').style.display='block';
+
+                                //display='block'
                                 let ding = new Audio('http://utopiazoo.local/taquin/win.mp3');
                                 ding.play();
+
+
                             }
                             break;
                         }
@@ -208,7 +235,9 @@
 
         function retry(){
             location.reload();
-        }</script>
+        }
+
+    </script>
     {% include 'game/header-game.html.twig' %}
     <div class="game">
         <h2 id="nbrPaire">0</h2>
@@ -216,7 +245,7 @@
         <table border="0" id="t1">
             <tr>
                 <td>
-                    <table id="table" align="center">
+                    <table id="table" style="align-content: center">
                         <tr>
                             <td><img id="img1" onclick="flip('img1')"  src="{{asset('taquin/cardBack.jpg')}}"></td>
                             <td><img id="img2" onclick="flip('img2')" src="{{asset('taquin/cardBack.jpg')}}"></td>
@@ -246,10 +275,34 @@
             </tr>
         </table>
         <div class="wrapper">
-            <span class="button" onclick="retry()">Recommencer</span>
+            <span class="button" >Recommencer</span>
         </div>
     </div>
-    {% if session.get('gameReduction')==true %}
-        <p>REDUCE5PROMO</p>
-    {% endif %}
+        <div id='success' >
+            <div class="alert alert-success"  role="alert" >
+                <div class="x"  style="text-align: right"   onclick="retry()">
+                <i class="bi bi-x-circle">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
+                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                        <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                    </svg>
+                </i>
+                </div>
+
+                <h4 class="alert-heading">Félicitation !</h4>
+                <p>Aww yeah, tu as réussi.</p>
+                <hr>
+                {% if session.get('gameReduction')==true %}
+                <p class="mb-0">Tu as même reçu un code promo... Tu as la chance d'avoir -5% sur tes visites avec le code : </p>
+                <p id="codepromo">REDUCE5PROMO</p>
+
+                {% else %}
+                <p class="mb-0">malheureusement, il n'y a pas de code promo pour cette fois essaye un autre jeu !!! </p>
+                {% endif %}
+
+            </div>
+
+        </div>
+
+
 {% endblock %}

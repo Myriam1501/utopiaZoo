@@ -5,15 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e6ed7fb7-d838-4e57-8df1-297e082cfd9b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/GameController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/GameController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Jeu5Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Jeu5Controller.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Jeu6Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Jeu6Controller.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Jeu7Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Jeu7Controller.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/ReserverController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ReserverController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/jeu5/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/jeu5/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/jeu6/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/jeu6/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/game/header-game.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/game/header-game.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/game/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/game/index.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/jeu7/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/jeu7/index.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/reserver/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/reserver/index.html.twig" afterDir="false" />
     </list>
@@ -220,6 +216,8 @@
       <workItem from="1678096670214" duration="1264000" />
       <workItem from="1678122777700" duration="2122000" />
       <workItem from="1678223200156" duration="6938000" />
+      <workItem from="1678705301026" duration="7000" />
+      <workItem from="1678819403176" duration="9598000" />
     </task>
     <servers />
   </component>
