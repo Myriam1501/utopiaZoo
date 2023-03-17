@@ -6,11 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="e6ed7fb7-d838-4e57-8df1-297e082cfd9b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/PaymentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PaymentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ReserverController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ReserverController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/facture/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/facture/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/AllMyReservationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AllMyReservationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/ReservationRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/ReservationRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/fragments/header.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/fragments/header.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/payment/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/payment/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -213,7 +211,7 @@
       <workItem from="1678306897199" duration="925000" />
       <workItem from="1678359553881" duration="1191000" />
       <workItem from="1678882410340" duration="4616000" />
-      <workItem from="1679077734152" duration="5114000" />
+      <workItem from="1679077734152" duration="8236000" />
     </task>
     <servers />
   </component>

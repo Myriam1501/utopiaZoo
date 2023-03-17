@@ -55,7 +55,7 @@
                         <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item" href="{{path('app_protect_wildlife')}}">Protéger la vie sauvage</a></li>
                     </ul>
-                {% if app.user %}
+                {% if app.user is not null %}
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item dropdown">
                             <a class="nav-link " role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -65,7 +65,7 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="{{path('app_profil')}}">Profil</a></li>
-                                <li><a class="dropdown-item" href="#">Mes réservation</a></li>
+                                <li><a class="dropdown-item" href="{{path('app_all_my_reservation') }}">Mes réservation</a></li>
                                 {% if is_granted('ROLE_ADMIN')%}
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item" href="{{ path('app_programManagement') }}">Gérer évènement</a></li>

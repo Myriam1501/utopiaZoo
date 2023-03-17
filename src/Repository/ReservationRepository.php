@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Reservation;
+use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -37,6 +38,14 @@ class ReservationRepository extends ServiceEntityRepository
         if ($flush) {
             $this->getEntityManager()->flush();
         }
+    }
+
+    public function findReservationsByUser(int $user){
+        return $this->createQueryBuilder('r')
+            ->andWhere('r.user = :user')
+            ->setParameter('user',$user)
+            ->getQuery()
+            ->getResult();
     }
 
 //    /**
