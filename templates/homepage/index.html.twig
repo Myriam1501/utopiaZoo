@@ -2,6 +2,10 @@
 {% block title %}Hello HomepageController!{% endblock %}
 
 {% block body %}
+
+    {{ render_esi(path('ch_cookie_consent.show')) }}
+    {{ render_esi(path('ch_cookie_consent.show_if_cookie_consent_not_set')) }}
+
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/homepage-style.css') }}">
     <head>
         <meta charset="utf-8">
