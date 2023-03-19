@@ -18,6 +18,7 @@
             display: flex;
             flex-direction: row;
             justify-content: center;
+            width: 1100px;
         }
 
         .presentation2 {
@@ -31,6 +32,7 @@
             border-radius: 50px;
             box-shadow: 0 20px 20px rgba(0, 0, 0, 0.3);
             margin: 100px;
+
         }
 
         p {
@@ -41,15 +43,27 @@
             margin-right: 30px;
         }
 
-
+.dashboard-order {
+    width: 340px;
+    height: 45%;
+    right: 0;
+    padding-right: 1%;
+    background-color: white;
+    z-index: 3;
+    font-size: 13px;
+    position: sticky;
+    top: 149px;
+    float: right;
+}
     </style>
+<div class="dashboard-order ">
 
-    {% if session is defined %}
-    <div class="col-md-4 order-md-2 mb-4">
+
         <h4 class="d-flex justify-content-between align-items-center mb-3">
             <span class="text-muted">Your cart</span>
             <span class="badge badge-secondary badge-pill">3</span>
         </h4>
+        {% if session is defined %}
         <ul class="list-group mb-3">
             <li class="list-group-item d-flex justify-content-between lh-condensed">
                 {% for programmes in programmes %}
@@ -77,17 +91,21 @@
             </li>
         </ul>
 
-        <form class="card p-2">
+        <form action="{{ path('app_reserver_add_promotion') }}" class="card p-2">
             <div class="input-group">
-                <input type="text" class="form-control" name='promo' id="promo"  placeholder="Promo code">
+                <input type="text" id="promo" name="promo"  class="form-control"  placeholder="Promo code">
+                <br>
                 <div class="input-group-append">
-                    <button type="submit" class="btn btn-secondary"> <a href="{{ path('app_reserver_add_promotion') }}">ajouter</button></a>
+                <input type="submit" class="btn btn-secondary" value="Submit">
                 </div>
             </div>
         </form>
-    </div>
-    {% endif %}
 
+
+    {% else %}
+    <div class="order-wrapper">Panier vide.</div>
+    {% endif %}
+</div></div>
         {% for programmes in programmes %}
             <div class="contenantpresentation">
                 <div class="presentation2">

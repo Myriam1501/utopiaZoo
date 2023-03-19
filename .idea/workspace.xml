@@ -5,9 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e6ed7fb7-d838-4e57-8df1-297e082cfd9b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/migrations/Version20230317135727.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Promotion.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/PromotionRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/ReserverController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ReserverController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/reserver/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/reserver/index.html.twig" afterDir="false" />
@@ -216,7 +213,8 @@
       <workItem from="1678122777700" duration="2122000" />
       <workItem from="1678223200156" duration="6938000" />
       <workItem from="1678705301026" duration="7000" />
-      <workItem from="1678819403176" duration="14371000" />
+      <workItem from="1678819403176" duration="15003000" />
+      <workItem from="1679209305492" duration="3013000" />
     </task>
     <servers />
   </component>

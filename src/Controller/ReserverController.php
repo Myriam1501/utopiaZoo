@@ -19,6 +19,7 @@ class ReserverController extends AbstractController
     {
         $programmes=$programRepository->findAll();
         $session = $request->getSession();
+
         if(count($session->all())>0){
             return $this->render('reserver/index.html.twig', [
                 'controller_name' => 'ReserverController',
@@ -34,7 +35,7 @@ class ReserverController extends AbstractController
     }
 
     #[Route('/reserver/add/{program} ', name: 'app_reserver_add')]
-    public function add($program,Request $request,ProgramRepository $programRepository,EntityManagerInterface $entityManager): Response
+    public function add($program, Request $request,ProgramRepository $programRepository,EntityManagerInterface $entityManager): Response
     {
 
         $pr=$programRepository->find($program);
@@ -66,6 +67,7 @@ class ReserverController extends AbstractController
     #[Route('/reserver/add ', name: 'app_reserver_add_promotion')]
     public function addPromotion(Request $request,PromotionRepository $promotionRepository,ProgramRepository $programRepository): Response
     {
+
         $programmes=$programRepository->findAll();
         $promotion = $request->get('promo');
         $pr = $promotionRepository->findBy(['code_promo'=> $promotion]);
