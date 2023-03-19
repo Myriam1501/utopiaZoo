@@ -3,7 +3,7 @@
 <p>Bonjour {{ user.name }}</p>
 <p>Nous vous remercions de vous être inscrit sur utopiaZoo.fr.</p>
 <p>Pour activer votre compte UtopiaZoo, cliquez sur le lien ci-dessous.</p>
-<p><a href="">Cliquez ici pour activer votre compte.</a> </p>
+<p><a href="{{ absolute_url (path('check_user', {token:token})) }}">Cliquez ici pour activer votre compte.</a> </p>
 
 <p>A bientôt</p>
 <p>UtopiaZoo</p>
