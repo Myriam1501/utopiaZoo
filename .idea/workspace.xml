@@ -5,12 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e6ed7fb7-d838-4e57-8df1-297e082cfd9b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/templates/cookies/cookieConsent.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/packages/ch_cookie_consent.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/ch_cookie_consent.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/framework.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/framework.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/homepage/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/homepage/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -202,6 +200,9 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Salon\Desktop\coursS5\utopiaZoo\public\IMG" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Salon\Desktop\coursS5\utopiaZoo\templates\cookies" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="phpunit.xml.dist" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -225,7 +226,9 @@
       <workItem from="1678820644265" duration="7474000" />
       <workItem from="1678875372895" duration="6527000" />
       <workItem from="1679148292280" duration="2559000" />
-      <workItem from="1679168258502" duration="1975000" />
+      <workItem from="1679168258502" duration="2638000" />
+      <workItem from="1679217423541" duration="7524000" />
+      <workItem from="1679253269501" duration="662000" />
     </task>
     <servers />
   </component>
