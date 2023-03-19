@@ -22,7 +22,7 @@ class Reservation
     #[ORM\OneToMany(mappedBy: 'reservation', targetEntity: Ticket::class)]
     private Collection $tickets;
 
-    #[ORM\OneToOne(inversedBy: 'reservation', cascade: ['persist', 'remove'])]
+    #[ORM\OneToMany(mappedBy: 'reservation', targetEntity: User::class)]
     private ?User $user = null;
 
     #[ORM\ManyToOne]
