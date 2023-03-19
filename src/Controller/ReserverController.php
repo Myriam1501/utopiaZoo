@@ -111,6 +111,7 @@ class ReserverController extends AbstractController
                 $prix=$prix+$uniqueQtn*$prixUnitaire;
             }
         }
+        $session->set("priceTotal",$prix);
         return $this->render('facture/index.html.twig', [
             'controller_name' => 'ReserverController',
             'programmes' => $programmes,
