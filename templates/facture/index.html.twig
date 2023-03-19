@@ -3,33 +3,218 @@
 {% block title %}Hello FactureController!{% endblock %}
 
 {% block body %}
-    <style>
-        .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-        .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-    </style>
 
-    <div class="example-wrapper">
-        {% if session is defined %}
-            <h6>Le panier</h6>
-            <table cellpadding="15" align="center" border="1">
-                <tr><td>Nom program</td><td>Quantité commander</td><td>Prix unitaire</td><td>Prix total</td></tr>
-                {% for programmes in programmes %}
-                    <tr>
-                        {% if session.get(programmes.getTitle())!=null %}
-                            <td>{{ programmes.getTitle() }}</td><td> {{ session.get(programmes.getTitle()) }} </td>
-                            <td>{{ programmes.price }}</td><td>{{ programmes.price*session.get(programmes.getTitle()) }}
-                        </td>
-                        {% endif %}
-                    </tr>
-                {% endfor %}
-                <tr><td>TOTAL</td><td>{{ quantity }}</td><td>{{ priceWithoutQuantity }}</td><td>{{ price }}</td></tr>
-            </table>
-            <br>
-            <h5>Quantité totale = {{ quantity }}</h5>
-            <h5>TOTAL = {{ price }}</h5>
+<style>
+    .container{
+        margin-top: 9%;
+    }
+    body{margin-top:20px;
+        background:#eee;
+    }
+    h3 {
+        font-size: 16px;
+    }
+    .text-navy {
+        color: #1ab394;
+        font-size: larger;
+    }
+    .cart-product-imitation {
+        padding: 18%;
+        height: 80px;
+        width: 80px;
+        background-color: #f8f8f9;
+    }
+    .product-imitation.xl {
+        padding: 120px 0;
+    }
+    .product-desc {
+        padding: 20px;
+        position: relative;
+    }
+    .ecommerce .tag-list {
+        padding: 0;
+    }
+    .ecommerce .fa-star {
+        color: #d1dade;
+    }
+    .ecommerce .fa-star.active {
+        color: #f8ac59;
+    }
+    .ecommerce .note-editor {
+        border: 1px solid #e7eaec;
+    }
+    table.shoping-cart-table {
+        margin-bottom: 0;
+    }
+    table.shoping-cart-table tr td {
+        border: none;
+        text-align: right;
+    }
+    table.shoping-cart-table tr td.desc,
+    table.shoping-cart-table tr td:first-child {
+        text-align: left;
+    }
+    table.shoping-cart-table tr td:last-child {
+        width: 80px;
+    }
+    .ibox {
+        clear: both;
+        margin-bottom: 25px;
+        margin-top: 0;
+        padding: 0;
+    }
+    .ibox.collapsed .ibox-content {
+        display: none;
+    }
+    .ibox:after,
+    .ibox:before {
+        display: table;
+    }
+    .ibox-title {
+        -moz-border-bottom-colors: none;
+        -moz-border-left-colors: none;
+        -moz-border-right-colors: none;
+        -moz-border-top-colors: none;
+        background-color: #ffffff;
+        border-color: #e7eaec;
+        border-image: none;
+        border-style: solid solid none;
+        border-width: 3px 0 0;
+        color: inherit;
+        margin-bottom: 0;
+        padding: 14px 15px 7px;
+        min-height: 48px;
+    }
+    .ibox-content {
+        background-color: #ffffff;
+        color: inherit;
+        padding: 15px 20px 20px 20px;
+        border-color: #e7eaec;
+        border-image: none;
+        border-style: solid solid none;
+        border-width: 1px 0;
+    }
 
-                <a href="{{ path('app_payment') }}">Acheter</a>
+</style>
 
-        {% endif %}
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <div class="container">
+        <div class="wrapper wrapper-content animated fadeInRight">
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="ibox">
+                        <div class="ibox-title">
+                            <h5>Réservation</h5>
+                        </div>
+                        {% if session is defined %}
+                            {% for programmes in programmes %}{% if session.get(programmes.getTitle())!=null %}
+                        <div class="ibox-content">
+
+                            <div class="table-responsive">
+
+                                <table class="table shoping-cart-table">
+
+                                    <tbody>
+                                    <tr>
+                                        <td width="90">
+                                            <div class="cart-product-imitation" style="align-content: center"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-ticket-perforated" viewBox="0 0 16 16">
+                                                    <path d="M4 4.85v.9h1v-.9H4Zm7 0v.9h1v-.9h-1Zm-7 1.8v.9h1v-.9H4Zm7 0v.9h1v-.9h-1Zm-7 1.8v.9h1v-.9H4Zm7 0v.9h1v-.9h-1Zm-7 1.8v.9h1v-.9H4Zm7 0v.9h1v-.9h-1Z"></path>
+                                                    <path d="M1.5 3A1.5 1.5 0 0 0 0 4.5V6a.5.5 0 0 0 .5.5 1.5 1.5 0 1 1 0 3 .5.5 0 0 0-.5.5v1.5A1.5 1.5 0 0 0 1.5 13h13a1.5 1.5 0 0 0 1.5-1.5V10a.5.5 0 0 0-.5-.5 1.5 1.5 0 0 1 0-3A.5.5 0 0 0 16 6V4.5A1.5 1.5 0 0 0 14.5 3h-13ZM1 4.5a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 .5.5v1.05a2.5 2.5 0 0 0 0 4.9v1.05a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-1.05a2.5 2.5 0 0 0 0-4.9V4.5Z"></path>
+                                                </svg>
+                                            </div>
+                                        </td>
+                                        <td class="desc">
+                                            <h3>
+                                                <div class="text-navy" >
+                                                    {{ programmes.getTitle() }}
+                                                </div>
+                                            </h3>
+
+
+                                            <div class="m-t-sm">
+
+                                                <a href="{{ path('app_reserver_dell', {'program':programmes.id}) }}" class="text-muted"><i ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-backspace-reverse-fill" viewBox="0 0 16 16">
+                                                            <path d="M0 3a2 2 0 0 1 2-2h7.08a2 2 0 0 1 1.519.698l4.843 5.651a1 1 0 0 1 0 1.302L10.6 14.3a2 2 0 0 1-1.52.7H2a2 2 0 0 1-2-2V3zm9.854 2.854a.5.5 0 0 0-.708-.708L7 7.293 4.854 5.146a.5.5 0 1 0-.708.708L6.293 8l-2.147 2.146a.5.5 0 0 0 .708.708L7 8.707l2.146 2.147a.5.5 0 0 0 .708-.708L7.707 8l2.147-2.146z"/>
+                                                        </svg></i> Supprimer</a>
+                                            </div>
+                                        </td>
+
+
+                                        <td width="65">
+                                            <input id="date" type="date" value="date">
+                                        </td>
+                                        <td>
+                                            {{ programmes.price }} € /unité
+                                        </td>
+                                        <td>
+                                        {{ session.get(programmes.getTitle()) }} qté
+                                        </td>
+                                        <td>
+                                            <h5>
+                                                {{ programmes.price*session.get(programmes.getTitle()) }} €
+                                            </h5>
+                                        </td>
+                                    </tr>
+                                    </tbody>{% endif %}{% endfor %}
+                                    {% endif %}
+                                </table>
+                            </div>
+
+                        </div>
+
+                        <div class="ibox-content">
+                            <a href="{{ path('app_payment') }}" class="btn btn-primary pull-right"><i><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-basket2-fill" viewBox="0 0 16 16">
+                                        <path d="M5.929 1.757a.5.5 0 1 0-.858-.514L2.217 6H.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h.623l1.844 6.456A.75.75 0 0 0 3.69 15h8.622a.75.75 0 0 0 .722-.544L14.877 8h.623a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1.717L10.93 1.243a.5.5 0 1 0-.858.514L12.617 6H3.383L5.93 1.757zM4 10a1 1 0 0 1 2 0v2a1 1 0 1 1-2 0v-2zm3 0a1 1 0 0 1 2 0v2a1 1 0 1 1-2 0v-2zm4-1a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0v-2a1 1 0 0 1 1-1z"/>
+                                    </svg></i>  Acheter</a>
+                            <a href="{{ path('app_reserver') }}" class="btn btn-white btn-sm"> Retour</a>
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-3">
+                    <div class="ibox">
+                        <div class="ibox-title">
+                            <h5>MONTANT</h5>
+                        </div>
+                        <div class="ibox-content">
+                    <span>
+                        Total
+                    </span>
+                            <h2 class="font-bold">
+                                {{ price }} €
+                            </h2>
+
+                    Quantité totale
+                            <h2 class="font-bold" >
+                                {{ quantity }}
+                            </h2>
+                            <div class="m-t-sm">
+                                <div class="btn-group">
+                                    <a href="{{ path('app_payment') }}" class="btn btn-primary btn-sm"><i ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-basket2-fill" viewBox="0 0 16 16">
+                                                <path d="M5.929 1.757a.5.5 0 1 0-.858-.514L2.217 6H.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h.623l1.844 6.456A.75.75 0 0 0 3.69 15h8.622a.75.75 0 0 0 .722-.544L14.877 8h.623a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1.717L10.93 1.243a.5.5 0 1 0-.858.514L12.617 6H3.383L5.93 1.757zM4 10a1 1 0 0 1 2 0v2a1 1 0 1 1-2 0v-2zm3 0a1 1 0 0 1 2 0v2a1 1 0 1 1-2 0v-2zm4-1a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0v-2a1 1 0 0 1 1-1z"/>
+                                            </svg></i> Acheter</a>
+                                    <a href="{{ path('app_reserver') }}" class="btn btn-white btn-sm"> Retour</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ibox">
+                        <div class="ibox-title">
+                            <h5>Support</h5>
+                        </div>
+                        <div class="ibox-content text-center">
+                            <h3><i ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone" viewBox="0 0 16 16">
+                                        <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
+                                    </svg></i> 01 48 45 81 93</h3>
+                            <span class="small">
+                        Contactez-nous en cas de problème ! Nous somme ouvert 24/24h
+                    </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 {% endblock %}
