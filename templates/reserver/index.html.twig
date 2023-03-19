@@ -56,6 +56,7 @@
     float: right;
 }
     </style>
+
 <div class="dashboard-order ">
 
 
@@ -64,12 +65,14 @@
             <span class="badge badge-secondary badge-pill">3</span>
         </h4>
         {% if session is defined %}
-        <ul class="list-group mb-3">
-            <li class="list-group-item d-flex justify-content-between lh-condensed">
+        <ul class="list-group mb-3" >
+            <li>
                 {% for programmes in programmes %}
                     {% if session.get(programmes.getTitle())!=null %}
+                <div class="list-group-item d-flex justify-content-between lh-condensed">
                 <h6 class="my-0"> {{ programmes.getTitle() }} </h6>
                 <span class="text-muted">qté : {{ session.get(programmes.getTitle()) }}</span>
+                        </div>
             </li>
                     {% endif %}
                 {% endfor %}
@@ -106,6 +109,7 @@
     <div class="order-wrapper">Panier vide.</div>
     {% endif %}
 </div></div>
+
         {% for programmes in programmes %}
             <div class="contenantpresentation">
                 <div class="presentation2">
