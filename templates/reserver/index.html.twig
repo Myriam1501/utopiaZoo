@@ -82,13 +82,13 @@
                 {% endfor %}
 
             {% if promotion is defined %}
-                {% if session.get(promotion)!=null %}
+                {% if session.get('promo')!=null %}
                     <li class="list-group-item d-flex justify-content-between bg-light">
                         <div class="text-success">
                             <h6 class="my-0">Promo code</h6>
-                            <small>EXAMPLECODE</small>
+                            <small>{{ promotion }}</small>
                         </div>
-                        <span class="text-success">-$5</span>
+                        <span class="text-success">-{{ session.get('promo') }}%</span>
                     </li>
                 {% endif %}
             {% endif %}
@@ -111,6 +111,11 @@
                 </div>
             </div>
         </form>
+            {% for message in app.flashes('notice') %}
+                <div class="alert alert-notice">
+                    {{ message }}
+                </div>
+            {% endfor %}
 
 
     {% else %}

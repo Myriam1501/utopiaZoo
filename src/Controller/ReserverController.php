@@ -67,24 +67,34 @@ class ReserverController extends AbstractController
     #[Route('/reserver/add ', name: 'app_reserver_add_promotion')]
     public function addPromotion(Request $request,PromotionRepository $promotionRepository,ProgramRepository $programRepository): Response
     {
-
+        $session = $request->getSession();
         $programmes=$programRepository->findAll();
         $promotion = $request->get('promo');
         $pr = $promotionRepository->findBy(['code_promo'=> $promotion]);
+        if(count($pr)>0){
+            $promoBdd= $pr[0];
+            $rep='promo';
 
-        $promoBdd= $pr[0];
-        $rep=$promoBdd->getCodePromo();
+
+            if($rep!=null){
 
 
-        if($rep!=null){
-            $session = $request->getSession();
-
-            if($session->has($rep)){
-                $qtn=$session->get($rep);
-            }else{
-                $qtn=$promoBdd->getReduction();
+                if($session->has($rep)){
+                    $qtn=$session->get($rep);
+                }else{
+                    $qtn=$promoBdd->getReduction();
+                }
+                $session->set($rep,$qtn);
             }
-            $session->set($rep,$qtn);
+
+        }
+
+        else{
+
+            $this->addFlash(
+                'notice',
+                'code promo incorrect'
+            );
         }
 
         return $this->render('reserver/index.html.twig', [
@@ -111,6 +121,13 @@ class ReserverController extends AbstractController
                 $prix=$prix+$uniqueQtn*$prixUnitaire;
             }
         }
+
+        $promo = 'promo';
+        if($session->has($promo)){
+            $prix=$prix-($prix*($session->get($promo)/100));
+
+        }
+
         $session->set("priceTotal",$prix);
         return $this->render('facture/index.html.twig', [
             'controller_name' => 'ReserverController',
@@ -120,6 +137,7 @@ class ReserverController extends AbstractController
             'price' => $prix,
             'priceWithoutQuantity' => $prixUnitaire,
         ]);
+
     }
 
     #[Route('/reserver/vider', name: 'app_reserver_vider')]

@@ -294,7 +294,7 @@
                 <hr>
                 {% if session.get('gameReduction')==true %}
                 <p class="mb-0">Tu as même reçu un code promo... Tu as la chance d'avoir -5% sur tes visites avec le code : </p>
-                <p id="codepromo">REDUCE5PROMO</p>
+                <p id="codepromo">{{ session.get('gameNameReduction') }}</p>
 
                 {% else %}
                 <p class="mb-0">malheureusement, il n'y a pas de code promo pour cette fois essaye un autre jeu !!! </p>

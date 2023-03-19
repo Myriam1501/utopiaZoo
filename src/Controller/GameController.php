@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Repository\ProgramRepository;
+use App\Repository\PromotionRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -13,12 +14,19 @@ class GameController extends AbstractController
 {
 
     #[Route('/game', name: 'app_game')]
-    public function index(Request $request): Response
+    public function index(Request $request, PromotionRepository $promotionRepository): Response
     {
         $session = $request->getSession();
+        $promotion=$promotionRepository->findOneBy(array());
+
         $rep= 'gameReduction';
         $qtn = (bool) mt_rand(0, 1);
         $session->set($rep,$qtn);
+
+        $index_name_code_promo = 'gameNameReduction';
+        $nameCode= $promotion->getCodePromo();
+
+        $session->set($index_name_code_promo,$nameCode);
         if(count($session->all())>0){
             return $this->render('game/index.html.twig', [
                 'controller_name' => 'GameController',
