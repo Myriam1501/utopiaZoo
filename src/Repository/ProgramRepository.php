@@ -39,6 +39,13 @@ class ProgramRepository extends ServiceEntityRepository
         }
     }
 
+    public function countAllProgram() {
+        $queryBuilder = $this->createQueryBuilder('a');
+        $queryBuilder->select('COUNT(a.id) as value');
+
+        return $queryBuilder->getQuery()->getOneOrNullResult();
+    }
+
 //    /**
 //     * @return Program[] Returns an array of Program objects
 //     */

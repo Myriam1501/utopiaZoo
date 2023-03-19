@@ -34,11 +34,6 @@ class Reservation
         $this->Date= new \DateTimeImmutable();
     }
 
-
-
-
-
-
     public function getId(): ?int
     {
         return $this->id;

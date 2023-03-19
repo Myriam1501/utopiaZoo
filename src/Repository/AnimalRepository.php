@@ -4,7 +4,6 @@ namespace App\Repository;
 
 use App\Entity\Animal;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
-use Doctrine\ORM\QueryBuilder;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -40,6 +39,12 @@ class AnimalRepository extends ServiceEntityRepository
         }
     }
 
+    public function countAllAnimal() {
+        $queryBuilder = $this->createQueryBuilder('a');
+        $queryBuilder->select('COUNT(a.id) as value');
+
+        return $queryBuilder->getQuery()->getOneOrNullResult();
+    }
 
 //    /**
 //     * @return Animal[] Returns an array of Animal objects

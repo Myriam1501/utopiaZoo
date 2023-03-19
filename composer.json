@@ -7,13 +7,15 @@
         "php": ">=8.1",
         "ext-ctype": "*",
         "ext-iconv": "*",
-        "connectholland/cookie-consent-bundle": "^0.11.0",
+        "connectholland/cookie-consent-bundle": "*",
         "doctrine/annotations": "^1.0",
         "doctrine/doctrine-bundle": "^2.8",
         "doctrine/doctrine-migrations-bundle": "^3.2",
         "doctrine/orm": "^2.14",
         "dompdf/dompdf": "^2.0",
+        "easycorp/easyadmin-bundle": "^4.6",
         "fakerphp/faker": "^1.21",
+        "friendsofsymfony/ckeditor-bundle": "^2.4",
         "knplabs/knp-paginator-bundle": "^6.1",
         "phpdocumentor/reflection-docblock": "^5.3",
         "phpstan/phpdoc-parser": "^1.15",
@@ -48,7 +50,8 @@
         "symfony/web-link": "6.2.*",
         "symfony/yaml": "6.2.*",
         "twig/extra-bundle": "^2.12|^3.0",
-        "twig/twig": "^2.12|^3.0"
+        "twig/twig": "^2.12|^3.0",
+        "vich/uploader-bundle": "^2.1"
     },
     "config": {
         "allow-plugins": {
@@ -79,7 +82,8 @@
     "scripts": {
         "auto-scripts": {
             "cache:clear": "symfony-cmd",
-            "assets:install %PUBLIC_DIR%": "symfony-cmd"
+            "assets:install %PUBLIC_DIR%": "symfony-cmd",
+            "ckeditor:install": "symfony-cmd"
         },
         "post-install-cmd": [
             "@auto-scripts"
