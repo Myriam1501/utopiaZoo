@@ -211,7 +211,7 @@
 </style>
 
     <script>
-        //document.getElementById('success').style.display='block';
+
         function retry(){
             location.reload();
         }
@@ -234,6 +234,7 @@
                     NbrCorrectUser.textContent = quiz.correct;
                     document.getElementById("resultat").style.display = "block";
                     document.getElementById("affichage").style.display = "none";
+                    document.getElementById('success').style.display='block';
 
                 }
             }
