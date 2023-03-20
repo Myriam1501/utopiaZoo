@@ -26,7 +26,7 @@
         background-color: #e9ecef;
     }
 
-    .timeline > li .timeline-image {
+    .timeline > a li .timeline-image {
         position: absolute;
         z-index: 100;
         left: 0;
@@ -44,58 +44,55 @@
         .timeline:before {
             left: 50%;
         }
-        .timeline > li {
+        .timeline > a li {
             min-height: 100px;
             margin-bottom: 100px;
         }
-        .timeline > li .timeline-panel {
+        .timeline > a li .timeline-panel {
             float: left;
             width: 41%;
             padding: 0 20px 20px 30px;
             text-align: right;
         }
-        .timeline > li .timeline-image {
+        .timeline > a  li .timeline-image {
             left: 50%;
             width: 100px;
             height: 100px;
             margin-left: -50px;
         }
-        .timeline > li .timeline-image h4, .timeline > li .timeline-image .h4 {
+        h4 {
             font-size: 13px;
             line-height: 18px;
             margin-top: 16px;
         }
-        .timeline > li.timeline-inverted > .timeline-panel {
+        .timeline > a li.timeline-inverted > a .timeline-panel {
             float: right;
             padding: 0 30px 20px 20px;
             text-align: left;
         }
     }
     @media (min-width: 992px) {
-        .timeline > li {
+        .timeline > a li {
             min-height: 150px;
         }
-        .timeline > li .timeline-panel {
+        .timeline > a li .timeline-panel {
             padding: 0 20px 20px;
         }
-        .timeline > li .timeline-image {
+        .timeline > a li .timeline-image {
             width: 150px;
             height: 150px;
             margin-left: -75px;
         }
-        .timeline > li .timeline-image h4, .timeline > li .timeline-image .h4 {
+        h4 {
             font-size: 18px;
             line-height: 26px;
             margin-top: 30px;
         }
-        .timeline > li.timeline-inverted > .timeline-panel {
+        .timeline > a li.timeline-inverted > a .timeline-panel {
             padding: 0 20px 20px;
         }
     }
-    .click-game:hover{
-        color: #ffc800;
-        weight: 8000%;
-    }
+
 
 
 
@@ -111,7 +108,7 @@
                 <br><br><br><br>
             </div>
             <ul class="timeline">
-
+                <a href="{{ path('app_jeu5') }}" class='a' >
                 <li>
                     <div class="timeline-image"><img class="rounded-circle img-fluid" src="{{ asset('pendu.png') }}" alt="..." /></div>
                     <div class="timeline-panel">
@@ -122,7 +119,8 @@
                         <div class="timeline-body"><p class="text-muted">Trouver le mot cacher avant que le roi meurt :'( </p></div>
                     </div>
                 </li>
-
+                </a>
+        <a href="{{ path('app_jeu7') }}" class='a'>
                 <li class="timeline-inverted">
                     <div class="timeline-image"><img class="rounded-circle img-fluid" src="https://zupimages.net/up/23/08/h6h6.png" alt="..." /></div>
                     <div class="timeline-panel">
@@ -133,6 +131,8 @@
                         <div class="timeline-body"><p class="text-muted">Retourner des cartes avec des images cachées pour trouver des paires identiques. </p></div>
                     </div>
                 </li>
+        </a>
+            <a href="{{ path('app_jeu6') }} " class='a' >
                 <li>
                     <div class="timeline-image"><img class="rounded-circle img-fluid" src="https://zupimages.net/up/23/08/tcro.png" alt="..." /></div>
                     <div class="timeline-panel">
@@ -143,6 +143,19 @@
                         <div class="timeline-body"><p class="text-muted">Un jeu de puzzle qui consiste à déplacer des tuiles d'images sur un plateau afin de les remettre dans l'ordre correct.</p></div>
                     </div>
                 </li>
+            </a>
+                <a href="{{ path('app_quizz') }} " class='a' >
+                    <li>
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="https://zupimages.net/up/23/12/sf74.jpeg" alt="..." /></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <br>
+                                <h4 class="subheading">Quizz</h4>
+                            </div>
+                            <div class="timeline-body"><p class="text-muted">Tester votre culture G en testant notre quizz animal !!!</p></div>
+                        </div>
+                    </li>
+                </a>
             </ul>
         </div>
     </section>

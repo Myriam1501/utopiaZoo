@@ -36,13 +36,13 @@
                         Le Zoo et Les Animaux
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="{{path('app_decouverte')}}">Découvert</a></li>
+                        <li><a class="dropdown-item" href="{{path('app_decouverte')}}">Découverte</a></li>
                         <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item" href="{{path('app_game')}}">Espace Jeux</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{{path('app_prepareVisit_reservation')}}">Préparer sa Visite</a>
+                    <a class="nav-link active" aria-current="page" href="{{path('app_reserver')}}">Préparer sa Visite</a>
                 </li>
             </ul>
 
@@ -55,7 +55,7 @@
                         <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item" href="{{path('app_protect_wildlife')}}">Protéger la vie sauvage</a></li>
                     </ul>
-                {% if app.user %}
+                {% if app.user is not null %}
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item dropdown">
                             <a class="nav-link " role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -65,10 +65,11 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="{{path('app_profil')}}">Profil</a></li>
-                                <li><a class="dropdown-item" href="#">Mes réservation</a></li>
+                                <li><a class="dropdown-item" href="{{path('app_reserver')}}" >Mes réservation</a></li>
                                 {% if is_granted('ROLE_ADMIN')%}
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item" href="{{ path('app_programManagement') }}">Gérer évènement</a></li>
+                                    <li><a class="dropdown-item" href="{{ path('admin') }}">Espace Admin</a></li>
                                 {% endif %}
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item" href="{{ path('app_logout') }}">Déconnection</a></li>

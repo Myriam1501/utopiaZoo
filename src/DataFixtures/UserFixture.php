@@ -16,8 +16,9 @@ class UserFixture extends Fixture
     ){
 
     }
+
     public function load(ObjectManager $manager): void
-    {
+    { /*
         $admin = new User();
         $admin ->setEmail('admin@utopiazoo.fr');
         $admin->setfirstname('liu');
@@ -53,6 +54,6 @@ class UserFixture extends Fixture
         $manager->persist($user1);
         $manager->flush();
 
-
+*/
     }
 }

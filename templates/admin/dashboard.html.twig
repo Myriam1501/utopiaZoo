@@ -1,0 +1,103 @@
+{% extends "@EasyAdmin/page/content.html.twig" %}
+
+{% block content %}
+    <h1>Espace Administration de UtopiaZoo</h1>
+    <br>
+    <div class="stat">
+    <div class="contenu1">
+        <div class="texte">
+    <span class="display-3"> {{ countAllUser['value']}}</span> Utilisateurs
+        </div>
+    </div>
+    <div class="contenu2">
+        <div class="texte">
+    <span class="display-3"> {{ countAllReservation['value']}}</span> Réservations
+        </div>
+    </div>
+    </div>
+    <br>
+    <div class="stat">
+    <div class="contenu3">
+        <div class="texte">
+    <span class="display-3"> {{ countAllProgram['value']}}</span> Programmes
+        </div>
+    </div>
+    <div class="contenu4">
+        <div class="texte">
+    <span class="display-3"> {{ countAllAnimal['value']}}</span> Animaux
+        </div>
+    </div>
+    </div>
+    <br>
+
+
+
+    <style>
+
+        .texte {
+            margin-left:10px;
+        }
+        .stat {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: space-around;
+            align-items: flex-start;
+            align-content: center;
+        }
+        .contenu1 {
+            background-position: -10px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.5), 0 3px 6px rgba(0,0,0,0.10);
+            width:400px;
+            margin-top:30px;
+            background-color: #C1DC95;
+            border-radius: 15px;
+        }
+        .contenu2 {
+            background-position: -10px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.5), 0 3px 6px rgba(0,0,0,0.10);
+            width:400px;
+            margin-top:30px;
+            background-color: #E9DFAC;
+            border-radius: 15px;
+        }
+        .contenu3 {
+            background-position: -10px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.5), 0 3px 6px rgba(0,0,0,0.10);
+            width:400px;
+            margin-top:30px;
+            background-color: #F1EDDF;
+            border-radius: 15px;
+        }
+        .contenu4 {
+            background-position: -10px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.5), 0 3px 6px rgba(0,0,0,0.10);
+            width:400px;
+            margin-top:30px;
+            background-color: #EDF2AB;
+            border-radius: 15px;
+        }
+
+        /*body {
+            background-color: #D1E5D1;
+        }*/
+
+        h1 {
+            text-align:center;
+            background:linear-gradient(141deg, #EFE5DB 25%, #EBE4DC 40%, #E4EFDB 55%);
+            color:#423513;
+            font-family:'Roboto';
+            font-weight:550;
+            padding-top:30px;
+            height:100px;
+            overflow:hidden;
+            -webkit-backface-visibility: hidden;
+            -webkit-transform: translate3d(0,0,0);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.5), 0 3px 6px rgba(0,0,0,0.10);
+            margin-left: 20px;
+            margin-right: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+    </style>
+{% endblock %}

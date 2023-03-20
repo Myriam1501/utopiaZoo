@@ -39,6 +39,13 @@ class AnimalRepository extends ServiceEntityRepository
         }
     }
 
+    public function countAllAnimal() {
+        $queryBuilder = $this->createQueryBuilder('a');
+        $queryBuilder->select('COUNT(a.id) as value');
+
+        return $queryBuilder->getQuery()->getOneOrNullResult();
+    }
+
 //    /**
 //     * @return Animal[] Returns an array of Animal objects
 //     */
