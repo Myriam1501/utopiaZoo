@@ -32,9 +32,45 @@
 
         </div>
     </div>
+    <div id='success' >
+        <div class="alert alert-success"  role="alert" >
+            <div class="x"  style="text-align: right"   onclick="retry()">
+                <i class="bi bi-x-circle">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
+                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                        <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                    </svg>
+                </i>
+            </div>
+
+            <h4 class="alert-heading">Félicitation !</h4>
+            <p>Aww yeah, tu as réussi.</p>
+            <hr>
+            {% if session.get('gameReduction')==true %}
+                <p class="mb-0">Tu as même reçu un code promo... Tu as la chance d'avoir -5% sur tes visites avec le code : </p>
+                <p id="codepromo">{{ session.get('gameNameReduction') }}</p>
+
+            {% else %}
+                <p class="mb-0">malheureusement, il n'y a pas de code promo pour cette fois essaye un autre jeu !!! </p>
+            {% endif %}
+
+        </div>
+
+    </div>
 
 <style>
+    #success{
+        display: none;
+        text-align: center;
+        position: fixed;
+        left: 0px;
+        top:0px;
+        background-color: rgba(0,0 ,0 , 0.5);
+        width: 100%;
+        height: 100%;
+        z-index:1;
 
+    }
     .image {
         width: 170px;
         height: 170px;
@@ -175,6 +211,10 @@
 </style>
 
     <script>
+        //document.getElementById('success').style.display='block';
+        function retry(){
+            location.reload();
+        }
 
         function Quiz(){
 
