@@ -94,11 +94,11 @@
             {% endif %}
             <li class="list-group-item d-flex justify-content-between">
                 <button type="button" class="btn btn-secondary"><a href="{{ path('app_reserver_vider') }}" style="text-decoration: none; color: white">Vider</a></button>
-
+                {% if app.user %}
                 <button type="button" class="btn btn-success"><a href="{{ path('app_reserver_acheter') }}" style="text-decoration: none; color: white">Acheter</a></button>
-                <!-- {% if app.user %}{% else %}
+                 {% else %}
                 <button type="button" class="btn btn-success"><a href="{{ path('app_login') }}" style="text-decoration: none; color: white">Acheter</a></button>
-                -->{% endif %}
+                {% endif %}
             </li>
         </ul>
 
