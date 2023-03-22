@@ -22,11 +22,12 @@ class Reservation
     #[ORM\OneToMany(mappedBy: 'reservation', targetEntity: Ticket::class)]
     private Collection $tickets;
 
-    #[ORM\OneToMany(mappedBy: 'reservation', targetEntity: User::class)]
-    private ?User $user = null;
-
     #[ORM\ManyToOne]
     private ?Ticket $tickets_id = null;
+
+    #[ORM\ManyToOne(inversedBy: 'reservations')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?User $user = null;
 
     public function __construct()
     {
