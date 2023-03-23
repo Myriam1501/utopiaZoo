@@ -80,7 +80,13 @@
             </li>
                     {% endif %}
                 {% endfor %}
-
+            {% if price is defined %}
+            <li>
+                <div class="list-group-item d-flex justify-content-between lh-condensed">
+                    <h6 class="my-0"> Prix total : {{ price }} € </h6>
+                </div>
+            </li>
+            {% endif %}
             {% if promotion is defined %}
                 {% if session.get('promo')!=null %}
                     <li class="list-group-item d-flex justify-content-between bg-light">
@@ -92,6 +98,7 @@
                     </li>
                 {% endif %}
             {% endif %}
+
             <li class="list-group-item d-flex justify-content-between">
                 <button type="button" class="btn btn-secondary"><a href="{{ path('app_reserver_vider') }}" style="text-decoration: none; color: white">Vider</a></button>
                 {% if app.user %}

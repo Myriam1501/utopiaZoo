@@ -19,12 +19,17 @@ class ReserverController extends AbstractController
     {
         $programmes=$programRepository->findAll();
         $session = $request->getSession();
+        if ($session->has("priceTotal")){
+            $price=$session->get('priceTotal');
+        }
 
         if(count($session->all())>0){
             return $this->render('reserver/index.html.twig', [
                 'controller_name' => 'ReserverController',
                 'programmes' => $programmes,
                 'session' => $session,
+                'price' => $price,
+
             ]);
         } else{
             return $this->render('reserver/index.html.twig', [
@@ -43,24 +48,43 @@ class ReserverController extends AbstractController
 
         $session = $request->getSession();
         if($request->get('promo')==='codepromo'){
-            $qtn=-5;
-            $session->set('code-promo',$qtn);
+            $quantity=-5;
+            $session->set('code-promo',$quantity);
         }
         else{
 
             if($session->has($rep)){
-                $qtn=$session->get($rep);
+                $quantity=$session->get($rep);
             }else{
-                $qtn=0;
+                $quantity=0;
             }
-            $session->set($rep,$qtn+1);
+            $session->set($rep,$quantity+1);
         }
 
         $programmes=$programRepository->findAll();
+        if($session->has("priceTotal")){
+            $prix=$session->get('priceTotal');
+        }
+        else{
+            $prix=0;
+        }
+            if($session->has($pr->getTitle())){
+                $prixUnitaire=$pr->getPrice();
+                $prix=$prix+$prixUnitaire;
+            }
+
+
+        $promo = 'promo';
+        if($session->has($promo)){
+            $prix=$prix-($prix*($session->get($promo)/100));
+        }
+        $session->set("priceTotal",$prix);
+
         return $this->render('reserver/index.html.twig', [
             'controller_name' => 'ReserverController',
             'programmes' => $programmes,
             'session' => $session,
+            'price' => $prix,
         ]);
     }
 
@@ -111,14 +135,13 @@ class ReserverController extends AbstractController
         $programmes=$programRepository->findAll();
         $session = $request->getSession();
         $qtn=0;
-        $prix=0;
+        $prix=$session->get("priceTotal");
         $prixUnitaire=0;
         foreach ($programmes as $p){
             if($session->has($p->getTitle())){
                 $uniqueQtn=$session->get($p->getTitle());
                 $qtn=$qtn+$uniqueQtn;
                 $prixUnitaire=$prixUnitaire+$p->getPrice();
-                $prix=$prix+$uniqueQtn*$prixUnitaire;
             }
         }
 
@@ -165,11 +188,31 @@ class ReserverController extends AbstractController
                 $session->set($rep,$qtn-1);
             }
         }
+
         $programmes=$programRepository->findAll();
+        if($session->has("priceTotal")){
+            $prix=$session->get('priceTotal');
+        }
+        else{
+            $prix=0;
+        }
+        if($session->has($pr->getTitle())){
+            $prixUnitaire=$pr->getPrice();
+            $prix=$prix-$prixUnitaire;
+        }
+
+
+        $promo = 'promo';
+        if($session->has($promo)){
+            $prix=$prix-($prix*($session->get($promo)/100));
+        }
+        $session->set("priceTotal",$prix);
+
         return $this->render('reserver/index.html.twig', [
             'controller_name' => 'ReserverController',
             'programmes' => $programmes,
             'session' => $session,
+            'price' => $prix,
         ]);
     }
 
