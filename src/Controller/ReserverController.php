@@ -21,9 +21,6 @@ class ReserverController extends AbstractController
         $session = $request->getSession();
         if ($session->has("priceTotal")){
             $price=$session->get('priceTotal');
-        }
-
-        if(count($session->all())>0){
             return $this->render('reserver/index.html.twig', [
                 'controller_name' => 'ReserverController',
                 'programmes' => $programmes,

@@ -52,7 +52,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private ?bool $Check_email = false;
 
-    #[ORM\OneToMany(mappedBy: 'user', targetEntity: Reservation::class)]
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: Reservation::class, orphanRemoval: true)]
     private Collection $reservations;
 
 
