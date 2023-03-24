@@ -33,15 +33,18 @@ class PaymentController extends AbstractController
     #[Route('/payment/pdf/{name}/{prenom}', name: 'app_payment_pdf')]
     public function generatePdf(TicketRepository $ticketRepository,EntityManagerInterface $entityManager,ProgramRepository $programRepository,Request $request,string $name,string $prenom,PdfService $pdf): Response
     {
+        $session = $request->getSession();
+        $amount=$session->get("priceTotal");
         $date=new \DateTime('now');
         $stringDate=$date->format('Y-m-d H:i:s');
         $reser=new Reservation();
         $reser->setDate($date);
         $reser->setUser($this->getUser());
+        $reser->setPrice($session->get("priceTotal"));
         $entityManager->persist($reser);
         $entityManager->flush();
         $programmes=$programRepository->findAll();
-        $session = $request->getSession();
+
         foreach ($programmes as $p){
             if($session->has($p->getTitle())){
                 $t=new Ticket();
@@ -52,7 +55,7 @@ class PaymentController extends AbstractController
                 $entityManager->flush();
             }
         }
-        $amount=$session->get("priceTotal");
+
 
         $ticketsOfReservation=$ticketRepository->findBy(array('reservation'=>$reser));
         $session->clear();

@@ -29,6 +29,9 @@ class Reservation
     #[ORM\JoinColumn(nullable: false)]
     private ?User $user = null;
 
+    #[ORM\Column(nullable: true)]
+    private ?float $price = null;
+
     public function __construct()
     {
         $this->tickets = new ArrayCollection();
@@ -102,6 +105,18 @@ class Reservation
     public function setTicketsId(?Ticket $tickets_id): self
     {
         $this->tickets_id = $tickets_id;
+
+        return $this;
+    }
+
+    public function getPrice(): ?float
+    {
+        return $this->price;
+    }
+
+    public function setPrice(?float $price): self
+    {
+        $this->price = $price;
 
         return $this;
     }

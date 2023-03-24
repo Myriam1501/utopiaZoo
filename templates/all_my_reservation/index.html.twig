@@ -15,7 +15,7 @@
             <tr>
                 <td>{{ reservation.id }}</td>
                 <td>{{ reservation.date.format('Y-m-d') }}</td>
-                <td><a href="{{ path('app_reservation_pdf', {amount: '30', name: 'GHULAM', prenom: 'Meryam', date:reservation.date, id:reservation.id }) }}">Télécharger pdf</a></td>
+                <td><a href="{{ path('app_reservation_pdf', {amount: reservation.price, name: app.user.name, prenom: app.user.firstname, date:reservation.date, id:reservation.id }) }}">Télécharger pdf</a></td>
             </tr>
         {% endfor %}
     </table>

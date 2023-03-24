@@ -28,12 +28,13 @@ class ReservationPDFController extends AbstractController
         ]);
     }
 
-    #[Route('/payment/pdf/{amount}/{name}/{prenom}/{id}', name: 'app_reservation_pdf')]
-    public function generatePdf($id,ReservationRepository $reservationRepository,TicketRepository $ticketRepository,EntityManagerInterface $entityManager,ProgramRepository $programRepository,Request $request,string $amount,string $name,string $prenom,PdfService $pdf): Response
+    #[Route('/payment/pdf/{name}/{prenom}/{id}', name: 'app_reservation_pdf')]
+    public function generatePdf($id,ReservationRepository $reservationRepository,TicketRepository $ticketRepository,EntityManagerInterface $entityManager,ProgramRepository $programRepository,Request $request,string $name,string $prenom,PdfService $pdf): Response
     {
         $date=new \DateTime('now');
         $stringDate=$date->format('Y-m-d H:i:s');
         $reser=$reservationRepository->find($id);
+        $amount=$reser->getPrice();
         $programmes=$programRepository->findAll();
         $ticketsOfReservation=$ticketRepository->findBy(array('reservation'=>$reser));
         $html = $this->render('fragments/reservation.html.twig', [

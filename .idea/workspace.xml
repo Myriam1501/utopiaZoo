@@ -6,11 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="9ab3f399-ae5a-4e54-96d9-053a5108b6e6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20230319113320.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ReserverController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ReserverController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20230324223633.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/AllMyReservationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AllMyReservationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/PaymentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PaymentController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ReservationPDFController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ReservationPDFController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Reservation.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Reservation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/fragments/header.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/fragments/header.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/ReservationRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/ReservationRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/all_my_reservation/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/all_my_reservation/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/payment/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/payment/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,7 +27,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="V2_meriambis" />
+        <entry key="$PROJECT_DIR$" value="Myriam" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
