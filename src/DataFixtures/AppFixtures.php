@@ -19,7 +19,7 @@ class AppFixtures extends Fixture
 
     public function load(ObjectManager $manager): void
     {
-        /*
+
         $programme = new Program();
         $programme->setTitle('Visite')
             ->setPrice(mt_rand(0,100))
@@ -31,7 +31,7 @@ class AppFixtures extends Fixture
                 ->setPrice(mt_rand(0,100));
             $manager->persist($programme);
         }
-        $manager->flush();*/
+        $manager->flush();
     }
     /*
      * setprice(mt_rand(0,100))*/

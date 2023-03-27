@@ -144,7 +144,7 @@ class ReserverController extends AbstractController
 
         $promo = 'promo';
         if($session->has($promo)){
-            $prix=$prix-($prix*($session->get($promo)/100));
+            (integer)$prix=$prix-($prix*($session->get($promo)/100));
 
         }
 
