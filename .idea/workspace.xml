@@ -6,7 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="9ab3f399-ae5a-4e54-96d9-053a5108b6e6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/all_my_reservation/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/all_my_reservation/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataFixtures/AnimalFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/AnimalFixtures.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataFixtures/AnimalGameFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/AnimalGameFixtures.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -237,7 +238,9 @@
       <workItem from="1679303541847" duration="1324000" />
       <workItem from="1679694813670" duration="41000" />
       <workItem from="1679696758864" duration="1610000" />
-      <workItem from="1679732719971" duration="1578000" />
+      <workItem from="1679732719971" duration="1714000" />
+      <workItem from="1680183357658" duration="672000" />
+      <workItem from="1680358570317" duration="572000" />
     </task>
     <servers />
   </component>

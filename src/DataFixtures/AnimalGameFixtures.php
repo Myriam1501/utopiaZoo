@@ -12,20 +12,21 @@ class AnimalGameFixtures extends Fixture
 
     public function load(ObjectManager $manager): void
     {
-        $arrayAnimals=array("Ane","Belier","Canard","Dindon","Elephant","Faucon",
-            "Girafe","Hippopotame","Iguane","Jaguar","Koala","Lapin","Mouton","Nasique","Ours",
-            "Panthere","Quokka","Rhinoceros","Singe","Tortue","Urial","Vache","Wallaby","Xenope","Zebre");
-
-        for($i=0;$i<sizeof($arrayAnimals);$i++)
+        $arrayAnimals=array('\img','\chvr','\gir');
+        foreach ($arrayAnimals as $animal)
         {
-            $animalName=$arrayAnimals[$i];
-            $newAnimal=new Animal();
-            $newAnimal->setName($animalName);
-            $newAnimal->setPicture("x");
-            $manager->persist($newAnimal);
+            $game=new AnimaleGame();
+            for($i=1;$i<10;$i++)
+            {
+                $str='setImg';
+                $str=$str.$i;
+                $img='\taquin'.$animal.$i.'.jpg';
+                $game->$str($img);
+            }
+            $manager->persist($game);
         }
-        $manager->flush();
 
+        $manager->flush();
     }
     /*
      * setprice(mt_rand(0,100))*/
