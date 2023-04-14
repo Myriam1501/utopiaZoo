@@ -1,5 +1,5 @@
 # ![WebApp](https://iharsh234.github.io/WebApp/images/demo/demo_landing.JPG)
-# utopiaZoo
+# [UtopiaZoo](https://iharsh234.github.io/WebApp/) 
 <table>
 <tr>
 <td>
@@ -67,7 +67,7 @@ The WebApp is compatible with devices of all sizes and all OS's, and consistent 
 - Another WebApp, capable of comparing at least 10 stocks.
 
 
-## Built with 
+## [Construction](https://iharsh234.github.io/WebApp/) 
 
 - [Github Project](http://getbootstrap.com/) - Extensive list of components and  Bundled Javascript plugins.
 
@@ -76,7 +76,7 @@ The WebApp is compatible with devices of all sizes and all OS's, and consistent 
 - [Bootstrap](http://getbootstrap.com/) - Extensive list of components and  Bundled Javascript plugins.
 - [Trello](http://getbootstrap.com/) - Extensive list of components and  Bundled Javascript plugins.
 
-## Team
+## [équipe](https://iharsh234.github.io/WebApp/) 
 
 [![Harsh Vijay](https://avatars1.githubusercontent.com/u/12688534?v=3&s=144)](https://github.com/iharsh234)  | [![Quandl.com](https://github.com/iharsh234/WebApp/blob/master/images/quandl.jpg)](https://www.quandl.com/)
 ---|---
