@@ -4,8 +4,7 @@ namespace App\Controller;
 
 
 use App\Repository\ReservationRepository;
-use Doctrine\ORM\EntityManager;
-use Symfony\Bridge\Doctrine\ManagerRegistry;
+
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;

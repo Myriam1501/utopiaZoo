@@ -3,19 +3,17 @@
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class QuizzController extends AbstractController
 {
-    #[Route('/quizz', name: 'app_quizz')]
-    public function index(Request $request): Response
+    #[Route('/essaie/quizz', name: 'app_essaie_quizz')]
+    public function index(): Response
     {
-        $session = $request->getSession();
-        return $this->render('quizz/index.html.twig', [
+        return $this->render('essaie_quizz/index.html.twig', [
             'controller_name' => 'QuizzController',
-            'session' => $session,
         ]);
     }
+
 }
