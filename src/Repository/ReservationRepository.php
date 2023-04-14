@@ -48,7 +48,7 @@ class ReservationRepository extends ServiceEntityRepository
     }
 
 //    /**
-//     * @return Reservation[] Returns an array of Reservation objects
+//     * @return ReservationService[] Returns an array of ReservationService objects
 //     */
 //    public function findByExampleField($value): array
 //    {
@@ -62,7 +62,7 @@ class ReservationRepository extends ServiceEntityRepository
 //        ;
 //    }
 
-//    public function findOneBySomeField($value): ?Reservation
+//    public function findOneBySomeField($value): ?ReservationService
 //    {
 //        return $this->createQueryBuilder('r')
 //            ->andWhere('r.exampleField = :val')

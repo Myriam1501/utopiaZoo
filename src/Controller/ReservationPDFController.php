@@ -2,8 +2,7 @@
 
 namespace App\Controller;
 
-use App\Entity\Reservation;
-use App\Entity\Ticket;
+
 use App\Repository\ProgramRepository;
 use App\Repository\ReservationRepository;
 use App\Repository\TicketRepository;

@@ -5,12 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9ab3f399-ae5a-4e54-96d9-053a5108b6e6" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/DataFixtures/AnimalPicFixtures.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20230326230219.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/AllMyReservationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AllMyReservationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/FactureController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/FactureController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Jeu5Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Jeu5Controller.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ReservationPDFController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ReservationPDFController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/ReserverController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ReserverController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataFixtures/UserFixture.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/UserFixture.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/facture/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/facture/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataFixtures/AnimalFixtures.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/ReservationRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/ReservationRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Service/Reservation.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/ReservationService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/jeu5/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/jeu5/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/jeu6/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/jeu6/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
