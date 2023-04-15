@@ -19,7 +19,6 @@ class ReservationPDFController extends AbstractController
     public function index(string $amount,string $name,string $prenom,string $date): Response
     {
         return $this->render('reservation_pdf/index.html.twig', [
-            'controller_name' => 'ReservationPDFController',
             'nom' => $name,
             'prenom' => $prenom,
             'date' => $date,
@@ -37,7 +36,6 @@ class ReservationPDFController extends AbstractController
         $programmes=$programRepository->findAll();
         $ticketsOfReservation=$ticketRepository->findBy(array('reservation'=>$reser));
         $html = $this->render('fragments/reservation.html.twig', [
-            'controller_name' => 'ReservationPDFController',
             'nom' => $name,
             'prenom' => $prenom,
             'date' => $stringDate,
@@ -49,7 +47,6 @@ class ReservationPDFController extends AbstractController
         $pdf->showPdfFile($html);
 
         return $this->render('reservation_pdf/index.html.twig', [
-            'controller_name' => 'ReservationPDFController',
             'nom' => $name,
             'prenom' => $prenom,
             'date' => $stringDate,

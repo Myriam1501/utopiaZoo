@@ -14,7 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class ReserverController extends AbstractController
 {
-    private $programmes;
+    private array $programmes;
 
     public function __construct(ProgramRepository $programmes)
     {
@@ -56,26 +56,8 @@ class ReserverController extends AbstractController
     {
         $session=$request->getSession();
         $promotion = $request->get('promo');
-        $pr = $promotionRepository->findBy(['code_promo'=> $promotion]);
-        if(count($pr)>0){
-            $promoBdd= $pr[0];
-            $rep='promo';
-            if($rep!=null){
-                if($session->has($rep)){
-                    $qtn=$session->get($rep);
-                }else{
-                    $qtn=$promoBdd->getReduction();
-                }
-                $session->set($rep,$qtn);
-            }
-        }
-        else{
-            $this->addFlash(
-                'notice',
-                'code promo incorrect'
-            );
-        }
-
+        $reservService=new ReservationService($session);
+        $reservService->addPromotion($promotion,$promotionRepository);
         return $this->render('reserver/index.html.twig', [
             'controller_name' => 'ReserverController',
             'promotion'=>$promotion,

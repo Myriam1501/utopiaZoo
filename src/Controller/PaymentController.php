@@ -8,6 +8,7 @@ use App\Repository\ProgramRepository;
 use App\Repository\TicketRepository;
 use App\Service\PaymentService;
 use App\Service\PdfService;
+use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -20,11 +21,9 @@ class PaymentController extends AbstractController
     public function index(Request $request,PaymentService $pay): Response
     {
         $session = $request->getSession();
-
         $prix=(float)$session->get("priceTotal");
         $intent=$pay->setAPI($prix);
         return $this->render('payment/index.html.twig', [
-            'controller_name' => 'PaymentController',
             'amount' => $prix,
             'intent' => $intent
         ]);
@@ -35,7 +34,7 @@ class PaymentController extends AbstractController
     {
         $session = $request->getSession();
         $amount=$session->get("priceTotal");
-        $date=new \DateTime('now');
+        $date=new DateTime('now');
         $stringDate=$date->format('Y-m-d H:i:s');
         $reser=new Reservation();
         $reser->setDate($date);
@@ -61,7 +60,6 @@ class PaymentController extends AbstractController
         $session->clear();
 
         $html = $this->render('fragments/reservation.html.twig', [
-            'controller_name' => 'ReservationPDFController',
             'nom' => $name,
             'prenom' => $prenom,
             'date' => $stringDate,
