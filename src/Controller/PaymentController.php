@@ -32,44 +32,6 @@ class PaymentController extends AbstractController
     #[Route('/payment/pdf/{name}/{prenom}', name: 'app_payment_pdf')]
     public function generatePdf(TicketRepository $ticketRepository,EntityManagerInterface $entityManager,ProgramRepository $programRepository,Request $request,string $name,string $prenom,PdfService $pdf): Response
     {
-        $session = $request->getSession();
-        $amount=$session->get("priceTotal");
-        $date=new DateTime('now');
-        $stringDate=$date->format('Y-m-d H:i:s');
-        $reser=new Reservation();
-        $reser->setDate($date);
-        $reser->setUser($this->getUser());
-        $reser->setPrice($session->get("priceTotal"));
-        $entityManager->persist($reser);
-        $entityManager->flush();
-        $programmes=$programRepository->findAll();
-
-        foreach ($programmes as $p){
-            if($session->has($p->getTitle())){
-                $t=new Ticket();
-                $t->setProgram($p);
-                $t->setQteNormal($session->get($p->getTitle()));
-                $t->setReservation($reser);
-                $entityManager->persist($t);
-                $entityManager->flush();
-            }
-        }
-
-
-        $ticketsOfReservation=$ticketRepository->findBy(array('reservation'=>$reser));
-        $session->clear();
-
-        $html = $this->render('fragments/reservation.html.twig', [
-            'nom' => $name,
-            'prenom' => $prenom,
-            'date' => $stringDate,
-            'amount' => $amount,
-            'tickets' => $ticketsOfReservation,
-            'programmes' => $programmes,
-            'reservation' => $reser,
-        ]);
-        $pdf->showPdfFile($html);
-
         return $this->render('reservation_pdf/index.html.twig', [
             'controller_name' => 'ReservationPDFController',
             'nom' => $name,

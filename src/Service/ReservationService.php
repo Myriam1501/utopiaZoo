@@ -4,7 +4,12 @@ namespace App\Service;
 
 use App\Entity\Program;
 use App\Entity\Promotion;
+use App\Entity\Reservation;
+use App\Entity\Ticket;
 use App\Repository\PromotionRepository;
+use App\Repository\ReservationRepository;
+use App\Repository\TicketRepository;
+use Doctrine\ORM\EntityManager;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
@@ -126,5 +131,84 @@ class ReservationService
             $this->session->set($rep, $qtn);
         }
     }
+
+    public function generateReservation(PdfService $pdf, $prenom, $name,TicketRepository $ticketRepository,
+                                        PromotionRepository $programRepository,
+                                        ReservationRepository $reservationRepository, $id)
+    {
+        $date=new \DateTime('now');
+        $stringDate=$date->format('Y-m-d H:i:s');
+        $reser=$reservationRepository->find($id);
+        $amount=$reser->getPrice();
+        $programmes=$programRepository->findAll();
+        $ticketsOfReservation=$ticketRepository->findBy(array('reservation'=>$reser));
+        $html = $this->render('fragments/reservation.html.twig', [
+            'nom' => $name,
+            'prenom' => $prenom,
+            'date' => $stringDate,
+            'amount' => $amount,
+            'tickets' => $ticketsOfReservation,
+            'programmes' => $programmes,
+            'reservation' => $reser,
+        ]);
+        $pdf->showPdfFile($html);
+    }
+
+    public function addReservation($pdf ,$prenom, $name,TicketRepository $ticketRepository,
+                                  PromotionRepository $programRepository, EntityManager $entityManager)
+    {
+        $amount=$this->session->get("priceTotal");
+        $date=new DateTime('now');
+        $stringDate=$date->format('Y-m-d H:i:s');
+        $programmes=$programRepository->findAll();
+        foreach ($programmes as $p){
+            if($this->session->has($p->getTitle())){
+                $t=new Ticket();
+                $t->setProgram($p);
+                $t->setQteNormal($this->session->get($p->getTitle()));
+                $t->setReservation($reser);
+                $entityManager->persist($t);
+                $entityManager->flush();
+            }
+        }
+        $ticketsOfReservation=$ticketRepository->findBy(array('reservation'=>$reser));
+        $this->session->clear();
+        $html = $this->render('fragments/reservation.html.twig', [
+            'nom' => $name,
+            'prenom' => $prenom,
+            'date' => $stringDate,
+            'amount' => $amount,
+            'tickets' => $ticketsOfReservation,
+            'programmes' => $programmes,
+            'reservation' => $reser,
+        ]);
+        $pdf->showPdfFile($html);
+    }
+
+    public function insertReservation($date, $entityManager)
+    {
+        $reser=new Reservation();
+        $reser->setDate($date);
+        $reser->setUser($this->getUser());
+        $reser->setPrice($this->session->get("priceTotal"));
+        $entityManager->persist($reser);
+        $entityManager->flush();
+    }
+
+    public function insertTickets()
+    {
+
+    }
+
+    public function getReservationPrice($id, ReservationRepository $reservationRepository) : int
+    {
+        $reser=$reservationRepository->find($id);
+        $amount=$reser->getPrice();
+        return $amount;
+    }
+
+
+
+
 
 }
