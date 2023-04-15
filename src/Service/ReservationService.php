@@ -6,12 +6,15 @@ use App\Entity\Program;
 use App\Entity\Promotion;
 use App\Entity\Reservation;
 use App\Entity\Ticket;
+use App\Repository\ProgramRepository;
 use App\Repository\PromotionRepository;
 use App\Repository\ReservationRepository;
 use App\Repository\TicketRepository;
 use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use DateTime;
 
 class ReservationService
 {
@@ -21,6 +24,8 @@ class ReservationService
     {
         $this->session = $session;
     }
+
+
 
     public function deleteProgram(Program $program): int
     {
@@ -133,7 +138,7 @@ class ReservationService
     }
 
     public function generateReservation(PdfService $pdf, $prenom, $name,TicketRepository $ticketRepository,
-                                        PromotionRepository $programRepository,
+                                        ProgramRepository $programRepository,
                                         ReservationRepository $reservationRepository, $id)
     {
         $date=new \DateTime('now');
@@ -154,13 +159,34 @@ class ReservationService
         $pdf->showPdfFile($html);
     }
 
-    public function addReservation($pdf ,$prenom, $name,TicketRepository $ticketRepository,
-                                  PromotionRepository $programRepository, EntityManager $entityManager)
+    public function addReservation($user,$pdf ,$prenom, $name,TicketRepository $ticketRepository,
+                                  ProgramRepository $programRepository, EntityManagerInterface $entityManager) : Reservation
     {
         $amount=$this->session->get("priceTotal");
         $date=new DateTime('now');
         $stringDate=$date->format('Y-m-d H:i:s');
         $programmes=$programRepository->findAll();
+        $reser=$this->insertReservation($date,$entityManager,$user);
+        $this->insertTickets($programmes,$reser,$entityManager);
+        $ticketsOfReservation=$ticketRepository->findBy(array('reservation'=>$reser));
+        $this->session->clear();
+        return $reser;
+    }
+
+
+    public function insertReservation(DateTime $date, EntityManagerInterface $entityManager,$user) : Reservation
+    {
+        $reser=new Reservation();
+        $reser->setDate($date);
+        $reser->setUser($user);
+        $reser->setPrice($this->session->get("priceTotal"));
+        $entityManager->persist($reser);
+        $entityManager->flush();
+        return $reser;
+    }
+
+    public function insertTickets(array $programmes,Reservation $reser,EntityManagerInterface $entityManager)
+    {
         foreach ($programmes as $p){
             if($this->session->has($p->getTitle())){
                 $t=new Ticket();
@@ -171,33 +197,6 @@ class ReservationService
                 $entityManager->flush();
             }
         }
-        $ticketsOfReservation=$ticketRepository->findBy(array('reservation'=>$reser));
-        $this->session->clear();
-        $html = $this->render('fragments/reservation.html.twig', [
-            'nom' => $name,
-            'prenom' => $prenom,
-            'date' => $stringDate,
-            'amount' => $amount,
-            'tickets' => $ticketsOfReservation,
-            'programmes' => $programmes,
-            'reservation' => $reser,
-        ]);
-        $pdf->showPdfFile($html);
-    }
-
-    public function insertReservation($date, $entityManager)
-    {
-        $reser=new Reservation();
-        $reser->setDate($date);
-        $reser->setUser($this->getUser());
-        $reser->setPrice($this->session->get("priceTotal"));
-        $entityManager->persist($reser);
-        $entityManager->flush();
-    }
-
-    public function insertTickets()
-    {
-
     }
 
     public function getReservationPrice($id, ReservationRepository $reservationRepository) : int
