@@ -55,6 +55,9 @@ Fonctionnalités :
 - Base de donner reservation 
 - ...
 
+### Test
+Il y a aussi la possibiliter de tester avec le bin/phpunit (ne pas oublier de crée une base de donnée test pour ne pas avoir de conflie en amont)
+
 ## [Construction](https://iharsh234.github.io/WebApp/) 
 
 - [Github Project](https://github.com/users/Myriam1501/projects/4) - Dans le github parti Project, equivalent au Trello
