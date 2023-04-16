@@ -44,40 +44,16 @@ class PaymentController extends AbstractController
         $entityManager->persist($reser);
         $entityManager->flush();
         $programmes=$programRepository->findAll();
-
         foreach ($programmes as $p){
-            if($session->has($p->getTitle())){
-                $t=new Ticket();
-                $t->setProgram($p);
-                $t->setQteNormal($session->get($p->getTitle()));
-                $t->setReservation($reser);
-                $entityManager->persist($t);
-                $entityManager->flush();
-            }
+            if($session->has($p->getTitle())){$t=new Ticket();$t->setProgram($p);$t->setQteNormal($session->get($p->getTitle()));
+                $t->setReservation($reser);$entityManager->persist($t);$entityManager->flush();}
         }
-
-
         $ticketsOfReservation=$ticketRepository->findBy(array('reservation'=>$reser));
         $session->clear();
-
-        $html = $this->render('fragments/reservation.html.twig', [
-            'controller_name' => 'ReservationPDFController',
-            'nom' => $name,
-            'prenom' => $prenom,
-            'date' => $stringDate,
-            'amount' => $amount,
-            'tickets' => $ticketsOfReservation,
-            'programmes' => $programmes,
-            'reservation' => $reser,
-        ]);
+        $html = $this->render('fragments/reservation.html.twig', ['controller_name' => 'ReservationPDFController', 'nom' => $name,
+            'prenom' => $prenom, 'date' => $stringDate, 'amount' => $amount, 'tickets' => $ticketsOfReservation, 'programmes' => $programmes, 'reservation' => $reser,]);
         $pdf->showPdfFile($html);
-
-        return $this->render('reservation_pdf/index.html.twig', [
-            'controller_name' => 'ReservationPDFController',
-            'nom' => $name,
-            'prenom' => $prenom,
-            'date' => $stringDate,
-            'amount' => $amount
-        ]);
+        return $this->render('reservation_pdf/index.html.twig', ['controller_name' => 'ReservationPDFController',
+            'nom' => $name, 'prenom' => $prenom, 'date' => $stringDate, 'amount' => $amount]);
     }
 }

@@ -37,24 +37,10 @@ class ReservationPDFController extends AbstractController
         $amount=$reser->getPrice();
         $programmes=$programRepository->findAll();
         $ticketsOfReservation=$ticketRepository->findBy(array('reservation'=>$reser));
-        $html = $this->render('fragments/reservation.html.twig', [
-            'controller_name' => 'ReservationPDFController',
-            'nom' => $name,
-            'prenom' => $prenom,
-            'date' => $stringDate,
-            'amount' => $amount,
-            'tickets' => $ticketsOfReservation,
-            'programmes' => $programmes,
-            'reservation' => $reser,
-        ]);
+        $html = $this->render('fragments/reservation.html.twig', ['controller_name' => 'ReservationPDFController', 'nom' => $name, 'prenom' => $prenom,
+            'date' => $stringDate, 'amount' => $amount, 'tickets' => $ticketsOfReservation, 'programmes' => $programmes, 'reservation' => $reser,]);
         $pdf->showPdfFile($html);
-
-        return $this->render('reservation_pdf/index.html.twig', [
-            'controller_name' => 'ReservationPDFController',
-            'nom' => $name,
-            'prenom' => $prenom,
-            'date' => $stringDate,
-            'amount' => $amount
-        ]);
+        return $this->render('reservation_pdf/index.html.twig', ['controller_name' => 'ReservationPDFController',
+            'nom' => $name, 'prenom' => $prenom, 'date' => $stringDate, 'amount' => $amount]);
     }
 }

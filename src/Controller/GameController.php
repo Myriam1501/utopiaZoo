@@ -18,24 +18,16 @@ class GameController extends AbstractController
     {
         $session = $request->getSession();
         $promotion=$promotionRepository->findOneBy(array());
-
         $rep= 'gameReduction';
         $qtn = (bool) mt_rand(0, 1);
         $session->set($rep,$qtn);
-
         $index_name_code_promo = 'gameNameReduction';
         $nameCode= $promotion->getCodePromo();
-
         $session->set($index_name_code_promo,$nameCode);
         if(count($session->all())>0){
-            return $this->render('game/index.html.twig', [
-                'controller_name' => 'GameController',
-                'session' => $session,
-            ]);
+            return $this->render('game/index.html.twig', ['controller_name' => 'GameController', 'session' => $session,]);
         } else{
-            return $this->render('game/index.html.twig', [
-                'controller_name' => 'GameController',
-            ]);
+            return $this->render('game/index.html.twig', ['controller_name' => 'GameController',]);
         }
     }
 
@@ -76,14 +68,8 @@ class GameController extends AbstractController
                 $prix=$prix+$uniqueQtn*$prixUnitaire;
             }
         }
-        return $this->render('facture/index.html.twig', [
-            'controller_name' => 'ReserverController',
-            'programmes' => $programmes,
-            'session' => $session,
-            'quantity' => $qtn,
-            'price' => $prix,
-            'priceWithoutQuantity' => $prixUnitaire,
-        ]);
+        return $this->render('facture/index.html.twig', ['controller_name' => 'ReserverController', 'programmes' => $programmes,
+            'session' => $session, 'quantity' => $qtn, 'price' => $prix, 'priceWithoutQuantity' => $prixUnitaire,]);
     }
 
     #[Route('/game/vider', name: 'app_game_vider')]
