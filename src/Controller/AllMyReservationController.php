@@ -16,7 +16,6 @@ class AllMyReservationController extends AbstractController
         $user=$this->getUser();
         $rep = $repository->findReservationsByUser($user->getId());
         return $this->render('all_my_reservation/index.html.twig', [
-            'controller_name' => 'AllMyReservationController',
             'reservation' => $rep,
         ]);
     }

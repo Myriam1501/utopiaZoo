@@ -11,9 +11,7 @@ class EssaieQuizzController extends AbstractController
     #[Route('/essaie/quizz', name: 'app_essaie_quizz')]
     public function index(): Response
     {
-        return $this->render('essaie_quizz/index.html.twig', [
-            'controller_name' => 'EssaieQuizzController',
-        ]);
+        return $this->render('essaie_quizz/index.html.twig');
     }
 
 }

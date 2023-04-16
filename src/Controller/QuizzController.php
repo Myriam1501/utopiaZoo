@@ -14,7 +14,6 @@ class QuizzController extends AbstractController
     {
         $session = $request->getSession();
         return $this->render('quizz/index.html.twig', [
-            'controller_name' => 'QuizzController',
             'session' => $session,
         ]);
     }

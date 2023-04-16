@@ -110,7 +110,7 @@ class RegistrationController extends AbstractController
     }
 
     #[Route('/renvoicheck', name: 'resend_check')]
-    public function resend(JWTService $JWTservice, SendMailService $mailService, UserRepository $userRepository): Response
+    public function resend(JWTService $JWTservice, SendMailService $mailService): Response
     {
         $user = $this->getUser();
 

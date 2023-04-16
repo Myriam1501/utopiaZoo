@@ -6,28 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="9ab3f399-ae5a-4e54-96d9-053a5108b6e6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/dashboard.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/dashboard.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/bundles/TwigBundle/Exception/error404.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/bundles/TwigBundle/Exception/error404.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/cart/index.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/connexion/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/connexion/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/cookie_consent/index.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/cookies/cookieConsent.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/facture/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/facture/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/fragments/header.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/fragments/header.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/fragments/reservation.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/fragments/reservation.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/game/header-game.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/game/header-game.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/homepage/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/homepage/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/jeu7/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/jeu7/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/payment/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/payment/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/prepareVisit/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/prepareVisit/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/profil/editPassword.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profil/editPassword.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/profil/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profil/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/profil/update.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profil/update.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/programManagement/create.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/programManagement/create.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/protect_wildlife/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/protect_wildlife/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/registration/register.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/registration/register.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/reservation_pdf/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/reservation_pdf/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/reserver/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/reserver/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/AllMyReservationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AllMyReservationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/DecouverteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/DecouverteController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -263,7 +243,7 @@
       <workItem from="1679732719971" duration="1578000" />
       <workItem from="1681531668984" duration="3340000" />
       <workItem from="1681566668096" duration="5734000" />
-      <workItem from="1681639151282" duration="5348000" />
+      <workItem from="1681639151282" duration="5862000" />
     </task>
     <servers />
   </component>

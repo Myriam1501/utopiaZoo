@@ -4,7 +4,6 @@ namespace App\Controller;
 
 use App\Repository\ProgramRepository;
 use App\Repository\PromotionRepository;
-use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -44,7 +43,7 @@ class GameController extends AbstractController
 
 /// commenter tt
     #[Route('/game/add/{game} ', name: 'app_game_add')]
-    public function add($game, Request $request,ProgramRepository $programRepository): Response
+    public function add($game, Request $request): Response
     {
         $rep=$game;
         $session = $request->getSession();
@@ -61,7 +60,7 @@ class GameController extends AbstractController
     }
 
     #[Route('/game/acheter', name: 'app_game_acheter')]
-    public function acheter(Request $request,ProgramRepository $programRepository,EntityManagerInterface $entityManager): Response
+    public function acheter(Request $request,ProgramRepository $programRepository): Response
     {
         $programmes=$programRepository->findAll();
         $session = $request->getSession();
@@ -87,7 +86,7 @@ class GameController extends AbstractController
     }
 
     #[Route('/game/vider', name: 'app_game_vider')]
-    public function vider(Request $request,ProgramRepository $programRepository,EntityManagerInterface $entityManager): Response
+    public function vider(Request $request,ProgramRepository $programRepository): Response
     {
         $programmes=$programRepository->findAll();
         $session = $request->getSession();

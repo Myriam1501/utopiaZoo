@@ -21,7 +21,6 @@ class Jeu5Controller extends AbstractController
         $val=$animalRepository->find($nbr);
         $val=strtolower($val->getName());
         return $this->render('jeu5/index.html.twig', [
-            'controller_name' => 'Jeu5Controller',
             'animalName' => $val,
             'session' => $session,
         ]);
