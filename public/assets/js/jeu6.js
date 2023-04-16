@@ -16,7 +16,6 @@ function moves(img){
                 let newImg="img"+count;
                 let ne=document.getElementById(newImg);
                 let action="moves('"+newImg+"')";
-                let val=image.getAttribute('src');
                 $(ne).attr('src', image.getAttribute('src'));
                 $(ne).attr('onclick', action);
                 $(image).attr('src',"");

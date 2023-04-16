@@ -1,7 +1,7 @@
 function Valid(){
     let mer=document.getElementById("result").textContent;
     let rep=document.getElementById("rep");
-    let str=new String();
+    let str=String();
     for (let pas = 0; pas < mer.length; pas++) {
         str=str+"_ ";
     }
@@ -19,10 +19,10 @@ function Corec() {
     let leter=document.getElementById("letter");
     let larep=document.getElementById("rep");
     let words = larep.textContent.split(' ');
-    if(leter.value.length==1){
+    if(leter.value.length===1){
         let posi=0;
         posi=mer.textContent.indexOf(leter.value,posi);
-        if(posi==-1){
+        if(posi===-1){
             erreur(leter.value);
         }
         else{
@@ -33,7 +33,7 @@ function Corec() {
             }while(posi!=-1);
         }
         larep.textContent=words.join(' ');
-        if(larep.textContent.indexOf('_')==-1){
+        if(larep.textContent.indexOf('_')===-1){
             let ding = new Audio('https://universal-soundbank.com/sounds/3672.mp3');
             ding.play();
             document.getElementById("letter").style.opacity = "0";
@@ -60,27 +60,27 @@ function erreur(err){
         nbr = nbr + 1;
 
 
-        count.textContent = new String(nbr);
-        var source;
-        if (nbr == 1) {
+        count.textContent = String(nbr);
+        let source;
+        if (nbr === 1) {
             source = 'IMG/pendu_1.JPG';
-        } else if (nbr == 2) {
+        } else if (nbr === 2) {
             source = 'IMG/pendu_2.JPG';
-        } else if (nbr == 3) {
+        } else if (nbr === 3) {
             source = 'IMG/pendu_3.JPG';
-        } else if (nbr == 4) {
+        } else if (nbr === 4) {
             source = 'IMG/pendu_4.JPG';
-        } else if (nbr == 5) {
+        } else if (nbr === 5) {
             source = 'IMG/pendu_5.JPG';
-        } else if (nbr == 6) {
+        } else if (nbr === 6) {
             source = 'IMG/pendu_6.JPG';
-        } else if (nbr == 7) {
+        } else if (nbr === 7) {
             source = 'IMG/pendu_7.JPG';
-        } else if (nbr == 8) {
+        } else if (nbr === 8) {
             source = 'IMG/pendu_8.JPG';
-        } else if (nbr == 9) {
+        } else if (nbr === 9) {
             source = 'IMG/pendu_9.JPG';
-        } else if (nbr == 10) {
+        } else if (nbr === 10) {
             source = 'IMG/pendu_10.JPG';
             let ding = new Audio("https://mp3gaga.com/wp-content/uploads/2021/04/Mariam-makebas-the-lion-sleeps-tonight.mp3");
             ding.play();
