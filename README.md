@@ -17,9 +17,10 @@
 - Aller sur le terminal et installer le composer : composer install
 - crée votre base de donner en la connectant à votre Base de donnée dans .env puis faire les manipulation suivante :
 - 	php ./bin/console d:d:c (votrebasededonner)
-- 	php ./bin/console d:migrate:miration
+- 	php ./bin/console d:migrate:migration
 - 	php ./bin/console make:migration
 - Aller sur le terminal et télécharger les fixtures : php ./bin/composer doctrine:fixtures:load
+
 C'est Fini vous pouvez découvrir notre manifique zoo
 
 ## Site & Fonctionnaliter 
@@ -56,17 +57,17 @@ Fonctionnalités :
 
 ## [Construction](https://iharsh234.github.io/WebApp/) 
 
-- [Github Project](http://getbootstrap.com/) - Extensive list of components and  Bundled Javascript plugins.
-
-- [jQuery - Ajax](http://www.w3schools.com/jquery/jquery_ref_ajax.asp) - jQuery simplifies HTML document traversing, event handling, animating, and Ajax interactions for rapid web development.
-- [Google Chart API](https://developers.google.com/chart/interactive/docs/quick_start) - Free , Rich Gallery , Customizable and Cross-browser compatible.
-- [Bootstrap](http://getbootstrap.com/) - Extensive list of components and  Bundled Javascript plugins.
-- [Trello](http://getbootstrap.com/) - Extensive list of components and  Bundled Javascript plugins.
+- [Github Project](https://github.com/users/Myriam1501/projects/4) - Dans le github parti Project, equivalent au Trello
+- [Bootstrap](http://getbootstrap.com/) - Site pour le css
+- [FontAwaysome](https://fontawesome.com) - le boostrap des icons
 
 ## [équipe](https://iharsh234.github.io/WebApp/) 
 
 [Meryam GHULAM](https://github.com/meryamgh)
+
 [Amel Naloufi](https://github.com/AmelNal22)
+
 [Myriam OUNISSI](https://github.com/Myriam1501)
+
 [Haoyue LIU ](https://github.com/LOliviaL) 
 
