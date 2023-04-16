@@ -6,16 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="9ab3f399-ae5a-4e54-96d9-053a5108b6e6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-<<<<<<< HEAD
-      <change beforePath="$PROJECT_DIR$/src/DataFixtures/AnimalFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/AnimalFixtures.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataFixtures/AnimalGameFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/AnimalGameFixtures.php" afterDir="false" />
-=======
-      <change beforePath="$PROJECT_DIR$/migrations/Version20230326230219.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ReserverController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ReserverController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataFixtures/UserFixture.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/UserFixture.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/facture/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/facture/index.html.twig" afterDir="false" />
->>>>>>> 5086bf4b6023a05a4f9ead5b9f640de64676e65e
+      <change beforePath="$PROJECT_DIR$/src/Controller/HomepageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/HomepageController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/RegistrationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/RegistrationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/homepage/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/homepage/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -215,6 +208,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Applications/MAMP/htdocs/utopiaZoof&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
@@ -248,9 +242,14 @@
       <workItem from="1679303541847" duration="1324000" />
       <workItem from="1679694813670" duration="41000" />
       <workItem from="1679696758864" duration="1610000" />
-      <workItem from="1679732719971" duration="1714000" />
-      <workItem from="1680183357658" duration="672000" />
-      <workItem from="1680358570317" duration="572000" />
+      <workItem from="1679732719971" duration="1578000" />
+      <workItem from="1679955200589" duration="137000" />
+      <workItem from="1680183248599" duration="470000" />
+      <workItem from="1680379632112" duration="5110000" />
+      <workItem from="1681641455647" duration="836000" />
+      <workItem from="1681653238119" duration="574000" />
+      <workItem from="1681665187178" duration="967000" />
+      <workItem from="1681674774026" duration="860000" />
     </task>
     <servers />
   </component>
