@@ -111,7 +111,9 @@
 
         <form action="{{ path('app_reserver_add_promotion') }}" class="card p-2">
             <div class="input-group">
+                <label>
                 <input type="text" id="promo" name="promo"  class="form-control"  placeholder="Promo code">
+                </label>
                 <br>
                 <div class="input-group-append">
                 <input type="submit" class="btn btn-secondary" value="Submit">
@@ -128,7 +130,7 @@
     {% else %}
     <div class="order-wrapper">Panier vide.</div>
     {% endif %}
-</div></div>
+</div>
 
         {% for programmes in programmes %}
 
@@ -166,7 +168,7 @@
                     {%  if programmes.getPictureDecoPath()!=null%}
                     <div class="activitee5">
                         <br>
-                        <img class="ok10" src="{{ programmes.getPictureDecoPath() }}">
+                        <img alt="imgDeco" class="ok10" src="{{ programmes.getPictureDecoPath() }}">
                     </div>
                     {% endif %}
                 </div>
@@ -174,5 +176,4 @@
             </div>
 
         {%endfor%}
-    </form>
 {% endblock %}

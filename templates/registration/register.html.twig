@@ -20,7 +20,7 @@
         transform: translate(-50%,-50%);
         color: white;
         background-color: rgba(0,0,0,0.5);
-        padding: 0rem 2rem 0.3rem;
+        padding: 0 2rem 0.3rem;
     }
     .inscri h1{
         float: left;
@@ -33,7 +33,7 @@
         width: 100%;
         overflow: hidden;
         font-size: 1rem;
-        padding: 0rem 0;
+        padding: 0 0;
         margin: 0.5rem 0;
         border-bottom: 1px solid white;
     }
@@ -123,15 +123,15 @@
                 {{ form_widget(registrationForm.address) }}
             </div>
 
-            <button type="submit" class="Submit"> Inscrivez-vous </button></td>
+            <button type="submit" class="Submit"> Inscrivez-vous </button>
 
-            <p align="center"> En vous inscrivant, vous acceptez nos Conditions générales.
+            <p > En vous inscrivant, vous acceptez nos Conditions générales.
                 Découvrez comment nous recueillons, utilisons et partageons
                 vos données en lisant notre Politique d’utilisation des données
                 et comment nous utilisons les cookies et autres technologies
                 similaires en consultant notre Politique d’utilisation des cookies.</p>
             <hr>
-            <p align="center"> <a href="{{path('app_login')}}" class="con"> Vous avez un compte ? </a> <a href="{{path('app_login')}}" class="con"> Connectez-vous </a> </p>
+            <p > <a href="{{path('app_login')}}" class="con"> Vous avez un compte ? </a> <a href="{{path('app_login')}}" class="con"> Connectez-vous </a> </p>
         </div>
         {{ form_end(registrationForm) }}
     </form>

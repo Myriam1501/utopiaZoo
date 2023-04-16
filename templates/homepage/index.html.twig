@@ -5,6 +5,7 @@
 
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/homepage-style.css') }}">
     <head>
+        <title>Homepage</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width-device-width, intiale-scale=1.0">
         <meta charset="utf-8"/>
@@ -35,7 +36,7 @@
                 })
             })
 
-            var counter=1;
+            let counter=1;
             setInterval(function(){
                 document.getElementById('radio'+ counter).checked=true;
                 counter++;
@@ -130,7 +131,7 @@
 
             <div class="tile">
                 <a href="{{path('app_protect_wildlife')}}" class="lien">
-                    <img src='https://zupimages.net/up/21/49/u5nx.jpg'/>
+                    <img alt="homepIMG" src='https://zupimages.net/up/21/49/u5nx.jpg'/>
                     <div class="text">
                         <h1> PROTEGER LA VIE SAUVAGE</h1>
                         <h2 class="animate-text"> </h2>
@@ -141,10 +142,10 @@
             </div>
 
             <div class="tile">
-                <a href="espace.php" class="lien">
-                    <img src='https://zupimages.net/up/21/49/riu6.jpg'/>
+                <a href="{{path('app_decouverte')}}" class="lien">
+                    <img alt="imgzoo" src='https://zupimages.net/up/21/49/riu6.jpg'/>
                     <div class="text">
-                        <h1> DECOUVERT</h1>
+                        <h1> DECOUVERTE</h1>
                         <h2 class="animate-text"> </h2>
                         <p class="animate-text">---- Savoir Plus</p>
 
@@ -153,8 +154,8 @@
             </div>
 
             <div class="tile">
-                <a href="especes.php" class="lien">
-                    <img src='https://zupimages.net/up/21/47/e11k.jpg'/>
+                <a {{path('app_game')}} class="lien">
+                    <img alt="animalpic" src='https://zupimages.net/up/21/47/e11k.jpg'/>
                     <div class="text">
                         <h1> ESPACE JEUX </h1>
                         <h2 class="animate-text"></h2>
@@ -168,9 +169,9 @@
 
         <!--<section class="menu_section">-->
         <p class="text_menu">Achat de billets, accèder à l'espace jeux et découvrir nos animaux... Retrouvez sur ce site toutes les informations utiles pour votre prochaine visite au Utopiazoo.</p>
-        <video loop="infini" autoplay="autoplay" muted><source src="{{ asset('assets/videopub.mp4') }}" type="video/mp4" alt="video_plat"/></video>
+        <video loop="infini" autoplay="autoplay" muted><source src="{{ asset('assets/videopub.mp4') }}" type="video/mp4"/></video>
         <p class="text_menu">
-            La particularité d'utopiazoo c'est la diversité des espèces végétales qu’il abrite. Le décor végétal contribue naturellement au bien-être des animaux et indirectement à celui des visiteurs. Conscient des enjeux que représente la flore pour ses pensionnaires, le Zoo met l’accent sur sa préservation et compte parmi ses décors, plus de 800 espèces végétales, toutes soigneusement positionnées en fonction des ambiances recréées pour les animaux.</a>.</p>
+            La particularité d'utopiazoo c'est la diversité des espèces végétales qu’il abrite. Le décor végétal contribue naturellement au bien-être des animaux et indirectement à celui des visiteurs. Conscient des enjeux que représente la flore pour ses pensionnaires, le Zoo met l’accent sur sa préservation et compte parmi ses décors, plus de 800 espèces végétales, toutes soigneusement positionnées en fonction des ambiances recréées pour les animaux.</p>
 
         <a href="{{path('app_reserver')}}" class="btn-menu">Réservation dès maintenant</a>
         <div class="slider">
@@ -209,7 +210,6 @@
             </div>
         </div>
     </section>
-    </div>
     <!--
     <div class="example-wrapper">
 

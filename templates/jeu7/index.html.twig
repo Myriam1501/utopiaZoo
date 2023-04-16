@@ -17,9 +17,6 @@
         #nbrPaire{
             opacity: 0;
         }
-        .inv{
-            background-color: black;
-        }
         img{
             width:100px;
         }
@@ -27,10 +24,7 @@
         .game {
             background-color: pink;
             align-items: center;
-            margin-left: 250px;
-            margin-bottom: 100px;
-            margin-right: 250px;
-            margin-top: 100px;
+            margin: 100px 250px;
             text-align: center;
             border-radius: 50px;
             box-shadow: 0 20px 20px rgba(0, 0, 0, 0.3);
@@ -92,7 +86,6 @@
             width: 100%;
             height: 100%;
             z-index: -1;
-            -webkit-transform: scaleY(0.1);
             transform: scaleY(0.1);
             transition: all 0.4s;
         }
@@ -100,8 +93,8 @@
             display: none;
             text-align: center;
             position: fixed;
-            left: 0px;
-            top:0px;
+            left: 0;
+            top:0;
             background-color: rgba(0,0 ,0 , 0.5);
             width: 100%;
             height: 100%;
@@ -116,7 +109,6 @@
         .button:hover::before {
             opacity: 1;
             background-color: #f7c2f9;
-            -webkit-transform: scaleY(1);
             transform: scaleY(1);
             transition: -webkit-transform 0.6s cubic-bezier(0.08, 0.35, 0.13, 1.02), opacity 0.4s;
             transition: transform 0.6s cubic-bezier(0.08, 0.35, 0.13, 1.02), opacity;
@@ -128,7 +120,7 @@
         }
     </style>
 
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script>function flip(image){
             let im=document.getElementById(image);
             if(im.getAttribute('src')!=="{{asset('IMG/IMG2525.jpg')}}"){
@@ -242,33 +234,33 @@
     <div class="game">
         <h2 id="nbrPaire">0</h2>
         <h3 id="cnt">0</h3>
-        <table border="0" id="t1">
+        <table  id="t1">
             <tr>
                 <td>
                     <table id="table" style="align-content: center">
                         <tr>
-                            <td><img id="img1" onclick="flip('img1')"  src="{{asset('taquin/cardBack.jpg')}}"></td>
-                            <td><img id="img2" onclick="flip('img2')" src="{{asset('taquin/cardBack.jpg')}}"></td>
-                            <td><img id="img3" onclick="flip('img3')" src="{{asset('taquin/cardBack.jpg')}}"></td>
-                            <td><img id="img4" onclick="flip('img4')" src="{{asset('taquin/cardBack.jpg')}}"></td>
-                            <td><img id="img5" onclick="flip('img5')" src="{{asset('taquin/cardBack.jpg')}}"></td>
-                            <td><img id="img6" onclick="flip('img6')" src="{{asset('taquin/cardBack.jpg')}}"></td>
+                            <td><img alt="taquinImage" id="img1" onclick="flip('img1')"  src="{{asset('taquin/cardBack.jpg')}}"></td>
+                            <td><img alt="taquinImage" id="img2" onclick="flip('img2')" src="{{asset('taquin/cardBack.jpg')}}"></td>
+                            <td><img alt="taquinImage" id="img3" onclick="flip('img3')" src="{{asset('taquin/cardBack.jpg')}}"></td>
+                            <td><img alt="taquinImage" id="img4" onclick="flip('img4')" src="{{asset('taquin/cardBack.jpg')}}"></td>
+                            <td><img alt="taquinImage" id="img5" onclick="flip('img5')" src="{{asset('taquin/cardBack.jpg')}}"></td>
+                            <td><img alt="taquinImage" id="img6" onclick="flip('img6')" src="{{asset('taquin/cardBack.jpg')}}"></td>
                         </tr>
                         <tr>
-                            <td><img id="img7" onclick="flip('img7')" src="{{asset('taquin/cardBack.jpg')}}"></td>
-                            <td><img id="img8" onclick="flip('img8')" src="{{asset('taquin/cardBack.jpg')}}"></td>
-                            <td><img id="img9" onclick="flip('img9')" src="{{asset('taquin/cardBack.jpg')}}"></td>
-                            <td><img id="img10" onclick="flip('img10')" src="{{asset('taquin/cardBack.jpg')}}"></td>
-                            <td><img id="img11" onclick="flip('img11')" src="{{asset('taquin/cardBack.jpg')}}"></td>
-                            <td><img id="img12" onclick="flip('img12')" src="{{asset('taquin/cardBack.jpg')}}"></td>
+                            <td><img alt="taquinImage" id="img7" onclick="flip('img7')" src="{{asset('taquin/cardBack.jpg')}}"></td>
+                            <td><img alt="taquinImage" id="img8" onclick="flip('img8')" src="{{asset('taquin/cardBack.jpg')}}"></td>
+                            <td><img alt="taquinImage" id="img9" onclick="flip('img9')" src="{{asset('taquin/cardBack.jpg')}}"></td>
+                            <td><img alt="taquinImage" id="img10" onclick="flip('img10')" src="{{asset('taquin/cardBack.jpg')}}"></td>
+                            <td><img alt="taquinImage" id="img11" onclick="flip('img11')" src="{{asset('taquin/cardBack.jpg')}}"></td>
+                            <td><img alt="taquinImage" id="img12" onclick="flip('img12')" src="{{asset('taquin/cardBack.jpg')}}"></td>
                         </tr>
                         <tr>
-                            <td><img id="img13" onclick="flip('img13')" src="{{asset('taquin/cardBack.jpg')}}"></td>
-                            <td><img id="img14" onclick="flip('img14')" src="{{asset('taquin/cardBack.jpg')}}"></td>
-                            <td><img id="img15" onclick="flip('img15')" src="{{asset('taquin/cardBack.jpg')}}"></td>
-                            <td><img id="img16" onclick="flip('img16')" src="{{asset('taquin/cardBack.jpg')}}"></td>
-                            <td><img id="img17" onclick="flip('img17')" src="{{asset('taquin/cardBack.jpg')}}"></td>
-                            <td><img id="img18" onclick="flip('img18')" src="{{asset('taquin/cardBack.jpg')}}"></td>
+                            <td><img alt="taquinImage" id="img13" onclick="flip('img13')" src="{{asset('taquin/cardBack.jpg')}}"></td>
+                            <td><img alt="taquinImage" id="img14" onclick="flip('img14')" src="{{asset('taquin/cardBack.jpg')}}"></td>
+                            <td><img alt="taquinImage" id="img15" onclick="flip('img15')" src="{{asset('taquin/cardBack.jpg')}}"></td>
+                            <td><img alt="taquinImage" id="img16" onclick="flip('img16')" src="{{asset('taquin/cardBack.jpg')}}"></td>
+                            <td><img alt="taquinImage" id="img17" onclick="flip('img17')" src="{{asset('taquin/cardBack.jpg')}}"></td>
+                            <td><img alt="taquinImage" id="img18" onclick="flip('img18')" src="{{asset('taquin/cardBack.jpg')}}"></td>
                         </tr>
                     </table>
                 </td>

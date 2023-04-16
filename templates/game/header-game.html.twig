@@ -1,7 +1,6 @@
 
 {% block body %}
 <style>
-    .example-wrapper { margin: 7em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif ; text-align: center; }
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
     .baniere {
         border-top: 5px solid black;
@@ -28,7 +27,7 @@
     section{
         display: flex;
         flex-wrap:wrap;
-        font-family: palatino;
+        font-family: palatino, serif;
         /*justify-content: center;
         align-items: center;*/
         border-top: 5px solid black;
@@ -137,18 +136,18 @@
 
     <div class="link">
         <a href="{{ path('app_game') }}"><div class="item" id="pain">
-                <img src="https://zupimages.net/up/23/08/qlq0.png"><br>Règles Jeux Menu </div></a>
+                <img alt=""  src="https://zupimages.net/up/23/08/qlq0.png"><br>Règles Jeux Menu </div></a>
         <a href="{{ path('app_jeu5') }}"><div class="item" id="pain">
-                <img src="{{ asset('pendu.png') }}"><br>Pendu</div></a>
+                <img alt=""  src="{{ asset('pendu.png') }}"><br>Pendu</div></a>
 
         <a href="{{ path('app_jeu7') }}"><div class="item" id="viennoiserie">
-                <img src="https://zupimages.net/up/23/08/h6h6.png"><br>Memory</div></a>
+                <img alt=""  src="https://zupimages.net/up/23/08/h6h6.png"><br>Memory</div></a>
 
         <a href="{{ path('app_jeu6') }}"><div class="item" id="Patisserie">
-                <img src="https://zupimages.net/up/23/08/tcro.png"><br>Taquin</div></a>
+                <img alt=""  src="https://zupimages.net/up/23/08/tcro.png"><br>Taquin</div></a>
 
         <a href="{{ path('app_quizz') }}"><div class="item" id="Patisserie">
-                <img src="https://zupimages.net/up/23/11/u5b8.jpeg" style="width: 100px"><br>Quiz</div></a>
+                <img alt="" src="https://zupimages.net/up/23/11/u5b8.jpeg" style="width: 100px"><br>Quiz</div></a>
 
 
 
