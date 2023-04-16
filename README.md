@@ -1,4 +1,4 @@
-# ![WebApp](https://iharsh234.github.io/WebApp/images/demo/demo_landing.JPG)
+# ![WebApp](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCqzoNeBt-LJK2x_pwmopdX392T2ec5zdTQg&usqp=CAU)
 # [UtopiaZoo](https://iharsh234.github.io/WebApp/) 
 <table>
 <tr>
@@ -9,7 +9,7 @@
 </tr>
 </table>
 
-## [Usage](https://iharsh234.github.io/WebApp/) 
+## [Usage] 
 
 ### Installation
 Want to contribute? Great!
@@ -41,9 +41,7 @@ k
 ![](https://iharsh234.github.io/WebApp/images/demo/demo_query.JPG)
 
 ### Espace jeu
-![](https://iharsh234.github.io/WebApp/images/demo/demo_chart1.JPG)
-![](https://iharsh234.github.io/WebApp/images/demo/demo_chart2.JPG)
-![](https://iharsh234.github.io/WebApp/images/demo/demo_chart3.JPG)
+
 
 ## Connexion, mot de passe oublier & Inscription
 The WebApp is compatible with devices of all sizes and all OS's, and consistent improvements are being made.
@@ -78,9 +76,13 @@ The WebApp is compatible with devices of all sizes and all OS's, and consistent 
 
 ## [équipe](https://iharsh234.github.io/WebApp/) 
 
-[![Harsh Vijay](https://avatars1.githubusercontent.com/u/12688534?v=3&s=144)](https://github.com/iharsh234)  | [![Quandl.com](https://github.com/iharsh234/WebApp/blob/master/images/quandl.jpg)](https://www.quandl.com/)
+[![Harsh Vijay](https://avatars1.githubusercontent.com/u/12688534?v=3&s=144)](https://github.com/meryamgh)  | [![Quandl.com](https://github.com/iharsh234/WebApp/blob/master/images/quandl.jpg)](https://www.quandl.com/)
 ---|---
-[Harsh Vijay ](https://github.com/iharsh234) |[Quandl](https://www.quandl.com)
+[Harsh Vijay ](https://github.com/AmelNal22) |[Quandl](https://www.quandl.com)
+---|---
+[Harsh Vijay ](https://github.com/Myriam1501) |[Quandl](https://www.quandl.com)
+---|---
+[Harsh Vijay ](https://github.com/LOliviaL) |[Quandl](https://www.quandl.com)
 
 
 ## [License](https://github.com/iharsh234/WebApp/blob/master/LICENSE.md)
