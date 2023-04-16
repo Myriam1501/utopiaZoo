@@ -22,15 +22,13 @@ class Reservation
     #[ORM\OneToMany(mappedBy: 'reservation', targetEntity: Ticket::class)]
     private Collection $tickets;
 
-    #[ORM\ManyToOne]
-    private ?Ticket $tickets_id = null;
-
     #[ORM\ManyToOne(inversedBy: 'reservations')]
     #[ORM\JoinColumn(nullable: false)]
     private ?User $user = null;
 
     #[ORM\Column(nullable: true)]
     private ?float $price = null;
+
 
     public function __construct()
     {
@@ -117,6 +115,18 @@ class Reservation
     public function setPrice(?float $price): self
     {
         $this->price = $price;
+
+        return $this;
+    }
+
+    public function getIdUser(): ?User
+    {
+        return $this->idUser;
+    }
+
+    public function setIdUser(?User $idUser): self
+    {
+        $this->idUser = $idUser;
 
         return $this;
     }

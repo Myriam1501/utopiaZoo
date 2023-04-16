@@ -5,46 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9ab3f399-ae5a-4e54-96d9-053a5108b6e6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/public/assets/css/error404.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/css/facture.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/css/payment.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/css/protect_wildlife.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/css/register.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/css/reservation_pdf.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/css/reserver.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/js/decouverte.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/js/payment.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/DataFixtures/PromotionFixtures.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/decouverte.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/decouverte.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/decouverte.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/connexion.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/footer-style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/footer-style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/homepage-style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/homepage-style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/jeu3.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/jeu3.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/jeu5.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/jeu5.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/jeu5.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/js/jeu5.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/jeu6.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/jeu6.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/jeu6.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/js/jeu6.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/jeu7.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/jeu7.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/jeu7.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/js/jeu7.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/profil-style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/profil-style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/bundles/TwigBundle/Exception/error404.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/bundles/TwigBundle/Exception/error404.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/connexion/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/connexion/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/decouverte/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/decouverte/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/facture/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/facture/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/fragments/footer.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/fragments/footer.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/homepage/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/homepage/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/jeu5/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/jeu5/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/jeu6/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/jeu6/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/jeu7/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/jeu7/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/payment/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/payment/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/prepareVisit/index.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/profil/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profil/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/protect_wildlife/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/protect_wildlife/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/quizz/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/quizz/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/registration/register.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/registration/register.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/reservation_pdf/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/reservation_pdf/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/reserver/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/reserver/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20230327112152.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Promotion.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Promotion.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Reservation.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Reservation.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -47,4 +47,5 @@ class Promotion
 
         return $this;
     }
+
 }
