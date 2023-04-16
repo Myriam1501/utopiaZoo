@@ -137,38 +137,19 @@ class ReservationService
         }
     }
 
-    public function generateReservation(PdfService $pdf, $prenom, $name,TicketRepository $ticketRepository,
-                                        ProgramRepository $programRepository,
-                                        ReservationRepository $reservationRepository, $id)
+    public function generateReservation(ReservationRepository $reservationRepository, $id) : Reservation
     {
-        $date=new \DateTime('now');
-        $stringDate=$date->format('Y-m-d H:i:s');
         $reser=$reservationRepository->find($id);
-        $amount=$reser->getPrice();
-        $programmes=$programRepository->findAll();
-        $ticketsOfReservation=$ticketRepository->findBy(array('reservation'=>$reser));
-        $html = $this->render('fragments/reservation.html.twig', [
-            'nom' => $name,
-            'prenom' => $prenom,
-            'date' => $stringDate,
-            'amount' => $amount,
-            'tickets' => $ticketsOfReservation,
-            'programmes' => $programmes,
-            'reservation' => $reser,
-        ]);
-        $pdf->showPdfFile($html);
+        return $reser;
     }
 
-    public function addReservation($user,$pdf ,$prenom, $name,TicketRepository $ticketRepository,
-                                  ProgramRepository $programRepository, EntityManagerInterface $entityManager) : Reservation
+    public function addReservation($user, ProgramRepository $programRepository,
+                                   EntityManagerInterface $entityManager) : Reservation
     {
-        $amount=$this->session->get("priceTotal");
         $date=new DateTime('now');
-        $stringDate=$date->format('Y-m-d H:i:s');
         $programmes=$programRepository->findAll();
         $reser=$this->insertReservation($date,$entityManager,$user);
         $this->insertTickets($programmes,$reser,$entityManager);
-        $ticketsOfReservation=$ticketRepository->findBy(array('reservation'=>$reser));
         $this->session->clear();
         return $reser;
     }

@@ -36,8 +36,7 @@ class PaymentController extends AbstractController
                                 string $prenom,PdfService $pdf): Response
     {
         $reservService=new ReservationService($request->getSession());
-        $reser=$reservService->addReservation($this->getUser(),$pdf,$prenom,$name,$ticketRepository,
-            $programRepository,$entityManager);
+        $reser=$reservService->addReservation($this->getUser(),$programRepository,$entityManager);
         $html = $this->render('fragments/reservation.html.twig', [
             'nom' => $name,
             'prenom' => $prenom,

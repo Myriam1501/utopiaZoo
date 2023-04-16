@@ -34,14 +34,17 @@ class ReservationPDFController extends AbstractController
                                 string $prenom,PdfService $pdf): Response
     {
         $reservService=new ReservationService($request->getSession());
-        $reservService->generateReservation($pdf,$prenom,$name,$ticketRepository,$programRepository,
-            $reservationRepository,$id);
-        $amount=$reservService->getReservationPrice($id,$reservationRepository);
-        return $this->render('reservation_pdf/index.html.twig', [
+        $reser=$reservService->generateReservation($reservationRepository,$id);
+        $html = $this->render('fragments/reservation.html.twig', [
             'nom' => $name,
             'prenom' => $prenom,
             'date' => (new DateTime('now'))->format('Y-m-d H:i:s'),
-            'amount' => $amount
+            'amount' => $reser->getPrice(),
+            'tickets' => $ticketRepository->findBy(array('reservation'=>$reser)),
+            'programmes' => $programRepository->findAll(),
+            'reservation' => $reser,
         ]);
+        $pdf->showPdfFile($html);
+        return $html;
     }
 }

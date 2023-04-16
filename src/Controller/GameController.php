@@ -4,6 +4,8 @@ namespace App\Controller;
 
 use App\Repository\ProgramRepository;
 use App\Repository\PromotionRepository;
+use App\Service\PromotionService;
+use App\Service\ReservationService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -17,24 +19,14 @@ class GameController extends AbstractController
     {
         $session = $request->getSession();
         $promotion=$promotionRepository->findOneBy(array());
-
-        $rep= 'gameReduction';
-        $qtn = (bool) mt_rand(0, 1);
-        $session->set($rep,$qtn);
-
-        $index_name_code_promo = 'gameNameReduction';
-        $nameCode= $promotion->getCodePromo();
-
-        $session->set($index_name_code_promo,$nameCode);
+        $promotionService=new PromotionService();
+        $promotionService->setPromotion($session,$promotion);
         if(count($session->all())>0){
             return $this->render('game/index.html.twig', [
-                'controller_name' => 'GameController',
                 'session' => $session,
             ]);
         } else{
-            return $this->render('game/index.html.twig', [
-                'controller_name' => 'GameController',
-            ]);
+            return $this->render('game/index.html.twig');
         }
     }
 
@@ -54,7 +46,6 @@ class GameController extends AbstractController
         }
         $session->set($rep,$qtn+1);
         return $this->render('game/index.html.twig', [
-            'controller_name' => 'ReserverController',
             'session' => $session,
         ]);
     }
@@ -63,22 +54,13 @@ class GameController extends AbstractController
     public function acheter(Request $request,ProgramRepository $programRepository): Response
     {
         $programmes=$programRepository->findAll();
-        $session = $request->getSession();
-        $qtn=0;
-        $prix=0;
-        $prixUnitaire=0;
-        foreach ($programmes as $p){
-            if($session->has($p->getTitle())){
-                $uniqueQtn=$session->get($p->getTitle());
-                $qtn=$qtn+$uniqueQtn;
-                $prixUnitaire=$prixUnitaire+$p->getPrice();
-                $prix=$prix+$uniqueQtn*$prixUnitaire;
-            }
-        }
+        $reservService=new ReservationService($request->getSession());
+        $qtn=$reservService->getQuantity($programmes);
+        $prixUnitaire=$reservService->getPriceByUnity($programmes);
+        $prix=$reservService->applyPromo($request->getSession()->get("priceTotal"));
         return $this->render('facture/index.html.twig', [
-            'controller_name' => 'ReserverController',
             'programmes' => $programmes,
-            'session' => $session,
+            'session' => $request->getSession(),
             'quantity' => $qtn,
             'price' => $prix,
             'priceWithoutQuantity' => $prixUnitaire,
@@ -92,7 +74,6 @@ class GameController extends AbstractController
         $session = $request->getSession();
         $session->clear();
         return $this->render('reserver/index.html.twig', [
-            'controller_name' => 'ReserverController',
             'programmes' => $programmes,
         ]);
     }
