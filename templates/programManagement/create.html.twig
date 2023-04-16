@@ -3,7 +3,7 @@
 {% block title %}Crée un Évenement{% endblock %}
 
 {% block body %}
-<html>
+<html lang="fr">
 
 		<!-- STYLE CSS -->
 		<style>
@@ -11,7 +11,7 @@
 
 
             .wrapper {
-                font-family: "Muli-Regular";
+				font-family: "Muli-Regular", serif;
                 font-size: 15px;
                 color: #999;
                 margin: 0;
@@ -129,8 +129,7 @@
             .actions ul {
                 display: flex; }
             .actions li a {
-                padding: 0;
-                border: none;
+				border: none;
                 display: inline-flex;
                 height: 41px;
                 width: 135px;
@@ -140,7 +139,8 @@
                 color: #666;
                 cursor: pointer;
                 position: relative;
-                padding-left: 28px; }
+				padding: 0 0 0 28px;
+			}
             .actions li a:before {
                 content: '\f301';
                 position: absolute;
@@ -200,41 +200,59 @@
 							<div class="form-row">
 
 								<div class="form-holder w-100">
+									<label>
 										<input type="text" placeholder="Titre *" class="form-control">
+										</label>
 								</div>
 
 								<div class="form-holder">
+									<label>
 									<input type="text" placeholder="date début" class="form-control">
+										</label>
 								</div>
 								<div class="form-holder">
+									<label>
 									<input type="text" placeholder="date de fin" class="form-control">
+										</label>
 								</div>
 							</div>
 							<div class="form-row">
 								<div class="form-holder">
+									<label>
 									<input type="text" placeholder="Prix *" class="form-control">
+										</label>
 								</div>
 								<div class="form-holder">
+									<label>
 									<input type="text" placeholder="Prix reduit *" class="form-control">
+										</label>
 								</div>
 							</div>
 							<div class="form-row">
 								<div class="form-holder">
+									<label>
 									<input type="text" placeholder="Age minimal" class="form-control">
+									</label>
 								</div>
 								<div class="form-holder">
+									<label>
 									<input type="text" placeholder="Durée du Programme" class="form-control">
+									</label>
 								</div>
 							</div>
 
 							<div class="form-holder w-100">
+								<label>
 									<input type="text" placeholder="URL Photo présentation" class="form-control">
+								</label>
 							</div>
 							<br>
 							<p>Descrption</p>
 							<div class="form-row">
 								<div class="form-holder w-100">
+									<label>
 									<textarea name="" id="" placeholder="Your messagere here!" class="form-control" style="height: 99px;"></textarea>
+									</label>
 								</div>
 							</div>
 						</div>

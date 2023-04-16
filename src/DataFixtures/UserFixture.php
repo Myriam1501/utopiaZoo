@@ -16,6 +16,7 @@ class UserFixture extends Fixture
     ){
 
     }
+
     public function load(ObjectManager $manager): void
     {
         $admin = new User();
@@ -52,7 +53,6 @@ class UserFixture extends Fixture
         $manager->persist($admin1);
         $manager->persist($user1);
         $manager->flush();
-
 
     }
 }

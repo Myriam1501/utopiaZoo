@@ -1,0 +1,34 @@
+{% extends "@EasyAdmin/page/content.html.twig" %}
+{% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/dashboard.css') }}">
+{% endblock %}
+{% block content %}
+    <h1>Espace Administration de UtopiaZoo</h1>
+    <br>
+    <div class="stat">
+    <div class="contenu1">
+        <div class="texte">
+    <span class="display-3"> {{ countAllUser['value']}}</span> Utilisateurs
+        </div>
+    </div>
+    <div class="contenu2">
+        <div class="texte">
+    <span class="display-3"> {{ countAllReservation['value']}}</span> Réservations
+        </div>
+    </div>
+    </div>
+    <br>
+    <div class="stat">
+    <div class="contenu3">
+        <div class="texte">
+    <span class="display-3"> {{ countAllProgram['value']}}</span> Programmes
+        </div>
+    </div>
+    <div class="contenu4">
+        <div class="texte">
+    <span class="display-3"> {{ countAllAnimal['value']}}</span> Animaux
+        </div>
+    </div>
+    </div>
+    <br>
+{% endblock %}

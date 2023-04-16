@@ -22,22 +22,19 @@ class Reservation
     #[ORM\OneToMany(mappedBy: 'reservation', targetEntity: Ticket::class)]
     private Collection $tickets;
 
-    #[ORM\OneToOne(inversedBy: 'reservation', cascade: ['persist', 'remove'])]
+    #[ORM\ManyToOne(inversedBy: 'reservations')]
+    #[ORM\JoinColumn(nullable: false)]
     private ?User $user = null;
 
-    #[ORM\ManyToOne]
-    private ?Ticket $tickets_id = null;
+    #[ORM\Column(nullable: true)]
+    private ?float $price = null;
+
 
     public function __construct()
     {
         $this->tickets = new ArrayCollection();
         $this->Date= new \DateTimeImmutable();
     }
-
-
-
-
-
 
     public function getId(): ?int
     {
@@ -106,6 +103,30 @@ class Reservation
     public function setTicketsId(?Ticket $tickets_id): self
     {
         $this->tickets_id = $tickets_id;
+
+        return $this;
+    }
+
+    public function getPrice(): ?float
+    {
+        return $this->price;
+    }
+
+    public function setPrice(?float $price): self
+    {
+        $this->price = $price;
+
+        return $this;
+    }
+
+    public function getIdUser(): ?User
+    {
+        return $this->idUser;
+    }
+
+    public function setIdUser(?User $idUser): self
+    {
+        $this->idUser = $idUser;
 
         return $this;
     }

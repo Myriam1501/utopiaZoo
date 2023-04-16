@@ -1,13 +1,14 @@
 {% extends 'base.html.twig' %}
-{% block title %}Hello HomepageController!{% endblock %}
+{% block title %}Bienvenue UtopiaZOO{% endblock %}
 
 {% block body %}
+
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/homepage-style.css') }}">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width-device-width, intiale-scale=1.0">
-        <meta charset="utf-8"/>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
         <script type="text/javascript" >
             const threshold = .1
             const options = {
@@ -59,10 +60,9 @@
                 color: white;
                 font-size: 100px;
                 position: absolute;
-                top: 30%;
-                left: 30%;
                 animation-duration: 4s;
                 animation-name: Slidein;
+                left: 30%;
 
             }
             @keyframes Slidein {
@@ -93,28 +93,28 @@
                 color: white;
                 font-size: 30px;
                 position: absolute;
-                top: 55%;
-                left: 27%;
                 animation-duration: 4s;
                 animation-name: slidein;
+                left: 27%;
             }
             .text1-P2{
                 font-family: 'Hoefler Text',sans-serif;
                 color: white;
                 font-size: 30px;
                 position: absolute;
-                top: 60%;
-                left: 47%;
                 animation-duration: 4s;
                 animation-name: slidein;
+                left: 47%;
             }
 
         </style>
     </head>
+
     <div class="partie1">
-        <br>
-        <h1 class="text-P1"> BIENVENUE </h1><br>
+        <br><br><br>
+        <h1 class="text-P1"> BIENVENUE </h1><br><br><br><br><br><br><br>
         <h4 class="text1-P1">sur le site du Parc UtopiaZoo de Paris, lieu de conservation de</h4>
+        <br><br>
         <h4 class="text1-P2"> la biodiversité </h4>
     </div>
     <section class="menu_section">
@@ -142,7 +142,7 @@
 
             <div class="tile">
                 <a href="espace.php" class="lien">
-                    <img src='https://zupimages.net/up/21/49/riu6.jpg'/>
+                    <img src='https://zupimages.net/up/21/49/riu6.jpg' alt="decouvert"/>
                     <div class="text">
                         <h1> DECOUVERT</h1>
                         <h2 class="animate-text"> </h2>
@@ -172,7 +172,7 @@
         <p class="text_menu">
             La particularité d'utopiazoo c'est la diversité des espèces végétales qu’il abrite. Le décor végétal contribue naturellement au bien-être des animaux et indirectement à celui des visiteurs. Conscient des enjeux que représente la flore pour ses pensionnaires, le Zoo met l’accent sur sa préservation et compte parmi ses décors, plus de 800 espèces végétales, toutes soigneusement positionnées en fonction des ambiances recréées pour les animaux.</a>.</p>
 
-        <a href="menu.html" class="btn-menu">Réservation dès maintenant</a>
+        <a href="{{path('app_reserver')}}" class="btn-menu">Réservation dès maintenant</a>
         <div class="slider">
             <div class="slides">
                 <input type="radio" name="radio-btn" id="radio1">

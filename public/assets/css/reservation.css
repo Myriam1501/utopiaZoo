@@ -1,0 +1,16 @@
+#conteneur{
+    align-items: center;
+    margin-left: 250px;
+    margin-bottom: 100px;
+    margin-right: 250px;
+    margin-top: 100px;
+    text-align: center;
+    border-radius: 50px;
+    box-shadow: 0 20px 20px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(217deg, rgba(190, 225, 87, .8), rgba(255, 0, 0, 0) 70.71%),
+    linear-gradient(127deg, rgba(0, 255, 0, .8), rgba(0, 255, 0, 0) 70.71%),
+    linear-gradient(336deg, rgba(213, 245, 206, .8), rgba(0, 0, 255, 0) 70.71%);
+}
+h2{
+    color: #62AB6B;
+}

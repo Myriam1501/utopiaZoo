@@ -18,43 +18,28 @@ class ProgramManagementController extends AbstractController
     public function index(ProgramRepository $repository, Paginator $paginator
     , Request $request): Response
     {
-
         $programmes = $paginator->paginate(
             $repository->findAll(),
             $request->query->getInt('page', 1),
             10
         );
-
-        /*$programmes=$repository->findAll();*/
-
         return $this->render('programManagement/index.html.twig', [
             'programmes' => $programmes,
         ]);
     }
-/*$programmes = $paginator->paginate(
-            $repository->findAll() ,
-            $request->query->getInt('page', 1),
-10
-);*/
 
     #[Route('/programManagement/create', name: 'app_programManagement_create', methods: ['GET', 'POST'])]
     public function create(Request $request, EntityManagerInterface $manager): Response
     {
         $programme = new Program();
-
         $form = $this->createForm(ProgramType::class, $programme);
-
         $form->handleRequest($request);
-
         if ($form->isSubmitted() && $form->isValid()) {
             $programme= $form -> getData();
             $manager->persist($programme);
             $manager->flush();
             return $this->redirectToRoute('app_programManagement');
-
-
         }
-
         return $this->render('programManagement/create.html.twig', [
             'form' => $form->createView()]);
     }
@@ -63,7 +48,6 @@ class ProgramManagementController extends AbstractController
     #[Route('/programManagement/edit/{id}', name: 'app_programManagement_edit', methods: ['GET', 'POST'])]
     public function edit(Program $programme, Request $request, EntityManagerInterface $manager): Response
     {
-
         $form = $this->createForm(ProgramType::class, $programme);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
@@ -71,7 +55,6 @@ class ProgramManagementController extends AbstractController
             $manager->persist($programme);
             $manager->flush();
             return $this->redirectToRoute('app_programManagement');
-
         }
         return $this->render('programManagement/edit.html.twig', [
             'form' => $form->createView(),

@@ -8,7 +8,7 @@ use \App\Service\Options;
 
 class PdfService extends Dompdf
 {
-    private $domPdf;
+    private Dompdf $domPdf;
 
     public function __construct($config = array()) {
         parent::__construct($config);

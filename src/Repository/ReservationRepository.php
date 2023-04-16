@@ -39,8 +39,16 @@ class ReservationRepository extends ServiceEntityRepository
         }
     }
 
+    public function countAllReservation()
+    {
+        $queryBuilder = $this->createQueryBuilder('a');
+        $queryBuilder->select('COUNT(a.id) as value');
+
+        return $queryBuilder->getQuery()->getOneOrNullResult();
+    }
+
 //    /**
-//     * @return Reservation[] Returns an array of Reservation objects
+//     * @return ReservationService[] Returns an array of ReservationService objects
 //     */
 //    public function findByExampleField($value): array
 //    {
@@ -54,7 +62,7 @@ class ReservationRepository extends ServiceEntityRepository
 //        ;
 //    }
 
-//    public function findOneBySomeField($value): ?Reservation
+//    public function findOneBySomeField($value): ?ReservationService
 //    {
 //        return $this->createQueryBuilder('r')
 //            ->andWhere('r.exampleField = :val')
@@ -63,4 +71,12 @@ class ReservationRepository extends ServiceEntityRepository
 //            ->getOneOrNullResult()
 //        ;
 //    }
+    public function findReservationsByUser(int $user)
+    {
+        return $this->createQueryBuilder('r')
+            ->andWhere('r.user = :user')
+            ->setParameter('user',$user)
+            ->getQuery()
+            ->getResult();
+    }
 }

@@ -1,0 +1,346 @@
+{% extends 'base.html.twig' %}
+{% block title %}Quizz{% endblock %}
+
+
+{% block body %}
+
+    <div class="example-wrapper">
+        <div class="contenu">
+            <div id="questions" class="questions">
+
+                <div class="imgg">
+                    <img class="image2" src="https://svgsilh.com/svg/153491.svg">
+                </div>
+                <h1 class="titre"> Animal Quizz </h1>
+                <span class="sousTitre"><i><span class="nombre"> 10 </span> questions pour en savoir plus sur les animaux </i></span>
+                <div>
+                    <button id="start" onclick="startQuestions()" class="start"> Commencer </button>
+                </div>
+                <div class="imgg">
+                <img class="image" src="https://svgsilh.com/svg/30774.svg">
+                </div>
+            </div>
+
+            <div id="affichage" class="affichage">
+            </div>
+
+            <div id="resultat" class="resultat">
+                <h2 class=""> Résultat </h2>
+                <span class=""> Vous avez <span id="correct"> ?? </span> réponses correctes sur <span class="nombre"> 10 </span> </span>
+            </div>
+
+        </div>
+    </div>
+    <div id='success' >
+        <div class="alert alert-success"  role="alert" >
+            <div class="x"  style="text-align: right"   onclick="retry()">
+                <i class="bi bi-x-circle">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
+                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                        <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                    </svg>
+                </i>
+            </div>
+
+            <h4 class="alert-heading">Félicitation !</h4>
+            <p>Aww yeah, tu as réussi.</p>
+            <hr>
+            {% if session.get('gameReduction')==true %}
+                <p class="mb-0">Tu as même reçu un code promo... Tu as la chance d'avoir -5% sur tes visites avec le code : </p>
+                <p id="codepromo">{{ session.get('gameNameReduction') }}</p>
+
+            {% else %}
+                <p class="mb-0">malheureusement, il n'y a pas de code promo pour cette fois essaye un autre jeu !!! </p>
+            {% endif %}
+
+        </div>
+
+    </div>
+
+<style>
+    #success{
+        display: none;
+        text-align: center;
+        position: fixed;
+        left: 0px;
+        top:0px;
+        background-color: rgba(0,0 ,0 , 0.5);
+        width: 100%;
+        height: 100%;
+        z-index:1;
+
+    }
+    .image {
+        width: 170px;
+        height: 170px;
+        margin-left: 400px;
+        margin-top:-27px;
+    }
+
+    .image2 {
+        width: 100px;
+        height: 100px;
+        margin-left: -380px;
+        margin-bottom:-55px;
+    }
+
+    body {
+        font-family: "Georgia", Times, serif;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+    }
+
+    .example-wrapper {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+
+    .contenu {
+        text-align: center;
+        background-position: -10px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.5), 0 3px 6px rgba(0,0,0,0.10);
+        width: 700px;
+
+        background:linear-gradient(141deg, #EFE5DB 25%, #EBE4DC 40%, #E4EFDB 55%);
+        font-weight:550;
+        padding-top:30px;
+        height:400px;
+        overflow:hidden;
+        border-radius: 10px;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+    }
+
+    .titre {
+        font-size: 33px;
+    }
+
+    .sousTitre {
+        font-size: 20px;
+    }
+
+    .start {
+        margin-top: 50px;
+        padding: 2.5%;
+        font-size: 19px;
+        background-color: #A5D398;
+        color:black;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+
+    .start:hover {
+        background-color: #6FA160;
+    }
+
+    .questions {
+        display: block;
+    }
+
+    .affichage {
+        display: none;
+    }
+
+    .affichage_questions {
+        font-size: 22px;
+        font-weight: bold;
+    }
+
+    .list_questions {
+        list-style: none;
+        font-size: 24px;
+        margin-right: 5%;
+        margin-top: 30px
+    }
+
+    .reponse {
+        background-position: -10px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.5), 0 3px 6px rgba(0,0,0,0.10);
+        background-color: #A5D398;
+        color:black;
+        padding: 1%;
+        cursor: pointer;
+        margin-bottom: 15px;
+        border-radius: 10px;
+        font-size: 20px;
+    }
+
+    .reponse:hover {
+        background-color: #6FA160;
+    }
+
+    .reponseCorrect {
+        background-color: rgb(13, 188, 13);
+    }
+
+    .reponseCorrect:hover {
+        background-color: rgb(13, 188, 13);
+    }
+
+    .reponseFausse {
+        background-color: rgb(191, 13, 13);
+    }
+
+    .reponseFausse:hover {
+        background-color: rgb(191, 13, 13);
+    }
+
+    .avancement_question {
+        font-size: 20px;
+        margin-top: 2%;
+        background-position: -10px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.5), 0 3px 6px rgba(0,0,0,0.10);
+    }
+
+    .resultat {
+        display: none;
+        font-size: 22px;
+        margin-top: 50px;
+    }
+
+
+</style>
+
+    <script>
+
+        function retry(){
+            location.reload();
+        }
+
+        function Quiz(){
+
+            this.correct = 0;
+            this.index = 0;
+            this.questions = [];
+
+            this.displayCurrentQuestion = function() {
+                if(this.index < this.questions.length) {
+                    this.questions[this.index].getElement(
+                        this.index + 1, this.questions.length
+                    );
+                }
+                else {
+
+                    let NbrCorrectUser = document.querySelector("#correct");
+                    NbrCorrectUser.textContent = quiz.correct;
+                    document.getElementById("resultat").style.display = "block";
+                    document.getElementById("affichage").style.display = "none";
+                    document.getElementById('success').style.display='block';
+
+                }
+            }
+
+            this.questionSuivante = function(question) {
+                this.questions.push(question);
+            }
+        }
+
+        function Question(titre, reponse, reponseCorrect) {
+
+                this.reponse = reponse,
+                this.reponseCorrect = reponseCorrect,
+                this.titre = titre,
+
+                this.getElement = function(indexQuestion, nbrOfQuestions) {
+                    let questionTitle = document.createElement("h3");
+                    questionTitle.classList.add("affichage_questions");
+                    questionTitle.textContent = this.titre;
+
+                    document.getElementById("affichage").append(questionTitle);
+
+                    let questionAnswer = document.createElement("ul");
+                    questionAnswer.classList.add("list_questions");
+
+                    this.reponse.forEach((answer, index) => {
+                        let answerElement =  document.createElement("li");
+                        answerElement.classList.add("reponse");
+                        answerElement.textContent = answer;
+                        answerElement.id = index + 1;
+                        answerElement.addEventListener("click", this.checkAnswer)
+
+                        questionAnswer.append(answerElement);
+                    });
+
+                    let questionNumber = document.createElement("h4");
+                    questionNumber.classList.add("avancement_question");
+                    questionNumber.textContent = indexQuestion + "/" + nbrOfQuestions;
+
+                    document.getElementById("affichage").append(questionNumber);
+
+                    document.getElementById("affichage").append(questionAnswer);
+                }
+
+            this.addAnswer = function(answer) {
+                this.reponse.push(answer);
+            },
+
+                this.checkAnswer = (e) => {
+                    let answerSelect = e.target;
+                    if(this.isCorrectAnswer(answerSelect.id)) {
+                        answerSelect.classList.add("reponseCorrect");
+                        quiz.correct++;
+                    }
+                    else {
+                        answerSelect.classList.add("reponseFausse");
+                        let RightAnswer = document.getElementById(this.reponseCorrect);
+                        RightAnswer.classList.add("reponseCorrect");
+                    }
+
+                    setTimeout(function() {
+                        document.getElementById("affichage").textContent = '';
+                        quiz.index++;
+                        quiz.displayCurrentQuestion();
+                    }, 1100);
+                }
+
+            this.isCorrectAnswer = function(answerUser) {
+                if(answerUser == this.reponseCorrect) {
+                    return true;
+                }
+                else {
+                    return false;
+                }
+            }
+        };
+
+        function startQuestions() {
+            document.getElementById("questions").style.display = "none";
+            document.getElementById("affichage").style.display = "block";
+
+            quiz.displayCurrentQuestion();
+        }
+
+        let quiz = new Quiz();
+
+        let question1 = new Question("Le poids moyen d'un paresseux est de...", ["2 à 4 kg", "4 à 8 kg", "8 à 12 kg", "Plus de 12 kg"], 2);
+        quiz.questionSuivante(question1);
+
+        let question2 = new Question("L'anaconda est connu comme étant le serpent...", ["Le plus lourd au monde", "Le plus long au monde", "Le plus dangereux au monde", "Le plus rapide au monde"], 1);
+        quiz.questionSuivante(question2);
+
+        let question3 = new Question("Le plus grand félin au monde est...", ["Le chat", "Le tigre", "Le lion", "Le léopard"], 2);
+        quiz.questionSuivante(question3);
+
+        let question4 = new Question("L'animal le plus rapide est...", ["Le tigre", "Le lièvre", "Le loup", "Le renne"], 4);
+        quiz.questionSuivante(question4);
+
+        let question5 = new Question("La longeur du cou de la girafe est en moyenne de...", ["1,2 mètres", "1,8 mètres", "2,4 mètres", "3 mètres"], 3);
+        quiz.questionSuivante(question5);
+
+        let Nombre = document.querySelectorAll(".nombre");
+
+        Nombre.forEach(function(Nombre) {
+            Nombre.textContent = quiz.questions.length;
+        });
+
+    </script>
+
+{% endblock %}

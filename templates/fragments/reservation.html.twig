@@ -1,32 +1,28 @@
-<style>
-
-    #conteneur{
-        align-items: center;
-        margin-left: 250px;
-        margin-bottom: 100px;
-        margin-right: 250px;
-        margin-top: 100px;
-        text-align: center;
-        border-radius: 50px;
-        box-shadow: 0 20px 20px rgba(0, 0, 0, 0.3);
-        background: linear-gradient(217deg, rgba(190, 225, 87, .8), rgba(255, 0, 0, 0) 70.71%),
-        linear-gradient(127deg, rgba(0, 255, 0, .8), rgba(0, 255, 0, 0) 70.71%),
-        linear-gradient(336deg, rgba(213, 245, 206, .8), rgba(0, 0, 255, 0) 70.71%);
-    }
-    h2{
-        color: #62AB6B;
-    }
-</style>
-
+{% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/reservation.css') }}">
+{% endblock %}
 <div id="conteneur">
     <br>
-    <h1>Reservation pour le {{ date }}</h1>
+    <h1>Reservation effectuer le {{ date }}</h1>
     <H2>Concernant : {{ nom }} {{ prenom }}</H2>
     <h2>Prix de la réservation : {{ amount }} €</h2>
-    <h2>ID réservation : 1234567890</h2>
-    <h2>Nom réservation : "A l'aventure"</h2>
+    <h2>ID réservation : {{ reservation.id }}</h2>
+    <table >
+        <tr><td>Nom program</td><td>Quantité commander</td><td>Prix unitaire</td><td>Prix total</td></tr>
+        {% for tickets in tickets %}
+            <tr>
+                    <td>{{ tickets.getProgram().getTitle() }}</td><td> {{ tickets.getQteNormal() }} </td>
+                    <td>{{ tickets.getProgram().getPrice() }}</td><td>{{ tickets.getProgram().getPrice()*tickets.getQteNormal() }}
+                </td>
+
+            </tr>
+        {% endfor %}
+    </table>
+    <br>
     <h3>Utopiazoo vous souhaite la bienvenue <br>au paradis des amoureux de la nature et des animaux, <br>où vous pourrez découvrir une incroyable variété d'espèces exotiques <br> dans un environnement unique et fascinant.</h3>
     <br>
+
+
 </div>
 
 
