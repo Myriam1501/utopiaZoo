@@ -4,7 +4,6 @@ namespace App\Controller;
 
 
 use App\Repository\AnimalRepository;
-use App\Repository\ProgramRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -22,7 +21,6 @@ class Jeu5Controller extends AbstractController
         $val=$animalRepository->find($nbr);
         $val=strtolower($val->getName());
         return $this->render('jeu5/index.html.twig', [
-            'controller_name' => 'Jeu5Controller',
             'animalName' => $val,
             'session' => $session,
         ]);

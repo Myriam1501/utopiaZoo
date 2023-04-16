@@ -1,0 +1,51 @@
+.ok10 {
+    width: 166px;
+    height: 250px;
+    border-radius: 5%;
+    box-shadow: 0 20px 20px rgba(0, 0, 0, 0.3);
+    margin-right: 25px;
+}
+
+
+.contenantpresentation {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 1100px;
+}
+
+.presentation2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    text-align: center;
+    width: 1137px;
+    height: 300px;
+    border-radius: 50px;
+    box-shadow: 0 20px 20px rgba(0, 0, 0, 0.3);
+    margin: 100px;
+
+}
+
+p {
+    text-align: center;
+}
+.activitee6 {
+    margin-left: 30px;
+    margin-right: 30px;
+    width: 100%;
+}
+
+.dashboard-order {
+    width: 340px;
+    height: 45%;
+    right: 0;
+    padding-right: 1%;
+    background-color: white;
+    z-index: 3;
+    font-size: 13px;
+    position: sticky;
+    top: 149px;
+    float: right;
+}

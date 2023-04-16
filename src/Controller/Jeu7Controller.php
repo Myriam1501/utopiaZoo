@@ -14,7 +14,6 @@ class Jeu7Controller extends AbstractController
     {
         $session = $request->getSession();
         return $this->render('jeu7/index.html.twig', [
-            'controller_name' => 'Jeu7Controller',
             'session' => $session,
         ]);
     }

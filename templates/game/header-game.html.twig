@@ -1,133 +1,8 @@
-
+{% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/header-game.css') }}">
+{% endblock %}
 {% block body %}
-<style>
-    .example-wrapper { margin: 7em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif ; text-align: center; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-    .baniere {
-        border-top: 5px solid black;
-        width: 100%;
-        height: 300px;
-        position: relative;
-        text-align: center;
-        color: black;
-        font-family: 'Hoefler Text',sans-serif;
-        font-size: 30px;
-        background-image: url("https://zupimages.net/up/23/08/gh1r.png");
-        background-attachment: fixed;
-    }
-
-
-    .texte_centrer {
-
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
-    /**/
-    section{
-        display: flex;
-        flex-wrap:wrap;
-        font-family: palatino;
-        /*justify-content: center;
-        align-items: center;*/
-        border-top: 5px solid black;
-        width:100%;
-
-
-    }
-
-    section .link a{
-        color: black;
-        /*margin-right: 10px;
-
-        padding-bottom: 5px;*/
-    }
-    section .link a:link
-    {
-        text-decoration:none;
-    }
-
-    section .link a:hover {
-        color: #94b398;
-        font-size : 22px
-    }
-
-    section .link{
-        width: 100%;
-        padding: 40px;
-        padding-left: 7%;
-        /*padding-left: 200px;*/
-        margin-bottom: 40px;
-        margin-top: 40px;
-
-    }
-
-    section .link .item{
-        margin: 0 auto;
-        text-align: center;
-        width: 250px;
-        float: left;
-    }
-    section .link .item img{
-        width: 70px;
-        height: 30%;
-    }
-
-    /*******************************/
-     .partie1{
-         background-attachment: fixed;
-         width: 100%;
-         height: 150px;
-         background-color: #94b398;
-         background-repeat: no-repeat;
-         border-top: 5px solid black;
-         background-size:cover;
-     }
-
-    @keyframes Slidein {
-        from {
-            margin-left: 100%;
-            width: 400%;
-        }
-
-        to {
-            margin-left: 0%;
-            width: 20%;
-        }
-    }
-
-    @keyframes slidein {
-        from {
-            margin-left: 100%;
-            width: 400%;
-        }
-
-        to {
-            margin-left: 0%;
-            width: 50%;
-        }
-    }
-    .text1-P1{
-        font-family: 'Hoefler Text',sans-serif;
-        color: white;
-        font-size: 30px;
-        position: absolute;
-        left: 27%;
-        animation-duration: 4s;
-        animation-name: slidein;
-    }
-    .text1-P2{
-        font-family: 'Hoefler Text',sans-serif;
-        color: white;
-        font-size: 30px;
-        position: absolute;
-        left: 39%;
-        animation-duration: 4s;
-        animation-name: slidein;
-    }
-
-</style><div class="baniere">
+<div class="baniere">
     <!--<img src="fond2.jpg" alt="image">-->
     <div class="texte_centrer"><h1>Espace Jeux</h1>
     </div>
@@ -137,18 +12,18 @@
 
     <div class="link">
         <a href="{{ path('app_game') }}"><div class="item" id="pain">
-                <img src="https://zupimages.net/up/23/08/qlq0.png"><br>Règles Jeux Menu </div></a>
+                <img alt=""  src="https://zupimages.net/up/23/08/qlq0.png"><br>Règles Jeux Menu </div></a>
         <a href="{{ path('app_jeu5') }}"><div class="item" id="pain">
-                <img src="{{ asset('pendu.png') }}"><br>Pendu</div></a>
+                <img alt=""  src="{{ asset('pendu.png') }}"><br>Pendu</div></a>
 
         <a href="{{ path('app_jeu7') }}"><div class="item" id="viennoiserie">
-                <img src="https://zupimages.net/up/23/08/h6h6.png"><br>Memory</div></a>
+                <img alt=""  src="https://zupimages.net/up/23/08/h6h6.png"><br>Memory</div></a>
 
         <a href="{{ path('app_jeu6') }}"><div class="item" id="Patisserie">
-                <img src="https://zupimages.net/up/23/08/tcro.png"><br>Taquin</div></a>
+                <img alt=""  src="https://zupimages.net/up/23/08/tcro.png"><br>Taquin</div></a>
 
         <a href="{{ path('app_quizz') }}"><div class="item" id="Patisserie">
-                <img src="https://zupimages.net/up/23/11/u5b8.jpeg" style="width: 100px"><br>Quiz</div></a>
+                <img alt="" src="https://zupimages.net/up/23/11/u5b8.jpeg" style="width: 100px"><br>Quiz</div></a>
 
 
 

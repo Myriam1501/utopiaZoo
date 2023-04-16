@@ -3,7 +3,7 @@
 ::before, ::after {
 
     bottom: 100%;
-    font-family: 'Hoefler Text';
+    font-family: 'Hoefler Text', serif;
 
 
 }
@@ -94,7 +94,7 @@ footer {
     height: 35px;
     width: 40px;
     border-radius: 40px;
-    padding-top: 0%;
+    padding-top: 0;
     margin-bottom: 10px;
     object-fit: cover;
     margin-right: 10px;

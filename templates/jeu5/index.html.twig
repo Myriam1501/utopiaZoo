@@ -3,294 +3,37 @@
 {% block title %}Pendu{% endblock %}
 
 {% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/jeu5.css') }}">
 {% endblock %}
 {% block javascripts %}
-    <script src="{{asset('assets/jeu5.js')}}"></script>
+    <script src="{{asset('assets/js/jeu5.js')}}"></script>
 {% endblock %}
 
 
 {% block body %}
-    <style>
-        #result{
-            display: none;
-        }
-
-        #entry{
-            opacity: 1;
-        }
-
-        #letter{
-            opacity: 0;
-
-        }
-
-        #verif{
-            opacity: 0;
-        }
-
-        #retry{
-            opacity: 0;
-        }
-
-        #penduimg{
-            opacity: 0;
-            height: 300px;
-        }
-
-        #lettreErr{
-            display: none;
-        }
-
-        #count{
-            display: none;
-        }
-
-        #rep{
-            display: none;
-        }
-
-        #game{
-            background-color: pink;
-            align-content: center;
-            align-items: center;
-            margin-bottom: 100px;
-            margin-left: 100px;
-            margin-right: 100px;
-            margin-top: 100px;
-        }
-
-        #penduimg {
-            animation-duration: .8s;
-            animation-name: none;
-            animation-iteration-count: infinite;
-            transition: none;
-        }
-        @keyframes clignoter {
-            0%   { opacity:1; }
-            40%   {opacity:0; }
-            100% { opacity:1; }
-        }
-
-        body{
-            animation-duration: .8s;
-            animation-name: none;
-            animation-iteration-count: infinite;
-            transition: none;
-        }
-        .game {
-            background-color: pink;
-            align-items: center;
-            margin-left: 250px;
-            margin-bottom: 100px;
-            margin-right: 250px;
-            margin-top: 100px;
-            text-align: center;
-            border-radius: 50px;
-            box-shadow: 0 20px 20px rgba(0, 0, 0, 0.3);
-
-        }
-        .game {
-
-
-            background: linear-gradient(217deg, rgba(190, 225, 87, .8), rgba(255, 0, 0, 0) 70.71%),
-            linear-gradient(127deg, rgba(230, 0, 255, 0.8), rgba(230, 0, 255, 0.8) 70.71%),
-            linear-gradient(336deg, rgba(213, 245, 206, .8), rgba(0, 0, 255, 0) 70.71%);
-
-
-        }
-
-        .game:before, .game:after {
-            content: '';
-            position: absolute;
-            left: -2px;
-            top: -2px;
-            background: linear-gradient(45deg, #BEDEA4, #CCE3B9, rgba(230, 0, 255, 0.8),#64AAAD, #ff0000, #fb0094,
-            #CEF5E4, #EFE5DB,#EBE4DC, #E4EFDB);
-        }
-
-
-        .wrapper {
-            margin: 10px auto;
-            text-align: center;
-            width: 100%;
-            position: relative;
-        }
-        .button {
-            padding: 7px 20px;
-            margin: 7px 4px;
-            color: #000000;
-            font-family: sans-serif;
-            text-transform: uppercase;
-            text-align: center;
-            position: relative;
-            text-decoration: none;
-            display: inline-block;
-            border: 1px solid;
-            border-radius: 10px;
-            box-shadow: 0 20px 20px rgba(0, 0, 0, 0.3);
-            background-color: #CCE3B9;
-        }
-        .button::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            display: block;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            -webkit-transform: scaleY(0.1);
-            transform: scaleY(0.1);
-            transition: all 0.4s;
-        }
-        .button:hover {
-            color: seagreen;
-        }
-        .button:hover::before {
-            opacity: 1;
-            background-color: #f7c2f9;
-            -webkit-transform: scaleY(1);
-            transform: scaleY(1);
-            transition: -webkit-transform 0.6s cubic-bezier(0.08, 0.35, 0.13, 1.02), opacity 0.4s;
-            transition: transform 0.6s cubic-bezier(0.08, 0.35, 0.13, 1.02), opacity;
-        }
-    </style>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script>
-        function Valid(){
-            let mer=document.getElementById("result").textContent;
-            let rep=document.getElementById("rep");
-            let str=new String();
-            let word=new String(mer);
-            for (let pas = 0; pas < mer.length; pas++) {
-                str=str+"_ ";
-            }
-            rep.textContent=str;
-            document.getElementById("entry").style.opacity = "0";
-            document.getElementById("letter").style.opacity = "1";
-            document.getElementById("verif").style.opacity = "1";
-            document.getElementById("penduimg").style.opacity = "1";
-            document.getElementById("lettreErr").style.display = "block";
-            document.getElementById("count").style.display = "block";
-            document.getElementById("rep").style.display = "block";
-        }
-
-
-        function Corec() {
-            let mer=document.getElementById("result");
-            let leter=document.getElementById("letter");
-            let larep=document.getElementById("rep");
-
-            let words = larep.textContent.split(' ');
-            if(leter.value.length==1){
-                let posi=0;
-                posi=mer.textContent.indexOf(leter.value,posi);
-                if(posi==-1){
-                    erreur(leter.value);
-                }
-                else{
-                    do{
-                        words[posi]=leter.value;
-                        posi=posi+1;
-                        posi=mer.textContent.indexOf(leter.value,posi);
-                    }while(posi!=-1);
-                }
-                larep.textContent=words.join(' ');
-
-                if(larep.textContent.indexOf('_')==-1){
-                    let ding = new Audio('https://universal-soundbank.com/sounds/3672.mp3');
-                    ding.play();
-                    document.getElementById("letter").style.opacity = "0";
-                    document.getElementById("verif").style.opacity = "0";
-                    document.getElementById("retry").style.opacity = "1";
-                    document.getElementById("count").style.display="none";
-                    document.getElementById("lettreErr").style.display="none";
-                    document.getElementById("penduimg").style.display="none";
-                    document.getElementById("verif").style.display="none";
-                    document.getElementById("letter").style.display="none";
-                    document.getElementById("entry").style.display="none";
-                    document.body.style.backgroundColor="green";
-                }
-            }else{
-                erreur(leter.value);
-            }
-        }
-
-
-        function erreur(err){
-            let ajout=document.getElementById("lettreErr");
-            ajout.textContent=ajout.textContent+" "+err;
-            let count=document.getElementById("count");
-            let nbr=parseInt(count.textContent);
-            nbr=nbr+1;
-            count.textContent=new String(nbr);
-            var source;
-            if (nbr==1){
-                source='IMG/pendu_1.JPG';
-            }else if(nbr==2){
-                source='IMG/pendu_2.JPG';
-            }else if(nbr==3){
-                source='IMG/pendu_3.JPG';
-            }else if(nbr==4){
-                source='IMG/pendu_4.JPG';
-            }else if(nbr==5){
-                source='IMG/pendu_5.JPG';
-            }else if(nbr==6){
-                source='IMG/pendu_6.JPG';
-
-            }else if(nbr==7){
-                source='IMG/pendu_7.JPG';
-
-            }else if(nbr==8){
-                source='IMG/pendu_8.JPG';
-
-            }else if(nbr==9){
-                source='IMG/pendu_9.JPG';
-
-            }else if(nbr==10){
-                source='IMG/pendu_10.JPG';
-                let ding=new Audio("https://mp3gaga.com/wp-content/uploads/2021/04/Mariam-makebas-the-lion-sleeps-tonight.mp3");
-                ding.play();
-                document.getElementById("penduimg").style.animationName="clignoter";
-                document.body.style.animationName="clignoter";
-                document.body.style.backgroundColor="red";
-                document.getElementById("letter").style.display = "none";
-                document.getElementById("verif").style.opacity = "0";
-                document.getElementById("retry").style.opacity = "1";
-                let displayResult=document.getElementById("result");
-                displayResult.textContent="La réponse étais : "+displayResult.textContent;
-                document.getElementById("result").style.display="block";
-                document.getElementById("rep").style.display="none";
-                document.getElementById("count").style.display="none";
-                document.getElementById("lettreErr").style.display="none";
-                document.getElementById("penduimg").style.display="none";
-                document.getElementById("verif").style.display="none";
-                document.getElementById("letter").style.display="none";
-                document.getElementById("entry").style.display="none";
-            }
-            $("#penduimg").attr('src', source);
-        }
-
-        function playAgain(){
-            location.reload();
-        }
-    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     {% include 'game/header-game.html.twig' %}
     <div class="game">
         <br>
         <h1 id="result">{{ animalName }}</h1>
+        <label>
         <input id="entry" class="button" onclick="Valid()" value="Commencer la partie"><br>
+        </label>
+        <label>
         <input type="text" class="button" id="letter" value="" placeholder="saisir une lettre">
+        </label>
+        <label>
         <input type="button" class="button" id="verif" onclick="Corec()" value="Vérifier la lettre"><br>
+        </label>
+        <label>
         <input type="button" class="button" id="retry" onclick="playAgain()" value="recommencer">
+        </label>
         <h1 id="rep">futur rep</h1>
         <h1 id="count">0</h1>
         <p id="lettreErr">mot : </p>
-        <img id="penduimg" src="{{asset('IMG/pendu_0.jpg')}}">
-        {% if session.get('gameReduction')==true %}
-            <p>FFAFAFAFAFAEZFDEGDUGYDHJKEHIZRGYEHDJNHLCKGRB</p>
-        {% endif %}
-<br>
+        <img alt="" id="penduimg" src="{{asset('IMG/pendu_0.jpg')}}">
+        <br>
 
     </div>
+
 {% endblock %}

@@ -25,9 +25,17 @@ class AppFixtures extends Fixture
             ->setPrice(mt_rand(0,100))
         ;
         $manager->persist($programme);
+        $programmes=array();
+        $count=0;
         for($i=0; $i<50; $i++){
             $programme = new Program();
-            $programme->setTitle($this->faker->word())
+            $word=$this->faker->word();
+            while(in_array($word,$programmes)){
+                $word=$this->faker->word();
+            }
+            $programmes[$count]=$word;
+            $count++;
+            $programme->setTitle($word)
                 ->setPrice(mt_rand(0,100));
             $manager->persist($programme);
         }

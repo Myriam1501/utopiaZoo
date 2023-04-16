@@ -12,8 +12,6 @@ class DecouverteController extends AbstractController
     #[Route('/decouverte', name: 'app_decouverte')]
     public function index(): Response
     {
-        return $this->render('decouverte/index.html.twig', [
-            'controller_name' => 'DecouverteController',
-        ]);
+        return $this->render('decouverte/index.html.twig');
     }
 }

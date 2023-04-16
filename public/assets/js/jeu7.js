@@ -1,25 +1,25 @@
 function flip(image){
     let im=document.getElementById(image);
-    if(im.getAttribute('src')!=="http://utopiazoo.local/taquin/IMG_2525.jpg"){
-    if(image==="img7" || image==="img15"){
-        $(im).attr('src',"http://utopiazoo.local/IMG/m9.jpg");
-    }else if(image==="img1" || image==="img18"){
-        $(im).attr('src',"http://utopiazoo.local/IMG/m1.jpg");
-    }else if(image==="img2" || image==="img17"){
-        $(im).attr('src',"http://utopiazoo.local/IMG/m2.jpg");
-    }else if(image==="img3" || image==="img16"){
-        $(im).attr('src',"http://utopiazoo.local/IMG/m3.jpg");
-    }else if(image==="img4" || image==="img12"){
-        $(im).attr('src',"http://utopiazoo.local/IMG/m4.jpg");
-    }else if(image==="img5" || image==="img11"){
-        $(im).attr('src',"http://utopiazoo.local/IMG/m5.jpg");
-    }else if(image==="img6" || image==="img10"){
-        $(im).attr('src',"http://utopiazoo.local/IMG/m6.jpg");
-    }else if(image==="img8" || image==="img14"){
-        $(im).attr('src',"http://utopiazoo.local/IMG/m7.jpg");
-    }else if(image==="img9" || image==="img13"){
-        $(im).attr('src',"http://utopiazoo.local/IMG/m8.jpg");
-    }
+    if(im.getAttribute('src')!=="{{asset('IMG/IMG2525.jpg')}}"){
+        if(image==="img7" || image==="img15"){
+            $(im).attr('src',"{{asset('IMG/m9.jpg')}}");
+        }else if(image==="img1" || image==="img18"){
+            $(im).attr('src',"{{asset('IMG/m1.jpg')}}");
+        }else if(image==="img2" || image==="img17"){
+            $(im).attr('src',"{{asset('IMG/m2.jpg')}}");
+        }else if(image==="img3" || image==="img16"){
+            $(im).attr('src',"{{asset('IMG/m3.jpg')}}");
+        }else if(image==="img4" || image==="img12"){
+            $(im).attr('src',"{{asset('IMG/m4.jpg')}}");
+        }else if(image==="img5" || image==="img11"){
+            $(im).attr('src',"{{asset('IMG/m5.jpg')}}");
+        }else if(image==="img6" || image==="img10"){
+            $(im).attr('src',"{{asset('IMG/m6.jpg')}}");
+        }else if(image==="img8" || image==="img14"){
+            $(im).attr('src',"{{asset('IMG/m7.jpg')}}");
+        }else if(image==="img9" || image==="img13"){
+            $(im).attr('src',"{{asset('IMG/m8.jpg')}}");
+        }
         let know=document.getElementById("cnt");
         know.textContent=parseInt(know.textContent)+1+"";
         if(know.textContent==="2"){
@@ -50,13 +50,18 @@ function isSameCards(image){
                 if(p1.getAttribute('src')===p2.getAttribute('src')){
                     let val=document.getElementById("nbrPaire");
                     val.textContent=parseInt(val.textContent)+1+"";
-                    $(p1).attr('src',"http://utopiazoo.local/taquin/IMG_2525.jpg");
-                    $(p2).attr('src',"http://utopiazoo.local/taquin/IMG_2525.jpg");
+                    $(p1).attr('src',"{{asset('IMG/IMG2525.jpg')}}");
+                    $(p2).attr('src',"{{asset('IMG/IMG2525.jpg')}}");
                     arret="true";
                     if(val.textContent==="9"){
                         document.body.style.backgroundColor="green";
+                        document.getElementById('success').style.display='block';
+
+                        //display='block'
                         let ding = new Audio('http://utopiazoo.local/taquin/win.mp3');
                         ding.play();
+
+
                     }
                     break;
                 }
@@ -83,9 +88,10 @@ function returnCards(image){
             let id="img"+count;
             if(id!==image){
                 let p1=document.getElementById(id);
-                if(p1.getAttribute('src')!=="http://utopiazoo.local/taquin/cardBack.jpg"){
-                    if(p1.getAttribute('src')!=="http://utopiazoo.local/taquin/IMG_2525.jpg"){
-                        $(p1).attr('src',"http://utopiazoo.local/taquin/cardBack.jpg");
+                if(p1.getAttribute('src')!=="{{asset('/taquin/cardBack.jpg')}}"){
+                    if(p1.getAttribute('src')!=="{{asset('IMG/IMG2525.jpg')}}"){
+
+                        $(p1).attr('src',"{{asset('/taquin/cardBack.jpg')}}");
                     }
                 }
 

@@ -1,103 +1,10 @@
 {% extends 'base.html.twig' %}
-
+{% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/game-index.css') }}">
+{% endblock %}
 {% block title %}Hello GameController!{% endblock %}
 
 {% block body %}
-<style>
-
-
-    .page-section{
-        padding-top: 100px;
-        padding-left: 20%;
-    }
-    .timeline {
-        position: relative;
-        padding: 0;
-        list-style: none;
-    }
-    .timeline:before {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 40px;
-        width: 2px;
-        margin-left: -1.5px;
-        content: "";
-        background-color: #e9ecef;
-    }
-
-    .timeline > a li .timeline-image {
-        position: absolute;
-        z-index: 100;
-        left: 0;
-        width: 80px;
-        height: 80px;
-        margin-left: 0;
-        text-align: center;
-        color: white;
-        border: 7px solid #e9ecef;
-        border-radius: 100%;
-        background-color: #ffc800;
-    }
-
-    @media (min-width: 768px) {
-        .timeline:before {
-            left: 50%;
-        }
-        .timeline > a li {
-            min-height: 100px;
-            margin-bottom: 100px;
-        }
-        .timeline > a li .timeline-panel {
-            float: left;
-            width: 41%;
-            padding: 0 20px 20px 30px;
-            text-align: right;
-        }
-        .timeline > a  li .timeline-image {
-            left: 50%;
-            width: 100px;
-            height: 100px;
-            margin-left: -50px;
-        }
-        h4 {
-            font-size: 13px;
-            line-height: 18px;
-            margin-top: 16px;
-        }
-        .timeline > a li.timeline-inverted > a .timeline-panel {
-            float: right;
-            padding: 0 30px 20px 20px;
-            text-align: left;
-        }
-    }
-    @media (min-width: 992px) {
-        .timeline > a li {
-            min-height: 150px;
-        }
-        .timeline > a li .timeline-panel {
-            padding: 0 20px 20px;
-        }
-        .timeline > a li .timeline-image {
-            width: 150px;
-            height: 150px;
-            margin-left: -75px;
-        }
-        h4 {
-            font-size: 18px;
-            line-height: 26px;
-            margin-top: 30px;
-        }
-        .timeline > a li.timeline-inverted > a .timeline-panel {
-            padding: 0 20px 20px;
-        }
-    }
-
-
-
-
-
-</style>
     {% include 'game/header-game.html.twig' %}
     <!--Contenu-->
     <!-- About-->

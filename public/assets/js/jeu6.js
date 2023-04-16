@@ -16,7 +16,6 @@ function moves(img){
                 let newImg="img"+count;
                 let ne=document.getElementById(newImg);
                 let action="moves('"+newImg+"')";
-                let val=image.getAttribute('src');
                 $(ne).attr('src', image.getAttribute('src'));
                 $(ne).attr('onclick', action);
                 $(image).attr('src',"");
@@ -57,7 +56,6 @@ function verif(){
                                 if(img8==="7"){
                                     if(img9===""){
                                         img=img.substring(0,position-1)+'8.jpg';
-                                        alert(img);
                                         $("#img9").attr('src',img);
                                         document.body.style.backgroundColor="green";
                                         let ding = new Audio('https://universal-soundbank.com/sounds/9669.mp3');
