@@ -9,8 +9,6 @@ use App\Entity\Ticket;
 use App\Repository\ProgramRepository;
 use App\Repository\PromotionRepository;
 use App\Repository\ReservationRepository;
-use App\Repository\TicketRepository;
-use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
@@ -139,8 +137,7 @@ class ReservationService
 
     public function generateReservation(ReservationRepository $reservationRepository, $id) : Reservation
     {
-        $reser=$reservationRepository->find($id);
-        return $reser;
+        return $reservationRepository->find($id);
     }
 
     public function addReservation($user, ProgramRepository $programRepository,
@@ -166,7 +163,7 @@ class ReservationService
         return $reser;
     }
 
-    public function insertTickets(array $programmes,Reservation $reser,EntityManagerInterface $entityManager)
+    public function insertTickets(array $programmes,Reservation $reser,EntityManagerInterface $entityManager): void
     {
         foreach ($programmes as $p){
             if($this->session->has($p->getTitle())){
@@ -180,12 +177,6 @@ class ReservationService
         }
     }
 
-    public function getReservationPrice($id, ReservationRepository $reservationRepository) : int
-    {
-        $reser=$reservationRepository->find($id);
-        $amount=$reser->getPrice();
-        return $amount;
-    }
 
 
 
