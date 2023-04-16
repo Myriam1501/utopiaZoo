@@ -5,14 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9ab3f399-ae5a-4e54-96d9-053a5108b6e6" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/public/assets/css/dashboard.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/css/game-index.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/css/header-game.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/css/passwordForget.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/css/reservation.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/css/resetPassword.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/js/homePage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/css/connexion.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/connexion.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/css/decouverte.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/decouverte.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/css/footer-style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/footer-style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/css/homepage-style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/homepage-style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/css/jeu5.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/jeu5.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/css/protect_wildlife.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/protect_wildlife.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/js/jeu5.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/js/jeu5.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Admin/DashboardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/DashboardController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Service/PaymentService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/PaymentService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Service/PdfService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/PdfService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/dashboard.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/dashboard.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/fragments/reservation.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/fragments/reservation.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/game/header-game.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/game/header-game.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/game/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/game/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/homepage/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/homepage/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/passeword_forget/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/passeword_forget/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

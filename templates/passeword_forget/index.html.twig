@@ -1,70 +1,10 @@
 {% extends 'base.html.twig' %}
-
+{% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/passwordForget.css') }}">
+{% endblock %}
 {% block title %}PassewordForget{% endblock %}
 
 {% block body %}
-<style>
-    body{
-
-        background: url("https://zupimages.net/up/22/17/waol.jpg") no-repeat center center;
-        background-size: cover;
-    }
-    .login-box{
-        width: 450px;
-        position: relative;
-        top: 250px;
-        left: 50%;
-        transform: translate(-50%,-50%);
-        color: white;
-        background-color: rgba(0,0,0,0.5);
-        padding: 0rem 2rem 3rem;
-    }
-    .login-box h1{
-        float: left;
-        font-size: 2.7rem;
-        border-bottom: 4px solid green;
-        margin-bottom: 3rem;
-        padding: 0.3rem 0;
-    }
-    .txt-box{
-        width: 100%;
-        overflow: hidden;
-        font-size: 1.2rem;
-        padding: 0rem 0;
-        margin: 1.4rem 0;
-        border-bottom: 1px solid green;
-    }
-    .txt-box i{
-        width: 1.6rem;
-        float: left;
-        text-align: center;
-    }
-    .txt-box input{
-        border: none;
-        outline: none;
-        background: none;
-        color: white;
-        font-size: 1.1rem;
-        width: 80%;
-        float: left;
-        margin: 0 10px;
-
-    }
-    .submit-box{
-        width: 100%;
-        background: none;
-        border: 1px solid green;
-        color: white;
-        padding: 5px;
-        font-size: 1rem;
-        margin: 24px 0 12px;
-        cursor: pointer;
-
-    }
-    .connex{
-        color: white;
-    }
-</style>
 
 <form id="connexionForm" action="" method="post">
     {{ form_start(requestPassform)}}
