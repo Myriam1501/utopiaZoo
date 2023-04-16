@@ -21,7 +21,7 @@
 - 	php ./bin/console make:migration
 - Aller sur le terminal et télécharger les fixtures : php ./bin/composer doctrine:fixtures:load
 
-C'est Fini vous pouvez découvrir notre manifique zoo
+C'est fini vous pouvez découvrir notre manifique zoo en lançant dans votre lacalhost!
 
 ## Site & Fonctionnaliter 
 
@@ -70,4 +70,5 @@ Fonctionnalités :
 [Myriam OUNISSI](https://github.com/Myriam1501)
 
 [Haoyue LIU ](https://github.com/LOliviaL) 
+
 
