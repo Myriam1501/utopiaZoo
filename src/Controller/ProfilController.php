@@ -20,45 +20,29 @@ class ProfilController extends AbstractController
         ]);
     }
     #[Route('/profil_update', name: 'app_profil_update')]
-    public function update(
-        Request $request,
-        EntityManagerInterface $entityManager,
-    ): Response
+    public function update(Request $request, EntityManagerInterface $entityManager,): Response
     {
         $user = $this->getUser();
         $form = $this->createForm(UpdateProfilFormType::class, $user);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()){
-
             $entityManager->persist($user);
             $entityManager->flush();
-
             $this->addFlash('message', 'Votre Profil est bien mis à jour !');
-
             return $this->redirectToRoute('app_profil');
-
         }
-
         return $this->render('profil/update.html.twig', [
             'profilupdate' => $form->createView(),
         ]);
     }
 
     #[Route('/profil_update_password', name: 'app_profil_update_password')]
-    public function edit(
-        UserPasswordHasherInterface $userPasswordHasher,
-        Request $request,
-        EntityManagerInterface $entityManager
-    ): Response
+    public function edit(UserPasswordHasherInterface $userPasswordHasher, Request $request, EntityManagerInterface $entityManager): Response
     {
         $user = $this->getUser();
         if ($request->isMethod('POST')){
             if($request->request->get('pass')==$request->request->get('pass1')){
-                $user ->setPassword(
-                    $userPasswordHasher->hashPassword(
-                    $user,
-                    $request->request->get('pass')
-                ));
+                $user ->setPassword($userPasswordHasher->hashPassword($user, $request->request->get('pass')));
                 $entityManager->persist($user);
                 $entityManager->flush();
                 $this->addFlash('success', 'Password changé avec succès');
