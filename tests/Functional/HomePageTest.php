@@ -11,7 +11,9 @@ class HomePageTest extends WebTestCase
         $client = static::createClient();
         $crawler = $client->request('GET', '/');
 
-        $button = $crawler->selectButton("");
+        $image = $crawler->selectImage("decouvert");
+        $this->assertCount(1, $image);
+
         $this->assertResponseIsSuccessful();
         $this->assertSelectorTextContains('h1', 'BIENVENUE');
     }

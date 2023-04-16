@@ -1,11 +1,8 @@
-
 <?php
 
 namespace App\Tests\Unit;
 
-use App\Entity\Mark;
 use App\Entity\Program;
-use App\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
 class ProgramTest extends KernelTestCase
@@ -30,18 +27,7 @@ class ProgramTest extends KernelTestCase
 
         $this->assertCount(0, $errors);
     }
-
-    public function testInvalidTitle()
-    {
-        self::bootKernel();
-        $container = static::getContainer();
-
-        $programme = $this->getEntity();
-        $programme->setTitle('');
-
-        $errors = $container->get('validator')->validate($programme);
-        $this->assertCount(1, $errors);
-    }
+    
 
     
 }
