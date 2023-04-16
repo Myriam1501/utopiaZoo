@@ -9,61 +9,50 @@
 </tr>
 </table>
 
-## [Usage] 
+## Usage
 
 ### Installation
-Want to contribute? Great!
 
-To fix a bug or enhance an existing module, follow these steps:
-
-- Fork the repo
-- Create a new branch (`git checkout -b improve-feature`)
-- Make the appropriate changes in the files
-- Add changes to reflect the changes made
-- Commit your changes (`git commit -am 'Improve feature'`)
-- Push to the branch (`git push origin improve-feature`)
-- Create a Pull Request 
-
-### Comptes user et admin
-
+- Fork le repository
+- Aller sur le terminal et installer le composer : composer install
+- crée votre base de donner en la connectant à votre Base de donnée dans .env puis faire les manipulation suivante :
+- 	php ./bin/console d:d:c (votrebasededonner)
+- 	php ./bin/console d:migrate:miration
+- 	php ./bin/console make:migration
+- Aller sur le terminal et télécharger les fixtures : php ./bin/composer doctrine:fixtures:load
+C'est Fini vous pouvez découvrir notre manifique zoo
 
 ## Site & Fonctionnaliter 
 
 ### Page d'acueil
-Currently it is working on all NSE (India) Stocks, BSE (India) Stocks Symbol will be added soon.
+Accueil dynamique avec une vidéo et des animations
 
-![](https://iharsh234.github.io/WebApp/images/demo/web_app_face.JPG)
-k
 ### Proteger les animaux
-![](https://iharsh234.github.io/WebApp/images/demo/demo_query.JPG)
+Affichage de l'histoire du zoo
 
 ### Decouvrir
-![](https://iharsh234.github.io/WebApp/images/demo/demo_query.JPG)
+Fonctionnalité : interaction avec des bruit, un plan interactif
 
 ### Espace jeu
+Fonctionnalité : 3 jeux + un quiz avec la possibilité de gagner un code promo
 
-
-## Connexion, mot de passe oublier & Inscription
-The WebApp is compatible with devices of all sizes and all OS's, and consistent improvements are being made.
-
-![](https://iharsh234.github.io/WebApp/images/demo/mobile.png)
+### Connexion, mot de passe oublier & Inscription
+Ici la fonctionnalité principal est l'utilisation de mailer en cas d'oublie de mot de passe ou de création de compte
 
 ### Profil
-The WebApp is compatible with devices of all sizes and all OS's, and consistent improvements are being made.
-
-![](https://iharsh234.github.io/WebApp/images/demo/mobile.png)
+Fonctionnalité : voir son profil et modifier (CRUD)
 
 ### Gestion côté admin
-The WebApp is compatible with devices of all sizes and all OS's, and consistent improvements are being made.
-
-![](https://iharsh234.github.io/WebApp/images/demo/mobile.png)
+Fonctionnalité : CRUD et géré toutes les fonctionnalité nécessaire à l'admin
 
 
-## UML
-- Add BSE (India) Symbol to the current App.
-- Decide comparison models of Stocks. (suggestions are most welcome).
-- Another WebApp, capable of comparing at least 10 stocks.
-
+### Preparer sa visite, Panier, reserver, Payment et PDF confirmation
+Fonctionnalités :
+- PDF api
+- mise au panier
+- payement API
+- Base de donner reservation 
+- ...
 
 ## [Construction](https://iharsh234.github.io/WebApp/) 
 
@@ -76,15 +65,8 @@ The WebApp is compatible with devices of all sizes and all OS's, and consistent 
 
 ## [équipe](https://iharsh234.github.io/WebApp/) 
 
-[![Harsh Vijay](https://avatars1.githubusercontent.com/u/12688534?v=3&s=144)](https://github.com/meryamgh)  | [![Quandl.com](https://github.com/iharsh234/WebApp/blob/master/images/quandl.jpg)](https://www.quandl.com/)
----|---
-[Harsh Vijay ](https://github.com/AmelNal22) |[Quandl](https://www.quandl.com)
----|---
-[Harsh Vijay ](https://github.com/Myriam1501) |[Quandl](https://www.quandl.com)
----|---
-[Harsh Vijay ](https://github.com/LOliviaL) |[Quandl](https://www.quandl.com)
+[Meryam GHULAM](https://github.com/meryamgh)
+[Amel Naloufi](https://github.com/AmelNal22)
+[Myriam OUNISSI](https://github.com/Myriam1501)
+[Haoyue LIU ](https://github.com/LOliviaL) 
 
-
-## [License](https://github.com/iharsh234/WebApp/blob/master/LICENSE.md)
-
-MIT © [Harsh Vijay ](https://github.com/iharsh234)
