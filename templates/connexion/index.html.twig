@@ -3,87 +3,13 @@
 {% block title %}Connexion{% endblock %}
 
 {% block stylesheets %}
-
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/connexion.css') }}">
 {% endblock %}
 {% block javascripts %}
 
 {% endblock %}
 {% block body %}
 
-    <style>
-
-    body{
-
-        background: url("https://zupimages.net/up/22/17/hi86.jpg") no-repeat center center;
-        height: 900px;
-
-
-    }
-    .login-box{
-        width: 450px;
-        position: relative;
-        top: 281px;
-        left: 50%;
-        transform: translate(-50%,-50%);
-        color: white;
-        background-color: rgba(0,0,0,0.5);
-        padding: 0rem 2rem 0.3rem;
-    }
-    .login-box h1{
-        float: left;
-        font-size: 2.7rem;
-        border-bottom: 4px solid green;
-        margin-bottom: 3rem;
-        padding: 0.3rem 0;
-    }
-    .txt-box{
-        width: 100%;
-        overflow: hidden;
-        font-size: 1.2rem;
-        padding: 0rem 0;
-        margin: 1.4rem 0;
-        border-bottom: 1px solid green;
-    }
-    .txt-box i{
-        width: 1.6rem;
-        float: left;
-        text-align: center;
-    }
-    .txt-box input{
-        border: none;
-        outline: none;
-        background: none;
-        color: white;
-        font-size: 1.1rem;
-        width: 80%;
-        float: left;
-        margin: 0 10px;
-
-    }
-    .submit-box{
-        width: 100%;
-        background: none;
-        border: 1px solid green;
-        color: white;
-        padding: 5px;
-        font-size: 1rem;
-        margin: 24px 0 12px;
-        cursor: pointer;
-
-    }
-    .connex{
-        color: white;
-    }
-    .txt{
-        width: 100%;
-        overflow: hidden;
-        font-size: 1rem;
-        padding: 0rem 0;
-        margin: 0.5rem 0;
-        border-bottom: 1px solid white;
-    }
-
-</style>
     <section class="container my-3">
         <div class="login-box">
             <h1 class="h3 mb-3 font-weight-normal">Me connecter</h1>

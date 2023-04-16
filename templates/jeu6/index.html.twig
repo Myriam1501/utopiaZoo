@@ -3,206 +3,37 @@
 {% block title %}Taquin!{% endblock %}
 
 {% block stylesheets %}
-
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/jeu6.css') }}">
 {% endblock %}
 {% block javascripts %}
-    <script src="{{asset('assets/jeu6.js')}}"></script>
+    <script src="{{asset('assets/js/jeu6.js')}}"></script>
 {% endblock %}
 
 {% block body %}
 
-    <style>
-        img{
-            width:150px;
-        }
 
-        #inv{
-            opacity: 0;
-        }
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
-        #tb1{
-            margin-left: 175px;
-        }
-
-
-        .game {
-            background-color: pink;
-            align-items: center;
-            margin-left: 250px;
-            margin-bottom: 100px;
-            margin-right: 250px;
-            margin-top: 100px;
-            text-align: center;
-            border-radius: 50px;
-            box-shadow: 0 20px 20px rgba(0, 0, 0, 0.3);
-
-        }
-        .game {
-
-
-            background: linear-gradient(217deg, rgba(190, 225, 87, .8), rgba(255, 0, 0, 0) 70.71%),
-            linear-gradient(127deg, rgba(0, 255, 0, .8), rgba(0, 255, 0, 0) 70.71%),
-            linear-gradient(336deg, rgba(213, 245, 206, .8), rgba(0, 0, 255, 0) 70.71%);
-
-
-        }
-
-        .game:before, .game:after {
-            content: '';
-            position: absolute;
-            left: -2px;
-            top: -2px;
-            background: linear-gradient(45deg, #BEDEA4, #CCE3B9, #62AB6B,#64AAAD, #ff0000, #fb0094,
-            #CEF5E4, #EFE5DB,#EBE4DC, #E4EFDB);
-        }
-
-
-        .wrapper {
-            margin: 10px auto;
-            text-align: center;
-            width: 100%;
-            position: relative;
-        }
-        .button {
-            padding: 15px 100px;
-            margin: 10px 4px;
-            color: #000000;
-            font-family: sans-serif;
-            text-transform: uppercase;
-            text-align: center;
-            position: relative;
-            text-decoration: none;
-            display: inline-block;
-            border: 1px solid;
-        }
-        .button::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            display: block;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            -webkit-transform: scaleY(0.1);
-            transform: scaleY(0.1);
-            transition: all 0.4s;
-        }
-        .button:hover {
-            color: seagreen;
-        }
-        .button:hover::before {
-            opacity: 1;
-            background-color: #f7c2f9;
-            -webkit-transform: scaleY(1);
-            transform: scaleY(1);
-            transition: -webkit-transform 0.6s cubic-bezier(0.08, 0.35, 0.13, 1.02), opacity 0.4s;
-            transition: transform 0.6s cubic-bezier(0.08, 0.35, 0.13, 1.02), opacity;
-        }
-    </style>
-
-
-
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-
-    <script>function moves(img){
-            let lignes=document.getElementById("table").rows;
-            let len=lignes.length;
-            let count=1;
-            let arret="false";
-            for(let i=0; i<len; i++)//on peut directement définir la variable i dans la boucle
-            {
-                let arrayColonnes = lignes[i].cells;//on récupère les cellules de la ligne
-                let largeur = arrayColonnes.length;
-
-                for(let j=0; j<largeur; j++)
-                {
-
-                    if(arrayColonnes[j].innerHTML.length<60){
-                        let image=document.getElementById(img);
-                        let newImg="img"+count;
-                        let ne=document.getElementById(newImg);
-                        let action="moves('"+newImg+"')";
-                        let val=image.getAttribute('src');
-                        $(ne).attr('src', image.getAttribute('src'));
-                        $(ne).attr('onclick', action);
-                        $(image).attr('src',"");
-                        $(image).attr('onclick',"");
-                        arret="true";
-                        break;
-                    }
-                    count++;
-                }
-                if(arret==="true"){
-                    break;
-                }
-            }
-
-            verif();
-
-        }
-
-        function verif(){
-            let img=document.getElementById("img1").getAttribute('src');
-            let position=img.indexOf('.');
-            let img1=img.substring(position-1,position);
-            let img2=document.getElementById("img2").getAttribute('src').substring(position-1,position);
-            let img3=document.getElementById("img3").getAttribute('src').substring(position-1,position);
-            let img4=document.getElementById("img4").getAttribute('src').substring(position-1,position);
-            let img5=document.getElementById("img5").getAttribute('src').substring(position-1,position);
-            let img6=document.getElementById("img6").getAttribute('src').substring(position-1,position);
-            let img7=document.getElementById("img7").getAttribute('src').substring(position-1,position);
-            let img8=document.getElementById("img8").getAttribute('src').substring(position-1,position);
-            let img9=document.getElementById("img9").getAttribute('src').substring(position-1,position);
-            if(img1==="1"){
-                if(img2==="9"){
-                    if(img3==="2"){
-                        if(img4==="3"){
-                            if(img5==="4"){
-                                if(img6==="5"){
-                                    if(img7==="6"){
-                                        if(img8==="7"){
-                                            if(img9===""){
-                                                img=img.substring(0,position-1)+'8.jpg';
-                                                $("#img9").attr('src',img);
-                                                document.body.style.backgroundColor="green";
-                                                let ding = new Audio('https://universal-soundbank.com/sounds/9669.mp3');
-                                                ding.play();
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-
-        }
-
-        function retry(){
-            location.reload();
-        }</script>
     {% include 'game/header-game.html.twig' %}
     <div class="game">
-        <table id="tb1" border="1">
+        <table id="tb1">
             <tr>
                 <td>
                     <table id="table">
                         <tr>
-                            <td><img id="img1" onclick="" src=""></td>
-                            <td><img id="img2" onclick="moves('img2')" src="{{ animalImg.img2 }}"></td>
-                            <td><img id="img3" onclick="moves('img3')" src="{{ animalImg.img3  }}"></td>
+                            <td><img alt="" id="img1" onclick="" src=""></td>
+                            <td><img alt="" id="img2" onclick="moves('img2')" src="{{ animalImg.img2 }}"></td>
+                            <td><img alt="" id="img3" onclick="moves('img3')" src="{{ animalImg.img3  }}"></td>
                         </tr>
                         <tr>
-                            <td><img id="img4" onclick="moves('img4')" src="{{ animalImg.img4  }}"></td>
-                            <td><img id="img5" onclick="moves('img5')" src="{{ animalImg.img5  }}"></td>
-                            <td><img id="img6" onclick="moves('img6')" src="{{ animalImg.img6 }}"></td>
+                            <td><img alt="" id="img4" onclick="moves('img4')" src="{{ animalImg.img4  }}"></td>
+                            <td><img alt="" id="img5" onclick="moves('img5')" src="{{ animalImg.img5  }}"></td>
+                            <td><img alt="" id="img6" onclick="moves('img6')" src="{{ animalImg.img6 }}"></td>
                         </tr>
                         <tr>
-                            <td><img id="img7" onclick="moves('img7')" src="{{ animalImg.img7  }}"></td>
-                            <td><img id="img8" onclick="moves('img8')" src="{{ animalImg.img1  }}"></td>
-                            <td><img id="img9" onclick="moves('img9')" src="{{ animalImg.img9  }}"></td>
+                            <td><img alt="" id="img7" onclick="moves('img7')" src="{{ animalImg.img7  }}"></td>
+                            <td><img alt="" id="img8" onclick="moves('img8')" src="{{ animalImg.img1  }}"></td>
+                            <td><img alt="" id="img9" onclick="moves('img9')" src="{{ animalImg.img9  }}"></td>
                         </tr>
                     </table>
                 </td>

@@ -1,5 +1,10 @@
 {% extends 'base.html.twig' %}
-
+{% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/payment.css') }}">
+{% endblock %}
+{% block javascripts %}
+    <script src="{{asset('assets/js/payment.js')}}"></script>
+{% endblock %}
 {% block title %}Hello PaymentController!{% endblock %}
 
 {% block body %}
@@ -67,143 +72,6 @@
     </div>
 
     <script src="https://js.stripe.com/v3/"></script>
-    <script>
-        window.onload = () => {
-            let stripe= Stripe('pk_test_51Mco2mCmQpXm4b5YOxwLUTyQfxPAUAHrjQ4CJtZTQ9lokpukRvnYYjTMUG2yrQiLDkJ5MRaYBMapFclOZh4eY4oQ00bPnYP4YJ');
-            let elements=stripe.elements();
-            let cardHolderName = document.getElementById("cardholder-name");
-            let cardButton=document.getElementById("card-button");
-            let clientSecret=cardButton.dataset.secret;
 
 
-            let card=elements.create("card");
-            card.mount("#card-elements");
-
-
-            card.addEventListener("change", (event) => {
-                let displayError = document.getElementById("card-errors");
-                if(event.error){
-                    displayError.textContent = event.error.message;
-                }else{
-                    displayError.textContent = "";
-                }
-            })
-
-
-            cardButton.addEventListener("click", () => {
-                stripe.handleCardPayment(
-                    clientSecret,card, {
-                        payment_method_data: {
-                            billing_details: {name: cardHolderName.value}
-                        }
-                    }
-                ).then(result => {
-                    if(result.errors){
-                        document.getElementById("errors").innerText=result.error.message
-                    }else{
-                        document.location.href="{{ path('app_payment_pdf', {name: app.user.name, prenom: app.user.firstname, date:'23-02-2023'}) }}";
-                    }
-                })
-            })
-        }
-    </script>
-
-    <style>
-        @import url("https://fonts.googleapis.com/css2?family=Poppins:weight@100;200;300;400;500;600;700;800&display=swap");
-
-
-        body{
-            background-color:#f5eee7;
-            font-family: "Poppins", sans-serif;
-            font-weight: 300;
-        }
-
-        .container{
-
-            height: 100vh;
-
-        }
-
-        .card{
-
-            border: none;
-            width: 400px;
-        }
-
-        .card-header {
-            padding: .5rem 1rem;
-            margin-bottom: 0;
-            background-color: rgba(0,0,0,.03);
-            border-bottom: none;
-        }
-
-        .form-control{
-
-            height: 50px;
-            border: 2px solid #eee;
-            border-radius: 6px;
-            font-size: 14px;
-        }
-
-        .form-control:focus {
-            color: #495057;
-            background-color: #fff;
-            border-color: #039be5;
-            outline: 0;
-            box-shadow: none;
-
-        }
-
-        .input{
-
-            position: relative;
-        }
-
-        .input i{
-
-            position: absolute;
-            top: 16px;
-            left: 11px;
-            color: #989898;
-        }
-
-        .input input{
-
-            text-indent: 25px;
-        }
-
-        .card-text{
-
-            font-size: 13px;
-            margin-left: 6px;
-        }
-
-        .free-button{
-
-            background: #1565c0;
-            height: 52px;
-            font-size: 15px;
-            border-radius: 8px;
-        }
-
-
-        .payment-card-body{
-
-            flex: 1 1 auto;
-            padding: 24px 1rem !important;
-
-        }
-
-        .icons {
-            margin-left: 10px;
-        }
-
-        span {
-            margin-left: 10px;
-        }
-
-        .card-elements {
-            margin-left:3px;
-        }
-    </style>
 {% endblock %}

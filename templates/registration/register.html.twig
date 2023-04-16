@@ -1,72 +1,10 @@
 {% extends 'base.html.twig' %}
-
+{% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/register.css') }}">
+{% endblock %}
 {% block title %}Inscription{% endblock %}
 
 {% block body %}
-<style>
-    body{
-        margin:0;
-        padding:0;
-
-        background: url("https://zupimages.net/up/22/17/hi86.jpg") no-repeat center center;
-        height: 100vh;
-        background-size: cover;
-    }
-    .inscri{
-        width: 450px;
-        position: relative;
-        top: 374px;
-        left: 50%;
-        transform: translate(-50%,-50%);
-        color: white;
-        background-color: rgba(0,0,0,0.5);
-        padding: 0 2rem 0.3rem;
-    }
-    .inscri h1{
-        float: left;
-        font-size: 2.7rem;
-        border-bottom: 4px solid white;
-        margin-bottom: 2rem;
-        padding: 0.3rem 0;
-    }
-    .txt{
-        width: 100%;
-        overflow: hidden;
-        font-size: 1rem;
-        padding: 0 0;
-        margin: 0.5rem 0;
-        border-bottom: 1px solid white;
-    }
-    .txt i{
-        width: 1.6rem;
-        float: left;
-        text-align: center;
-    }
-    .txt input{
-        border: none;
-        outline: none;
-        background: none;
-        color: white;
-        font-size: 1.1rem;
-        width: 80%;
-        float: left;
-        margin: 0 10px;
-    }
-    .Submit{
-        width: 100%;
-        background: none;
-        border: 1px solid white;
-        color: white;
-        padding: 5px;
-        font-size: 1rem;
-        margin: 24px 0 12px;
-        cursor: pointer;
-    }
-    .con{
-        color: white;
-    }
-</style>
-
     <form method="post">
         {{ form_start(registrationForm)}}
         <div class="inscri">
